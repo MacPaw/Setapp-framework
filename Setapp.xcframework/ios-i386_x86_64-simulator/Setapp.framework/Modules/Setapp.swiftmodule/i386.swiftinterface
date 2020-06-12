@@ -1,0 +1,93 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target i386-apple-ios10.3-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
+import CommonCrypto
+import Foundation
+import Security
+@_exported import Setapp
+import Swift
+import UIKit
+import os
+@objc(STPManagerDelegate) public protocol SetappManagerDelegate {
+  @objc func setappManager(_ manager: Setapp.SetappManager, didUpdateSubscriptionTo newSetappSubscription: Setapp.SetappSubscription)
+}
+@_hasMissingDesignatedInitializers @objc(STPManager) open class SetappManager : ObjectiveC.NSObject {
+  @objc weak open var delegate: Setapp.SetappManagerDelegate?
+  @objc dynamic open var subscription: Setapp.SetappSubscription {
+    @objc get
+  }
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension SetappManager {
+  @objc public static let didChangeSubscriptionNotification: Foundation.NSNotification.Name
+  @objc(sharedInstance) public static let shared: Setapp.SetappManager
+  @objc dynamic open var configuration: Setapp.SetappConfiguration {
+    @objc get
+    @objc set
+  }
+  @objc(logLevel) dynamic open var logLevel: Setapp.SetappLogLevel {
+    @objc get
+    @objc set
+  }
+  @objc(setLogHandle:) dynamic open func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
+  @objc(canOpenURL:) dynamic open func canOpen(url: Foundation.URL) -> Swift.Bool
+  @objc(openURL:options:) dynamic open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any]) -> Swift.Bool
+  @available(iOS 13.0, *)
+  @objc(canOpenURLContexts:) dynamic open func canOpen(urlContexts: Swift.Set<UIKit.UIOpenURLContext>) -> Swift.Bool
+  @available(iOS 13.0, *)
+  @objc(openURLContexts:) dynamic open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>)
+}
+extension DispatchQueue {
+}
+@_hasMissingDesignatedInitializers @objc(STPSubscription) @objcMembers open class SetappSubscription : ObjectiveC.NSObject {
+  @objc final public let isActive: Swift.Bool
+  @objc final public let expirationDate: Foundation.Date?
+  @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(STPLogLevel) public enum SetappLogLevel : Swift.Int {
+  case verbose
+  case debug
+  case info
+  case warning
+  case error
+  case off
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension SetappLogLevel : Swift.Comparable {
+  public static func < (lhs: Setapp.SetappLogLevel, rhs: Setapp.SetappLogLevel) -> Swift.Bool
+}
+extension SetappLogLevel : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension SetappLogLevel : Swift.CaseIterable {
+  public static var allCases: [Setapp.SetappLogLevel]
+  public typealias AllCases = [Setapp.SetappLogLevel]
+}
+@objc(STPConfiguraton) @objcMembers open class SetappConfiguration : ObjectiveC.NSObject {
+  @objc(defaultConfiguration) public static let `default`: Setapp.SetappConfiguration
+  @objc final public let publicKeyBundle: Foundation.Bundle
+  @objc final public let publicKeyFilename: Swift.String
+  @objc(initWithPublicKeyBundle:publicKeyFilename:) public init(publicKeyBundle: Foundation.Bundle? = .none, publicKeyFilename: Swift.String? = .none)
+  required public init(from decoder: Swift.Decoder) throws
+  @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension SetappConfiguration : Swift.Codable {
+  open func encode(to encoder: Swift.Encoder) throws
+}
+public typealias SetappLogHandle = (Swift.String, Setapp.SetappLogLevel) -> Swift.Void
+extension Setapp.SetappLogLevel : Swift.Hashable {}
+extension Setapp.SetappLogLevel : Swift.RawRepresentable {}
