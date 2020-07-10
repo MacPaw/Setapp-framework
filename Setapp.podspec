@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                    = 'Setapp'
-  s.version                 = '0.0.1'
+  s.version                 = '0.0.2'
 
   s.summary                 = 'Setapp iOS Framework'
 
@@ -10,12 +10,12 @@ Pod::Spec.new do |s|
   s.license                 = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
 
   s.source                  = { :http => "https://github.com/MacPaw/Setapp-framework/releases/download/#{s.version.to_s}/Setapp.framework.zip",
-                                :sha256 => '5cf31b6f942dd89933210329a9ae4ae087b8865d07b7257b61e0dd5965f9161f' }
+                                :sha256 => '7b2c069a3f72ad985a31aec23f1b37e088d60796548c6d0baae78a4e7ccebaa2' }
 
   s.swift_version           = '5.2.2'
   s.requires_arc            = true
 
-  s.ios.deployment_target   = '10.3'
+  s.ios.deployment_target   = '10.0'
   s.ios.frameworks          = 'Security', 'UIKit'
   s.ios.vendored_frameworks = 'Setapp.framework'
 end
