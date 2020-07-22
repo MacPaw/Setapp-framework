@@ -24,7 +24,8 @@ extension SetappManager {
   @objc(sharedInstance) public static let shared: Setapp.SetappManager
   @objc dynamic open var configuration: Setapp.SetappConfiguration {
     @objc get
-    @objc set
+    @objc @available(*, deprecated, renamed: "start(with:)")
+    set
   }
   @objc(logLevel) dynamic open var logLevel: Setapp.SetappLogLevel {
     @objc get
@@ -37,6 +38,7 @@ extension SetappManager {
   @objc(canOpenURLContexts:) dynamic open func canOpen(urlContexts: Swift.Set<UIKit.UIOpenURLContext>) -> Swift.Bool
   @available(iOS 13.0, *)
   @objc(openURLContexts:) dynamic open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>)
+  @objc(startWithConfiguration:) dynamic open func start(with configuration: Setapp.SetappConfiguration = .default)
 }
 extension DispatchQueue {
 }

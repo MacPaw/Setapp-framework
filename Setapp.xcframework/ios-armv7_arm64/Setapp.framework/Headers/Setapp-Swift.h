@@ -327,6 +327,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) STPManager *
 /// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
 ///
 - (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_AVAILABILITY(ios,introduced=13.0);
+/// Starts the Setapp iOS Framework with a provided configuration.
+/// We strongly recommend to call this method as soon as your app opens. You can do this in the
+/// <code>application(_:, didFinishLaunchingWithOptions:)</code> method of your <code>UIApplicationDelegate</code> and
+/// in the <code>func scene(_:, willConnectTo:, options:)</code> method of your <code>UIWindowSceneDelegate</code> if
+/// you have one.
+/// \param configuration A Setapp configuration to start the framework with.
+///
+- (void)startWithConfiguration:(STPConfiguraton * _Nonnull)configuration;
 @end
 
 
@@ -708,6 +716,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) STPManager *
 /// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
 ///
 - (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_AVAILABILITY(ios,introduced=13.0);
+/// Starts the Setapp iOS Framework with a provided configuration.
+/// We strongly recommend to call this method as soon as your app opens. You can do this in the
+/// <code>application(_:, didFinishLaunchingWithOptions:)</code> method of your <code>UIApplicationDelegate</code> and
+/// in the <code>func scene(_:, willConnectTo:, options:)</code> method of your <code>UIWindowSceneDelegate</code> if
+/// you have one.
+/// \param configuration A Setapp configuration to start the framework with.
+///
+- (void)startWithConfiguration:(STPConfiguraton * _Nonnull)configuration;
 @end
 
 
