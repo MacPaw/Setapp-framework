@@ -1,3 +1,16 @@
+## 0.0.4 (Nov 6, 2020)
+
+### ⚠️ Breaking
+* CocoaPods: to support simulators on an Apple Silicon Macs, we changed the source binary format from the fat framework to the xcframewrok. You will need CocoaPods version 1.9 or higher and Xcode version 11.0 or higher.
+
+### New
+* Apple Silicon support.
+
+### Changed
+* Removed default parameter values in the `SetappConfiguration.init` method.
+* Logs: added metadata output on error.
+
+
 ## 0.0.3 (Jul 22, 2020)
 
 ### New
