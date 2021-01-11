@@ -1,7 +1,20 @@
+## 0.1.0 (Dec 23, 2020)
+
+### ⚠️ Breaking
+This release contains some breaking API changes. See the New and Changed sections below for details. 
+
+### New
+* Added completion handlers to the `open` methods. Now, you can get a callback when the Setapp subscription state is resolved.
+* Added new `viewController(for:)` method that returns a simple view controller with the result of resolving a Setapp subscription state.
+
+### Changed
+* Logs: moved log level and handles from the instance to the class level.
+
+
 ## 0.0.4 (Nov 6, 2020)
 
 ### ⚠️ Breaking
-* CocoaPods: to support simulators on an Apple Silicon Macs, we changed the source binary format from the fat framework to the xcframewrok. You will need CocoaPods version 1.9 or higher and Xcode version 11.0 or higher.
+* CocoaPods: To support the use of the Simulator on Macs with Apple Silicon, we’ve changed the source binary format from the universal binary (fat) framework to XCFramework. To work with the latest Framework format, you need CocoaPods version 1.9 or later and Xcode version 11.0 or later.
 
 ### New
 * Apple Silicon support.

@@ -13,8 +13,8 @@ let package = Package(
   targets: [
     .binaryTarget(
       name: "Setapp",
-      url: "https://github.com/MacPaw/Setapp-Framework/releases/download/0.0.4/Setapp.xcframework.zip",
-      checksum: "6b2101b443b546987369760873a1557df9e6ecef71ec492fa67eefb83bdcda7f"
+      url: "https://github.com/MacPaw/Setapp-Framework/releases/download/0.1.0/Setapp.xcframework.zip",
+      checksum: "cd1b0ac645c38d3463a59ad23eaa3a591a465f4554eaa3e5c5c59cbc3fda1298"
     ),
   ]
 )
