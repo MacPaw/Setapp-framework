@@ -8,7 +8,7 @@ let package = Package(
     .iOS("10.0"),
   ],
   products: [
-    .library(name: "Setapp", targets: ["Setapp"]),
+    .library(name: "Setapp", type: .dynamic, targets: ["Setapp"]),
   ],
   targets: [
     .binaryTarget(
