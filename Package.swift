@@ -12,8 +12,12 @@ let package = Package(
   ],
   targets: [
     .binaryTarget(
-      name: "Setapp",
+      name: "SetappXCFramework",
       path: "Setapp.xcframework"
+    ),
+    .target(
+      name: "Setapp",
+      dependencies: ["SetappXCFramework"]
     ),
   ]
 )
