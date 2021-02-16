@@ -12,12 +12,9 @@ let package = Package(
   ],
   targets: [
     .binaryTarget(
-      name: "SetappXCFramework",
-      path: "Setapp.xcframework"
-    ),
-    .target(
       name: "Setapp",
-      dependencies: ["SetappXCFramework"]
+      url: "https://raw.githubusercontent.com/MacPaw/Setapp-framework/adguard/Setapp.xcframework.zip",
+      checksum: "2838a1a373ec02deda30070cb113fed6acff187f812dfa15877ce8ead8635754"
     ),
   ]
 )
