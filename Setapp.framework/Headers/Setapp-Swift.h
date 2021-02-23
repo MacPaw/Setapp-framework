@@ -218,6 +218,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+
 @class NSBundle;
 
 /// A configuration object that holds necessary information for the operation of the Setapp
@@ -374,6 +376,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 /// \param configuration A Setapp configuration to start the framework with.
 ///
 - (void)startWithConfiguration:(STPConfiguration * _Nonnull)configuration;
+/// A handler to call after handling background URL session events.
+@property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
+/// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
+/// Returns <code>true</code> if a provided identifier represents background Setapp URL session,
+/// otherwise - <code>false</code>.
+/// \param identifier The identifier of the URL session to check.
+///
+- (BOOL)isSetappBackgroundSessionIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -642,6 +652,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+
 @class NSBundle;
 
 /// A configuration object that holds necessary information for the operation of the Setapp
@@ -798,6 +810,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 /// \param configuration A Setapp configuration to start the framework with.
 ///
 - (void)startWithConfiguration:(STPConfiguration * _Nonnull)configuration;
+/// A handler to call after handling background URL session events.
+@property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
+/// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
+/// Returns <code>true</code> if a provided identifier represents background Setapp URL session,
+/// otherwise - <code>false</code>.
+/// \param identifier The identifier of the URL session to check.
+///
+- (BOOL)isSetappBackgroundSessionIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1071,6 +1091,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+
 @class NSBundle;
 
 /// A configuration object that holds necessary information for the operation of the Setapp
@@ -1227,6 +1249,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 /// \param configuration A Setapp configuration to start the framework with.
 ///
 - (void)startWithConfiguration:(STPConfiguration * _Nonnull)configuration;
+/// A handler to call after handling background URL session events.
+@property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
+/// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
+/// Returns <code>true</code> if a provided identifier represents background Setapp URL session,
+/// otherwise - <code>false</code>.
+/// \param identifier The identifier of the URL session to check.
+///
+- (BOOL)isSetappBackgroundSessionIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1495,6 +1525,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+
 @class NSBundle;
 
 /// A configuration object that holds necessary information for the operation of the Setapp
@@ -1651,6 +1683,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 /// \param configuration A Setapp configuration to start the framework with.
 ///
 - (void)startWithConfiguration:(STPConfiguration * _Nonnull)configuration;
+/// A handler to call after handling background URL session events.
+@property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
+/// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
+/// Returns <code>true</code> if a provided identifier represents background Setapp URL session,
+/// otherwise - <code>false</code>.
+/// \param identifier The identifier of the URL session to check.
+///
+- (BOOL)isSetappBackgroundSessionIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
