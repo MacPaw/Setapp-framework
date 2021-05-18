@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
 // swift-module-flags: -target i386-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
+import BackgroundTasks
 import CommonCrypto
 import Foundation
 import Security
@@ -16,8 +17,8 @@ import os
   @objc dynamic open var subscription: Setapp.SetappSubscription {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension SetappManager {
   @objc public static let didChangeSubscriptionNotification: Foundation.NSNotification.Name
@@ -47,6 +48,12 @@ extension SetappManager {
   open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> Swift.Void)
   @objc(startWithConfiguration:) dynamic open func start(with configuration: Setapp.SetappConfiguration = .default)
   open func viewController(for result: Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> UIKit.UIViewController
+  @objc dynamic open var backgroundSessionCompletionHandler: (() -> Swift.Void)? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic open func isSetappBackgroundSessionIdentifier(_ identifier: Swift.String) -> Swift.Bool
+  open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
 }
 extension SetappManager {
   @available(swift, obsoleted: 0.1)
@@ -56,6 +63,8 @@ extension SetappManager {
   @objc(openURLContexts:completionHandler:) dynamic open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (Setapp.SetappSubscription?, Foundation.NSError?) -> Swift.Void)
   @available(swift, obsoleted: 0.1)
   @objc(viewControllerForSetappSubscription:orError:) dynamic open func viewController(for setappSubscription: Setapp.SetappSubscription?, or error: Foundation.NSError?) -> UIKit.UIViewController?
+  @available(swift, obsoleted: 0.1)
+  @objc(requestAuthorizationCodeWithClientID:scope:completionHandler:) dynamic open func requestAuthorizationCode(clientID: Swift.String, scope: [Swift.String], completionHandler: @escaping (Foundation.NSString?, Foundation.NSError?) -> Swift.Void)
 }
 extension DispatchQueue {
 }
@@ -76,8 +85,8 @@ extension DispatchQueue {
   case warning
   case error
   case off
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -101,11 +110,18 @@ extension SetappLogLevel : Swift.CaseIterable {
   @objc(initWithPublicKeyBundle:publicKeyFilename:) public init(publicKeyBundle: Foundation.Bundle?, publicKeyFilename: Swift.String?)
   required public init(from decoder: Swift.Decoder) throws
   @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension SetappConfiguration : Swift.Codable {
   open func encode(to encoder: Swift.Encoder) throws
+}
+public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable {
+  public init(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Setapp.VendorAuthorizationScope.RawValue
+  public static let applicationAccess: Setapp.VendorAuthorizationScope
+  public static let applicationUsageReporting: Setapp.VendorAuthorizationScope
 }
 public typealias SetappLogHandle = (Swift.String, Setapp.SetappLogLevel) -> Swift.Void
 extension Setapp.SetappLogLevel : Swift.Hashable {}
