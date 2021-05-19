@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                    = 'Setapp'
-  s.version                 = '0.1.0'
+  s.version                 = '0.2.0'
 
   s.summary                 = 'Setapp iOS Framework'
 
@@ -9,8 +9,7 @@ Pod::Spec.new do |s|
   s.author                  = 'Setapp Limited'
   s.license                 = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
 
-  s.source                  = { :http => "https://github.com/MacPaw/Setapp-framework/releases/download/#{s.version.to_s}/Setapp.xcframework.zip",
-                                :sha256 => 'cd1b0ac645c38d3463a59ad23eaa3a591a465f4554eaa3e5c5c59cbc3fda1298' }
+  s.source                  = { :git => "https://github.com/MacPaw/Setapp-framework.git", :tag => s.version }
 
   s.swift_version           = '5.3.1'
   s.requires_arc            = true
