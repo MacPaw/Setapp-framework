@@ -6,14 +6,12 @@ let package = Package(
   name: "Setapp",
   platforms: [
     .iOS(.v10),
+    .macOS("10.15"),
   ],
   products: [
     .library(name: "Setapp", targets: ["Setapp"]),
   ],
   targets: [
-    .binaryTarget(
-      name: "Setapp",
-      path: "Setapp.xcframework"
-    ),
+    .binaryTarget(name: "Setapp", path: "Setapp.xcframework"),
   ]
 )

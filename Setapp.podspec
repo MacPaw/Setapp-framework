@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                    = 'Setapp'
-  s.version                 = '0.2.1'
+  s.version                 = '0.2.0'
 
   s.summary                 = 'Setapp iOS Framework'
 
