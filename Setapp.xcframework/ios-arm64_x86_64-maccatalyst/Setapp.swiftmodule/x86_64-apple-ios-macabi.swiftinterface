@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
 // swift-module-flags: -target x86_64-apple-ios13.1-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
 import AppKit
 import CommonCrypto
@@ -10,12 +10,12 @@ import ObjectiveC
 import Security
 import Swift
 import UIKit
+import _Concurrency
 import os
 @_hasMissingDesignatedInitializers @objc(STPManager) open class SetappManager : ObjectiveC.NSObject {
-  @objc override dynamic public init()
   @objc deinit
 }
-extension SetappManager {
+extension Setapp.SetappManager {
   @objc(sharedInstance) public static let shared: Setapp.SetappManager
   @objc(logLevel) dynamic open class var logLevel: Setapp.SetappLogLevel {
     @objc get
@@ -24,7 +24,7 @@ extension SetappManager {
   @objc(setLogHandle:) dynamic open class func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
   open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
 }
-public typealias SetappLogHandle = (Swift.String, Setapp.SetappLogLevel) -> Swift.Void
+public typealias SetappLogHandle = (_ message: Swift.String, _ logLevel: Setapp.SetappLogLevel) -> Swift.Void
 @objc(STPConfiguration) @objcMembers open class SetappConfiguration : ObjectiveC.NSObject {
   @objc(defaultConfiguration) public static let `default`: Setapp.SetappConfiguration
   @objc final public let publicKeyBundle: Foundation.Bundle
@@ -35,15 +35,14 @@ public typealias SetappLogHandle = (Swift.String, Setapp.SetappLogLevel) -> Swif
   @objc override dynamic open var description: Swift.String {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
 }
-extension SetappConfiguration : Swift.Codable {
+extension Setapp.SetappConfiguration : Swift.Codable {
   open func encode(to encoder: Swift.Encoder) throws
 }
-extension SetappManager {
+extension Setapp.SetappManager {
   @available(swift, obsoleted: 0.1)
-  @objc(requestAuthorizationCodeWithClientID:scope:completionHandler:) dynamic open func requestAuthorizationCode(clientID: Swift.String, scope: [Swift.String], completionHandler: @escaping (Foundation.NSString?, Foundation.NSError?) -> Swift.Void)
+  @objc(requestAuthorizationCodeWithClientID:scope:completionHandler:) dynamic open func requestAuthorizationCode(clientID: Swift.String, scope: [Swift.String], completionHandler: @escaping (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
 }
 public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable {
   public init(rawValue: Swift.String)
@@ -64,19 +63,17 @@ public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable
     get
   }
 }
-extension SetappLogLevel : Swift.Comparable {
+extension Setapp.SetappLogLevel : Swift.Comparable {
   public static func < (lhs: Setapp.SetappLogLevel, rhs: Setapp.SetappLogLevel) -> Swift.Bool
 }
-extension SetappLogLevel : Swift.CustomStringConvertible {
+extension Setapp.SetappLogLevel : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
 }
-extension SetappLogLevel : Swift.CaseIterable {
+extension Setapp.SetappLogLevel : Swift.CaseIterable {
   public static var allCases: [Setapp.SetappLogLevel]
   public typealias AllCases = [Setapp.SetappLogLevel]
-}
-extension DispatchQueue {
 }
 @_hasMissingDesignatedInitializers @objc(STPSubscription) @objcMembers open class SetappSubscription : ObjectiveC.NSObject {
   @objc final public let isActive: Swift.Bool
@@ -85,7 +82,6 @@ extension DispatchQueue {
   @objc override dynamic open var description: Swift.String {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
 }
 extension Setapp.SetappLogLevel : Swift.Hashable {}

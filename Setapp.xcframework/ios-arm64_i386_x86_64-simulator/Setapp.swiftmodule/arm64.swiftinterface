@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
 // swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
 import BackgroundTasks
 import CommonCrypto
@@ -8,8 +8,9 @@ import ObjectiveC
 import Security
 import Swift
 import UIKit
+import _Concurrency
 import os
-public typealias SetappLogHandle = (Swift.String, Setapp.SetappLogLevel) -> Swift.Void
+public typealias SetappLogHandle = (_ message: Swift.String, _ logLevel: Setapp.SetappLogLevel) -> Swift.Void
 @objc(STPLogLevel) public enum SetappLogLevel : Swift.Int {
   case verbose
   case debug
@@ -23,15 +24,15 @@ public typealias SetappLogHandle = (Swift.String, Setapp.SetappLogLevel) -> Swif
     get
   }
 }
-extension SetappLogLevel : Swift.Comparable {
+extension Setapp.SetappLogLevel : Swift.Comparable {
   public static func < (lhs: Setapp.SetappLogLevel, rhs: Setapp.SetappLogLevel) -> Swift.Bool
 }
-extension SetappLogLevel : Swift.CustomStringConvertible {
+extension Setapp.SetappLogLevel : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
 }
-extension SetappLogLevel : Swift.CaseIterable {
+extension Setapp.SetappLogLevel : Swift.CaseIterable {
   public static var allCases: [Setapp.SetappLogLevel]
   public typealias AllCases = [Setapp.SetappLogLevel]
 }
@@ -48,10 +49,9 @@ extension SetappLogLevel : Swift.CaseIterable {
   @objc override dynamic open var description: Swift.String {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
 }
-extension SetappConfiguration : Swift.Codable {
+extension Setapp.SetappConfiguration : Swift.Codable {
   open func encode(to encoder: Swift.Encoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(STPSubscription) @objcMembers open class SetappSubscription : ObjectiveC.NSObject {
@@ -61,7 +61,6 @@ extension SetappConfiguration : Swift.Codable {
   @objc override dynamic open var description: Swift.String {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
 }
 public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable {
@@ -70,17 +69,14 @@ public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable
   public var rawValue: Setapp.VendorAuthorizationScope.RawValue
   public static let applicationAccess: Setapp.VendorAuthorizationScope
 }
-extension DispatchQueue {
-}
 @_hasMissingDesignatedInitializers @objc(STPManager) open class SetappManager : ObjectiveC.NSObject {
   @objc weak open var delegate: Setapp.SetappManagerDelegate?
   @objc dynamic open var subscription: Setapp.SetappSubscription {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
 }
-extension SetappManager {
+extension Setapp.SetappManager {
   @objc public static let didChangeSubscriptionNotification: Foundation.NSNotification.Name
   @objc(sharedInstance) public static let shared: Setapp.SetappManager
   @objc dynamic open var configuration: Setapp.SetappConfiguration {
@@ -115,16 +111,16 @@ extension SetappManager {
   @objc dynamic open func isSetappBackgroundSessionIdentifier(_ identifier: Swift.String) -> Swift.Bool
   open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
 }
-extension SetappManager {
+extension Setapp.SetappManager {
   @available(swift, obsoleted: 0.1)
-  @objc(openURL:options:completionHandler:) dynamic open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: @escaping (Setapp.SetappSubscription?, Foundation.NSError?) -> Swift.Void) -> Swift.Bool
+  @objc(openURL:options:completionHandler:) dynamic open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: @escaping (_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void) -> Swift.Bool
   @available(iOS 13.0, *)
   @available(swift, obsoleted: 0.1)
-  @objc(openURLContexts:completionHandler:) dynamic open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (Setapp.SetappSubscription?, Foundation.NSError?) -> Swift.Void)
+  @objc(openURLContexts:completionHandler:) dynamic open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void)
   @available(swift, obsoleted: 0.1)
   @objc(viewControllerForSetappSubscription:orError:) dynamic open func viewController(for setappSubscription: Setapp.SetappSubscription?, or error: Foundation.NSError?) -> UIKit.UIViewController?
   @available(swift, obsoleted: 0.1)
-  @objc(requestAuthorizationCodeWithClientID:scope:completionHandler:) dynamic open func requestAuthorizationCode(clientID: Swift.String, scope: [Swift.String], completionHandler: @escaping (Foundation.NSString?, Foundation.NSError?) -> Swift.Void)
+  @objc(requestAuthorizationCodeWithClientID:scope:completionHandler:) dynamic open func requestAuthorizationCode(clientID: Swift.String, scope: [Swift.String], completionHandler: @escaping (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
 }
 extension Setapp.SetappLogLevel : Swift.Hashable {}
 extension Setapp.SetappLogLevel : Swift.RawRepresentable {}

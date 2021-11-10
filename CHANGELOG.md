@@ -6,7 +6,7 @@
 
 ## 0.2.0 (May 18, 2021)
 
-### New 
+### New
 * New method `requestAuthorizationCode(...)`. Use it to obtain an authorization code for further communication with Vendor API. See the [docs](https://docs.setapp.com/docs/integrating-the-ios-framework#request-authorization-code-to-access-the-setapp-server) for more info and usage examples.
 
 
