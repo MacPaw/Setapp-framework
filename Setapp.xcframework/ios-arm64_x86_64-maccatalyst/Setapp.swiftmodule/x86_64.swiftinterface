@@ -1,0 +1,105 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target x86_64-apple-ios13.1-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
+import AppKit
+import CommonCrypto
+import CoreServices
+import Foundation
+import IOKit
+import ObjectiveC
+import Security
+import Swift
+import UIKit
+import _Concurrency
+import os
+@_hasMissingDesignatedInitializers @objc(STPManager) open class SetappManager : ObjectiveC.NSObject {
+  @objc deinit
+}
+extension Setapp.SetappManager {
+  @objc(sharedInstance) public static let shared: Setapp.SetappManager
+  @objc(logLevel) dynamic open class var logLevel: Setapp.SetappLogLevel {
+    @objc get
+    @objc set
+  }
+  @objc(setLogHandle:) dynamic open class func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
+  open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
+  open func showReleaseNotesWindowIfNeeded()
+  open func showReleaseNotesWindow()
+  open func reportUsageEvent(_ usageEvent: Setapp.SetappUsageEvent)
+  open func askUserToShareEmail()
+}
+public typealias SetappLogHandle = (_ message: Swift.String, _ logLevel: Setapp.SetappLogLevel) -> Swift.Void
+@objc(STPConfiguration) @objcMembers open class SetappConfiguration : ObjectiveC.NSObject {
+  @objc(defaultConfiguration) public static let `default`: Setapp.SetappConfiguration
+  @objc final public let publicKeyBundle: Foundation.Bundle
+  @objc final public let publicKeyFilename: Swift.String
+  @objc(initWithPublicKeyBundle:publicKeyFilename:) public init(publicKeyBundle: Foundation.Bundle?, publicKeyFilename: Swift.String?)
+  required public init(from decoder: Swift.Decoder) throws
+  @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+extension Setapp.SetappConfiguration : Swift.Codable {
+  open func encode(to encoder: Swift.Encoder) throws
+}
+extension Setapp.SetappManager {
+  @available(swift, obsoleted: 0.1)
+  @objc(requestAuthorizationCodeWithClientID:scope:completionHandler:) dynamic open func requestAuthorizationCode(clientID: Swift.String, scope: [Swift.String], completionHandler: @escaping (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
+}
+public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable {
+  public init(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Setapp.VendorAuthorizationScope.RawValue
+  public static let applicationAccess: Setapp.VendorAuthorizationScope
+}
+@objc(STPLogLevel) public enum SetappLogLevel : Swift.Int {
+  case verbose
+  case debug
+  case info
+  case warning
+  case error
+  case off
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Setapp.SetappLogLevel : Swift.Comparable {
+  public static func < (lhs: Setapp.SetappLogLevel, rhs: Setapp.SetappLogLevel) -> Swift.Bool
+}
+extension Setapp.SetappLogLevel : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension Setapp.SetappLogLevel : Swift.CaseIterable {
+  public static var allCases: [Setapp.SetappLogLevel]
+  public typealias AllCases = [Setapp.SetappLogLevel]
+}
+@objc(STPUsageEvent) public enum SetappUsageEvent : Swift.Int {
+  case signIn
+  case signOut
+  case userInteraction
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(STPSubscription) @objcMembers open class SetappSubscription : ObjectiveC.NSObject {
+  @objc final public let isActive: Swift.Bool
+  @objc final public let expirationDate: Foundation.Date?
+  @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+extension Setapp.SetappLogLevel : Swift.Hashable {}
+extension Setapp.SetappLogLevel : Swift.RawRepresentable {}
+extension Setapp.SetappUsageEvent : Swift.Equatable {}
+extension Setapp.SetappUsageEvent : Swift.Hashable {}
+extension Setapp.SetappUsageEvent : Swift.RawRepresentable {}
