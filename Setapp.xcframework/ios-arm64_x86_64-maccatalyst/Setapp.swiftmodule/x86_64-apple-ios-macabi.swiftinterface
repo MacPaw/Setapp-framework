@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target x86_64-apple-ios13.1-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
 import AppKit
 import CommonCrypto
@@ -23,6 +23,10 @@ extension Setapp.SetappManager {
   }
   @objc(setLogHandle:) dynamic open class func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
   open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
+  open func showReleaseNotesWindowIfNeeded()
+  open func showReleaseNotesWindow()
+  open func reportUsageEvent(_ usageEvent: Setapp.SetappUsageEvent)
+  open func askUserToShareEmail()
 }
 public typealias SetappLogHandle = (_ message: Swift.String, _ logLevel: Setapp.SetappLogLevel) -> Swift.Void
 @objc(STPConfiguration) @objcMembers open class SetappConfiguration : ObjectiveC.NSObject {
@@ -75,6 +79,16 @@ extension Setapp.SetappLogLevel : Swift.CaseIterable {
   public static var allCases: [Setapp.SetappLogLevel]
   public typealias AllCases = [Setapp.SetappLogLevel]
 }
+@objc(STPUsageEvent) public enum SetappUsageEvent : Swift.Int {
+  case signIn
+  case signOut
+  case userInteraction
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers @objc(STPSubscription) @objcMembers open class SetappSubscription : ObjectiveC.NSObject {
   @objc final public let isActive: Swift.Bool
   @objc final public let expirationDate: Foundation.Date?
@@ -86,3 +100,6 @@ extension Setapp.SetappLogLevel : Swift.CaseIterable {
 }
 extension Setapp.SetappLogLevel : Swift.Hashable {}
 extension Setapp.SetappLogLevel : Swift.RawRepresentable {}
+extension Setapp.SetappUsageEvent : Swift.Equatable {}
+extension Setapp.SetappUsageEvent : Swift.Hashable {}
+extension Setapp.SetappUsageEvent : Swift.RawRepresentable {}

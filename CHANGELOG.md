@@ -1,3 +1,16 @@
+## 2.0.1
+
+### New
+* macOS apps support.
+
+### Changed
+* Improved license storage on iOS platform. 
+
+## 2.0.0
+
+### New
+* Catalyst apps support.
+
 ## 0.2.1 (May 20, 2020)
 
 ### Changed

@@ -1,69 +1,51 @@
-# Setapp Framework 2.0.0 (beta)
-​
+# Setapp Framework
+
 ## Contents
-1. [Requirements for integrating the Framework](#requirements-for-integrating-the-framework)
-    * [iOS](#ios)
-    * [macOS, Catalyst](#macos-catalyst)
-1. [Installing the Framework](#installing-the-framework)
-    * [Swift Package Manager](#swift-package-manager)
-    * [CocoaPods](#cocoapods)
-    * [Manual installation](#manual-installation)
-    * [Carthage](#carthage)
-1. [Setting up the Framework](#setting-up-the-framework)
-    * [iOS](#ios-1)
-        - [Link the Framework to your app](#link-the-framework-to-your-app)
-        - [Register iOS app in Setapp developer account and generate a public key](#register-ios-app-in-setapp-developer-account-and-generate-a-public-key)
-        - [Add the public key to your project as a resource](#add-the-public-key-to-your-project-as-a-resource)
-        - [Initialize the Framework](#initialize-the-framework)
-            + [Provide custom configuration](#provide-custom-configuration-optional)
-        - [Add custom URL scheme support to your application target](#add-custom-url-scheme-support-to-your-application-target)
-        - [Handle requests to open URL](#handle-requests-to-open-url)
-        - [Configure background tasks](#configure-background-tasks)
-            - [Permitted background task identifiers](#permitted-background-task-identifiers)
-    * [macOS, Catalyst](#macos-catalyst-1)
-        - [Link the Framework to your app](#link-the-framework-to-your-app-1)
-        - [Add the public key to your project as a resource](#add-the-public-key-to-your-project-as-a-resource-1)
-        - [Add sandbox temporary exception entitlement](#add-sandbox-temporary-exception-entitlement)
-1. [Using the Framework](#using-the-framework)
-    * [iOS](#ios-2)
-        - [Display activation result](#display-activation-result)
-        - [Monitor subscription status](#monitor-subscription-status)
-            + [Delegate](#delegate)
-            + [Notification](#notification)
-            + [Key-Value Observation](#key-value-observation-kvo)
-    * [iOS, macOS, Catalyst](#ios-macos-catalyst)
-        - [Using Vendor API to integrate apps into Setapp (Developer Preview)](#using-vendor-api-to-integrate-apps-into-setapp-developer-preview)
-            + [Request authorization code to access the Setapp server](#request-authorization-code-to-access-the-setapp-server) 
-        - [Logging](#logging)
-            + [Log level](#log-level)
-            + [Logging override](#logging-override)
-        - [Viewing logs in Console](#viewing-logs-in-console)
+
+1. [Integration requirements](#integration-requirements)
+1. [Install and set up Framework](#install-and-set-up-framework)
+    * [Installing the Framework](#installing-the-framework)
+    * [Setting up the Framework](#setting-up-the-framework)
+1. [iOS](#ios-1)
+    * [Add a public key to your app](#add-a-public-key-to-your-app)
+    * [Initialize the Framework](#initialize-the-framework)
+    * [Add custom URL scheme support to your application target](#add-custom-url-scheme-support-to-your-application-target)
+    * [Configure background tasks](#configure-background-tasks)
+1. [macOS](#macos-1)
+    * [Set an app bundle ID](#set-an-app-bundle-id) 
+    * [Add sandbox temporary exception entitlement](#add-sandbox-temporary-exception-entitlement)
+    * [Add public key to your app](#add-a-public-key-to-your-app-1)
+    * [Implement the release notes (What's New) functionality](#implement-the-release-notes-whats-new-functionality)
+    * [Add an email subscription form](#add-an-email-subscription-form)
+1. [Use the Vendor API to integrate apps into Setapp](#use-the-vendor-api-to-integrate-apps-into-setapp)
+1. [Logging](#logging)
 1. [Testing your app](#testing-your-app)
 
-
-## Requirements for integrating the Framework
+# Integration requirements
 
 ### iOS
 
-* The Setapp iOS Framework can be integrated into apps developed with iOS 10.0 and later. 
-The Framework doesn't yet work with the watchOS and the tvOS.
+* The Setapp iOS Framework can be integrated into apps developed with iOS 10.0 or later. 
+The Framework doesn’t work with the watchOS and the tvOS yet.
 
-* The supported Swift version for the iOS Framework is 5.2 and later.
+* The supported Swift version for the iOS Framework is 5.2 or later.
 
-* The iOS app must support custom URL schemes. The URL scheme must be the same as the app bundle ID.
+* An iOS app must support custom URL schemes. The URL scheme must be the same as the app bundle ID.
     Related documentation by Apple: [Defining a Custom URL Scheme for Your App](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app).
 
-### macOS, Catalyst
+### macOS
 * The applications must be signed with a Developer ID certificate.
-* Compatibility with the latest macOS version must be tested and confirmed.\
+* Compatibility with the latest macOS version must be tested and confirmed.
 
-    We don't have strict requirements for supporting macOS versions from 10.11 (El Capitan) to 11.0 (Big Sur). However, if Setapp members can use your app on older OS editions (Setapp runs on 10.11 and later), your revenue could increase.
+    We don’t have strict requirements for supporting macOS versions. Setapp supports macOS versions from 10.15 (Catalina) to 12.0 (Monterey). However, we have a frozen version for our customers who use older than macOS 10.12 (Sierra) - 10.14 (Mojave) versions. So, if your app can support some of the older macOS versions - your revenue could increase.
 
-**Not allowed functionality of macOS apps**:
+**Not allowed functionality of macOS apps:**
 * Paid features or app components;
-* Proprietary installer and update of frameworks;
+* Proprietary installer and update frameworks;
 * Activation and licensing mechanisms;
 * Built-in stores and in-app purchases.
+
+# Install and set up Framework
 
 ## Installing the Framework
 
@@ -75,27 +57,28 @@ Add the following dependency in your `Package.swift`:
 
 ```swift
 dependencies: [
-  .package(name: "Setapp",
-           url: "https://github.com/MacPaw/Setapp-framework.git",
-           .branch("catalyst"))
+  .package(
+    name: "Setapp",
+    url: "https://github.com/MacPaw/Setapp-framework.git",
+    from: "2.0.1")
 ]
 ```
 
 ### CocoaPods
 
-With [CocoaPods](https://cocoapods.org/), add the following string in your `Podfile`:
+With [CocoaPods](https://cocoapods.org/), add the following string to your `Podfile`:
 
 ```ruby
-pod 'Setapp', :git => 'https://github.com/MacPaw/Setapp-framework.git', :branch => 'catalyst'
+pod 'Setapp'
 ```
 
-To support the use of the Simulator on Macs with Apple Silicon, we've changed the source binary format from the universal binary (fat) framework to XCFramework. To work with the latest Framework format, you need CocoaPods version 1.9 or later and Xcode version 11.0 or later.
+To support usage of the Simulator on Macs with Apple Silicon, we've changed the source binary format from the universal binary (fat) framework to XCFramework. To work with the latest Framework format, you need CocoaPods version 1.9 or later and Xcode version 11.0 or later.
 
 ### Manual installation
 
 Step I: Get `Setapp.xcframework` and add it to your project directory.
 
-With [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules), add the Framework by executing this Git command in your project's root directory:
+To add the Framework by using [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules), execute the following Git command in your project's root directory:
 
 ```shell
 git submodule add https://github.com/MacPaw/Setapp-framework.git
@@ -103,9 +86,9 @@ git submodule add https://github.com/MacPaw/Setapp-framework.git
 
 The `Setapp.xcframework` bundle is located in the `Setapp-framework` folder of the project directory.
 
-You can also download and add the Framework manually with these steps:
+You can also download and add the Framework manually by doing these steps:
 
-* Download the Framework directly: [Setapp.xcframework.zip][github-release-xcframework].
+* Download the Framework here: [Setapp.xcframework.zip][github-release-xcframework].
 * Extract the bundle from the archive and copy the unpacked `Setapp.xcframework` to your project directory.
 
 Step II: Add the Framework to your project.
@@ -115,10 +98,10 @@ Step II: Add the Framework to your project.
 1. Drag `Setapp.xcframework` to the Frameworks, Libraries, and Embedded Content section. 
 1. Choose the Embed and Sign option from the menu in the Embed column.
 
-For more detailed steps, see ["Link a target to frameworks and libraries"](https://help.apple.com/xcode/mac/current/#/dev51a648b07) in the Xcode Help.
+For more detailed information, see ["Link a target to frameworks and libraries"](https://help.apple.com/xcode/mac/current/#/dev51a648b07) in the Xcode Help.
 
 ### Carthage
-With [Carthage](https://github.com/Carthage/Carthage), specify the line below in your `Cartfile`:
+To use [Carthage](https://github.com/Carthage/Carthage), specify the line below in your `Cartfile`:
 
 ```
 github "MacPaw/Setapp-framework"
@@ -126,41 +109,51 @@ github "MacPaw/Setapp-framework"
 
 ## Setting up the Framework
 
-### iOS
+### Link framework to your app
 
-#### Link the Framework to your app
-
-Link `libSetapp.a` to the application target. Go to the `Build Settings` tab of your project and add the following value strings to `Other Linker Flags` (`OTHER_LDFLAGS`):
+Link `libSetapp.a` to the application target. Go to the `Build Settings` tab of your project and add the following value string to `Other Linker Flags` (`OTHER_LDFLAGS`):
 
     -force_load "$(BUILT_PRODUCTS_DIR)/libSetapp.a"
 
 ![OTHER_LDFLAGS](.assets/OTHER_LDFLAGS_string.png)
 
-#### Register iOS app in Setapp developer account and generate a public key
+> ⚠️ You must strictly follow the provided instructions to make your application function correctly within the Setapp environment.
+
+# iOS
+
+## Add a public key to your app
+
+To establish trust between your app and our service, the Framework needs a public key that is unique for every app. 
+
+### Register an iOS app in the Setapp developer account and generate a public key
 
 1. Go to the [Apps page](https://developer.setapp.com/applications) of your developer account and click "Add iOS application" below the companion macOS app.
 
 2. Enter the URL of your iOS app on the App Store, then click Generate.
 
-Once the Setapp system processes the link, your app gets registered, and the Setapp public key is generated for you. To download the key, click the link that appears below the field with the URL.
+Once the Setapp system processed the link, your app becomes registered, and the Setapp public key is generated for you. To download the key, click the link that appears below the field with the URL.
 
-After registering your app, you won't need to specify the App Store URL again when submitting the app for review with Setapp — the info is stored in the Setapp system.
+You won't need to specify the App Store URL again when submitting the app for review with Setapp — the info is stored in the Setapp system.
 
-#### Add the public key to your project as a resource
+### Add a public key to your project as a resource
 
-The public key is an essential part of the Framework's security, needed to operate with the data received from the Setapp system. A public key is unique for every app in the Setapp suite.
+A public key is used to operate with the data received from the Setapp system. The public key is unique for every app in the Setapp suite and it is an essential part of the Framework's security.
 
-To add a public key to your project in Xcode, drag the `setappPublicKey.pem` key file to the navigator area. Make sure to select the "Copy items if needed" checkbox on the top of the dialog that appears when you add the file.
+To add the public key to your project in Xcode, simply drag the `setappPublicKey.pem` key file to the navigator area. A new dialog box appears. Select the "Copy items if needed" checkbox on the top of the dialog box.
 
 > ⚠️ Please note that public keys for iOS & macOS platforms differ.
 
-#### Initialize the Framework
+## Initialize the Framework
+
+Once you've added the public key, you should tell our Framework its location. By default, we assume that the public key file is named `setappPublicKey.pem` and located in the app's main bundle.
+
+### Start
 
 The `start(with:)` method of the `SetappManager` class is responsible for these initialization operations:
-- Provide configuration for the Framework so that it starts for your app
-- Start reporting the app usage once it's activated for the Setapp member
+- Providing configuration for the Framework so that it starts for your app;
+- Starting reporting the app usage once it is successfully activated for a Setapp user.
 
-If you’re using the `UIApplicationDelegate` method, add the following code to the `application(_:, didFinishLaunchingWithOptions:)` function:
+If you have the `UIApplicationDelegate` method in your app, add the following code to the `application(_:, didFinishLaunchingWithOptions:)` function:
 
 ```swift
 import Setapp
@@ -180,7 +173,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-With the `UIWindowSceneDelegate` method, add the code below to the `scene(_:, willConnectTo:, options:)` function:
+If you have `UIWindowSceneDelegate` in your app, add the code below to the `scene(_:, willConnectTo:, options:)` function:
 
 ```swift
 import Setapp
@@ -199,12 +192,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 ```
 
-##### Provide custom configuration (optional)
+### Provide custom configuration
 
-You'll need to provide a custom configuration for the `SetappManager` class in the following cases:
+You’ll need to provide a custom configuration for the `SetappManager` class in the following cases:
 
-- You're not using the main app bundle to store the public key.
-- You've renamed the public key file in your project.
+- You’re not using the main app bundle to store the public key.
+- You have renamed the public key file in your project.
 
 Providing configuration must take place while initializing the Framework.
 
@@ -217,9 +210,9 @@ let configuration = SetappConfiguration(
 SetappManager.shared.start(with: configuration)
 ```
 
-#### Add custom URL scheme support to your application target
+## Add custom URL scheme support to your application target
 
-As already mentioned, we use custom URL schemes to unlock the restricted functionality of your app for Setapp members. To add a URL scheme, follow these steps:
+As already mentioned in [Integration requirements](#requirements-for-integrating-the-framework), we use custom URL schemes to unlock the restricted functionality of your app for Setapp users. To add a URL scheme, follow these steps:
 
 1. In Xcode, go to the Info tab of your target settings.
 1. Expand the URL Types section.
@@ -227,13 +220,14 @@ As already mentioned, we use custom URL schemes to unlock the restricted functio
     * Identifier: `Setapp`  
     * URL Schemes: your bundle identifier
     * Role: `None`
+
 ![URL Scheme](https://files.readme.io/578e898-setapp-add-custom-url-scheme.gif)
 
-#### Handle requests to open URL
+### Handle requests to open URL
 
-Once the URL scheme setup is complete, you can add the necessary code to handle opening URLs in your app.
+Once the URL scheme setup is complete, you can proceed with adding the necessary code to handle the process of opening URLs in your app.
 
-If you have an `UIApplicationDelegate` in your app, add the following code to the `application(_:, open:, options:)` function:
+If you have `UIApplicationDelegate` in your app, add the following code to the `application(_:, open:, options:)` function:
 
 ```swift
 import Setapp
@@ -264,7 +258,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-With `UIWindowSceneDelegate`, add the following code to these functions:
+If you have `UIWindowSceneDelegate` in your app, add the following code to these functions:
 
 * `scene(_:, willConnectTo:, options:)`
 * `scene(_:, openURLContexts:)`
@@ -315,10 +309,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 ```
 
-#### Configure background tasks
-We utilize background tasks to send usage reports when your application was deactivated.
+### Display activation result
 
-To send network requests with usage reports in the background, iOS requires that your app has a `Background fetch` checkbox set in the `Background modes` capability group.
+You may use a Framework’s API to get a view controller and inform Setapp users whether they activated the app successfully.
+
+The completion handlers receive the activation results of the `open(…` methods. Then, you can call the `viewController(for:)` method of the `shared` instance of the `SetappManager` class and display the controller to a user.
+
+
+## Configure background tasks
+
+We utilize background tasks to send you a usage report when a user doesn't use your application at the moment. This allows us to ensure that usage tracking is delivered to our servers.
+
+To send network requests with usage reports in the background, you must select the `Background fetch` checkbox in the `Background modes` capability group.
 
 1. Go to the Signing & Capabilities tab.
 1. Add `Background modes` capability.
@@ -341,36 +343,57 @@ func application(
 }
 ```
 
-##### Permitted background task identifiers
-For iOS 13 and later, we also utilize background tasks. That means that you should allow Setapp to run background tasks with specific identifiers. To do that:
+### Permitted background task identifiers
+For iOS 13 and later, we also utilize background tasks. That means that you must allow Setapp to run background tasks with specific identifiers. To do that:
 
 1. Open your `Info.plist` file.
-1. Add `Permitted background task scheduler identifiers` (`BGTaskSchedulerPermittedIdentifiers`) key to the dictionary.
+1. Add the `Permitted background task scheduler identifiers` (`BGTaskSchedulerPermittedIdentifiers`) key to the dictionary.
 1. Append `com.setapp.usageReport` to the key values array.
 
 ![Permitted background task identifiers](.assets/permitted_background_tasks.png)
 
-### macOS, Catalyst
 
-#### Link the Framework to your app
 
-Link `libSetapp.a` to the application target. Go to the `Build Settings` tab of your project and add the following value strings to `Other Linker Flags` (`OTHER_LDFLAGS`):
 
-    -force_load "$(BUILT_PRODUCTS_DIR)/libSetapp.a"
+# macOS
 
-![OTHER_LDFLAGS](.assets/OTHER_LDFLAGS_string.png)
+### Set an app bundle ID
 
-#### Add the public key to your project as a resource
+The bundle ID of your app for Setapp must use the `-setapp` suffix to follow this pattern:
+```
+<domain>.<companyName>.<appName>-setapp
+```
 
-The public key is an essential part of the Framework's security, needed to operate with the data received from the Setapp system. A public key is unique for every app in the Setapp suite.
+For example:
+```
+com.macpaw.CleanMyMac-setapp
+app.macpaw.Gemini-setapp
+```
 
-To add a public key to your project in Xcode, drag the `setappPublicKey.pem` key file to the navigator area. Make sure to select the "Copy items if needed" checkbox on the top of the dialog that appears when you add the file.
+If your app has additional executables, their bundle IDs must conform to the following pattern:
+```
+<domain>.<companyName>.<appName>-setapp.<executableName>
+```
 
-> ⚠️ Please note that public keys for iOS & macOS platforms differ.
- 
-> ⚠️ You can't change the name & location of a bundled public key in the macOS app. The macOS app's public key resource must be named `setappPublicKey.pem` and located in the main bundle.
+For example:
+```
+com.macpaw.CleanMyMac-setapp.Menu
+```
 
-#### Add sandbox temporary exception entitlement
+To add the bundle ID, follow these steps: 
+1. Go to the [Apps page](https://developer.setapp.com/applications) in your developer account. You'll see that your app is already there. Click `Add First Version.`
+1. Enter the bundle ID of your app in the dialog box that appeared.
+
+It is critical to use the same bundle ID in the Xcode target of your app and in your developer account. Update your app's target if it needed.
+
+> ⚠️ You will not be able to change the bundle ID once you set it.
+
+> 📘 A bundle ID is a unique case-sensitive identifier that contains only alphanumeric characters (A-Z, a-z, 0-9), period (.), and hyphen (-). Please note that only the hyphen-minus sign (U+002D) can be used (don't press the Option key). Also, note that you mustn't specify an app version in the bundle ID.  
+>
+>The string must be written in reverse-DNS format. Example: Your domain is mycompany.com, and your app's name is MyApp. In this case, you can use `com.mycompany.myapp-setapp` as a bundle ID of your app.
+
+
+## Add sandbox temporary exception entitlement
 
 If your app is sandboxed, you must add a temporary exception to enable communication between the Library integrated into your app and Setapp Mach services.
 
@@ -378,144 +401,97 @@ If your app is sandboxed, you must add a temporary exception to enable communica
 1. Add `com.apple.security.temporary-exception.mach-lookup.global-name` entitlement key.
 1. Add the `com.setapp.ProvisioningService` string (the Setapp service name) value for the `com.apple.security.temporary-exception.mach-lookup.global-name` entitlement key’s value array.
 
-As a result, your entitlements file will look similar to the following:
+As a result, your entitlements file must look similar to the following:
 ![Sandbox temporary exception entitlement](.assets/entitlements_temporary_exception.png)
 
 
-## Using the Framework
+## Add a public key to your app
 
-### iOS
+To establish trust between your app and our service, the Frameworks needs a public key that is unique for every app. 
 
-#### Display activation result
+### Register the macOS app in the Setapp developer account and generate a public key
 
-You may use a Framework's API to get a view controller and inform Setapp members if their attempt to activate the app has been successful or has failed.
+1. Go to the [Apps page](https://developer.setapp.com/applications) of your developer account and click `New version` on your app.
+1. On the right side of `Release info`, you can find a notion `For macOS library 2.0.0 and higher, find a public key here.`.
+1. Click the link and download the public key.
 
-The activation results are received by the completion handlers of the `open(…` methods. Then, you can call the `viewController(for:)` method of the `shared` instance of the `SetappManager` class and display the controller to a member.
+### Add the public key to your project as a resource
 
-#### Monitor subscription status
+The public key is used to operate with the data received from the Setapp system. The public key is unique for every app in the Setapp suite and it is an essential part of the Framework's security.
 
-You can monitor the subscription status for the Setapp member who uses your app with the help of the `SetappSubscription` object. Three monitoring options are available for you: `SetappManager` delegate, notifications, and the Key-Value Observation (KVO).
+To add a public key to your project in Xcode, simply drag the `setappPublicKey.pem` key file to the navigator area. A new dialog box appears. Select the "Copy items if needed" checkbox on the top of the dialog box.
 
-##### Delegate
+> ⚠️ For macOS applications, you can only use this public key filename: (`setappPublicKey.pem`). 
 
-Declare a class conforming to the `SetappManagerDelegate` protocol and set up a `delegate` property for the `shared` instance of the `SetappManager` class.
+> ⚠️ Public key must be located in the main application bundle.
+
+> ⚠️ Please note that public keys for iOS & macOS platforms differ.
+
+
+## Implement the release notes (What's New) functionality
+
+We highly recommend implementing the release notes functionality into your app to improve the user experience. However, the final dicision is up to you.
+
+### Display release notes automatically
+Show a dialog box with a list of changes in the updated app version automatically.
+
+Call the `showReleaseNotesWindowIfNeeded()` function of the shared `SetappManager` in the `applicationDidFinishLaunching(_:)` method (or add it to another appropriate place, for example, after the onboarding dialog of your app). Note that this function reveals a dialog only after opening a newly updated app.
 
 ```swift
-import Setapp
-
-class SetappSubscriptionManagerDelegate: SetappManagerDelegate {
-  init() {
-    SetappManager.shared.delegate = self
-  }
-
-  // MARK: SetappManagerDelegate
-
-  func setappManager(
-    _ manager: SetappManager,
-    didUpdateSubscriptionTo newSetappSubscription: SetappSubscription
-  )
-  {
-    print("Manager:", manager)
-    print("Setapp subscription:", newSetappSubscription)
-  }
+func applicationDidFinishLaunching(_ aNotification: Notification) {
+  SetappManager.shared.showReleaseNotesWindowIfNeeded()
 }
 ```
 
-##### Notification
-
-In addition to the delegate method, you can observe the `SetappManager.didChangeSubscriptionNotification` notification for the `shared` instance of the `SetappManager` object. As you can see from the example below, the manager is the object. A new Setapp subscription state is located in the `NSKeyValueChangeKey.newKey` key in the `userInfo` property of the notification.
+### Show release notes on request
+To allow users to view release notes anytime they want, add a corresponding option to the app's main menu. Then call the `showReleaseNotesWindow()` function of the shared `SetappManager`.
 
 ```swift
-import Setapp
-
-class SetappSubscriptionNotificationObserver {
-  private var notificationObserver: NSObjectProtocol?
-
-  init() {
-    notificationObserver = NotificationCenter.default
-      .addObserver(forName: SetappManager.didChangeSubscriptionNotification,
-                   object: SetappManager.shared,
-                   queue: .none) { [weak self] (notification) in
-                    self?.setappSubscriptionDidChange(notification: notification)
-    }
-  }
-
-  deinit {
-    notificationObserver.map(NotificationCenter.default.removeObserver(_:))
-  }
-
-  // MARK: Notification
-
-  func setappSubscriptionDidChange(notification: Notification) {
-    guard
-      let manager = notification.object as? SetappManager,
-      let newValue = notification.userInfo?[NSKeyValueChangeKey.newKey],
-      let newSetappSubscription = newValue as? SetappSubscription else {
-        return
-    }
-    print("Manager:", manager)
-    print("Setapp subscription:", newSetappSubscription)
-  }
+@IBAction private func showReleaseNotes(_ sender: Any) {
+  SetappManager.shared.showReleaseNotesWindow()
 }
 ```
 
-##### Key-Value Observation (KVO)
+## Add an email subscription form
 
-If you prefer KVO, you can observe the `subscription` property of the `shared` instance of the  `SetappManager` class.
+As a developer, you might want to stay in touch with your users on Setapp. We understand this intention and we can provide you with a list of their contacts if users will consent. But first, you need to implement a User Permissions API for asking a user to share their email address. Thus, you can create a permission-based email list of your active users. Later, you can download it directly from your [Developer Account](https://developer.setapp.com/statistics/users-emails). 
 
-```swift
-import Setapp
+To show a dialog box for asking users to share their email with the current application, call the `askUserToShareEmail()` function of the shared `SetappManager`.
 
-class SetappSubscriptionKVOObserver {
-  private var kvoObserver: NSObjectProtocol?
+When a user made a choice, you cannot ask him/her again to change the decision. 
 
-  init() {
-    kvoObserver = SetappManager.shared
-      .observe(\.subscription, options: [.new]) { [weak self] (manager, change) in
-        self?.setappSubscriptionDidChange(manager: manager, change: change)
-    }
-  }
+However, if the user closes the dialog box without making a choice, Setapp will show the dialog box again: 
+* 2nd time - in 1 day
+* 3rd time - in 2 days
+* 4th time - in 3 days
+* 5-7th times - in 7 days
+* 8th time and further - in 30 days
 
-  // MARK: KVO observation
+> ℹ️ The User Permissions API requires Setapp application version 3.2.1 or newer. If a user uses an older Setapp version, the email subscription form will not appear.
 
-  func setappSubscriptionDidChange(
-    manager: SetappManager,
-    change: NSKeyValueObservedChange<SetappSubscription>
-  )
-  {
-    guard let newSetappSubscription = change.newValue else {
-      return
-    }
-    print("Manager:", manager)
-    print("Setapp subscription:", newSetappSubscription)
-  }
-}
-```
 
-### iOS, macOS, Catalyst
-
-#### Using Vendor API to integrate apps into Setapp (Developer Preview)
+# Use the Vendor API to integrate apps into Setapp
 
 > ⚠️ Integrating apps into Setapp using the Vendor API is the next "big thing" we're actively working on. Most features are still under development, **so please don't use them in Production yet**.\
-> Still, we'd like to share the main ideas at this early stage to get your feedback. We're looking forward to your comments at developer@setapp.com or in the Setapp Community Slack.
+> Still, we'd like to share the main ideas in order to get your feedback at this early stage. We're looking forward to your comments at developer@setapp.com or in the Setapp Community Slack.
 
-#### Request authorization code to access the Setapp server
+## Request authorization code to access the Setapp server
 
-To start communicating with Setapp's server, you must request an authorization (auth) code from it. The auth code has a 20-minute lifetime, during which you must pass it to your server for further processing. 
+To start communicating with Setapp's server, you must request an authorization (auth) code from it. The auth code has a 20-minute lifetime, so you must pass the auth code to your server for further processing during this time. 
 
-The communication between your app/server and the Setapp system via the Vendor API looks like this:
+How the communication between your app/server and the Setapp system via the Vendor API works:
 
 * Your app requests and receives an auth code from the Setapp server.
 * Your app passes the auth code to your server.
 * Your server exchanges the auth code for the Vendor API's access token and refresh token.
-* Your server uses the obtained tokens for further communication with Setapp using the API (exchanging subscription info, usage reposting, etc.).
+* Your server uses the obtained tokens for further communication with Setapp using the API (exchanging subscription info, usage reporting, etc.).
 
-You can get the auth code using the `requestAuthorizationCode` function. The function requires an internet connection and fails with a corresponding error if an iOS device sending the request is offline.
+You can get the auth code using the `requestAuthorizationCode` function. The function requires an internet connection and fails with a corresponding error if a user's iOS or MacOS device was offline.
 
 To request the auth code, you must specify these parameters:
-  - `clientID`: the app's client ID, generated in your developer account. If you have several apps in Setapp, the `clientID` must be different for each of them (including macOS apps and their iOS companions).
-  - `scope`: an array of strings that specifies the functionalities you wish to authorize for communication with the Setapp system. In Swift, the possible values are listed in the `VendorAuthorizationScope` enum. In Objective-C, however, you’ll have to specify the values yourself as `NSStrings`.
-    > For your reference only: the other possible functionalities scope values are mentioned in the [GET /authorize](https://docs.setapp.com/reference#get_authorize) method of the Vendor API.
+  - `clientID`: the app's client ID generated in your developer account. If you have several apps in Setapp, the `clientID` must be different for them (including macOS apps and their iOS companions).
+  - `scope`: a list of functionalities you wish to authorize for communication with the Setapp system. In Swift, the possible values are listed in the `VendorAuthorizationScope` enum. In Objective-C, however, you’ll have to specify the values yourself as `NSStrings`.
+    > The other possible functionalities scope values are mentioned in the [GET /authorize](https://docs.setapp.com/reference#get_authorize) method of the Vendor API.
 
 ```swift
 // Make sure an active Setapp subscription is present.
@@ -537,11 +513,12 @@ SetappManager.shared.requestAuthorizationCode(
 }
 ```
 
-#### Logging
 
-If you want to extend or reduce your logs or to override the console logs to the destination of your own — it's easy to do so with just a few lines of code.
+# Logging
 
-##### Log level
+If you want to extend or reduce your logs or override the console logs path with your own destination, it's easy to do so with just a few lines of code.
+
+#### Log level
 You can easily change your log depth just by setting the `logLevel` property of the `SetappManager` class to one of the standard options:
 
 * `.verbose` 
@@ -555,9 +532,9 @@ You can easily change your log depth just by setting the `logLevel` property of 
 SetappManager.logLevel = .debug
 ```
 
-##### Logging override
+### Logging override
 
-To override the Setapp's log destination to your own logger, use the `setLogHandle` method of the ` SetappManager` class. This function takes a closure that accepts the message string and the SetappLogLevel parameter.
+To override the Setapp’s log destination with your own logger, use the `setLogHandle` method of the ` SetappManager` class. This function takes a closure that accepts the message string and the SetappLogLevel parameter.
 
 ```swift
 SetappManager.setLogHandle { (message: String, logLevel: SetappLogLevel) in
@@ -565,7 +542,7 @@ SetappManager.setLogHandle { (message: String, logLevel: SetappLogLevel) in
 }
 ```
 
-#### Viewing logs in Console
+### Viewing logs in Console
 
 To display the Framework logs in the Console app, follow these steps:  
 
@@ -574,12 +551,13 @@ To display the Framework logs in the Console app, follow these steps:
     subsystem:com.setapp.fmwk
     ```
 
-2. Make sure to select these items in the Actions menu:
+1. Make sure these items have been selected in the Actions menu:
     * Include Info Messages
     * Include Debug Messages
 
 Alternatively, you can allow showing debug & info messages from the Setapp Framework by executing this command in Terminal:
-```
+
+```sh
 sudo log config --subsystem com.setapp.fmwk --mode "level:debug"
 ```
 
@@ -590,9 +568,9 @@ See ["Testing your apps"][doc-testing-your-application] for details.
 ---
 For more details, you can visit ["Integrating the iOS Framework"](https://docs.setapp.com/docs/integrating-the-ios-framework) in Setapp Developer Documentation.
 
-[github-release]: https://github.com/MacPaw/Setapp-framework/releases/tag/0.1.0
-[github-release-xcframework]: https://github.com/MacPaw/Setapp-framework/releases/download/0.1.0/Setapp.xcframework.zip
-[github-release-QRCodeGenerator]: https://github.com/MacPaw/Setapp-framework/releases/download/0.1.0/Setapp.QRCodeGenerator.app.zip
+[github-release]: https://github.com/MacPaw/Setapp-framework/releases/latest
+[github-release-xcframework]: https://github.com/MacPaw/Setapp-framework/releases/latest/download/Setapp.xcframework.zip
+[github-release-QRCodeGenerator]: https://github.com/MacPaw/Setapp-framework/releases/latest/download/Setapp.QRCodeGenerator.zip
 [doc-setapp-for-ios-overview-requirements]: https://docs.setapp.com/docs/setapp-for-ios-overview#requirements-for-members-and-developers
 [doc-setapp-for-ios-overview-monetization]: ttps://docs.setapp.com/docs/setapp-for-ios-overview#ios-apps-monetization-for-setapp-developers
 [doc-testing-your-application]: https://docs.setapp.com/docs/testing-your-application

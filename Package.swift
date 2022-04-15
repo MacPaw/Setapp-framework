@@ -6,7 +6,7 @@ let package = Package(
   name: "Setapp",
   platforms: [
     .iOS(.v10),
-    .macOS("10.15"),
+    .macOS("10.10"),
   ],
   products: [
     .library(name: "Setapp", targets: ["Setapp"]),
