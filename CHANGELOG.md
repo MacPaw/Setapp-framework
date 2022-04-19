@@ -1,4 +1,14 @@
-## 2.0.1
+## 2.0.2 (Apr 19, 2022)
+
+### Changed
+* Improved CocoaPods integration - no need to modify `OTHER_LDFLAGS` anymore. 
+
+### Fixed
+* [macOS] Setapp Desktop app version recognition.
+* [macOS] `showReleaseNotesWindowIfNeeded`, `showReleaseNotesWindow`, `reportUsageEvent:`, and `askUserToShareEmail` methods are now available in Objective-C.
+
+
+## 2.0.1 (Apr 14, 2022)
 
 ### New
 * macOS apps support.
@@ -6,12 +16,14 @@
 ### Changed
 * Improved license storage on iOS platform. 
 
+
 ## 2.0.0
 
 ### New
 * Catalyst apps support.
 
-## 0.2.1 (May 20, 2020)
+
+## 0.2.1 (May 20, 2021)
 
 ### Changed
 * Removed `.applicationUsageReporting` vendor authentication scope.

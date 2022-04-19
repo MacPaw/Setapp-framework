@@ -111,9 +111,15 @@ github "MacPaw/Setapp-framework"
 
 ### Link framework to your app
 
+> ℹ️ If you are using CocoaPods - you can skip this step.
+
 Link `libSetapp.a` to the application target. Go to the `Build Settings` tab of your project and add the following value string to `Other Linker Flags` (`OTHER_LDFLAGS`):
 
+If you are using Swift Package Manager, integrating Framework manually, or using Carthage:
+
+  ```
     -force_load "$(BUILT_PRODUCTS_DIR)/libSetapp.a"
+  ```
 
 ![OTHER_LDFLAGS](.assets/OTHER_LDFLAGS_string.png)
 
