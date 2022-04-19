@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                    = 'Setapp'
-  s.version                 = '2.0.1'
+  s.version                 = '2.0.2'
 
   s.summary                 = 'Setapp Framework'
 
@@ -21,4 +21,6 @@ Pod::Spec.new do |s|
   s.osx.frameworks          = 'Security', 'AppKit'
 
   s.vendored_frameworks     = 'Setapp.xcframework'
+
+  s.user_target_xcconfig    = { 'OTHER_LDFLAGS' => "-force_load \"$(PODS_XCFRAMEWORKS_BUILD_DIR)/Setapp/libSetapp.a\"" }
 end
