@@ -1,3 +1,11 @@
+## 2.0.3
+
+### Changed
+* [docs] Added missing part about observing Setapp Subscription changes on iOS platform, fixed and extended docs with manual Setapp Framework integration steps.
+
+### Fixed
+* Improved CocoaPods integration - no need to modify `SWIFT_INCLUDE_PATHS` anymore. 
+
 ## 2.0.2 (Apr 19, 2022)
 
 ### Changed
