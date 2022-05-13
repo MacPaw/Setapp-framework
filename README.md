@@ -10,6 +10,7 @@
     * [Add a public key to your app](#add-a-public-key-to-your-app)
     * [Initialize the Framework](#initialize-the-framework)
     * [Add custom URL scheme support to your application target](#add-custom-url-scheme-support-to-your-application-target)
+    * [Monitor subscription status](#monitor-subscription-status)
     * [Configure background tasks](#configure-background-tasks)
 1. [macOS](#macos-1)
     * [Set an app bundle ID](#set-an-app-bundle-id) 
@@ -76,7 +77,7 @@ To support usage of the Simulator on Macs with Apple Silicon, we've changed the 
 
 ### Manual installation
 
-Step I: Get `Setapp.xcframework` and add it to your project directory.
+First step is to get Setapp Framework.
 
 To add the Framework by using [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules), execute the following Git command in your project's root directory:
 
@@ -84,19 +85,39 @@ To add the Framework by using [Git Submodules](https://git-scm.com/book/en/v2/Gi
 git submodule add https://github.com/MacPaw/Setapp-framework.git
 ```
 
-The `Setapp.xcframework` bundle is located in the `Setapp-framework` folder of the project directory.
+The Setapp Framework files are located in the `Setapp-framework` folder of the project directory.
 
-You can also download and add the Framework manually by doing these steps:
+Second step is to add the Framework to your project.
 
-* Download the Framework here: [Setapp.xcframework.zip][github-release-xcframework].
-* Extract the bundle from the archive and copy the unpacked `Setapp.xcframework` to your project directory.
+Now you have 2 options: Install as package or Install as xcframework. The difference is that package will correctly understand Setapp package type, and with xcframewrok 
 
-Step II: Add the Framework to your project.
+#### Option 1. Add Setapp framework as package
 
-1. Open your project in XCode and select your app target.
+> As alternative to the first step with git submodules, you can also download and add the Framework manually by doing these steps:
+> * Download the `Source code (zip)` file from Assets on our [latest release page][github-release]. 
+> * Rename versioned folder `Setapp-framewrok-*` to `Setapp-framework`.
+> * Extract files from the archive and copy the unpacked `Setapp-framework` to your project directory.
+
+1. Open your project in XCode.
+1. Drag & Drop the whole `Setapp-framework` folder to your project.
+1. Select your app target.
+1. Choose General tab.
+1. Press `+` in the Frameworks, Libraries, and Embedded Content section.
+1. Choose `Setapp` library in `Workspace`/`Setapp` group.
+
+#### Option 2. Install as xcframework
+
+> As alternative to the first step with git submodules, you can also download and add the Framework manually by doing these steps:
+> * Download the Framework here: [Setapp.xcframework.zip][github-release-xcframework].
+> * Extract the bundle from the archive and copy the unpacked `Setapp-framework` to your project directory.
+
+Add the Framework to your project.
+
+1. Open your project in XCode.
+1. Select your app target.
 1. Click the General settings pane.
 1. Drag `Setapp.xcframework` to the Frameworks, Libraries, and Embedded Content section. 
-1. Choose the Embed and Sign option from the menu in the Embed column.
+1. Choose the `Do Not Embed` option from the menu in the `Embed` column.
 
 For more detailed information, see ["Link a target to frameworks and libraries"](https://help.apple.com/xcode/mac/current/#/dev51a648b07) in the Xcode Help.
 
@@ -321,6 +342,93 @@ You may use a Framework’s API to get a view controller and inform Setapp users
 
 The completion handlers receive the activation results of the `open(…` methods. Then, you can call the `viewController(for:)` method of the `shared` instance of the `SetappManager` class and display the controller to a user.
 
+## Monitor subscription status
+
+You can monitor the subscription status for the Setapp member who uses your app with the help of the `SetappSubscription` object. 3 monitoring options are available for you: `SetappManager` delegate, notifications, and the Key-Value Observation (KVO).
+
+### Delegate
+
+Simply declare a class conforming to the `SetappManagerDelegate` protocol and set up a `delegate` property for the `shared` instance of the `SetappManager` class.
+
+```swift
+import Setapp
+class SetappSubscriptionManagerDelegate: SetappManagerDelegate {
+  init() {
+    SetappManager.shared.delegate = self
+  }
+  // MARK: SetappManagerDelegate
+  func setappManager(
+    _ manager: SetappManager,
+    didUpdateSubscriptionTo newSetappSubscription: SetappSubscription
+  )
+  {
+    print("Manager:", manager)
+    print("Setapp subscription:", newSetappSubscription)
+  }
+}
+```
+
+### Notification
+
+In addition to the delegate method, you can observe the `SetappManager.didChangeSubscriptionNotification` notification for the `shared` instance of the `SetappManager` object. As you can see from the example below, the manager is the object, and a new Setapp subscription state is located in the `NSKeyValueChangeKey.newKey` key in the `userInfo` property of the notification.
+
+```swift
+import Setapp
+class SetappSubscriptionNotificationObserver {
+  private var notificationObserver: NSObjectProtocol?
+  init() {
+    notificationObserver = NotificationCenter.default
+      .addObserver(forName: SetappManager.didChangeSubscriptionNotification,
+                   object: SetappManager.shared,
+                   queue: .none) { [weak self] (notification) in
+                    self?.setappSubscriptionDidChange(notification: notification)
+    }
+  }
+  deinit {
+    notificationObserver.map(NotificationCenter.default.removeObserver(_:))
+  }
+  // MARK: Notification
+  func setappSubscriptionDidChange(notification: Notification) {
+    guard
+      let manager = notification.object as? SetappManager,
+      let newValue = notification.userInfo?[NSKeyValueChangeKey.newKey],
+      let newSetappSubscription = newValue as? SetappSubscription else {
+        return
+    }
+    print("Manager:", manager)
+    print("Setapp subscription:", newSetappSubscription)
+  }
+}
+```
+
+### Key-Value Observation (KVO)
+
+If you prefer KVO, you can observe the `subscription` property of the `shared` instance of the  `SetappManager` class.
+
+```swift
+import Setapp
+class SetappSubscriptionKVOObserver {
+  private var kvoObserver: NSObjectProtocol?
+  init() {
+    kvoObserver = SetappManager.shared
+      .observe(\.subscription, options: [.new]) { [weak self] (manager, change) in
+        self?.setappSubscriptionDidChange(manager: manager, change: change)
+    }
+  }
+  // MARK: KVO observation
+  func setappSubscriptionDidChange(
+    manager: SetappManager,
+    change: NSKeyValueObservedChange<SetappSubscription>
+  )
+  {
+    guard let newSetappSubscription = change.newValue else {
+      return
+    }
+    print("Manager:", manager)
+    print("Setapp subscription:", newSetappSubscription)
+  }
+}
+```
 
 ## Configure background tasks
 
@@ -357,8 +465,6 @@ For iOS 13 and later, we also utilize background tasks. That means that you must
 1. Append `com.setapp.usageReport` to the key values array.
 
 ![Permitted background task identifiers](.assets/permitted_background_tasks.png)
-
-
 
 
 # macOS
