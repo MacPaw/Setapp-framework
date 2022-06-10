@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
 // swift-module-flags: -target arm64-apple-macos10.10 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
 import AppKit
 import Cocoa
@@ -22,7 +22,6 @@ extension Setapp.SetappManager {
     @objc set
   }
   @objc(setLogHandle:) dynamic open class func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
-  open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
   @objc(showReleaseNotesWindowIfNeeded) dynamic open func showReleaseNotesWindowIfNeeded()
   @objc(showReleaseNotesWindow) dynamic open func showReleaseNotesWindow()
   @objc(reportUsageEvent:) dynamic open func reportUsageEvent(_ usageEvent: Setapp.SetappUsageEvent)
@@ -43,10 +42,6 @@ public typealias SetappLogHandle = (_ message: Swift.String, _ logLevel: Setapp.
 }
 extension Setapp.SetappConfiguration : Swift.Codable {
   open func encode(to encoder: Swift.Encoder) throws
-}
-extension Setapp.SetappManager {
-  @available(swift, obsoleted: 0.1)
-  @objc(requestAuthorizationCodeWithClientID:scope:completionHandler:) dynamic open func requestAuthorizationCode(clientID: Swift.String, scope: [Swift.String], completionHandler: @escaping (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
 }
 public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable {
   public init(rawValue: Swift.String)
@@ -105,6 +100,13 @@ extension Setapp.SetappLogLevel : Swift.CaseIterable {
   public static var allCases: [Setapp.SetappLogLevel]
   public typealias AllCases = [Setapp.SetappLogLevel]
 }
+extension Setapp.SetappManager {
+  open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
+}
+extension Setapp.SetappManager {
+  @available(swift, obsoleted: 0.1)
+  @objc(requestAuthorizationCodeWithClientID:scope:completionHandler:) dynamic open func requestAuthorizationCode(clientID: Swift.String, scope: [Swift.String], completionHandler: @escaping (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
+}
 @objc(STPUsageEvent) public enum SetappUsageEvent : Swift.Int {
   case signIn
   case signOut
@@ -114,6 +116,9 @@ extension Setapp.SetappLogLevel : Swift.CaseIterable {
   public var rawValue: Swift.Int {
     get
   }
+}
+@objc(STPManagerDelegate) public protocol SetappManagerDelegate {
+  @objc func setappManager(_ manager: Setapp.SetappManager, didUpdateSubscriptionTo newSetappSubscription: Setapp.SetappSubscription)
 }
 @_hasMissingDesignatedInitializers @objc(STPSubscription) @objcMembers open class SetappSubscription : ObjectiveC.NSObject {
   @objc final public let isActive: Swift.Bool

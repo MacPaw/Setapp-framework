@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                    = 'Setapp'
-  s.version                 = '2.0.3'
+  s.version                 = '2.0.4'
 
   s.summary                 = 'Setapp Framework'
 
@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
 
   s.user_target_xcconfig    = {
     'OTHER_LDFLAGS'       => "-force_load \"$(PODS_XCFRAMEWORKS_BUILD_DIR)/Setapp/libSetapp.a\"",
-    'SWIFT_INCLUDE_PATHS' => '$(PODS_XCFRAMEWORKS_BUILD_DIR)/Setapp'
+    'SWIFT_INCLUDE_PATHS' => '$(PODS_XCFRAMEWORKS_BUILD_DIR)/Setapp',
+    'LD_RUNPATH_SEARCH_PATHS' => '/usr/lib/swift'
   }
 end
