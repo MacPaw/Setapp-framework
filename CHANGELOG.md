@@ -1,6 +1,19 @@
 ## [Unreleased]
 
 
+## [2.0.4] - 2022-06-10
+
+### New
+* Add integartion samples.
+
+### Changed
+* Catalyst API became akin to iOS API.
+
+### Fixed
+* [macOS] Setapp Desktop app search issues in rare cases.
+* Cocoapods integration for Objective-C projects with macOS target lower than 10.15.
+
+
 ## [2.0.3] - 2022-05-13
 
 ### Changed
