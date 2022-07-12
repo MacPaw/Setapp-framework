@@ -41,6 +41,16 @@
 	<string>public.app-category.utilities</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSUpdateSecurityPolicy</key>
+	<dict>
+		<key>AllowProcesses</key>
+		<dict>
+			<key>MEHY5QF425</key>
+			<array>
+				<string>com.setapp.DesktopClient.SetappAgent</string>
+			</array>
+		</dict>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -42,6 +42,7 @@
 		688C4F95260C8F55007152F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		689CDD3F262A2E4100E5AFA8 /* setappPublicKey.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = setappPublicKey.pem; sourceTree = "<group>"; };
 		68AC1BA4260E2839009D1DA0 /* .production */ = {isa = PBXFileReference; lastKnownFileType = folder; name = .production; path = ..; sourceTree = "<group>"; };
+		68E6720F286DA391002AC3EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6A3F9B1CA01084764514EE86 /* Pods-SetappSample-macOS-ObjectiveC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetappSample-macOS-ObjectiveC.release.xcconfig"; path = "Target Support Files/Pods-SetappSample-macOS-ObjectiveC/Pods-SetappSample-macOS-ObjectiveC.release.xcconfig"; sourceTree = "<group>"; };
 		87FC69A42C7BF3D625119F6B /* Pods-SetappSample-macOS-ObjectiveC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetappSample-macOS-ObjectiveC.debug.xcconfig"; path = "Target Support Files/Pods-SetappSample-macOS-ObjectiveC/Pods-SetappSample-macOS-ObjectiveC.debug.xcconfig"; sourceTree = "<group>"; };
 		C524C548282A9721005A35B5 /* setappPublicKey.iOS.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = setappPublicKey.iOS.pem; sourceTree = "<group>"; };
@@ -178,6 +179,7 @@
 		C554D1A12812AA430070CB39 /* SetappSample-macOS-ObjectiveC */ = {
 			isa = PBXGroup;
 			children = (
+				68E6720F286DA391002AC3EF /* Info.plist */,
 				C554D1A22812AA430070CB39 /* AppDelegate.h */,
 				C554D1A32812AA430070CB39 /* AppDelegate.m */,
 				C554D1AD2812AA440070CB39 /* main.m */,
@@ -637,6 +639,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SetappSample-macOS-ObjectiveC/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -667,6 +670,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SetappSample-macOS-ObjectiveC/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;

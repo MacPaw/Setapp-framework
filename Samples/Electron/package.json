@@ -1,0 +1,71 @@
+{
+  "name": "setapp_electron_app_demo",
+  "version": "0.0.1",
+  "description": "Setapp Electron App Demo",
+  "author": "Setapp Limited",
+  "main": "app/main.js",
+  "license": {
+    "type": "MIT",
+    "url": "https://choosealicense.com/licenses/mit/"
+  },
+  "dependencies": {
+    "electron-log": "^4.3.5",
+    "setapp-framework": "file:.wrapper"
+  },
+  "devDependencies": {
+    "app-root-dir": "^1.0.2",
+    "electron": ">= 15",
+    "electron-builder": "^22.14.3",
+    "electron-notarize": "^1.2.1"
+  },
+  "build": {
+    "buildVersion": "8",
+    "appId": "com.setapp.fmwk.macos.TestApp-setapp",
+    "productName": "Setapp Electron App Demo",
+    "copyright": "Copyright 2020-2022 Setapp Limited.",
+    "icon": "app/res/SetappIcon.png",
+    "mac": {
+      "extraResources": [
+        {
+          "from": "app/res/setappPublicKey.pem",
+          "to": "setappPublicKey.pem"
+        }
+      ],
+      "entitlements": "scripts/entitlements.mac.plist",
+      "entitlementsInherit": "scripts/entitlements.mac.plist",
+      "gatekeeperAssess": false,
+      "extendInfo": {
+        "NSUpdateSecurityPolicy": {
+          "AllowProcesses": {
+            "MEHY5QF425": [
+              "com.setapp.DesktopClient.SetappUpdater"
+            ]
+          }
+        }
+      },
+      "identity": null,
+      "publish": null,
+      "hardenedRuntime": true,
+      "type": "distribution",
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dir",
+        "zip"
+      ],
+      "files": [
+        "!.wrapper",
+        "!patches",
+        "!scripts",
+        "!dist",
+        "app"
+      ]
+    },
+    "afterSign": "scripts/notarize.js"
+  },
+  "scripts": {
+    "prepare": "ditto ../../package.json ../../binding.gyp .wrapper/; ditto ../../nodejs .wrapper/nodejs; ditto ../../Setapp.xcframework .wrapper/Setapp.xcframework; yarn upgrade @setapp-framework",
+    "start": "electron .",
+    "build": "electron-builder --mac --universal",
+    "postinstall": "electron-builder install-app-deps"
+  }
+}
