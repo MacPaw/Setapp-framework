@@ -1,0 +1,26 @@
+{
+  "name": "setapp-framework",
+  "version": "2.0.5",
+  "description": "Setapp Framework Node.js wrapper",
+  "main": "nodejs/lib/setapp.js",
+  "dependencies": {
+    "node-addon-api": ">= 5.0.0"
+  },
+  "devDependencies": {
+    "electron": ">= 13"
+  },
+  "engines": {
+    "node": ">= 14.17"
+  },
+  "os": [
+    "darwin"
+  ],
+  "files": [
+    "!.assets",
+    "!Samples",
+    "!Sources",
+    "Setapp.xcframework",
+    "binding.gyp",
+    "nodejs"
+  ]
+}

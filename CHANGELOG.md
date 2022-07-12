@@ -1,6 +1,18 @@
 ## [Unreleased]
 
 
+## [2.0.5] - 2022-07-12
+
+### New
+* Node.js wrapper & Electron app sample.
+
+### Updated
+* [macOS] New localizations (uk, pl, nl, zh-Hans, ja, ko).
+
+### Fixed
+* [macOS] Crash when framework was trying to present an error dialog.
+
+
 ## [2.0.4] - 2022-06-10
 
 ### New

@@ -15,12 +15,16 @@
 1. [macOS](#macos-1)
     * [Set an app bundle ID](#set-an-app-bundle-id) 
     * [Add sandbox temporary exception entitlement](#add-sandbox-temporary-exception-entitlement)
-    * [Add public key to your app](#add-a-public-key-to-your-app-1)
+    * [Add a public key to your app](#add-a-public-key-to-your-app-1)
+    * [Allow Setapp to update your app on macOS 13+](#allow-setapp-to-update-your-app-on-macos-13)
     * [Implement the release notes (What's New) functionality](#implement-the-release-notes-whats-new-functionality)
     * [Add an email subscription form](#add-an-email-subscription-form)
 1. [Use the Vendor API to integrate apps into Setapp](#use-the-vendor-api-to-integrate-apps-into-setapp)
 1. [Logging](#logging)
 1. [Testing your app](#testing-your-app)
+1. [Setapp Framework wrappers](#setapp-framework-wrappers)
+    * [Electron](#electron)
+1. [Integrations samples](#integration-samples)
 
 # Integration requirements
 
@@ -501,8 +505,8 @@ It is critical to use the same bundle ID in the Xcode target of your app and in 
 > ⚠️ You will not be able to change the bundle ID once you set it.
 
 > 📘 A bundle ID is a unique case-sensitive identifier that contains only alphanumeric characters (A-Z, a-z, 0-9), period (.), and hyphen (-). Please note that only the hyphen-minus sign (U+002D) can be used (don't press the Option key). Also, note that you mustn't specify an app version in the bundle ID.  
->
->The string must be written in reverse-DNS format. Example: Your domain is mycompany.com, and your app's name is MyApp. In this case, you can use `com.mycompany.myapp-setapp` as a bundle ID of your app.
+
+> 📘 The string must be written in reverse-DNS format. Example: Your domain is mycompany.com, and your app's name is MyApp. In this case, you can use `com.mycompany.myapp-setapp` as a bundle ID of your app.
 
 
 ## Add sandbox temporary exception entitlement
@@ -540,6 +544,25 @@ To add a public key to your project in Xcode, simply drag the `setappPublicKey.p
 > ⚠️ Please note that public keys for iOS & macOS platforms differ.
 
 
+## Allow Setapp to update your app on macOS 13+
+
+To allow Setapp to update your app on macOS 13 (Ventura) and higher, please add the following to your apps Info.plist file:
+
+```xml
+  <key>NSUpdateSecurityPolicy</key>
+  <dict>
+    <key>AllowProcesses</key>
+    <dict>
+      <key>MEHY5QF425</key>
+      <array>
+        <string>com.setapp.DesktopClient.SetappAgent</string>
+      </array>
+    </dict>
+  </dict>
+```
+
+![NSUpdateSecurityPolicy](.assets/NSUpdateSecurityPolicy.png)
+
 ## Implement the release notes (What's New) functionality
 
 We highly recommend implementing the release notes functionality into your app to improve the user experience. However, the final dicision is up to you.
@@ -569,6 +592,12 @@ To allow users to view release notes anytime they want, add a corresponding opti
 As a developer, you might want to stay in touch with your users on Setapp. We understand this intention and we can provide you with a list of their contacts if users will consent. But first, you need to implement a User Permissions API for asking a user to share their email address. Thus, you can create a permission-based email list of your active users. Later, you can download it directly from your [Developer Account](https://developer.setapp.com/statistics/users-emails). 
 
 To show a dialog box for asking users to share their email with the current application, call the `askUserToShareEmail()` function of the shared `SetappManager`.
+
+```swift
+@IBAction private func showReleaseNotes(_ sender: Any) {
+  SetappManager.shared.askUserToShareEmail()
+}
+```
 
 When a user made a choice, you cannot ask him/her again to change the decision. 
 
@@ -609,7 +638,7 @@ To request the auth code, you must specify these parameters:
 // Make sure an active Setapp subscription is present.
 // See subscription monitoring examples on this page for more info.
 SetappManager.shared.requestAuthorizationCode(
-  clientID: "c1d5ab4a5666fc62983b7a6eaa9b1e53c8318a3ef70c182a",
+  clientID: "your_vendor_api_authorization_code",
   scope: [.applicationAccess]
 ) { result in
   switch result {
@@ -676,6 +705,20 @@ sudo log config --subsystem com.setapp.fmwk --mode "level:debug"
 ## Testing your app
 
 See ["Testing your apps"][doc-testing-your-application] for details.
+
+## Setapp Framework wrappers
+
+### Electron
+
+You can find documentation about integrating Setapp Framework to your Electron app in the [docs/Electron.md](./docs/Electron.md).
+
+## Integration samples
+
+You can find integration samples in the [Samples folder](./Samples).
+There are:
+* `SetappSample-Catalyst` with manually integrated Setapp Framework.
+* `SetappSample-macOS-ObjectiveC` that uses CocoaPods as a dependency manager for Setapp Framework integration.
+* `Electron` apps that utilize our node.js wrapper to integrate Setapp Framework into the Electron app.
 
 ---
 For more details, you can visit ["Integrating the iOS Framework"](https://docs.setapp.com/docs/integrating-the-ios-framework) in Setapp Developer Documentation.
