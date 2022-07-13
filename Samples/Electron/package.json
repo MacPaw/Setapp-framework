@@ -9,8 +9,8 @@
     "url": "https://choosealicense.com/licenses/mit/"
   },
   "dependencies": {
-    "electron-log": "^4.3.5",
-    "setapp-framework": "file:.wrapper"
+    "@setapp/framework-wrapper": "file:.wrapper",
+    "electron-log": "^4.3.5"
   },
   "devDependencies": {
     "app-root-dir": "^1.0.2",
@@ -19,7 +19,7 @@
     "electron-notarize": "^1.2.1"
   },
   "build": {
-    "buildVersion": "8",
+    "buildVersion": "9",
     "appId": "com.setapp.fmwk.macos.TestApp-setapp",
     "productName": "Setapp Electron App Demo",
     "copyright": "Copyright 2020-2022 Setapp Limited.",
@@ -63,7 +63,7 @@
     "afterSign": "scripts/notarize.js"
   },
   "scripts": {
-    "prepare": "ditto ../../package.json ../../binding.gyp .wrapper/; ditto ../../nodejs .wrapper/nodejs; ditto ../../Setapp.xcframework .wrapper/Setapp.xcframework; yarn upgrade @setapp-framework",
+    "prepare": "ditto ../../package.json ../../binding.gyp .wrapper/; ditto ../../nodejs .wrapper/nodejs; ditto ../../Setapp.xcframework .wrapper/Setapp.xcframework; yarn upgrade @setapp/framework-wrapper",
     "start": "electron .",
     "build": "electron-builder --mac --universal",
     "postinstall": "electron-builder install-app-deps"

@@ -1,6 +1,12 @@
 ## [Unreleased]
 
 
+## [2.0.6] - 2022-07-13
+
+### Updated
+* Rename node package from `setapp-framework` to `@setapp/framewrok-wrapper`.
+
+
 ## [2.0.5] - 2022-07-12
 
 ### New

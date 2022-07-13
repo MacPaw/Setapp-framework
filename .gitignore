@@ -99,9 +99,6 @@ fastlane/Preview.html
 fastlane/screenshots/
 fastlane/test_output
 
-# Artifacts
-Setapp.xcframework
-
 # node.js, yarn, electron
 node_modules
 yarn-error.log
