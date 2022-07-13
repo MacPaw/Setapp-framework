@@ -59,6 +59,11 @@
     lodash "^4.17.15"
     tmp-promise "^3.0.2"
 
+"@setapp/framework-wrapper@file:.wrapper":
+  version "2.0.5"
+  dependencies:
+    node-addon-api ">= 5.0.0"
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -1596,11 +1601,6 @@ serialize-error@^7.0.1:
   integrity sha512-8I8TjW5KMOKsZQTvoxjuSIa7foAwPWGOts+6o7sgjz41/qMD9VQHEDxi6PBvK2l0MXUmqZyNpUK+T2tQaaElvw==
   dependencies:
     type-fest "^0.13.1"
-
-"setapp-framework@file:.wrapper":
-  version "2.0.4"
-  dependencies:
-    node-addon-api ">= 5.0.0"
 
 shebang-command@^2.0.0:
   version "2.0.0"

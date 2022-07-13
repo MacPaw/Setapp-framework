@@ -3,7 +3,7 @@ const path = require('path');
 const log = require('electron-log');
 console.log = log.log;
 
-const { SetappManager, SETAPP_USAGE_EVENT, SETAPP_LOG_LEVEL } = require('setapp-framework');
+const { SetappManager, SETAPP_USAGE_EVENT, SETAPP_LOG_LEVEL } = require('@setapp/framework-wrapper');
 
 let mainWindow;
 
