@@ -102,6 +102,6 @@ fastlane/test_output
 # node.js, yarn, electron
 node_modules
 yarn-error.log
-/yarn.lock
+yarn.lock
 /nodejs/lib/binding
-/Samples/electron/dist
+/Samples/Electron/dist

@@ -1,4 +1,4 @@
-# Setapp Framewrok Node.js wrapper
+# Setapp Framework Node.js wrapper
 
 1. [Add `@setapp/framework-wrapper` to your project](#add-setappframework-wrapper-to-your-project)
 1. [Set an app bundle ID](#set-an-app-bundle-id)

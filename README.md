@@ -93,7 +93,7 @@ The Setapp Framework files are located in the `Setapp-framework` folder of the p
 
 Second step is to add the Framework to your project.
 
-Now you have 2 options: Install as package or Install as xcframework. The difference is that package will correctly understand Setapp package type, and with xcframewrok 
+Now you have 2 options: Install as package or Install as xcframework. The difference is that package will correctly understand Setapp package type, and with xcframework 
 
 #### Option 1. Add Setapp framework as package
 

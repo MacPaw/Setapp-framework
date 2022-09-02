@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
-// swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
+// swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -autolink-force-load -enable-library-evolution -static -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
 import BackgroundTasks
 import CommonCrypto
 import Foundation
@@ -56,8 +56,12 @@ extension Setapp.SetappConfiguration : Swift.Codable {
   open func encode(to encoder: Swift.Encoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(STPSubscription) @objcMembers open class SetappSubscription : ObjectiveC.NSObject {
-  @objc final public let isActive: Swift.Bool
-  @objc final public let expirationDate: Foundation.Date?
+  @objc public var isActive: Swift.Bool {
+    @objc get
+  }
+  @objc public var expirationDate: Foundation.Date? {
+    @objc get
+  }
   @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
   @objc override dynamic open var description: Swift.String {
     @objc get
@@ -79,7 +83,7 @@ extension Setapp.SetappManager {
 }
 @_hasMissingDesignatedInitializers @objc(STPManager) open class SetappManager : ObjectiveC.NSObject {
   @objc weak open var delegate: Setapp.SetappManagerDelegate?
-  @objc dynamic open var subscription: Setapp.SetappSubscription {
+  @objc dynamic open var subscription: Setapp.SetappSubscription? {
     @objc get
   }
   @objc deinit
@@ -87,9 +91,9 @@ extension Setapp.SetappManager {
 extension Setapp.SetappManager {
   @objc public static let didChangeSubscriptionNotification: Foundation.NSNotification.Name
   @objc(sharedInstance) public static var shared: Setapp.SetappManager
-  @objc dynamic open var configuration: Setapp.SetappConfiguration {
+  @objc dynamic open var configuration: Setapp.SetappConfiguration? {
     @objc get
-    @objc @available(*, deprecated, renamed: "start(with:)")
+    @objc @available(*, unavailable, renamed: "start(with:)")
     set
   }
   @objc(logLevel) dynamic open class var logLevel: Setapp.SetappLogLevel {
