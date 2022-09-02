@@ -339,7 +339,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// An error object that specifies why the Setapp subscription validation has failed, or
 /// <code>nil</code> if the request was successful.
 ///
-- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nullable)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
 /// Opens Setapp URLs.
 /// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
 ///
@@ -813,7 +813,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// An error object that specifies why the Setapp subscription validation has failed, or
 /// <code>nil</code> if the request was successful.
 ///
-- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nullable)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
 /// Opens Setapp URLs.
 /// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
 ///

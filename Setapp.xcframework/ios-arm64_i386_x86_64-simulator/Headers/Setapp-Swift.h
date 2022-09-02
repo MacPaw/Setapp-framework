@@ -227,6 +227,49 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+
+@class STPStatusMessage;
+@class STPStatusMessageOptions;
+
+SWIFT_PROTOCOL("_TtP6Setapp28STPMessagesPresenterProtocol_")
+@protocol STPMessagesPresenterProtocol
+/// This method will be called if Setapp framework wants to show some message, you should handle it and display corresponding information to user
+/// <ul>
+///   <li>
+///     <ul>
+///       <li>
+///         options: additonal options (<code>fallbackURL</code>, <code>activationTypeString</code>, e.t.c)
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// \param statusMessage message that should be shown to user
+///
+- (void)present:(STPStatusMessage * _Nonnull)statusMessage options:(STPStatusMessageOptions * _Nonnull)options;
+@end
+
+
+SWIFT_CLASS("_TtC6Setapp16STPStatusMessage")
+@interface STPStatusMessage : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC6Setapp23STPStatusMessageOptions")
+@interface STPStatusMessageOptions : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+typedef SWIFT_ENUM(NSInteger, STPStatusMessageType, open) {
+  STPStatusMessageTypeActivationInProgress = 0,
+  STPStatusMessageTypeActivationSuccess = 1,
+  STPStatusMessageTypeError = 2,
+};
+
+
 @class NSBundle;
 @class NSString;
 
@@ -295,6 +338,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
 @class NSError;
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
@@ -327,9 +371,8 @@ SWIFT_CLASS_NAMED("SetappManager")
 ///
 /// \param error An error occurred during unlock operation.
 ///
-- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
 @end
-
 
 
 
@@ -352,7 +395,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// An error object that specifies why the Setapp subscription validation has failed, or
 /// <code>nil</code> if the request was successful.
 ///
-- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nullable)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
 /// Opens Setapp URLs.
 /// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
 ///
@@ -368,6 +411,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 ///
 - (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
+
 
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
@@ -465,6 +509,13 @@ SWIFT_CLASS_NAMED("SetappSubscription")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
+
+
+
+
+
 
 
 
@@ -708,6 +759,49 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+
+@class STPStatusMessage;
+@class STPStatusMessageOptions;
+
+SWIFT_PROTOCOL("_TtP6Setapp28STPMessagesPresenterProtocol_")
+@protocol STPMessagesPresenterProtocol
+/// This method will be called if Setapp framework wants to show some message, you should handle it and display corresponding information to user
+/// <ul>
+///   <li>
+///     <ul>
+///       <li>
+///         options: additonal options (<code>fallbackURL</code>, <code>activationTypeString</code>, e.t.c)
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// \param statusMessage message that should be shown to user
+///
+- (void)present:(STPStatusMessage * _Nonnull)statusMessage options:(STPStatusMessageOptions * _Nonnull)options;
+@end
+
+
+SWIFT_CLASS("_TtC6Setapp16STPStatusMessage")
+@interface STPStatusMessage : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC6Setapp23STPStatusMessageOptions")
+@interface STPStatusMessageOptions : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+typedef SWIFT_ENUM(NSInteger, STPStatusMessageType, open) {
+  STPStatusMessageTypeActivationInProgress = 0,
+  STPStatusMessageTypeActivationSuccess = 1,
+  STPStatusMessageTypeError = 2,
+};
+
+
 @class NSBundle;
 @class NSString;
 
@@ -776,6 +870,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
 @class NSError;
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
@@ -808,9 +903,8 @@ SWIFT_CLASS_NAMED("SetappManager")
 ///
 /// \param error An error occurred during unlock operation.
 ///
-- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
 @end
-
 
 
 
@@ -833,7 +927,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// An error object that specifies why the Setapp subscription validation has failed, or
 /// <code>nil</code> if the request was successful.
 ///
-- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nullable)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
 /// Opens Setapp URLs.
 /// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
 ///
@@ -849,6 +943,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 ///
 - (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
+
 
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
@@ -946,6 +1041,13 @@ SWIFT_CLASS_NAMED("SetappSubscription")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
+
+
+
+
+
 
 
 
@@ -1189,6 +1291,49 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+
+@class STPStatusMessage;
+@class STPStatusMessageOptions;
+
+SWIFT_PROTOCOL("_TtP6Setapp28STPMessagesPresenterProtocol_")
+@protocol STPMessagesPresenterProtocol
+/// This method will be called if Setapp framework wants to show some message, you should handle it and display corresponding information to user
+/// <ul>
+///   <li>
+///     <ul>
+///       <li>
+///         options: additonal options (<code>fallbackURL</code>, <code>activationTypeString</code>, e.t.c)
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// \param statusMessage message that should be shown to user
+///
+- (void)present:(STPStatusMessage * _Nonnull)statusMessage options:(STPStatusMessageOptions * _Nonnull)options;
+@end
+
+
+SWIFT_CLASS("_TtC6Setapp16STPStatusMessage")
+@interface STPStatusMessage : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC6Setapp23STPStatusMessageOptions")
+@interface STPStatusMessageOptions : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+typedef SWIFT_ENUM(NSInteger, STPStatusMessageType, open) {
+  STPStatusMessageTypeActivationInProgress = 0,
+  STPStatusMessageTypeActivationSuccess = 1,
+  STPStatusMessageTypeError = 2,
+};
+
+
 @class NSBundle;
 @class NSString;
 
@@ -1257,6 +1402,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
 @class NSError;
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
@@ -1289,9 +1435,8 @@ SWIFT_CLASS_NAMED("SetappManager")
 ///
 /// \param error An error occurred during unlock operation.
 ///
-- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
 @end
-
 
 
 
@@ -1314,7 +1459,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// An error object that specifies why the Setapp subscription validation has failed, or
 /// <code>nil</code> if the request was successful.
 ///
-- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nullable)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
 /// Opens Setapp URLs.
 /// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
 ///
@@ -1330,6 +1475,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 ///
 - (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
+
 
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
@@ -1427,6 +1573,13 @@ SWIFT_CLASS_NAMED("SetappSubscription")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
+
+
+
+
+
 
 
 

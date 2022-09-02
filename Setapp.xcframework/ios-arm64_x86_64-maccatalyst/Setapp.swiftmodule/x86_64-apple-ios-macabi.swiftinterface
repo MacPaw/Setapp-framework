@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
-// swift-module-flags: -target x86_64-apple-ios13.1-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
+// swift-module-flags: -target x86_64-apple-ios13.1-macabi -enable-objc-interop -autolink-force-load -enable-library-evolution -static -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
 import AppKit
 import CommonCrypto
 import CoreServices
@@ -64,11 +64,11 @@ public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable
 }
 extension Setapp.SetappManager {
   @objc(canOpenURL:) dynamic open func canOpen(url: Foundation.URL) -> Swift.Bool
-  @nonobjc open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: @escaping (Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> Swift.Void) -> Swift.Bool
+  @nonobjc open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: ((Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> Swift.Void)? = nil) -> Swift.Bool
   @available(iOS 13.0, *)
   @objc(canOpenURLContexts:) dynamic open func canOpen(urlContexts: Swift.Set<UIKit.UIOpenURLContext>) -> Swift.Bool
   @available(iOS 13.0, macCatalyst 13.0, *)
-  open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> Swift.Void)
+  open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: ((Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> Swift.Void)? = nil)
   @objc dynamic open var backgroundSessionCompletionHandler: (() -> Swift.Void)? {
     @objc get
     @objc set
@@ -77,7 +77,7 @@ extension Setapp.SetappManager {
 }
 extension Setapp.SetappManager {
   @available(swift, obsoleted: 0.1)
-  @objc(openURL:options:completionHandler:) dynamic open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: @escaping (_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void) -> Swift.Bool
+  @objc(openURL:options:completionHandler:) dynamic open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: ((_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void)? = nil) -> Swift.Bool
   @available(iOS 13.0, *)
   @available(swift, obsoleted: 0.1)
   @objc(openURLContexts:completionHandler:) dynamic open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void)
