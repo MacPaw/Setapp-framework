@@ -276,10 +276,13 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
   STPLogLevelOff = 5,
 };
 
+@class STPSubscription;
 
 /// An object that provides an interface for the Setapp framework.
 SWIFT_CLASS_NAMED("SetappManager")
 @interface STPManager : NSObject
+/// A current Setapp subscription.
+@property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -345,7 +348,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 - (void)askUserToShareEmail;
 @end
 
-@class STPSubscription;
 
 /// A protocol that defines the methods that Setapp manager instances call on their delegates to
 /// handle events, like subscription changes.
@@ -364,9 +366,7 @@ SWIFT_PROTOCOL_NAMED("SetappManagerDelegate")
 /// An object describing current user’s Setapp subscription state.
 SWIFT_CLASS_NAMED("SetappSubscription")
 @interface STPSubscription : NSObject
-/// A Boolean value that is <code>true</code> if a subscription is active, otherwise <code>false</code>.
 @property (nonatomic, readonly) BOOL isActive;
-/// Subscription expiration date.
 @property (nonatomic, readonly, copy) NSDate * _Nullable expirationDate;
 /// Returns a Boolean value that indicates whether the subscription and a given object are
 /// equal.
@@ -680,10 +680,13 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
   STPLogLevelOff = 5,
 };
 
+@class STPSubscription;
 
 /// An object that provides an interface for the Setapp framework.
 SWIFT_CLASS_NAMED("SetappManager")
 @interface STPManager : NSObject
+/// A current Setapp subscription.
+@property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -749,7 +752,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 - (void)askUserToShareEmail;
 @end
 
-@class STPSubscription;
 
 /// A protocol that defines the methods that Setapp manager instances call on their delegates to
 /// handle events, like subscription changes.
@@ -768,9 +770,7 @@ SWIFT_PROTOCOL_NAMED("SetappManagerDelegate")
 /// An object describing current user’s Setapp subscription state.
 SWIFT_CLASS_NAMED("SetappSubscription")
 @interface STPSubscription : NSObject
-/// A Boolean value that is <code>true</code> if a subscription is active, otherwise <code>false</code>.
 @property (nonatomic, readonly) BOOL isActive;
-/// Subscription expiration date.
 @property (nonatomic, readonly, copy) NSDate * _Nullable expirationDate;
 /// Returns a Boolean value that indicates whether the subscription and a given object are
 /// equal.

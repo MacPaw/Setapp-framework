@@ -18,6 +18,9 @@
 		68554845282A74B000E53201 /* LogTextViewTextProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58484FC281BFE7D0048D467 /* LogTextViewTextProvider.swift */; };
 		68554846282A74B000E53201 /* LogsSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5848502281C0A000048D467 /* LogsSmallView.swift */; };
 		68554848282A74C300E53201 /* Setapp in Frameworks */ = {isa = PBXBuildFile; productRef = 68554847282A74C300E53201 /* Setapp */; };
+		686A1EF228BD269200F57035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 688C4F66260C8D7B007152F6 /* Main.storyboard */; };
+		686A1EF328BD26B900F57035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 688C4F69260C8D7D007152F6 /* Assets.xcassets */; };
+		686A1EF428BD275D00F57035 /* setappPublicKey.pem in Resources */ = {isa = PBXBuildFile; fileRef = 689CDD3F262A2E4100E5AFA8 /* setappPublicKey.pem */; };
 		8D12126760A3A8D7366B5077 /* libPods-SetappSample-macOS-ObjectiveC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF4F7B4B726DB3BA77018F4 /* libPods-SetappSample-macOS-ObjectiveC.a */; };
 		C524C549282A9721005A35B5 /* setappPublicKey.iOS.pem in Resources */ = {isa = PBXBuildFile; fileRef = C524C548282A9721005A35B5 /* setappPublicKey.iOS.pem */; };
 		C554D1A42812AA430070CB39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C554D1A32812AA430070CB39 /* AppDelegate.m */; };
@@ -341,7 +344,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				686A1EF428BD275D00F57035 /* setappPublicKey.pem in Resources */,
 				C524C549282A9721005A35B5 /* setappPublicKey.iOS.pem in Resources */,
+				686A1EF328BD26B900F57035 /* Assets.xcassets in Resources */,
+				686A1EF228BD269200F57035 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
