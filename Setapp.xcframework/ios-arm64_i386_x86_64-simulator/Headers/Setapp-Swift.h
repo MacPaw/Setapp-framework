@@ -232,9 +232,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class STPStatusMessage;
 @class STPStatusMessageOptions;
 
+/// Conforming type should implement Setapp alert presentation
+/// logic to notify users about sobscription status changes
 SWIFT_PROTOCOL("_TtP6Setapp28STPMessagesPresenterProtocol_")
 @protocol STPMessagesPresenterProtocol
-/// This method will be called if Setapp framework wants to show some message, you should handle it and display corresponding information to user
+/// This method will be called if Setapp framework wants to show some message,
+/// you should handle it and display corresponding information to user
 /// <ul>
 ///   <li>
 ///     <ul>
@@ -333,7 +336,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// An object that handles Setapp subscription updates.
 @property (nonatomic, weak) id <STPManagerDelegate> _Nullable delegate;
 /// A current Setapp subscription.
-@property (nonatomic, readonly, strong) STPSubscription * _Nonnull subscription;
+@property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -365,12 +368,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 @class UIViewController;
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
-/// Returns a view controller for the result of the openURL’s completion handler:
-/// <code>openURLContexts:completionHandler:</code> or <code>openURL:options:completionHandler:</code>.
-/// \param setappSubscription A Setapp subscription.
-///
-/// \param error An error occurred during unlock operation.
-///
 - (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
 @end
 
@@ -443,8 +440,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) STPManager * _Nonnull sharedInstance;)
 + (STPManager * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
 + (void)setSharedInstance:(STPManager * _Nonnull)value;
-/// A current Setapp configuration. Default value: <code>SetappConfiguration.default</code>.
-@property (nonatomic, strong) STPConfiguration * _Nonnull configuration;
+/// A current Setapp configuration. Default value: <code>nil</code>.
+@property (nonatomic, strong) STPConfiguration * _Nullable configuration;
 /// Current log level.
 /// Default value: <code>SetappLogLevel.info</code>.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
@@ -491,9 +488,7 @@ SWIFT_PROTOCOL_NAMED("SetappManagerDelegate")
 /// An object describing current user’s Setapp subscription state.
 SWIFT_CLASS_NAMED("SetappSubscription")
 @interface STPSubscription : NSObject
-/// A Boolean value that is <code>true</code> if a subscription is active, otherwise <code>false</code>.
 @property (nonatomic, readonly) BOOL isActive;
-/// Subscription expiration date.
 @property (nonatomic, readonly, copy) NSDate * _Nullable expirationDate;
 /// Returns a Boolean value that indicates whether the subscription and a given object are
 /// equal.
@@ -764,9 +759,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class STPStatusMessage;
 @class STPStatusMessageOptions;
 
+/// Conforming type should implement Setapp alert presentation
+/// logic to notify users about sobscription status changes
 SWIFT_PROTOCOL("_TtP6Setapp28STPMessagesPresenterProtocol_")
 @protocol STPMessagesPresenterProtocol
-/// This method will be called if Setapp framework wants to show some message, you should handle it and display corresponding information to user
+/// This method will be called if Setapp framework wants to show some message,
+/// you should handle it and display corresponding information to user
 /// <ul>
 ///   <li>
 ///     <ul>
@@ -865,7 +863,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// An object that handles Setapp subscription updates.
 @property (nonatomic, weak) id <STPManagerDelegate> _Nullable delegate;
 /// A current Setapp subscription.
-@property (nonatomic, readonly, strong) STPSubscription * _Nonnull subscription;
+@property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -897,12 +895,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 @class UIViewController;
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
-/// Returns a view controller for the result of the openURL’s completion handler:
-/// <code>openURLContexts:completionHandler:</code> or <code>openURL:options:completionHandler:</code>.
-/// \param setappSubscription A Setapp subscription.
-///
-/// \param error An error occurred during unlock operation.
-///
 - (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
 @end
 
@@ -975,8 +967,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) STPManager * _Nonnull sharedInstance;)
 + (STPManager * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
 + (void)setSharedInstance:(STPManager * _Nonnull)value;
-/// A current Setapp configuration. Default value: <code>SetappConfiguration.default</code>.
-@property (nonatomic, strong) STPConfiguration * _Nonnull configuration;
+/// A current Setapp configuration. Default value: <code>nil</code>.
+@property (nonatomic, strong) STPConfiguration * _Nullable configuration;
 /// Current log level.
 /// Default value: <code>SetappLogLevel.info</code>.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
@@ -1023,9 +1015,7 @@ SWIFT_PROTOCOL_NAMED("SetappManagerDelegate")
 /// An object describing current user’s Setapp subscription state.
 SWIFT_CLASS_NAMED("SetappSubscription")
 @interface STPSubscription : NSObject
-/// A Boolean value that is <code>true</code> if a subscription is active, otherwise <code>false</code>.
 @property (nonatomic, readonly) BOOL isActive;
-/// Subscription expiration date.
 @property (nonatomic, readonly, copy) NSDate * _Nullable expirationDate;
 /// Returns a Boolean value that indicates whether the subscription and a given object are
 /// equal.
@@ -1296,9 +1286,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class STPStatusMessage;
 @class STPStatusMessageOptions;
 
+/// Conforming type should implement Setapp alert presentation
+/// logic to notify users about sobscription status changes
 SWIFT_PROTOCOL("_TtP6Setapp28STPMessagesPresenterProtocol_")
 @protocol STPMessagesPresenterProtocol
-/// This method will be called if Setapp framework wants to show some message, you should handle it and display corresponding information to user
+/// This method will be called if Setapp framework wants to show some message,
+/// you should handle it and display corresponding information to user
 /// <ul>
 ///   <li>
 ///     <ul>
@@ -1397,7 +1390,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// An object that handles Setapp subscription updates.
 @property (nonatomic, weak) id <STPManagerDelegate> _Nullable delegate;
 /// A current Setapp subscription.
-@property (nonatomic, readonly, strong) STPSubscription * _Nonnull subscription;
+@property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1429,12 +1422,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 @class UIViewController;
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
-/// Returns a view controller for the result of the openURL’s completion handler:
-/// <code>openURLContexts:completionHandler:</code> or <code>openURL:options:completionHandler:</code>.
-/// \param setappSubscription A Setapp subscription.
-///
-/// \param error An error occurred during unlock operation.
-///
 - (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
 @end
 
@@ -1507,8 +1494,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) STPManager * _Nonnull sharedInstance;)
 + (STPManager * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
 + (void)setSharedInstance:(STPManager * _Nonnull)value;
-/// A current Setapp configuration. Default value: <code>SetappConfiguration.default</code>.
-@property (nonatomic, strong) STPConfiguration * _Nonnull configuration;
+/// A current Setapp configuration. Default value: <code>nil</code>.
+@property (nonatomic, strong) STPConfiguration * _Nullable configuration;
 /// Current log level.
 /// Default value: <code>SetappLogLevel.info</code>.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
@@ -1555,9 +1542,7 @@ SWIFT_PROTOCOL_NAMED("SetappManagerDelegate")
 /// An object describing current user’s Setapp subscription state.
 SWIFT_CLASS_NAMED("SetappSubscription")
 @interface STPSubscription : NSObject
-/// A Boolean value that is <code>true</code> if a subscription is active, otherwise <code>false</code>.
 @property (nonatomic, readonly) BOOL isActive;
-/// Subscription expiration date.
 @property (nonatomic, readonly, copy) NSDate * _Nullable expirationDate;
 /// Returns a Boolean value that indicates whether the subscription and a given object are
 /// equal.

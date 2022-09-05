@@ -1,5 +1,14 @@
 ## [Unreleased]
 
+## [2.0.7] - 2022-09-02
+
+### New
+* [macOS] Drag and Drop QR code in QR Code Generator (e.g. to iOS Simulator).
+
+### Fixed
+* [iOS] Activation issues for various scenarios.
+* [iOS] Subscription update via KVO.
+
 
 ## [2.0.6] - 2022-07-13
 

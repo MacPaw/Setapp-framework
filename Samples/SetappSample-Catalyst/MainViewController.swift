@@ -91,10 +91,11 @@ extension MainViewController {
 private
 extension MainViewController
 {
-  private func updateSubscriptionStatus(with newSetappSubscription: SetappSubscription) {
-    subscriptionView.updateSubscriptionState("\(newSetappSubscription.isActive)".capitalized)
-    subscriptionView.updateExpirationDate(newSetappSubscription.expirationDate)
-  }
+    private func updateSubscriptionStatus(with newSetappSubscription: SetappSubscription?) {
+        let subscriptionState = newSetappSubscription.flatMap { "\($0.isActive)" } ?? "undetermined"
+        subscriptionView.updateSubscriptionState(subscriptionState)
+        subscriptionView.updateExpirationDate(newSetappSubscription?.expirationDate)
+    }
 }
 
 // MARK: - Setup UI

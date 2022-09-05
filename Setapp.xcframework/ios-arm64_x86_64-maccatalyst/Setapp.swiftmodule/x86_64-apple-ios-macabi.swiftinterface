@@ -14,8 +14,7 @@ import UIKit
 import _Concurrency
 import os
 @_hasMissingDesignatedInitializers @objc(STPManager) open class SetappManager : ObjectiveC.NSObject {
-  @objc weak open var delegate: Setapp.SetappManagerDelegate?
-  @objc dynamic open var subscription: Setapp.SetappSubscription {
+  @objc dynamic open var subscription: Setapp.SetappSubscription? {
     @objc get
   }
   @objc deinit
@@ -121,8 +120,12 @@ extension Setapp.SetappLogLevel : Swift.CaseIterable {
   @objc func setappManager(_ manager: Setapp.SetappManager, didUpdateSubscriptionTo newSetappSubscription: Setapp.SetappSubscription)
 }
 @_hasMissingDesignatedInitializers @objc(STPSubscription) @objcMembers open class SetappSubscription : ObjectiveC.NSObject {
-  @objc final public let isActive: Swift.Bool
-  @objc final public let expirationDate: Foundation.Date?
+  @objc public var isActive: Swift.Bool {
+    @objc get
+  }
+  @objc public var expirationDate: Foundation.Date? {
+    @objc get
+  }
   @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
   @objc override dynamic open var description: Swift.String {
     @objc get
