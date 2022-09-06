@@ -16,6 +16,9 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target   = '10.0'
   s.ios.frameworks          = 'Security', 'UIKit'
+  s.ios.resource_bundles = {
+    'SetappResources_iOS_cocoapods' => ['SetappFramework-Resources-iOS.bundle']
+  }
 
   s.osx.deployment_target   = '10.10'
   s.osx.frameworks          = 'Security', 'AppKit'

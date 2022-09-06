@@ -108,6 +108,7 @@ Now you have 2 options: Install as package or Install as xcframework. The differ
 1. Choose General tab.
 1. Press `+` in the Frameworks, Libraries, and Embedded Content section.
 1. Choose `Setapp` library in `Workspace`/`Setapp` group.
+1. (iOS only) 
 
 #### Option 2. Install as xcframework
 

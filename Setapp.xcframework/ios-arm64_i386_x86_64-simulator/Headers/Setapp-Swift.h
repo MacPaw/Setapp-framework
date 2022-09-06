@@ -342,6 +342,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 @end
 
 
+
 @class NSError;
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
@@ -370,7 +371,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 @interface STPManager (SWIFT_EXTENSION(Setapp))
 - (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
 @end
-
 
 
 @class NSURL;
@@ -869,6 +869,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 @end
 
 
+
 @class NSError;
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
@@ -897,7 +898,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 @interface STPManager (SWIFT_EXTENSION(Setapp))
 - (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
 @end
-
 
 
 @class NSURL;
@@ -1396,6 +1396,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 @end
 
 
+
 @class NSError;
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
@@ -1424,7 +1425,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 @interface STPManager (SWIFT_EXTENSION(Setapp))
 - (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
 @end
-
 
 
 @class NSURL;

@@ -34,6 +34,9 @@
 
 /* Begin PBXFileReference section */
 		0CF4F7B4B726DB3BA77018F4 /* libPods-SetappSample-macOS-ObjectiveC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SetappSample-macOS-ObjectiveC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		19792FDB28C7456400EA21C0 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		19792FDC28C7456400EA21C0 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		19792FDD28C7456400EA21C0 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		68554824282A732F00E53201 /* SetappSample-Catalyst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SetappSample-Catalyst.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		688C4F60260C8D7B007152F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		688C4F62260C8D7B007152F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -327,6 +330,7 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
 			);
 			mainGroup = 688C4F54260C8D7A007152F6;
 			productRefGroup = 688C4F5E260C8D7B007152F6 /* Products */;
@@ -424,6 +428,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				688C4F67260C8D7B007152F6 /* Base */,
+				19792FDB28C7456400EA21C0 /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				688C4F6C260C8D7D007152F6 /* Base */,
+				19792FDC28C7456400EA21C0 /* uk */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -440,6 +446,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C554D1AB2812AA440070CB39 /* Base */,
+				19792FDD28C7456400EA21C0 /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
