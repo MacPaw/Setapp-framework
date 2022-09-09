@@ -263,7 +263,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) STPConfigura
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-
 /// Setapp log levels.
 typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 /// Error, warning, information, debug, and verbose logs.
@@ -281,12 +280,31 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 };
 
 @class STPSubscription;
+@class NSURL;
+@class UIOpenURLContext;
 
 /// An object that provides an interface for the Setapp framework.
 SWIFT_CLASS_NAMED("SetappManager")
 @interface STPManager : NSObject
 /// A current Setapp subscription.
 @property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
+/// Returns <code>true</code> if a URL can be processed by the Setapp iOS Framework; otherwise <code>false</code>.
+/// \param url A URL to validate.
+///
+- (BOOL)canOpenURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
+/// Returns <code>true</code> if at least one of the URL contexts could be opened by the Setapp iOS Framework,
+/// otherwise <code>false</code>.
+/// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
+///
+- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
+/// A handler to call after handling background URL session events.
+@property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
+/// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
+/// Returns <code>true</code> if a provided identifier represents background Setapp URL session,
+/// otherwise - <code>false</code>.
+/// \param identifier The identifier of the URL session to check.
+///
+- (BOOL)isSetappBackgroundSessionIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -316,10 +334,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 
 
 
-
-@class NSURL;
-@class UIOpenURLContext;
-
 @interface STPManager (SWIFT_EXTENSION(Setapp))
 /// Attempts to open a Setapp URL.
 /// \param url A URL to open.
@@ -336,7 +350,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// An error object that specifies why the Setapp subscription validation has failed, or
 /// <code>nil</code> if the request was successful.
 ///
-- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nullable)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
 /// Opens Setapp URLs.
 /// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
 ///
@@ -353,26 +367,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 - (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
 
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
-/// Returns <code>true</code> if a URL can be processed by the Setapp iOS Framework; otherwise <code>false</code>.
-/// \param url A URL to validate.
-///
-- (BOOL)canOpenURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
-/// Returns <code>true</code> if at least one of the URL contexts could be opened by the Setapp iOS Framework,
-/// otherwise <code>false</code>.
-/// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
-///
-- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
-/// A handler to call after handling background URL session events.
-@property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
-/// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
-/// Returns <code>true</code> if a provided identifier represents background Setapp URL session,
-/// otherwise - <code>false</code>.
-/// \param identifier The identifier of the URL session to check.
-///
-- (BOOL)isSetappBackgroundSessionIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
-@end
 
 enum STPUsageEvent : NSInteger;
 
@@ -732,7 +726,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) STPConfigura
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-
 /// Setapp log levels.
 typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 /// Error, warning, information, debug, and verbose logs.
@@ -750,12 +743,31 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 };
 
 @class STPSubscription;
+@class NSURL;
+@class UIOpenURLContext;
 
 /// An object that provides an interface for the Setapp framework.
 SWIFT_CLASS_NAMED("SetappManager")
 @interface STPManager : NSObject
 /// A current Setapp subscription.
 @property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
+/// Returns <code>true</code> if a URL can be processed by the Setapp iOS Framework; otherwise <code>false</code>.
+/// \param url A URL to validate.
+///
+- (BOOL)canOpenURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
+/// Returns <code>true</code> if at least one of the URL contexts could be opened by the Setapp iOS Framework,
+/// otherwise <code>false</code>.
+/// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
+///
+- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
+/// A handler to call after handling background URL session events.
+@property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
+/// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
+/// Returns <code>true</code> if a provided identifier represents background Setapp URL session,
+/// otherwise - <code>false</code>.
+/// \param identifier The identifier of the URL session to check.
+///
+- (BOOL)isSetappBackgroundSessionIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -785,10 +797,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 
 
 
-
-@class NSURL;
-@class UIOpenURLContext;
-
 @interface STPManager (SWIFT_EXTENSION(Setapp))
 /// Attempts to open a Setapp URL.
 /// \param url A URL to open.
@@ -805,7 +813,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// An error object that specifies why the Setapp subscription validation has failed, or
 /// <code>nil</code> if the request was successful.
 ///
-- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nullable)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
 /// Opens Setapp URLs.
 /// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
 ///
@@ -822,26 +830,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 - (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
 
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
-/// Returns <code>true</code> if a URL can be processed by the Setapp iOS Framework; otherwise <code>false</code>.
-/// \param url A URL to validate.
-///
-- (BOOL)canOpenURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
-/// Returns <code>true</code> if at least one of the URL contexts could be opened by the Setapp iOS Framework,
-/// otherwise <code>false</code>.
-/// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
-///
-- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
-/// A handler to call after handling background URL session events.
-@property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
-/// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
-/// Returns <code>true</code> if a provided identifier represents background Setapp URL session,
-/// otherwise - <code>false</code>.
-/// \param identifier The identifier of the URL session to check.
-///
-- (BOOL)isSetappBackgroundSessionIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
-@end
 
 enum STPUsageEvent : NSInteger;
 

@@ -17,6 +17,18 @@ import os
   @objc dynamic open var subscription: Setapp.SetappSubscription? {
     @objc get
   }
+  open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
+  @nonobjc open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: @escaping (Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> Swift.Void) -> Swift.Bool
+  @available(iOS 13.0, macCatalyst 13.0, *)
+  open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> Swift.Void)
+  @objc(canOpenURL:) open func canOpen(url: Foundation.URL) -> Swift.Bool
+  @available(iOS 13.0, *)
+  @objc(canOpenURLContexts:) open func canOpen(urlContexts: Swift.Set<UIKit.UIOpenURLContext>) -> Swift.Bool
+  @objc open var backgroundSessionCompletionHandler: (() -> Swift.Void)? {
+    @objc get
+    @objc set
+  }
+  @objc open func isSetappBackgroundSessionIdentifier(_ identifier: Swift.String) -> Swift.Bool
   @objc deinit
 }
 extension Setapp.SetappManager {
@@ -33,23 +45,18 @@ extension Setapp.SetappManager {
   @objc(askUserToShareEmail) dynamic open func askUserToShareEmail()
 }
 public typealias SetappLogHandle = (_ message: Swift.String, _ logLevel: Setapp.SetappLogLevel) -> Swift.Void
-@objc(STPConfiguration) @objcMembers open class SetappConfiguration : ObjectiveC.NSObject {
+@objc(STPConfiguration) @objcMembers open class SetappConfiguration : ObjectiveC.NSObject, Swift.Codable {
   @objc(defaultConfiguration) public static let `default`: Setapp.SetappConfiguration
   @objc final public let publicKeyBundle: Foundation.Bundle
   @objc final public let publicKeyFilename: Swift.String
   @objc(initWithPublicKeyBundle:publicKeyFilename:) public init(publicKeyBundle: Foundation.Bundle?, publicKeyFilename: Swift.String?)
   required public init(from decoder: Swift.Decoder) throws
+  open func encode(to encoder: Swift.Encoder) throws
   @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
   @objc override dynamic open var description: Swift.String {
     @objc get
   }
   @objc deinit
-}
-extension Setapp.SetappConfiguration : Swift.Codable {
-  open func encode(to encoder: Swift.Encoder) throws
-}
-extension Setapp.SetappManager {
-  open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
 }
 extension Setapp.SetappManager {
   @available(swift, obsoleted: 0.1)
@@ -62,21 +69,8 @@ public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable
   public static let applicationAccess: Setapp.VendorAuthorizationScope
 }
 extension Setapp.SetappManager {
-  @objc(canOpenURL:) dynamic open func canOpen(url: Foundation.URL) -> Swift.Bool
-  @nonobjc open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: @escaping (Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> Swift.Void) -> Swift.Bool
-  @available(iOS 13.0, *)
-  @objc(canOpenURLContexts:) dynamic open func canOpen(urlContexts: Swift.Set<UIKit.UIOpenURLContext>) -> Swift.Bool
-  @available(iOS 13.0, macCatalyst 13.0, *)
-  open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> Swift.Void)
-  @objc dynamic open var backgroundSessionCompletionHandler: (() -> Swift.Void)? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic open func isSetappBackgroundSessionIdentifier(_ identifier: Swift.String) -> Swift.Bool
-}
-extension Setapp.SetappManager {
   @available(swift, obsoleted: 0.1)
-  @objc(openURL:options:completionHandler:) dynamic open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: @escaping (_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void) -> Swift.Bool
+  @objc(openURL:options:completionHandler:) dynamic open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: ((_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void)? = nil) -> Swift.Bool
   @available(iOS 13.0, *)
   @available(swift, obsoleted: 0.1)
   @objc(openURLContexts:completionHandler:) dynamic open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void)

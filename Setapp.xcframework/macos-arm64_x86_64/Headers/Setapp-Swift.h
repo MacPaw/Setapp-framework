@@ -259,7 +259,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) STPConfigura
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-
 /// Setapp log levels.
 typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 /// Error, warning, information, debug, and verbose logs.
@@ -286,7 +285,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 @class NSError;
 
@@ -663,7 +661,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) STPConfigura
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-
 /// Setapp log levels.
 typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 /// Error, warning, information, debug, and verbose logs.
@@ -690,7 +687,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 @class NSError;
 

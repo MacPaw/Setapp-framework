@@ -16,6 +16,7 @@ import os
   @objc dynamic open var subscription: Setapp.SetappSubscription? {
     @objc get
   }
+  open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
   @objc deinit
 }
 extension Setapp.SetappManager {
@@ -31,20 +32,18 @@ extension Setapp.SetappManager {
   @objc(askUserToShareEmail) dynamic open func askUserToShareEmail()
 }
 public typealias SetappLogHandle = (_ message: Swift.String, _ logLevel: Setapp.SetappLogLevel) -> Swift.Void
-@objc(STPConfiguration) @objcMembers open class SetappConfiguration : ObjectiveC.NSObject {
+@objc(STPConfiguration) @objcMembers open class SetappConfiguration : ObjectiveC.NSObject, Swift.Codable {
   @objc(defaultConfiguration) public static let `default`: Setapp.SetappConfiguration
   @objc final public let publicKeyBundle: Foundation.Bundle
   @objc final public let publicKeyFilename: Swift.String
   @objc(initWithPublicKeyBundle:publicKeyFilename:) public init(publicKeyBundle: Foundation.Bundle?, publicKeyFilename: Swift.String?)
   required public init(from decoder: Swift.Decoder) throws
+  open func encode(to encoder: Swift.Encoder) throws
   @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
   @objc override dynamic open var description: Swift.String {
     @objc get
   }
   @objc deinit
-}
-extension Setapp.SetappConfiguration : Swift.Codable {
-  open func encode(to encoder: Swift.Encoder) throws
 }
 public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable {
   public init(rawValue: Swift.String)
@@ -102,9 +101,6 @@ extension Setapp.SetappLogLevel : Swift.CustomStringConvertible {
 extension Setapp.SetappLogLevel : Swift.CaseIterable {
   public static var allCases: [Setapp.SetappLogLevel]
   public typealias AllCases = [Setapp.SetappLogLevel]
-}
-extension Setapp.SetappManager {
-  open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
 }
 extension Setapp.SetappManager {
   @available(swift, obsoleted: 0.1)

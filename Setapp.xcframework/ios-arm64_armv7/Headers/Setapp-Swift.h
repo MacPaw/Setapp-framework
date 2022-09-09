@@ -227,6 +227,52 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+
+@class STPStatusMessage;
+@class STPStatusMessageOptions;
+
+/// Conforming type should implement Setapp alert presentation
+/// logic to notify users about sobscription status changes
+SWIFT_PROTOCOL("_TtP6Setapp28STPMessagesPresenterProtocol_")
+@protocol STPMessagesPresenterProtocol
+/// This method will be called if Setapp framework wants to show some message,
+/// you should handle it and display corresponding information to user
+/// <ul>
+///   <li>
+///     <ul>
+///       <li>
+///         options: additonal options (<code>fallbackURL</code>, <code>activationTypeString</code>, e.t.c)
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// \param statusMessage message that should be shown to user
+///
+- (void)present:(STPStatusMessage * _Nonnull)statusMessage options:(STPStatusMessageOptions * _Nullable)options;
+@end
+
+
+SWIFT_CLASS("_TtC6Setapp16STPStatusMessage")
+@interface STPStatusMessage : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC6Setapp23STPStatusMessageOptions")
+@interface STPStatusMessageOptions : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+typedef SWIFT_ENUM(NSInteger, STPStatusMessageType, open) {
+  STPStatusMessageTypeActivationInProgress = 0,
+  STPStatusMessageTypeActivationSuccess = 1,
+  STPStatusMessageTypeError = 2,
+};
+
+
 @class NSBundle;
 @class NSString;
 
@@ -264,7 +310,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) STPConfigura
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-
 /// Setapp log levels.
 typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 /// Error, warning, information, debug, and verbose logs.
@@ -283,6 +328,8 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 
 @protocol STPManagerDelegate;
 @class STPSubscription;
+@class NSURL;
+@class UIOpenURLContext;
 
 /// An object that provides an interface for the Setapp framework.
 SWIFT_CLASS_NAMED("SetappManager")
@@ -291,107 +338,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 @property (nonatomic, weak) id <STPManagerDelegate> _Nullable delegate;
 /// A current Setapp subscription.
 @property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-@class NSError;
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
-/// Requests an authorization code for communication with Setapp backend server.
-/// The code is used to obtain the access & refresh tokens from the Vendor API.
-/// This method requires an active Setapp subscription and an Internet connection,
-/// otherwise the request fails with a corresponding error.
-/// \param clientID A string ID generated for the app’s client in the Setapp developer account.
-///
-/// \param scope An array of case-sensitive strings that specify the scope of functionalities
-/// to be authorized for the app’s client. See the full list of possible values in the
-/// <a href="https://docs.setapp.com/reference#authorization-code-by-setapp-library-grant">Vendor API reference</a>.
-///
-/// \param completionHandler A completion handler to call once the auth code has been fetched.
-/// The handler is executed on the main thread. Accepts one parameter:
-/// <code>result</code>
-/// A <code>Result</code> with a <code>String</code> as a success value if the code has
-/// been fetched successfully. Otherwise, it’s a failure with an error
-/// describing why the request failed.
-///
-- (void)requestAuthorizationCodeWithClientID:(NSString * _Nonnull)clientID scope:(NSArray<NSString *> * _Nonnull)scope completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
-@end
-
-@class UIViewController;
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
-/// Returns a view controller for the result of the openURL’s completion handler:
-/// <code>openURLContexts:completionHandler:</code> or <code>openURL:options:completionHandler:</code>.
-/// \param setappSubscription A Setapp subscription.
-///
-/// \param error An error occurred during unlock operation.
-///
-- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-
-
-@class NSURL;
-@class UIOpenURLContext;
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
-/// Attempts to open a Setapp URL.
-/// \param url A URL to open.
-///
-/// \param options A dictionary of URL handling options.
-///
-/// \param completionHandler A completion handler to call when the Setapp subscription state is
-/// resolved.
-/// The handler will be executed on the main thread. Accepts two parameters:
-/// <code>setappSubscription</code>
-/// <code>SetappSubscription</code> if Setapp subscription has been fetched successfully and is valid,
-/// or <code>nil</code> if the subscription validation fails.
-/// <code>error</code>
-/// An error object that specifies why the Setapp subscription validation has failed, or
-/// <code>nil</code> if the request was successful.
-///
-- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
-/// Opens Setapp URLs.
-/// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
-///
-/// \param completionHandler A completion handler to call when the Setapp subscription state is
-/// resolved.
-/// The handler will be executed on the main thread. Accepts two parameters:
-/// <code>setappSubscription</code>
-/// <code>SetappSubscription</code> if Setapp subscription has been fetched successfully and is valid,
-/// or <code>nil</code> if the subscription validation fails.
-/// <code>error</code>
-/// An error object that specifies why the Setapp subscription validation has failed, or
-/// <code>nil</code> if the request was successful.
-///
-- (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
-@end
-
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
-/// Returns <code>true</code> if a URL can be processed by the Setapp iOS Framework; otherwise <code>false</code>.
-/// \param url A URL to validate.
-///
-- (BOOL)canOpenURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
-/// Returns <code>true</code> if at least one of the URL contexts could be opened by the Setapp iOS Framework,
-/// otherwise <code>false</code>.
-/// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
-///
-- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
-/// A handler to call after handling background URL session events.
-@property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
-/// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
-/// Returns <code>true</code> if a provided identifier represents background Setapp URL session,
-/// otherwise - <code>false</code>.
-/// \param identifier The identifier of the URL session to check.
-///
-- (BOOL)isSetappBackgroundSessionIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
 /// Posted when a current Setapp subscription changes.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull didChangeSubscriptionNotification;)
 + (NSNotificationName _Nonnull)didChangeSubscriptionNotification SWIFT_WARN_UNUSED_RESULT;
@@ -427,6 +373,90 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 /// \param configuration A Setapp configuration to start the framework with.
 ///
 - (void)startWithConfiguration:(STPConfiguration * _Nonnull)configuration;
+/// Returns <code>true</code> if a URL can be processed by the Setapp iOS Framework; otherwise <code>false</code>.
+/// \param url A URL to validate.
+///
+- (BOOL)canOpenURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
+/// Returns <code>true</code> if at least one of the URL contexts could be opened by the Setapp iOS Framework,
+/// otherwise <code>false</code>.
+/// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
+///
+- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
+/// A handler to call after handling background URL session events.
+@property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
+/// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
+/// Returns <code>true</code> if a provided identifier represents background Setapp URL session,
+/// otherwise - <code>false</code>.
+/// \param identifier The identifier of the URL session to check.
+///
+- (BOOL)isSetappBackgroundSessionIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSError;
+
+@interface STPManager (SWIFT_EXTENSION(Setapp))
+/// Requests an authorization code for communication with Setapp backend server.
+/// The code is used to obtain the access & refresh tokens from the Vendor API.
+/// This method requires an active Setapp subscription and an Internet connection,
+/// otherwise the request fails with a corresponding error.
+/// \param clientID A string ID generated for the app’s client in the Setapp developer account.
+///
+/// \param scope An array of case-sensitive strings that specify the scope of functionalities
+/// to be authorized for the app’s client. See the full list of possible values in the
+/// <a href="https://docs.setapp.com/reference#authorization-code-by-setapp-library-grant">Vendor API reference</a>.
+///
+/// \param completionHandler A completion handler to call once the auth code has been fetched.
+/// The handler is executed on the main thread. Accepts one parameter:
+/// <code>result</code>
+/// A <code>Result</code> with a <code>String</code> as a success value if the code has
+/// been fetched successfully. Otherwise, it’s a failure with an error
+/// describing why the request failed.
+///
+- (void)requestAuthorizationCodeWithClientID:(NSString * _Nonnull)clientID scope:(NSArray<NSString *> * _Nonnull)scope completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+@class UIViewController;
+
+@interface STPManager (SWIFT_EXTENSION(Setapp))
+- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
+@end
+
+
+
+
+@interface STPManager (SWIFT_EXTENSION(Setapp))
+/// Attempts to open a Setapp URL.
+/// \param url A URL to open.
+///
+/// \param options A dictionary of URL handling options.
+///
+/// \param completionHandler A completion handler to call when the Setapp subscription state is
+/// resolved.
+/// The handler will be executed on the main thread. Accepts two parameters:
+/// <code>setappSubscription</code>
+/// <code>SetappSubscription</code> if Setapp subscription has been fetched successfully and is valid,
+/// or <code>nil</code> if the subscription validation fails.
+/// <code>error</code>
+/// An error object that specifies why the Setapp subscription validation has failed, or
+/// <code>nil</code> if the request was successful.
+///
+- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nullable)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
+/// Opens Setapp URLs.
+/// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
+///
+/// \param completionHandler A completion handler to call when the Setapp subscription state is
+/// resolved.
+/// The handler will be executed on the main thread. Accepts two parameters:
+/// <code>setappSubscription</code>
+/// <code>SetappSubscription</code> if Setapp subscription has been fetched successfully and is valid,
+/// or <code>nil</code> if the subscription validation fails.
+/// <code>error</code>
+/// An error object that specifies why the Setapp subscription validation has failed, or
+/// <code>nil</code> if the request was successful.
+///
+- (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
 
 
@@ -463,6 +493,13 @@ SWIFT_CLASS_NAMED("SetappSubscription")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
+
+
+
+
+
 
 
 
@@ -706,6 +743,52 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+
+
+@class STPStatusMessage;
+@class STPStatusMessageOptions;
+
+/// Conforming type should implement Setapp alert presentation
+/// logic to notify users about sobscription status changes
+SWIFT_PROTOCOL("_TtP6Setapp28STPMessagesPresenterProtocol_")
+@protocol STPMessagesPresenterProtocol
+/// This method will be called if Setapp framework wants to show some message,
+/// you should handle it and display corresponding information to user
+/// <ul>
+///   <li>
+///     <ul>
+///       <li>
+///         options: additonal options (<code>fallbackURL</code>, <code>activationTypeString</code>, e.t.c)
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+/// \param statusMessage message that should be shown to user
+///
+- (void)present:(STPStatusMessage * _Nonnull)statusMessage options:(STPStatusMessageOptions * _Nullable)options;
+@end
+
+
+SWIFT_CLASS("_TtC6Setapp16STPStatusMessage")
+@interface STPStatusMessage : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC6Setapp23STPStatusMessageOptions")
+@interface STPStatusMessageOptions : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+typedef SWIFT_ENUM(NSInteger, STPStatusMessageType, open) {
+  STPStatusMessageTypeActivationInProgress = 0,
+  STPStatusMessageTypeActivationSuccess = 1,
+  STPStatusMessageTypeError = 2,
+};
+
+
 @class NSBundle;
 @class NSString;
 
@@ -743,7 +826,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) STPConfigura
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-
 /// Setapp log levels.
 typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 /// Error, warning, information, debug, and verbose logs.
@@ -762,6 +844,8 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 
 @protocol STPManagerDelegate;
 @class STPSubscription;
+@class NSURL;
+@class UIOpenURLContext;
 
 /// An object that provides an interface for the Setapp framework.
 SWIFT_CLASS_NAMED("SetappManager")
@@ -770,107 +854,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 @property (nonatomic, weak) id <STPManagerDelegate> _Nullable delegate;
 /// A current Setapp subscription.
 @property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-@class NSError;
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
-/// Requests an authorization code for communication with Setapp backend server.
-/// The code is used to obtain the access & refresh tokens from the Vendor API.
-/// This method requires an active Setapp subscription and an Internet connection,
-/// otherwise the request fails with a corresponding error.
-/// \param clientID A string ID generated for the app’s client in the Setapp developer account.
-///
-/// \param scope An array of case-sensitive strings that specify the scope of functionalities
-/// to be authorized for the app’s client. See the full list of possible values in the
-/// <a href="https://docs.setapp.com/reference#authorization-code-by-setapp-library-grant">Vendor API reference</a>.
-///
-/// \param completionHandler A completion handler to call once the auth code has been fetched.
-/// The handler is executed on the main thread. Accepts one parameter:
-/// <code>result</code>
-/// A <code>Result</code> with a <code>String</code> as a success value if the code has
-/// been fetched successfully. Otherwise, it’s a failure with an error
-/// describing why the request failed.
-///
-- (void)requestAuthorizationCodeWithClientID:(NSString * _Nonnull)clientID scope:(NSArray<NSString *> * _Nonnull)scope completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
-@end
-
-@class UIViewController;
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
-/// Returns a view controller for the result of the openURL’s completion handler:
-/// <code>openURLContexts:completionHandler:</code> or <code>openURL:options:completionHandler:</code>.
-/// \param setappSubscription A Setapp subscription.
-///
-/// \param error An error occurred during unlock operation.
-///
-- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-
-
-@class NSURL;
-@class UIOpenURLContext;
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
-/// Attempts to open a Setapp URL.
-/// \param url A URL to open.
-///
-/// \param options A dictionary of URL handling options.
-///
-/// \param completionHandler A completion handler to call when the Setapp subscription state is
-/// resolved.
-/// The handler will be executed on the main thread. Accepts two parameters:
-/// <code>setappSubscription</code>
-/// <code>SetappSubscription</code> if Setapp subscription has been fetched successfully and is valid,
-/// or <code>nil</code> if the subscription validation fails.
-/// <code>error</code>
-/// An error object that specifies why the Setapp subscription validation has failed, or
-/// <code>nil</code> if the request was successful.
-///
-- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
-/// Opens Setapp URLs.
-/// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
-///
-/// \param completionHandler A completion handler to call when the Setapp subscription state is
-/// resolved.
-/// The handler will be executed on the main thread. Accepts two parameters:
-/// <code>setappSubscription</code>
-/// <code>SetappSubscription</code> if Setapp subscription has been fetched successfully and is valid,
-/// or <code>nil</code> if the subscription validation fails.
-/// <code>error</code>
-/// An error object that specifies why the Setapp subscription validation has failed, or
-/// <code>nil</code> if the request was successful.
-///
-- (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
-@end
-
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
-/// Returns <code>true</code> if a URL can be processed by the Setapp iOS Framework; otherwise <code>false</code>.
-/// \param url A URL to validate.
-///
-- (BOOL)canOpenURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
-/// Returns <code>true</code> if at least one of the URL contexts could be opened by the Setapp iOS Framework,
-/// otherwise <code>false</code>.
-/// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
-///
-- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
-/// A handler to call after handling background URL session events.
-@property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
-/// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
-/// Returns <code>true</code> if a provided identifier represents background Setapp URL session,
-/// otherwise - <code>false</code>.
-/// \param identifier The identifier of the URL session to check.
-///
-- (BOOL)isSetappBackgroundSessionIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
 /// Posted when a current Setapp subscription changes.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull didChangeSubscriptionNotification;)
 + (NSNotificationName _Nonnull)didChangeSubscriptionNotification SWIFT_WARN_UNUSED_RESULT;
@@ -906,6 +889,90 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 /// \param configuration A Setapp configuration to start the framework with.
 ///
 - (void)startWithConfiguration:(STPConfiguration * _Nonnull)configuration;
+/// Returns <code>true</code> if a URL can be processed by the Setapp iOS Framework; otherwise <code>false</code>.
+/// \param url A URL to validate.
+///
+- (BOOL)canOpenURL:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
+/// Returns <code>true</code> if at least one of the URL contexts could be opened by the Setapp iOS Framework,
+/// otherwise <code>false</code>.
+/// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
+///
+- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
+/// A handler to call after handling background URL session events.
+@property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
+/// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
+/// Returns <code>true</code> if a provided identifier represents background Setapp URL session,
+/// otherwise - <code>false</code>.
+/// \param identifier The identifier of the URL session to check.
+///
+- (BOOL)isSetappBackgroundSessionIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSError;
+
+@interface STPManager (SWIFT_EXTENSION(Setapp))
+/// Requests an authorization code for communication with Setapp backend server.
+/// The code is used to obtain the access & refresh tokens from the Vendor API.
+/// This method requires an active Setapp subscription and an Internet connection,
+/// otherwise the request fails with a corresponding error.
+/// \param clientID A string ID generated for the app’s client in the Setapp developer account.
+///
+/// \param scope An array of case-sensitive strings that specify the scope of functionalities
+/// to be authorized for the app’s client. See the full list of possible values in the
+/// <a href="https://docs.setapp.com/reference#authorization-code-by-setapp-library-grant">Vendor API reference</a>.
+///
+/// \param completionHandler A completion handler to call once the auth code has been fetched.
+/// The handler is executed on the main thread. Accepts one parameter:
+/// <code>result</code>
+/// A <code>Result</code> with a <code>String</code> as a success value if the code has
+/// been fetched successfully. Otherwise, it’s a failure with an error
+/// describing why the request failed.
+///
+- (void)requestAuthorizationCodeWithClientID:(NSString * _Nonnull)clientID scope:(NSArray<NSString *> * _Nonnull)scope completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+@class UIViewController;
+
+@interface STPManager (SWIFT_EXTENSION(Setapp))
+- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
+@end
+
+
+
+
+@interface STPManager (SWIFT_EXTENSION(Setapp))
+/// Attempts to open a Setapp URL.
+/// \param url A URL to open.
+///
+/// \param options A dictionary of URL handling options.
+///
+/// \param completionHandler A completion handler to call when the Setapp subscription state is
+/// resolved.
+/// The handler will be executed on the main thread. Accepts two parameters:
+/// <code>setappSubscription</code>
+/// <code>SetappSubscription</code> if Setapp subscription has been fetched successfully and is valid,
+/// or <code>nil</code> if the subscription validation fails.
+/// <code>error</code>
+/// An error object that specifies why the Setapp subscription validation has failed, or
+/// <code>nil</code> if the request was successful.
+///
+- (BOOL)openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options completionHandler:(void (^ _Nullable)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_WARN_UNUSED_RESULT;
+/// Opens Setapp URLs.
+/// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
+///
+/// \param completionHandler A completion handler to call when the Setapp subscription state is
+/// resolved.
+/// The handler will be executed on the main thread. Accepts two parameters:
+/// <code>setappSubscription</code>
+/// <code>SetappSubscription</code> if Setapp subscription has been fetched successfully and is valid,
+/// or <code>nil</code> if the subscription validation fails.
+/// <code>error</code>
+/// An error object that specifies why the Setapp subscription validation has failed, or
+/// <code>nil</code> if the request was successful.
+///
+- (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
 
 
@@ -942,6 +1009,13 @@ SWIFT_CLASS_NAMED("SetappSubscription")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
+
+
+
+
+
 
 
 

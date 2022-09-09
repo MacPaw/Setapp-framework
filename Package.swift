@@ -9,9 +9,14 @@ let package = Package(
     .macOS("10.10"),
   ],
   products: [
-    .library(name: "Setapp", targets: ["Setapp"]),
+    .library(name: "Setapp", targets: ["SetappWrapper"]),
   ],
   targets: [
+    .target(name: "SetappWrapper",
+            dependencies: [.target(name: "Setapp"),
+                           .target(name: "SetappResources-iOS",
+                                   condition: .when(platforms: [.iOS]))]),
     .binaryTarget(name: "Setapp", path: "Setapp.xcframework"),
+    .target(name: "SetappResources-iOS", resources: [.copy("Resources/Bundles/")]),
   ]
 )
