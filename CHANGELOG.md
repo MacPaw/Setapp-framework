@@ -1,5 +1,20 @@
 ## [Unreleased]
 
+
+## [3.0.0] - 2022-09-09
+
+### New
+* [iOS] Support activation type and fallback URL (SET-2228).
+* [iOS] New alerts UI in iOS framework.
+* License updaded
+
+#### Boring stuff
+* Migrate tests to Anka pool.
+* Support of resource bundles
+* Bundle distribution via SPM and Cocoapods
+* Resource bundle CI build
+* Fix Xcode 14 warnings and even more warnings (#SET-2167).
+
 ## [2.0.7] - 2022-09-02
 
 ### New

@@ -114,6 +114,7 @@ Now you have 2 options: Install as package or Install as xcframework. The differ
 > As alternative to the first step with git submodules, you can also download and add the Framework manually by doing these steps:
 > * Download the Framework here: [Setapp.xcframework.zip][github-release-xcframework].
 > * Extract the bundle from the archive and copy the unpacked `Setapp-framework` to your project directory.
+> * (iOS only) Download the iOS resources bundle here: [SetappFramework-Resources-iOS.bundle.zip][github-release-xcframework].
 
 Add the Framework to your project.
 
@@ -122,6 +123,7 @@ Add the Framework to your project.
 1. Click the General settings pane.
 1. Drag `Setapp.xcframework` to the Frameworks, Libraries, and Embedded Content section. 
 1. Choose the `Do Not Embed` option from the menu in the `Embed` column.
+1. (iOS only) Extract the iOS resource bundle from the archive and copy the unpacked `SetappFramework-Resources-iOS.bundle` to your project directory, drag it to your Xcode project and make sure that it's `Target membership` is your application target.
 
 For more detailed information, see ["Link a target to frameworks and libraries"](https://help.apple.com/xcode/mac/current/#/dev51a648b07) in the Xcode Help.
 
@@ -342,9 +344,42 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 ### Display activation result
 
-You may use a Framework’s API to get a view controller and inform Setapp users whether they activated the app successfully.
+Framework displays activation alerts automatically. However, if you want to customize this behavior, you can conform `SetappMessagesPresenterProtocol` by your presenter object and provide it to the framework using the `.setMessagesPresenter(_:)` method of the `shared` instance of the `SetappManager` class
+ 
 
-The completion handlers receive the activation results of the `open(…` methods. Then, you can call the `viewController(for:)` method of the `shared` instance of the `SetappManager` class and display the controller to a user.
+```swift
+
+final class CustomMessagesPresenter: SetappMessagesPresenterProtocol {
+
+    
+
+    func present(_ statusMessage: SetappStatusMessage,
+
+                 options: SetappStatusMessageOptions?) {
+
+        switch statusMessage {
+
+        case .activationInProgress:
+
+            // handle activationInProgress status
+
+        case .activationSuccess:
+
+            // handle activationSuccess status
+
+        case .error(let setappError):
+
+            // handle error, you can switch setappError.errorCode
+
+            // for more detailed info
+
+        }
+
+    }
+
+}
+
+```
 
 ## Monitor subscription status
 
