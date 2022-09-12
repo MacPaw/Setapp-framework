@@ -1,10 +1,14 @@
 ## [Unreleased]
 
+## [3.0.1] - 2022-09-12
+
+### Fixed
+* [iOS] Resources bundle destribution fix. 
 
 ## [3.0.0] - 2022-09-09
 
 ### New
-* [iOS] Support activation type and fallback URL (SET-2228).
+* [iOS] Support activation type and fallback URL.
 * [iOS] New alerts UI in iOS framework.
 * License updaded
 
