@@ -114,8 +114,9 @@ Now you have 2 options: Install as package or Install as xcframework. The differ
 > As alternative to the first step with git submodules, you can also download and add the Framework manually by doing these steps:
 > * Download the Framework here: [Setapp.xcframework.zip][github-release-xcframework].
 > * Extract the bundle from the archive and copy the unpacked `Setapp-framework` to your project directory.
-> * (iOS only) Download the iOS resources bundle here: [SetappFramework-Resources-iOS.bundle.zip][github-release-xcframework].
+> * (iOS only) Download the iOS resources bundle here: [SetappFramework-Resources-iOS.bundle.zip][github-release-ios-resources].
 
+https://github.com/MacPaw/Setapp-framework/releases/download/3.0.0/SetappFramework-Resources-iOS.bundle.zip
 Add the Framework to your project.
 
 1. Open your project in XCode.
@@ -760,6 +761,8 @@ For more details, you can visit ["Integrating the iOS Framework"](https://docs.s
 
 [github-release]: https://github.com/MacPaw/Setapp-framework/releases/latest
 [github-release-xcframework]: https://github.com/MacPaw/Setapp-framework/releases/latest/download/Setapp.xcframework.zip
+[github-release-ios-resources]:
+https://github.com/MacPaw/Setapp-framework/releases/latest/download/SetappFramework-Resources-iOS.bundle.zip
 [github-release-QRCodeGenerator]: https://github.com/MacPaw/Setapp-framework/releases/latest/download/Setapp.QRCodeGenerator.zip
 [doc-setapp-for-ios-overview-requirements]: https://docs.setapp.com/docs/setapp-for-ios-overview#requirements-for-members-and-developers
 [doc-setapp-for-ios-overview-monetization]: ttps://docs.setapp.com/docs/setapp-for-ios-overview#ios-apps-monetization-for-setapp-developers
