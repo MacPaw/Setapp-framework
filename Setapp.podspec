@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                    = 'Setapp'
-  s.version                 = '3.0.1'
+  s.version                 = '3.0.2'
 
   s.summary                 = 'Setapp Framework'
 
@@ -14,13 +14,13 @@ Pod::Spec.new do |s|
   s.swift_version           = '5.6'
   s.requires_arc            = true
 
-  s.ios.deployment_target   = '10.0'
+  s.ios.deployment_target   = '11.0'
   s.ios.frameworks          = 'Security', 'UIKit'
   s.ios.resource_bundles = {
     'SetappResources_iOS_cocoapods' => ['SetappFramework-Resources-iOS.bundle']
   }
 
-  s.osx.deployment_target   = '10.10'
+  s.osx.deployment_target   = '10.13'
   s.osx.frameworks          = 'Security', 'AppKit'
 
   s.vendored_frameworks     = 'Setapp.xcframework'

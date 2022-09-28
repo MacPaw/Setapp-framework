@@ -42,7 +42,7 @@ The Framework doesn’t work with the watchOS and the tvOS yet.
 * The applications must be signed with a Developer ID certificate.
 * Compatibility with the latest macOS version must be tested and confirmed.
 
-    We don’t have strict requirements for supporting macOS versions. Setapp supports macOS versions from 10.15 (Catalina) to 12.0 (Monterey). However, we have a frozen version for our customers who use older than macOS 10.12 (Sierra) - 10.14 (Mojave) versions. So, if your app can support some of the older macOS versions - your revenue could increase.
+    We don’t have strict requirements for supporting macOS versions. Setapp supports macOS versions from 10.15 (Catalina) to 12.0 (Monterey). However, we have a frozen version for our customers who use older macOS 10.13 (High Sierra) - 10.14 (Mojave) versions. So, if your app can support some of the older macOS versions - your revenue could increase.
 
 **Not allowed functionality of macOS apps:**
 * Paid features or app components;
@@ -116,7 +116,6 @@ Now you have 2 options: Install as package or Install as xcframework. The differ
 > * Extract the bundle from the archive and copy the unpacked `Setapp-framework` to your project directory.
 > * (iOS only) Download the iOS resources bundle here: [SetappFramework-Resources-iOS.bundle.zip][github-release-ios-resources].
 
-https://github.com/MacPaw/Setapp-framework/releases/download/3.0.0/SetappFramework-Resources-iOS.bundle.zip
 Add the Framework to your project.
 
 1. Open your project in XCode.
@@ -491,7 +490,7 @@ func application(
   completionHandler: @escaping () -> Void
 )
 {
-  if SetappManager.shared.isSetappBackgroundSessionIdentifier(identifier) {
+  if SetappManager.isSetappBackgroundSessionIdentifier(identifier) {
     SetappManager.shared.backgroundSessionCompletionHandler = completionHandler
   }
 }

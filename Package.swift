@@ -5,8 +5,8 @@ import PackageDescription
 let package = Package(
   name: "Setapp",
   platforms: [
-    .iOS(.v10),
-    .macOS("10.10"),
+    .iOS(.v11),
+    .macOS(.v10_13),
   ],
   products: [
     .library(name: "Setapp", targets: ["SetappWrapper"]),
