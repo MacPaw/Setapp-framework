@@ -1,6 +1,6 @@
 {
   "name": "@setapp/framework-wrapper",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Setapp Framework Node.js wrapper",
   "main": "nodejs/lib/setapp.js",
   "dependencies": {

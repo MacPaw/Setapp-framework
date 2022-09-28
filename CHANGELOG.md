@@ -1,4 +1,13 @@
-## [Unreleased]
+## [3.0.2] - 2022-09-28
+
+### New
+* Activation link options in QR Code Generator.
+
+### Fixes
+* Fixed posiible crash when chacking if it's Setapp background session identifier. Deprecated instance method `isSetappBackgroundSessionIdentifier` and added a new class method with the same name.
+* Skip running background URL session tasks when checkng SwiftUI in preview mode.
+* Fixed fallback URL in QR Code Generator.
+
 
 ## [3.0.1] - 2022-09-12
 
