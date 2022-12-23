@@ -19,7 +19,7 @@
     "electron-notarize": "^1.2.1"
   },
   "build": {
-    "buildVersion": "2",
+    "buildVersion": "3",
     "appId": "com.setapp.fmwk.macos.TestApp-setapp",
     "productName": "Setapp Electron App Demo",
     "copyright": "Copyright 2020-2022 Setapp Limited.",
