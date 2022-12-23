@@ -1,9 +1,29 @@
+## [3.1.1] - 2022-12-23
+
+### Fixed
+* [iOS] Resources bundle integration via SPM.
+
+
+## [3.1.0] - 2022-12-23
+
+### New
+* [iOS] Diagnostics menu.
+
+### Updated
+* [iOS] Use app display name in activation alerts.
+
+### Fixed 
+* [iOS] Public key custom name. 
+* [iOS] SPM warnings.
+* Xcode 13 compatibility.
+
+
 ## [3.0.2] - 2022-09-28
 
 ### New
 * Activation link options in QR Code Generator.
 
-### Fixes
+### Fixed
 * Fixed posiible crash when chacking if it's Setapp background session identifier. Deprecated instance method `isSetappBackgroundSessionIdentifier` and added a new class method with the same name.
 * Skip running background URL session tasks when checkng SwiftUI in preview mode.
 * Fixed fallback URL in QR Code Generator.
