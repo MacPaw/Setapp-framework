@@ -1,3 +1,15 @@
+## [3.1.2] - 2022-12-27
+
+### Fixed
+* [iOS] SPM warnings.
+
+
+## [3.1.1] - 2022-12-23
+
+### Fixed
+* [iOS] Resources bundle integration via SPM.
+
+
 ## [3.1.0] - 2022-12-23
 
 ### New
