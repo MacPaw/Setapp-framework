@@ -9,7 +9,7 @@
     "url": "https://choosealicense.com/licenses/mit/"
   },
   "dependencies": {
-    "@setapp/framework-wrapper": "^3.1.2",
+    "@setapp/framework-wrapper": "https://github.com/MacPaw/Setapp-framework.git#chore/electron-test",
     "electron-log": "^4.3.5"
   },
   "nodeGypRebuild": true,
