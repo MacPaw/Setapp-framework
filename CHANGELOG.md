@@ -1,7 +1,23 @@
+## [3.2.0] - 2023-03-20
+
+### Updated
+* We fully updated a set of sample apps. They are now available for all the test cases. In particular, you can find sample apps for the iOS and macOS platforms; Swift and Objective-C languages; UIKit, AppKit, Mac Catalyst, and SwiftUI interfaces; SPM, CocoaPods, or manual integrations.
+* We updated icons for sample apps so that they have dark backgrounds now.
+
+### Fixed
+* [iOS] When a user activated an iOS app, the notification on activation sometimes did not fit the screen size. We worked on layout issues and fixed them.
+* [iOS] Previously we didn’t handle the blocked subscription case for iOS apps, so we couldn’t explain to users precisely why they could not activate via Setapp. Now we handle this case, and the users know they have blocked subscriptions.
+* [iOS] Users with Setapp subscriptions were signed in via Setapp even after app reinstallation. We fixed this, and now they must re-activate the app.
+* The Electron sample app on Apple Silicon Macs now works smoothly.
+* There was an error in the Setapp Framework integration via CocoaPods, and it’s now fixed.
+* Stability improvements.
+
+
 ## [3.1.2] - 2022-12-27
 
 ### Fixed
 * [iOS] SPM warnings.
+* [Electron] Error while building on Apple Silicon Macs.
 
 
 ## [3.1.1] - 2022-12-23
@@ -18,7 +34,7 @@
 ### Updated
 * [iOS] Use app display name in activation alerts.
 
-### Fixed 
+### Fixed
 * [iOS] Public key custom name. 
 * [iOS] SPM warnings.
 * Xcode 13 compatibility.

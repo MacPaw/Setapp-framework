@@ -1,5 +1,23 @@
-platform :osx, '10.13'
+# AppKit
 
-target 'SetappSample-macOS-ObjectiveC' do
-   pod 'Setapp', :path => '../'
+target 'AppKit Sample (Obj-C, Pods)' do
+  platform :osx, '10.13'
+  pod 'Setapp', :path => '../'
+end
+
+target 'AppKit Sample (Swift, Pods)' do
+  platform :osx, '10.13'
+  pod 'Setapp', :path => '../'
+end
+
+# UIKit
+
+target 'UIKit Sample (Obj-C, Pods)' do
+  platform :ios, '13.0'
+  pod 'Setapp', :path => '../'
+end
+
+target 'UIKit Sample (Swift, Pods)' do
+  platform :ios, '13.0'
+  pod 'Setapp', :path => '../'
 end

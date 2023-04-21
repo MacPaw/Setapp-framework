@@ -14,18 +14,21 @@
     ```diff
     {
       "dependencies": {
-    +   "@setapp/framework-wrapper": "^2.0.6",
+    +   "@setapp/framework-wrapper": "^3.1.2",
         ...
       },
     }
     ```
 
-1. To rebuild the native module to the currently installed Electron version you should have `22.14.3` electron-builder version developer dependency. Also, you will need to add the `postinstall` script hook.
+1. To rebuild the native module to the currently installed Electron version you should have `24.1.1` electron-builder version developer dependency. Also, you will need to add the `postinstall` script hook.
     ##### package.json
     ```diff
     {
       "devDependencies": {
-    +   "electron-builder": "^22.14.3",
+    +   "electron-builder": "^24.1.1",
+    +   "@electron/notarize": "^1.2.1",
+    +   "@electron/universal": "^1.3.4",
+    +   "node-gyp": "^9.3.1",
         ...
       },
       ...
@@ -51,6 +54,37 @@
         "postinstall": "electron-builder install-app-deps"
       },
       ...
+    }
+    ```
+
+1. To avoid node-gyp errors when building an app on Apple Silicon CPU add exceptions to the `build.mac.files` list:
+    ##### package.json
+    ```diff
+    {
+      "build": {
+        "mac": {
+          "files": {
+    +      "!node_modules/@setapp/framework-wrapper/Setapp.xcframework/**/*.*",
+    +      "!node_modules/@setapp/framework-wrapper/build/node_gyp_bins/python3",
+    +      "!node_modules/@setapp/framework-wrapper/bin/**/*.node",
+    +      "!node_modules/**/*.{mk,a,o,h,forge-meta}",
+           ...
+          }
+        }
+      }
+    }
+    ```
+
+1. `@setapp/framework-wrapper` supports macOS Monterey (12.0) and higher, so you'll need to specify minimum target version.
+    ##### package.json
+    ```diff
+    {
+      "build": {
+        "mac": {
+    +     "minimumSystemVersion": "10.13",
+          ...
+        }
+      }
     }
     ```
 
@@ -101,7 +135,7 @@ In macOS 13 (Ventura) Apple introduced a new Privacy Restrictions. Thus to allow
   +       "NSUpdateSecurityPolicy": {
   +         "AllowProcesses": {
   +           "MEHY5QF425": [
-  +             "com.setapp.DesktopClient.SetappUpdater"
+  +             "com.setapp.DesktopClient.SetappAgent"
   +           ]
   +         }
   +       }

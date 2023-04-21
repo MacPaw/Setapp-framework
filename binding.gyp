@@ -23,18 +23,25 @@
         [
           "OS=='mac'",
           {
+            "link_settings": {
+              "libraries": [
+                "$(SDKROOT)/System/Library/Frameworks/AppKit.framework",
+                "$(SDKROOT)/System/Library/Frameworks/Security.framework",
+                "$(SDKROOT)/System/Library/Frameworks/Cocoa.framework",
+                "$(SDKROOT)/System/Library/Frameworks/Foundation.framework",
+                "-Wl,-rpath,/usr/lib/swift",
+                "-L../<(setapp_macos_library_path)",
+                "-lSetapp"
+              ]
+            },
             "xcode_settings": {
               "OTHER_LDFLAGS": [
-                "-force_load ../<(setapp_macos_library_path)/libSetapp.a"
+                "$(inherited)",
+                "-force_load ../<(setapp_macos_library_path)/libSetapp.a",
+                "-ObjC"
               ],
-              "MACOSX_DEPLOYMENT_TARGET": "10.13",
-              "GCC_ENABLE_CPP_EXCEPTIONS": "YES",
-              "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES": "YES",
-              "LD_RUNPATH_SEARCH_PATHS": [
-                "/usr/lib/swift",
-                "@executable_path/../Frameworks",
-                "@loader_path/../Frameworks"
-              ]
+              "MACOSX_DEPLOYMENT_TARGET": "12.0",
+              "GCC_ENABLE_CPP_EXCEPTIONS": "YES"
             }
           }
         ]
