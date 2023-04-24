@@ -1,5 +1,5 @@
 require('dotenv').config({ path: '.env.local' });
-const { notarize } = require('electron-notarize');
+const { notarize } = require('@electron/notarize');
 const fs = require('fs');
 const chalk = require('chalk');
 

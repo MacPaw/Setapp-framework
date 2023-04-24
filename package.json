@@ -1,10 +1,10 @@
 {
   "name": "@setapp/framework-wrapper",
-  "version": "3.1.2",
+  "version": "3.2.0",
   "description": "Setapp Framework Node.js wrapper",
   "main": "nodejs/lib/setapp.js",
   "dependencies": {
-    "node-addon-api": ">= 5.0.0"
+    "node-addon-api": "^6.0.0"
   },
   "devDependencies": {
     "electron": ">= 13"

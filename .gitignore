@@ -105,3 +105,4 @@ yarn-error.log
 yarn.lock
 /nodejs/lib/binding
 /Samples/Electron/dist
+/Samples/Electron/.wrapper

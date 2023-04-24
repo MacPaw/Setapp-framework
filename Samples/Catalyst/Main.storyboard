@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GNv-nW-AxV">
+    <device id="mac" appearance="light" renderMode="macOS">
+        <simulatedSceneSize key="mac" width="800" height="599"/>
+    </device>
+    <accessibilityOverrides dynamicTypePreference="11"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sample App-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SampleApp_Catalyst" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="599"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="tdh-g9-sD6">
+                                <rect key="frame" x="304" y="238" width="193" height="124"/>
+                                <subviews>
+                                    <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="p9G-yh-LNb">
+                                        <rect key="frame" x="57" y="1" width="80" height="79"/>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="NgD-oV-oWd"/>
+                                            <constraint firstAttribute="width" secondItem="p9G-yh-LNb" secondAttribute="height" multiplier="1:1" id="tTZ-Ds-ZYC"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active Setapp Subscription" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpR-ci-LH6">
+                                        <rect key="frame" x="0.0" y="105" width="193" height="19"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                        <color key="textColor" name="SecondaryTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MJj-s4-jgB">
+                                <rect key="frame" x="199" y="491" width="403" height="20"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhA-i1-Ktw">
+                                        <rect key="frame" x="0.0" y="0.0" width="228" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="FBK-dd-3ee"/>
+                                            <constraint firstAttribute="width" constant="228" id="hGK-Lg-kmg"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Request Auth Code"/>
+                                        <variation key="userInterfaceIdiom=mac">
+                                            <mask key="constraints">
+                                                <exclude reference="FBK-dd-3ee"/>
+                                                <exclude reference="hGK-Lg-kmg"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="presentAuthCodeAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qeD-F3-Orr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yJ-kE-dg4">
+                                        <rect key="frame" x="-7" y="-5" width="151" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="228" id="3Ex-MQ-idq"/>
+                                            <constraint firstAttribute="height" constant="40" id="9qO-iR-M1R"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Request Auth Code"/>
+                                        <variation key="userInterfaceIdiom=mac">
+                                            <mask key="constraints">
+                                                <exclude reference="3Ex-MQ-idq"/>
+                                                <exclude reference="9qO-iR-M1R"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="presentAuthCodeAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IAG-kY-j0T"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHF-T8-ouS">
+                                        <rect key="frame" x="140" y="-5" width="158" height="32"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Show Release Notes"/>
+                                        <connections>
+                                            <action selector="showReleaseNotes:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vfw-7D-rqQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNs-RG-XlL">
+                                        <rect key="frame" x="294" y="-5" width="116" height="32"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Ask For Email">
+                                            <color key="titleColor" name="AccentColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="askForEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kih-HW-E9O"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="7yJ-kE-dg4"/>
+                                        <exclude reference="tHF-T8-ouS"/>
+                                        <exclude reference="RNs-RG-XlL"/>
+                                    </mask>
+                                </variation>
+                                <variation key="userInterfaceIdiom=mac">
+                                    <mask key="subviews">
+                                        <exclude reference="dhA-i1-Ktw"/>
+                                        <include reference="7yJ-kE-dg4"/>
+                                        <include reference="tHF-T8-ouS"/>
+                                        <include reference="RNs-RG-XlL"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2X-Ob-rzY">
+                                <rect key="frame" x="16" y="112" width="60" height="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="SecondaryTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MJj-s4-jgB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SeG-hC-kGR"/>
+                            <constraint firstItem="l2X-Ob-rzY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="aYL-Qr-bgg"/>
+                            <constraint firstItem="l2X-Ob-rzY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="mJC-XX-Lee"/>
+                            <constraint firstItem="tdh-g9-sD6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="o1Y-Cr-pGO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MJj-s4-jgB" secondAttribute="bottom" constant="50" id="qUH-0Z-7a6"/>
+                            <constraint firstItem="tdh-g9-sD6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="riJ-km-EPT"/>
+                        </constraints>
+                        <variation key="userInterfaceIdiom=mac">
+                            <mask key="subviews">
+                                <exclude reference="l2X-Ob-rzY"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="aYL-Qr-bgg"/>
+                                <exclude reference="mJC-XX-Lee"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Sample App" largeTitleDisplayMode="always" id="RGM-Iv-KUJ">
+                        <barButtonItem key="rightBarButtonItem" id="1BX-P4-gSv">
+                            <imageReference key="image" image="questionmark.circle.fill" catalog="system" symbolScale="large"/>
+                            <color key="tintColor" name="SecondaryControlColor"/>
+                            <connections>
+                                <action selector="showHelp:" destination="BYZ-38-t0r" id="6gX-dQ-GlB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="l2X-Ob-rzY" id="7iY-ou-wRq"/>
+                        <outlet property="statusImage" destination="p9G-yh-LNb" id="9Um-Ch-Tx3"/>
+                        <outlet property="statusLabel" destination="SpR-ci-LH6" id="LLI-Uy-zh1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="973.95348837209303" y="-1.9313304721030045"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="09X-bg-QcX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GNv-nW-AxV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Nsf-Wu-fxG">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="90"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bKN-pS-e5o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u9B-yc-2zb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75.348837209302332" y="-1.9313304721030045"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkmark.circle" catalog="system" width="128" height="123"/>
+        <image name="questionmark.circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryControlColor">
+            <color red="0.68199998140335083" green="0.68199998140335083" blue="0.69800001382827759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryTextColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.15686274509803921" green="0.80392156862745101" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

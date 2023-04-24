@@ -30,7 +30,7 @@
 
 ### iOS
 
-* The Setapp iOS Framework can be integrated into apps developed with iOS 10.0 or later. 
+* The Setapp Framework can be integrated into apps developed for iOS 11.0 or later. 
 The Framework doesn’t work with the watchOS and the tvOS yet.
 
 * The supported Swift version for the iOS Framework is 5.2 or later.
@@ -123,7 +123,7 @@ Add the Framework to your project.
 1. Click the General settings pane.
 1. Drag `Setapp.xcframework` to the Frameworks, Libraries, and Embedded Content section. 
 1. Choose the `Do Not Embed` option from the menu in the `Embed` column.
-1. (iOS only) Extract the iOS resource bundle from the archive and copy the unpacked `SetappFramework-Resources-iOS.bundle` to your project directory, drag it to your Xcode project and make sure that it's `Target membership` is your application target.
+1. [iOS] Extract the iOS resource bundle from the archive and copy the unpacked `SetappFramework-Resources-iOS.bundle` to your project directory, drag it to your Xcode project and make sure that it's `Target membership` is your application target.
 
 For more detailed information, see ["Link a target to frameworks and libraries"](https://help.apple.com/xcode/mac/current/#/dev51a648b07) in the Xcode Help.
 
@@ -383,7 +383,7 @@ final class CustomMessagesPresenter: SetappMessagesPresenterProtocol {
 
 ## Monitor subscription status
 
-You can monitor the subscription status for the Setapp member who uses your app with the help of the `SetappSubscription` object. 3 monitoring options are available for you: `SetappManager` delegate, notifications, and the Key-Value Observation (KVO).
+You can monitor the subscription status for the Setapp member who uses your app with the help of the `SetappSubscription` object. 3 monitoring options are available for you: `SetappManager` delegate, notifications, and the Key-Value Observation (KVO). You can also monitor subscription using Combine.
 
 ### Delegate
 
@@ -469,9 +469,24 @@ class SetappSubscriptionKVOObserver {
 }
 ```
 
+### Combine
+
+You can use a Combine publisher to monitor Setapp subscription as well. There're two options to do this.
+
+Use `subscription` property publisher directly:
+```swift
+SetappManager.shared.publisher(for: \.subscription)
+```
+
+Use a notification publisher so you can observe the old and the new values:
+```swift
+NotificationCenter.default.publisher(for: SetappManager.didChangeSubscriptionNotification)
+```
+
 ## Configure background tasks
 
 We utilize background tasks to send you a usage report when a user doesn't use your application at the moment. This allows us to ensure that usage tracking is delivered to our servers.
+Note: currently we don't support background tasks for SwiftUI apps. While we're working on this, please reach us to discuss implementing backend-based usage reporting.
 
 To send network requests with usage reports in the background, you must select the `Background fetch` checkbox in the `Background modes` capability group.
 
@@ -751,8 +766,10 @@ You can find documentation about integrating Setapp Framework to your Electron a
 
 You can find integration samples in the [Samples folder](./Samples).
 There are:
-* `SetappSample-Catalyst` with manually integrated Setapp Framework.
-* `SetappSample-macOS-ObjectiveC` that uses CocoaPods as a dependency manager for Setapp Framework integration.
+* `AppKit Sample (Swift|Obj-C, SPM|CocoPods|Manual)` - these samples include both Swift and Objective-C and all available integration tools (SPM, CocoaPods, Manual Integration). Find the details in a target name.
+* `UIKit Sample (Swift|Obj-C, SPM|CocoPods|Manual)` - these samples include both Swift and Objective-C and all available integration tools (SPM, CocoaPods, Manual Integration). Find the details in a target name.
+* `Catalyst Sample` with manually integrated Setapp Framework.
+* `SwiftUI Sample` with manually integrated Setapp Framework.
 * `Electron` apps that utilize our node.js wrapper to integrate Setapp Framework into the Electron app.
 
 ---
