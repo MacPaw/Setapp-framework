@@ -1,4 +1,10 @@
-## [3.2.0] - 2023-03-20
+## [3.2.1] - 2023-04-26
+
+### Fixed
+* Xcode 14.2 (and older) compatibility.
+
+
+## [3.2.0] - 2023-04-20
 
 ### Updated
 * We fully updated a set of sample apps. They are now available for all the test cases. In particular, you can find sample apps for the iOS and macOS platforms; Swift and Objective-C languages; UIKit, AppKit, Mac Catalyst, and SwiftUI interfaces; SPM, CocoaPods, or manual integrations.

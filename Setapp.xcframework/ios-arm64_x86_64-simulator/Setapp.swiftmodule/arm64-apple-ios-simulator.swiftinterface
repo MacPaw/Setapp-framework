@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
 // swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -autolink-force-load -enable-library-evolution -static -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Accelerate
@@ -58,8 +58,8 @@ extension Setapp.SetappLogLevel : Swift.CaseIterable {
   @objc final public let publicKeyBundle: Foundation.Bundle
   @objc final public let publicKeyFilename: Swift.String
   @objc(initWithPublicKeyBundle:publicKeyFilename:) public init(publicKeyBundle: Foundation.Bundle?, publicKeyFilename: Swift.String?)
-  required public init(from decoder: any Swift.Decoder) throws
-  open func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+  open func encode(to encoder: Swift.Encoder) throws
   @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
   @objc override dynamic open var description: Swift.String {
     @objc get
@@ -162,7 +162,7 @@ extension Setapp.SetappManager {
   @objc func present(_ statusMessage: Setapp.STPStatusMessage, options: Setapp.STPStatusMessageOptions?)
 }
 @_hasMissingDesignatedInitializers @objc(STPManager) open class SetappManager : ObjectiveC.NSObject {
-  @objc weak open var delegate: (any Setapp.SetappManagerDelegate)?
+  @objc weak open var delegate: Setapp.SetappManagerDelegate?
   @objc dynamic open var subscription: Setapp.SetappSubscription? {
     @objc get
   }
@@ -178,7 +178,7 @@ extension Setapp.SetappManager {
     @objc set
   }
   @objc(setLogHandle:) open class func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
-  public func setMessagesPresenter(_ messagesPresenter: (any Setapp.SetappMessagesPresenterProtocol)?)
+  public func setMessagesPresenter(_ messagesPresenter: Setapp.SetappMessagesPresenterProtocol?)
   @available(*, unavailable, message: "Instance property is no longer available use the class property instead: \"SetappManager.setLogHandle\".")
   @objc(logLevel) open var logLevel: Setapp.SetappLogLevel {
     @objc get
@@ -188,11 +188,11 @@ extension Setapp.SetappManager {
   @objc(setLogHandle:) open func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
   @objc(startWithConfiguration:) open func start(with configuration: Setapp.SetappConfiguration = .default)
   @available(*, unavailable, message: "`viewController(for result:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `SetappMessagesPresenterProtocol` and set it by `SetappManager.shared.setMessagesPresenter(_:)` call")
-  open func viewController(for result: Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> UIKit.UIViewController
-  open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
-  @nonobjc open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: ((Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void)? = nil) -> Swift.Bool
+  open func viewController(for result: Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> UIKit.UIViewController
+  open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
+  @nonobjc open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: ((Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> Swift.Void)? = nil) -> Swift.Bool
   @available(iOS 13.0, macCatalyst 13.0, *)
-  open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: ((Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void)? = nil)
+  open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: ((Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> Swift.Void)? = nil)
   @objc(canOpenURL:) open func canOpen(url: Foundation.URL) -> Swift.Bool
   @available(iOS 13.0, *)
   @objc(canOpenURLContexts:) open func canOpen(urlContexts: Swift.Set<UIKit.UIOpenURLContext>) -> Swift.Bool
