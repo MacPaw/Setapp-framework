@@ -1,3 +1,9 @@
+## [3.3.0] - 2023-05-22
+
+### New
+* Add `openAI` auth scope that allows to make requests through Setapp servers to AI platforms such as OpenAI.
+
+
 ## [3.2.1] - 2023-04-26
 
 ### Fixed

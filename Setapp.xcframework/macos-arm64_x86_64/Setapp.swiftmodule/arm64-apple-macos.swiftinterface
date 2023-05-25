@@ -52,6 +52,7 @@ public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable
   public typealias RawValue = Swift.String
   public var rawValue: Setapp.VendorAuthorizationScope.RawValue
   public static let applicationAccess: Setapp.VendorAuthorizationScope
+  public static let openAI: Setapp.VendorAuthorizationScope
 }
 @available(*, deprecated, renamed: "SetappManager.shared.reportUsageEvent(_:)")
 public func SCReportUsageEvent(_ eventName: Swift.String, _ eventInfo: [Swift.AnyHashable : Any]?)
