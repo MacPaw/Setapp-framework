@@ -1,5 +1,9 @@
 name: security-scan
-trigger: none
+trigger: 
+  batch: true
+  branches:
+    include:
+    - gh-readonly-queue/*
 pr:
   - master
 
