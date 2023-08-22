@@ -3,6 +3,7 @@
     "module_name": "node_setapp_binding",
     "module_root": "nodejs",
     "module_bindnings_path": "nodejs/lib/binding",
+    "path_for_nodejs_package": "nodejs/lib/binding",
     "setapp_framework_path": "Setapp.xcframework",
     "setapp_macos_library_path": "<(setapp_framework_path)/macos-arm64_x86_64"
   },
@@ -59,6 +60,12 @@
             "<(PRODUCT_DIR)/<(module_name).node"
           ],
           "destination": "<(module_bindnings_path)"
+        }, 
+        {
+          "files": [
+            "<(PRODUCT_DIR)/<(module_name).node"
+          ],
+          "destination": "<(path_for_nodejs_package)"
         }
       ]
     }

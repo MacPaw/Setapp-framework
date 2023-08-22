@@ -1,3 +1,14 @@
+## [3.4.0] - 2023-08-22
+
+### Updated
+* [Electron] Support TypeScript.
+* [Electron] Update Node.js version.
+* [Electron] Discontinued support for Node.js versions: 14, 15, 17, 19 (supported versions: 16, 18, and all versions >=20).
+
+### Fixed
+* `NSError` initialization warning.
+
+
 ## [3.3.0] - 2023-05-22
 
 ### New
