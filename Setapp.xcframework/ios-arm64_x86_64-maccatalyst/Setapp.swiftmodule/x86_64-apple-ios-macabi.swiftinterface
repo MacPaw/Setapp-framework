@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
 // swift-module-flags: -target x86_64-apple-ios13.1-macabi -enable-objc-interop -autolink-force-load -enable-library-evolution -static -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AppKit
@@ -19,10 +19,10 @@ import os
   @objc dynamic open var subscription: Setapp.SetappSubscription? {
     @objc get
   }
-  open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
-  @nonobjc open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: @escaping (Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> Swift.Void) -> Swift.Bool
+  open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
+  @nonobjc open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: @escaping (Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void) -> Swift.Bool
   @available(iOS 13.0, macCatalyst 13.0, *)
-  open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (Swift.Result<Setapp.SetappSubscription, Swift.Error>) -> Swift.Void)
+  open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void)
   @objc(canOpenURL:) open func canOpen(url: Foundation.URL) -> Swift.Bool
   @available(iOS 13.0, *)
   @objc(canOpenURLContexts:) open func canOpen(urlContexts: Swift.Set<UIKit.UIOpenURLContext>) -> Swift.Bool
@@ -54,8 +54,8 @@ public typealias SetappLogHandle = (_ message: Swift.String, _ logLevel: Setapp.
   @objc final public let publicKeyBundle: Foundation.Bundle
   @objc final public let publicKeyFilename: Swift.String
   @objc(initWithPublicKeyBundle:publicKeyFilename:) public init(publicKeyBundle: Foundation.Bundle?, publicKeyFilename: Swift.String?)
-  required public init(from decoder: Swift.Decoder) throws
-  open func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+  open func encode(to encoder: any Swift.Encoder) throws
   @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
   @objc override dynamic open var description: Swift.String {
     @objc get
