@@ -104,5 +104,6 @@ node_modules
 yarn-error.log
 yarn.lock
 /nodejs/lib/binding
+/nodejs/dist
 /Samples/Electron/dist
 /Samples/Electron/.wrapper

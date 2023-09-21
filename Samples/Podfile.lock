@@ -1,5 +1,5 @@
 PODS:
-  - Setapp (3.1.2)
+  - Setapp (3.4.0)
 
 DEPENDENCIES:
   - Setapp (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Setapp: 548f775a2e42b9da83739a643f8f2331ede7ef3d
+  Setapp: e2c1bfbf25fff838d8ee739d388478a8d15258ff
 
-PODFILE CHECKSUM: 675b81bdb621aeb1602e424717e18addbb9c336a
+PODFILE CHECKSUM: 69fd58e343f6a789acedf56b4b23771e18b2532b
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1

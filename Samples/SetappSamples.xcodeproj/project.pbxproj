@@ -1399,6 +1399,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-ObjC-SPM";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1441,6 +1446,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-ObjC-SPM";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1487,6 +1497,11 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_CFLAGS = "SCENE_PREFIX=$(TARGET_NAME)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-SwiftUI";
@@ -1535,6 +1550,11 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_CFLAGS = "SCENE_PREFIX=$(TARGET_NAME)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-SwiftUI";
@@ -1752,6 +1772,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-ObjC-Manual";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1794,6 +1819,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-ObjC-Manual";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1833,6 +1863,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-ObjC-Manual";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1875,6 +1910,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-ObjC-Manual";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1917,6 +1957,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-Swift-SPM";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1960,6 +2005,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-Swift-SPM";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2003,6 +2053,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-Swift-SPM";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2046,6 +2101,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-Swift-SPM";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2089,6 +2149,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-Swift-Manual";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2132,6 +2197,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-Swift-Manual";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2262,6 +2332,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-Swift-Manual";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2305,6 +2380,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-Swift-Manual";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2655,6 +2735,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-ObjC-SPM";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2697,6 +2782,11 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-ObjC-SPM";
 				PROVISIONING_PROFILE_SPECIFIER = "";
