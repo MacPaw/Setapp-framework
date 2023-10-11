@@ -1,9 +1,20 @@
+## [3.5.0] - 2023-10-11
+
+### New
+* [iOS] In order to stay aligned with Apple's latest updates on privacy, we've added a Privacy Manifest. It records the types of data collected by Setapp Framework, and the required reasons APIs. It's stored in the resources bundle (since adding privacy manifests to XCFrameworks with binary libraries currently is not supported) and will be used when generating a privacy report for your app.
+
+### Updated
+* In order to stay aligned with the latest updates from Apple, `Setapp.xcframework` is now signed starting from this version. This enhancement should improve security and avoid warnings in Xcode 15.
+
+
 ## [3.4.1] - 2023-09-18
 
 ### Fixed
-* Fixed a layout issue for Setapp alerts. It appeared at compiling with Xcode 15 for iOS 17.
+* [iOS] Fixed a layout issue for Setapp alerts. It appeared at compiling with Xcode 15 for iOS 17.
+
 ### Updated
 * Missing linker flags added to Sample apps.
+
 
 ## [3.4.0] - 2023-08-22
 
