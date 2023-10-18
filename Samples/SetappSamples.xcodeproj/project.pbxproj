@@ -625,6 +625,7 @@
 			buildConfigurationList = 550EB087290AC6D100FAD77D /* Build configuration list for PBXNativeTarget "AppKit Sample (Obj-C, Pods)" */;
 			buildPhases = (
 				550EB07A290AC6D100FAD77D /* [CP] Check Pods Manifest.lock */,
+				55D81ED62AD83C85008E4220 /* Xcode 15 Workaround */,
 				550EB07B290AC6D100FAD77D /* Sources */,
 				550EB081290AC6D100FAD77D /* Frameworks */,
 				550EB083290AC6D100FAD77D /* Resources */,
@@ -643,6 +644,7 @@
 			buildConfigurationList = 550EB098290AC6E900FAD77D /* Build configuration list for PBXNativeTarget "UIKit Sample (Obj-C, Pods)" */;
 			buildPhases = (
 				4489A21443CB5BF8F9D8AEA9 /* [CP] Check Pods Manifest.lock */,
+				55D81ED82AD83D3C008E4220 /* Xcode 15 Workaround */,
 				550EB08C290AC6E900FAD77D /* Sources */,
 				550EB092290AC6E900FAD77D /* Frameworks */,
 				550EB093290AC6E900FAD77D /* Resources */,
@@ -754,6 +756,7 @@
 			buildConfigurationList = 5540A12829806FEF00FBB865 /* Build configuration list for PBXNativeTarget "AppKit Sample (Swift, Pods)" */;
 			buildPhases = (
 				1F30F20B36CBAD44530BFEFD /* [CP] Check Pods Manifest.lock */,
+				55D81ED72AD83D1A008E4220 /* Xcode 15 Workaround */,
 				5540A11E29806FEF00FBB865 /* Sources */,
 				5540A12229806FEF00FBB865 /* Frameworks */,
 				5540A12429806FEF00FBB865 /* Resources */,
@@ -763,8 +766,6 @@
 			dependencies = (
 			);
 			name = "AppKit Sample (Swift, Pods)";
-			packageProductDependencies = (
-			);
 			productName = "macOS Sample (AppKit, Swift)";
 			productReference = 5540A12B29806FEF00FBB865 /* SampleApp-AppKit-Swift-Pods.app */;
 			productType = "com.apple.product-type.application";
@@ -791,6 +792,7 @@
 			buildConfigurationList = 5540A198298070BB00FBB865 /* Build configuration list for PBXNativeTarget "UIKit Sample (Swift, Pods)" */;
 			buildPhases = (
 				B7BFFEE47AFE032E83C95CE3 /* [CP] Check Pods Manifest.lock */,
+				55D81ED92AD83D55008E4220 /* Xcode 15 Workaround */,
 				5540A18D298070BB00FBB865 /* Sources */,
 				5540A192298070BB00FBB865 /* Frameworks */,
 				5540A194298070BB00FBB865 /* Resources */,
@@ -801,8 +803,6 @@
 			dependencies = (
 			);
 			name = "UIKit Sample (Swift, Pods)";
-			packageProductDependencies = (
-			);
 			productName = "iOS Sample (UIKit, Swift)";
 			productReference = 5540A19B298070BB00FBB865 /* SampleApp-UIKit-Swift-Pods.app */;
 			productType = "com.apple.product-type.application";
@@ -1123,6 +1123,86 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55D81ED62AD83C85008E4220 /* Xcode 15 Workaround */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Xcode 15 Workaround";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Setapp/libSetapp.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This fixes a build error in Xcode 15.\n# Please follow the link on GitHub issue for more details\n# https://github.com/CocoaPods/CocoaPods/issues/12090\n";
+			showEnvVarsInLog = 0;
+		};
+		55D81ED72AD83D1A008E4220 /* Xcode 15 Workaround */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Xcode 15 Workaround";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Setapp/libSetapp.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This fixes a build error in Xcode 15.\n# Please follow the link on GitHub issue for more details\n# https://github.com/CocoaPods/CocoaPods/issues/12090\n";
+			showEnvVarsInLog = 0;
+		};
+		55D81ED82AD83D3C008E4220 /* Xcode 15 Workaround */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Xcode 15 Workaround";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Setapp/libSetapp.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This fixes a build error in Xcode 15.\n# Please follow the link on GitHub issue for more details\n# https://github.com/CocoaPods/CocoaPods/issues/12090\n";
+			showEnvVarsInLog = 0;
+		};
+		55D81ED92AD83D55008E4220 /* Xcode 15 Workaround */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Xcode 15 Workaround";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Setapp/libSetapp.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This fixes a build error in Xcode 15.\n# Please follow the link on GitHub issue for more details\n# https://github.com/CocoaPods/CocoaPods/issues/12090\n";
 			showEnvVarsInLog = 0;
 		};
 		7660FAC8235B2924DB0A41A8 /* [CP] Copy Pods Resources */ = {
