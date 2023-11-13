@@ -65,7 +65,7 @@ playground.xcworkspace
 
 # Swift Package Manager
 #
-# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+# Add this line to avoid checking in source code from Swift Package Manager dependencies.
 # Packages/
 .build/
 .swiftpm/
@@ -80,7 +80,7 @@ Pods/
 
 # Carthage
 #
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
+# Add this line to avoid checking in source code from Carthage dependencies.
 Carthage/Checkouts
 Carthage/Build
 
@@ -90,7 +90,7 @@ Dependencies/
 
 # fastlane
 #
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# It is recommended not to store the screenshots in the git repo. Instead, use fastlane to re-generate the
 # screenshots whenever they are needed.
 # For more information about the recommended setup visit:
 # https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md
@@ -100,9 +100,10 @@ fastlane/screenshots/
 fastlane/test_output
 
 # node.js, yarn, electron
-node_modules
-yarn-error.log
+*.tgz
 yarn.lock
+yarn-error.log
+node_modules/
 /nodejs/lib/binding
 /nodejs/dist
 /Samples/Electron/dist

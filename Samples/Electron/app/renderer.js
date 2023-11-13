@@ -1,22 +1,15 @@
-const requestButton = document.getElementById('request-button');
-const shareEmailButton = document.getElementById('share-email-button');
-const releaseNotesButton = document.getElementById('release-notes-button');
-const clientIDField = document.getElementById('client-id');
-const scopeField = document.getElementById('scope');
-const requestResponseFiled = document.getElementById('response-log');
+const requestAuthCodeButton = document.getElementById('request-auth-code-button');
+const askForEmailButton = document.getElementById('ask-for-email-button');
+const showReleaseNotesButton = document.getElementById('show-release-notes-button');
 
-
-requestButton.addEventListener('click', async () => {
-    const clientID = clientIDField.value;
-    const scope = scopeField.value;
-    const response = await window.electronAPI.requstButtonAction([clientID, scope]);
-    requestResponseFiled.innerHTML = response;
+requestAuthCodeButton.addEventListener('click', () => {
+    window.setappBridge.showRequestAuthCodeForm();
 });
 
-shareEmailButton.addEventListener('click', () => {
-    window.electronAPI.shareEmailButtonAction();
+askForEmailButton.addEventListener('click', () => {
+    window.setappBridge.askForEmail();
 });
 
-releaseNotesButton.addEventListener('click', () => {
-    window.electronAPI.releaseNotesButtonAction();
+showReleaseNotesButton.addEventListener('click', () => {
+    window.setappBridge.showReleaseNotes();
 });

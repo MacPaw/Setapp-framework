@@ -1,3 +1,9 @@
+## [4.0.2] - 2023-11-13
+
+### Fixed
+* [Electron] `npm install` and `yarn install` now work correctly.
+
+
 ## [4.0.0] - 2023-10-18
 
 ### Updated

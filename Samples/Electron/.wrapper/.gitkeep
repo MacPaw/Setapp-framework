@@ -1,2 +1,0 @@
-A @setapp/framework-wrapper module folder to reduce size of a built Electron app.
-You don't need it in production, nither you don't need a `prepare` script in `package.json`.
