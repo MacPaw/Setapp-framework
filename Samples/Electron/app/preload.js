@@ -1,7 +1,8 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
-contextBridge.exposeInMainWorld('electronAPI', {
-    requstButtonAction: (args) => ipcRenderer.invoke('requestAuthorizationCodeBtnClick', args),
-    shareEmailButtonAction: () => ipcRenderer.send('emailBtnClick', []),
-    releaseNotesButtonAction: () => ipcRenderer.send('releaseNotesBtnClick', [])
+contextBridge.exposeInMainWorld('setappBridge', {
+    askForEmail: () => ipcRenderer.send('askForEmail', []),
+    showReleaseNotes: () => ipcRenderer.send('showReleaseNotes', []),
+    showRequestAuthCodeForm: () => ipcRenderer.send('showRequestAuthCodeForm', []),
+    requestAuthCode: (clientID, scopes) => ipcRenderer.send('requestAuthCode', [clientID, scopes])
 })

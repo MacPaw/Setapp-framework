@@ -1,22 +1,20 @@
 {
   "name": "@setapp/framework-wrapper",
-  "version": "4.0.0",
+  "version": "4.0.2",
   "description": "Setapp Framework Node.js wrapper",
-  "main": "nodejs/dist/lib/setapp.js",
+  "main": "./nodejs/dist/lib/setapp.js",
   "scripts": {
-    "prebuild": "rimraf ./nodejs/dist",
     "build": "tsc",
-    "postbuild": "mkdir ./nodejs/dist/lib/binding && cp ./nodejs/lib/binding/node_setapp_binding.node ./nodejs/dist/lib/binding/node_setapp_binding.node",
-    "postinstall": "npm run build"
+    "postbuild": "mkdir ./nodejs/dist/lib/binding && cp ./nodejs/lib/binding/node_setapp_binding.node ./nodejs/dist/lib/binding/node_setapp_binding.node"
   },
+  "types": "./nodejs/dist/setapp.d.ts",
   "dependencies": {
     "node-addon-api": "^7.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.4.5",
     "electron": ">= 13",
-    "rimraf": "^5.0.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "@types/node": "^20.4.5"
   },
   "engines": {
     "node": "^16 || ^18 || >= 20"

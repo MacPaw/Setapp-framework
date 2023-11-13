@@ -1,35 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-        <title>Setapp Client</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    </head>
-    <body>
-        <div>
-            <img class="setapp-icon" src="res/SetappIcon.png">
-        </div>
-        <div class="main-container">
-            <div class="header-text">
-                <p class="app-title">Setapp Client</p>
-                <p class="app-description">Integration with Setapp library</p>
-            </div>
-            <div class="main-actions">
-                <input type="text" id="client-id" placeholder="Client ID">
-                <input type="text" id ="scope" placeholder="Scope (Space Separated)">
-                <div class="buttons-container">
-                <input class="request-button" id="request-button" type="submit" value="Request">
-                <div class="main-buttons">
-                    <input class="share-email-button" id="share-email-button" type="submit" value="Share Email..." onclick="shareEmailButtonClick()">
-                    <input class="release-notes-button" id="release-notes-button" type="submit" value="Release Notes..." onclick="releaseNotesButtonClick()">
-                </div>
-                </div>
-            </div>
-            <div class="logs-container">
-                <p id="response-log" class="logs-text"></p>
-            </div>
-        </div>
-        <script src="renderer.js"></script>
-    </body>
+<head>
+    <title>Sample App</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+      <img src="res/checkmark.circle.svg" alt="Checkmark">
+      <p>Active Setapp Subscription</p>
+  </div>
+  <div class="button-container">
+    <button id="show-release-notes-button">Show Release Notes</button>
+    <button id="ask-for-email-button">Ask for Email</button>
+    <button id="request-auth-code-button">Request Auth Code</button>
+    <script src="renderer.js"></script>
+  </div>
+</body>
 </html>

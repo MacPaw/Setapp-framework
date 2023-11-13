@@ -9,8 +9,7 @@
     "url": "https://choosealicense.com/licenses/mit/"
   },
   "dependencies": {
-    "@setapp/framework-wrapper": "file:.wrapper",
-    "electron-log": "^4.3.5"
+    "@setapp/framework-wrapper": "file:setapp-framework-wrapper.tgz"
   },
   "nodeGypRebuild": true,
   "buildDependenciesFromSource": true,
@@ -23,7 +22,7 @@
     "node-gyp": "^9.4.0"
   },
   "build": {
-    "buildVersion": "12",
+    "buildVersion": "14",
     "appId": "com.setapp.fmwk.macos.TestApp-setapp",
     "productName": "Setapp Electron App Demo",
     "copyright": "Copyright 2020-2023 Setapp Limited.",
@@ -62,7 +61,6 @@
         "!node_modules/@setapp/framework-wrapper/build/node_gyp_bins/python3",
         "!node_modules/@setapp/framework-wrapper/bin/**/*.node",
         "!node_modules/**/*.{mk,a,o,h,forge-meta}",
-        "!.wrapper",
         "!patches",
         "!scripts",
         "!dist",
@@ -72,9 +70,8 @@
     "afterSign": "scripts/notarize.js"
   },
   "scripts": {
-    "prepare": "ditto ../../package.json ../../tsconfig.json ../../binding.gyp .wrapper/; ditto ../../nodejs .wrapper/nodejs; ditto ../../Setapp.xcframework .wrapper/Setapp.xcframework; yarn upgrade @setapp/framework-wrapper",
-    "start": "electron .",
-    "build": "electron-builder --mac --universal",
-    "postinstall": "electron-builder install-app-deps"
+    "preinstall": "npm pack ../.. && mv *.tgz setapp-framework-wrapper.tgz",
+    "postinstall": "electron-builder install-app-deps",
+    "build": "electron-builder --mac --universal"
   }
 }
