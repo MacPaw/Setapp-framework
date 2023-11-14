@@ -63,13 +63,13 @@
     {
       "build": {
         "mac": {
-          "files": {
+          "files": [
     +      "!node_modules/@setapp/framework-wrapper/Setapp.xcframework/**/*.*",
     +      "!node_modules/@setapp/framework-wrapper/build/node_gyp_bins/python3",
     +      "!node_modules/@setapp/framework-wrapper/bin/**/*.node",
     +      "!node_modules/**/*.{mk,a,o,h,forge-meta}",
            ...
-          }
+          ]
         }
       }
     }
