@@ -164,12 +164,12 @@ extension Setapp.SetappManager {
   @objc func present(_ statusMessage: Setapp.STPStatusMessage, options: Setapp.STPStatusMessageOptions?)
 }
 @_hasMissingDesignatedInitializers @objc(STPManager) open class SetappManager : ObjectiveC.NSObject {
+  @objc public static let didChangeSubscriptionNotification: Foundation.NSNotification.Name
+  @objc(sharedInstance) public static var shared: Setapp.SetappManager
   @objc weak open var delegate: (any Setapp.SetappManagerDelegate)?
   @objc dynamic open var subscription: Setapp.SetappSubscription? {
     @objc get
   }
-  @objc public static let didChangeSubscriptionNotification: Foundation.NSNotification.Name
-  @objc(sharedInstance) public static var shared: Setapp.SetappManager
   @objc open var configuration: Setapp.SetappConfiguration? {
     @objc get
     @objc @available(*, unavailable, renamed: "start(with:)")

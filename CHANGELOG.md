@@ -1,3 +1,14 @@
+## [4.1.0] - 2023-12-07
+
+### Updated
+* reCAPTCHA sheet can be dismissed in QR Code Generator.
+* Under the hood improvements.
+* `README.md` file was updated. 
+
+### Fixed
+* reCAPTCHA sheet layout in QR Code Generator.
+
+
 ## [4.0.2] - 2023-11-13
 
 ### Fixed
