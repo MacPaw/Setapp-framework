@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/Headers/Setapp-Swift.h</key>
 		<data>
-		oYACzuakQrnrtcFhF4wZi/havUI=
+		vWORtQVrk0jkhJE/7gjAwnj5IDY=
 		</data>
 		<key>ios-arm64/Headers/Setapp.h</key>
 		<data>
@@ -18,15 +18,15 @@
 		</data>
 		<key>ios-arm64/Setapp.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		K7CKIL9oI/o596e22pdPgP8TOZw=
+		kPHdIO4p9MtrcnOMhJv7AYjFt8Y=
 		</data>
 		<key>ios-arm64/Setapp.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		4oz+OFVbgf9pbTQdZrLmDkMyReQ=
+		xiWX4HDppTsAcjucdp9vyEY6fFQ=
 		</data>
 		<key>ios-arm64/libSetapp.a</key>
 		<data>
-		rNnOXRPVAlKZnIeBad2MDs/inHY=
+		l1k/HzZCut5nIXR/sjCAdVEAxw4=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/Headers/Setapp-Swift.h</key>
 		<data>
@@ -58,11 +58,11 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/libSetapp.a</key>
 		<data>
-		KHh+L94t4KBBgbP0qj5vCvPYpgw=
+		tF5qHw5s47DqJR6yRYoMgt/JJlA=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Headers/Setapp-Swift.h</key>
 		<data>
-		MokXP08ubTqN2sgiHVfaF2hfU0I=
+		XeQ7fRAdM0rvmNkQKg6F+pizo+A=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Headers/Setapp.h</key>
 		<data>
@@ -74,23 +74,23 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Setapp.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		pBDv/wLuLF2tl3kOZZiJ6Mdk+1A=
+		q2uutnwG9znoHGeP7i2oEX55txo=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Setapp.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		e0nWOjxC+ItClYsQ70dGMB7cfcM=
+		UHegMNYoxDeI0xH9azxi6O3YLw4=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Setapp.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		+3EJ9+1BpkxeOiT96NuTD/4CEag=
+		Zpj+vb/NitnvPEVOgV/xuTj/tC4=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Setapp.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		JZccGITT7BKQNL3/upZAAgEy02U=
+		c40zFc2KE4qQNu0Wws0xCCNlqMc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/libSetapp.a</key>
 		<data>
-		YXj+e9oVtTprDXqpF3apZ87uM5Q=
+		gaHJxwWpEdd60jGOchZb/d39qRQ=
 		</data>
 		<key>macos-arm64_x86_64/Headers/Setapp-Swift.h</key>
 		<data>
@@ -122,7 +122,7 @@
 		</data>
 		<key>macos-arm64_x86_64/libSetapp.a</key>
 		<data>
-		qZkfqf+T9pm7wpL5Fnd3NfkcU+0=
+		z0pUT9HAkeg08eGEChk4Rm97VR4=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -131,11 +131,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oYACzuakQrnrtcFhF4wZi/havUI=
+			vWORtQVrk0jkhJE/7gjAwnj5IDY=
 			</data>
 			<key>hash2</key>
 			<data>
-			/tNogE5Ns/4LBfHirU2xmivkILLLdcwJk7hikPoXMKY=
+			OXy4bsopJP0voOehh6E2WJJoLxnQ8doftd0KnMnUVNQ=
 			</data>
 		</dict>
 		<key>ios-arm64/Headers/Setapp.h</key>
@@ -164,33 +164,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			K7CKIL9oI/o596e22pdPgP8TOZw=
+			kPHdIO4p9MtrcnOMhJv7AYjFt8Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			IiBUlAWeDTRFRoudAybG9UBWc4KxrQJVu4r8yfk3IWE=
+			hydzi5ISYRVO6K3r0KW5Wbe62owyaOSkfQ/k3U44G48=
 			</data>
 		</dict>
 		<key>ios-arm64/Setapp.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4oz+OFVbgf9pbTQdZrLmDkMyReQ=
+			xiWX4HDppTsAcjucdp9vyEY6fFQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			+JQxRtL+MSiADH9kAlSCB+jHU+HQ32uMD3Y+KOt1K6s=
+			XCJ/u4J2tg8OZ4SFv2c4pdmiIFh6jPxIyr7FhyOUlzE=
 			</data>
 		</dict>
 		<key>ios-arm64/libSetapp.a</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rNnOXRPVAlKZnIeBad2MDs/inHY=
+			l1k/HzZCut5nIXR/sjCAdVEAxw4=
 			</data>
 			<key>hash2</key>
 			<data>
-			hg7brZV6z4AKNEo/fwnQZjbK9Fh2DtFzebXn4y30/mw=
+			1IxmzZEt0EFGrS9PZUMACC6PiwloxPaKIfkT8V9DoKs=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/Headers/Setapp-Swift.h</key>
@@ -274,22 +274,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KHh+L94t4KBBgbP0qj5vCvPYpgw=
+			tF5qHw5s47DqJR6yRYoMgt/JJlA=
 			</data>
 			<key>hash2</key>
 			<data>
-			S1m0jmNWGJ1VWT6U5FLOtnAJO2M8c2dghXIWyt3nW0k=
+			+fS8iS4pcGDRRgSY3hOERnu3F/AfNm6A5tE1fAJfyLw=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Headers/Setapp-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MokXP08ubTqN2sgiHVfaF2hfU0I=
+			XeQ7fRAdM0rvmNkQKg6F+pizo+A=
 			</data>
 			<key>hash2</key>
 			<data>
-			tdxeOTEjJzPCQisJNBRoqWlo/V6608fpCGUggg0GvfI=
+			9VRoPHNntX6x3Aq7xPmxV5unRlztzG50BLFwzYIqJ80=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Headers/Setapp.h</key>
@@ -318,55 +318,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pBDv/wLuLF2tl3kOZZiJ6Mdk+1A=
+			q2uutnwG9znoHGeP7i2oEX55txo=
 			</data>
 			<key>hash2</key>
 			<data>
-			EzQnxeNOPBxFdcr208xZNjuEQEn13WJOCBIPplMQY3E=
+			jghxjtjrpyxODX17lTjydJJ3/VZ9HpN4OB6qa/IjujA=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Setapp.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			e0nWOjxC+ItClYsQ70dGMB7cfcM=
+			UHegMNYoxDeI0xH9azxi6O3YLw4=
 			</data>
 			<key>hash2</key>
 			<data>
-			JJLCKqhoFIBLKu17NdCujKaFGffjou/EaNjoZbzyveA=
+			d8hcU8pGkNuCOdcZfvsJpDpG/e7iBfJS4JB0QWjB6mo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Setapp.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+3EJ9+1BpkxeOiT96NuTD/4CEag=
+			Zpj+vb/NitnvPEVOgV/xuTj/tC4=
 			</data>
 			<key>hash2</key>
 			<data>
-			JaXvT8q+ZqFlQ6GCE7pwnigQ8lE/m7Ti+V9UNplI05E=
+			X7d+YpbKeCWnys0aCm+u+/RXxOPONyYaPt0tz4PPjdA=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Setapp.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JZccGITT7BKQNL3/upZAAgEy02U=
+			c40zFc2KE4qQNu0Wws0xCCNlqMc=
 			</data>
 			<key>hash2</key>
 			<data>
-			kU/hDfl0D574JF29V7x3mtYCir4A/8/9ySz1mRi4HTU=
+			OadJRAn0kESnYisWAoRFW+JuhAP9iOwgnS/pE4pUoqM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/libSetapp.a</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YXj+e9oVtTprDXqpF3apZ87uM5Q=
+			gaHJxwWpEdd60jGOchZb/d39qRQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			iJfAdoVzns4gY9daN3JyTvCBgIjnBm3WOjt/go5xMcs=
+			pHVoxFtcUGh4HgNe8HbnfnggR+d5e9+OXf7JROn8By4=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/Headers/Setapp-Swift.h</key>
@@ -450,11 +450,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qZkfqf+T9pm7wpL5Fnd3NfkcU+0=
+			z0pUT9HAkeg08eGEChk4Rm97VR4=
 			</data>
 			<key>hash2</key>
 			<data>
-			ORoyYirz13wWA+Iv/07jxB/nUCcHqPwa0+x8xzifJRc=
+			ooQtBdCr4YuY/zXaM2W9d4NetKeRdMAKJJ/uSSuzhMI=
 			</data>
 		</dict>
 	</dict>

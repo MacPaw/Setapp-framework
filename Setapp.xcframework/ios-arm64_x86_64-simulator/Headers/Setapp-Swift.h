@@ -417,10 +417,6 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 /// An object that provides an interface for the Setapp framework.
 SWIFT_CLASS_NAMED("SetappManager")
 @interface STPManager : NSObject
-/// An object that handles Setapp subscription updates.
-@property (nonatomic, weak) id <STPManagerDelegate> _Nullable delegate;
-/// A current Setapp subscription.
-@property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
 /// Posted when a current Setapp subscription changes.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull didChangeSubscriptionNotification;)
 + (NSNotificationName _Nonnull)didChangeSubscriptionNotification SWIFT_WARN_UNUSED_RESULT;
@@ -428,6 +424,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) STPManager * _Nonnull sharedInstance;)
 + (STPManager * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
 + (void)setSharedInstance:(STPManager * _Nonnull)value;
+/// An object that handles Setapp subscription updates.
+@property (nonatomic, weak) id <STPManagerDelegate> _Nullable delegate;
+/// A current Setapp subscription.
+@property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
 /// A current Setapp configuration. Default value: <code>nil</code>.
 @property (nonatomic, strong) STPConfiguration * _Nullable configuration;
 /// Current log level.
@@ -1027,10 +1027,6 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 /// An object that provides an interface for the Setapp framework.
 SWIFT_CLASS_NAMED("SetappManager")
 @interface STPManager : NSObject
-/// An object that handles Setapp subscription updates.
-@property (nonatomic, weak) id <STPManagerDelegate> _Nullable delegate;
-/// A current Setapp subscription.
-@property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
 /// Posted when a current Setapp subscription changes.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull didChangeSubscriptionNotification;)
 + (NSNotificationName _Nonnull)didChangeSubscriptionNotification SWIFT_WARN_UNUSED_RESULT;
@@ -1038,6 +1034,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) STPManager * _Nonnull sharedInstance;)
 + (STPManager * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
 + (void)setSharedInstance:(STPManager * _Nonnull)value;
+/// An object that handles Setapp subscription updates.
+@property (nonatomic, weak) id <STPManagerDelegate> _Nullable delegate;
+/// A current Setapp subscription.
+@property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
 /// A current Setapp configuration. Default value: <code>nil</code>.
 @property (nonatomic, strong) STPConfiguration * _Nullable configuration;
 /// Current log level.
