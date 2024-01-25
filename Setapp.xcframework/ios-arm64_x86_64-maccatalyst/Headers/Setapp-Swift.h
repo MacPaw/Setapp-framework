@@ -423,6 +423,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 
 
 
+
 @interface STPManager (SWIFT_EXTENSION(Setapp))
 /// Attempts to open a Setapp URL.
 /// \param url A URL to open.
@@ -455,7 +456,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 ///
 - (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
-
 
 enum STPUsageEvent : NSInteger;
 
@@ -540,7 +540,6 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPUsageEvent, "SetappUsageEvent", open) {
 /// A user interaction event.
   STPUsageEventUserInteraction = 2,
 };
-
 
 
 
@@ -978,6 +977,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 
 
 
+
 @interface STPManager (SWIFT_EXTENSION(Setapp))
 /// Attempts to open a Setapp URL.
 /// \param url A URL to open.
@@ -1010,7 +1010,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 ///
 - (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
-
 
 enum STPUsageEvent : NSInteger;
 
@@ -1095,7 +1094,6 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPUsageEvent, "SetappUsageEvent", open) {
 /// A user interaction event.
   STPUsageEventUserInteraction = 2,
 };
-
 
 
 

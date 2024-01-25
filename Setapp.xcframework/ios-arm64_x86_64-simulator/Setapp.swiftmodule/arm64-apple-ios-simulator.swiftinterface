@@ -8,7 +8,6 @@ import CommonCrypto
 import CoreGraphics
 import Foundation
 import ImageIO
-import ObjectiveC
 import QuartzCore
 import Security
 import Swift
@@ -198,10 +197,7 @@ extension Setapp.SetappManager {
   @objc(canOpenURL:) open func canOpen(url: Foundation.URL) -> Swift.Bool
   @available(iOS 13.0, *)
   @objc(canOpenURLContexts:) open func canOpen(urlContexts: Swift.Set<UIKit.UIOpenURLContext>) -> Swift.Bool
-  @objc open var backgroundSessionCompletionHandler: (() -> Swift.Void)? {
-    @objc get
-    @objc set
-  }
+  @objc open var backgroundSessionCompletionHandler: (() -> Swift.Void)?
   @objc open class func isSetappBackgroundSessionIdentifier(_ identifier: Swift.String) -> Swift.Bool
   @available(*, deprecated, message: "Instance method is deprecated use the class method instead: \"SetappManager.isSetappBackgroundSessionIdentifier\".")
   @objc open func isSetappBackgroundSessionIdentifier(_ identifier: Swift.String) -> Swift.Bool

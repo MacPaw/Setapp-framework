@@ -310,8 +310,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-
-
 @class STPStatusMessage;
 @class STPStatusMessageOptions;
 
@@ -484,12 +482,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 @end
 
 @class NSError;
-@class UIViewController;
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
-- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
-@end
-
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
 /// Requests an authorization code for communication with Setapp backend server.
@@ -512,6 +504,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 - (void)requestAuthorizationCodeWithClientID:(NSString * _Nonnull)clientID scope:(NSArray<NSString *> * _Nonnull)scope completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
+@class UIViewController;
+
+@interface STPManager (SWIFT_EXTENSION(Setapp))
+- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
+@end
 
 
 
@@ -549,6 +546,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 @end
 
 
+
 /// A protocol that defines the methods that Setapp manager instances call on their delegates to
 /// handle events, like subscription changes.
 SWIFT_PROTOCOL_NAMED("SetappManagerDelegate")
@@ -582,7 +580,6 @@ SWIFT_CLASS_NAMED("SetappSubscription")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 
 
@@ -920,8 +917,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-
-
 @class STPStatusMessage;
 @class STPStatusMessageOptions;
 
@@ -1094,12 +1089,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 @end
 
 @class NSError;
-@class UIViewController;
-
-@interface STPManager (SWIFT_EXTENSION(Setapp))
-- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
-@end
-
 
 @interface STPManager (SWIFT_EXTENSION(Setapp))
 /// Requests an authorization code for communication with Setapp backend server.
@@ -1122,6 +1111,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 - (void)requestAuthorizationCodeWithClientID:(NSString * _Nonnull)clientID scope:(NSArray<NSString *> * _Nonnull)scope completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
+@class UIViewController;
+
+@interface STPManager (SWIFT_EXTENSION(Setapp))
+- (UIViewController * _Nullable)viewControllerForSetappSubscription:(STPSubscription * _Nullable)setappSubscription orError:(NSError * _Nullable)error SWIFT_WARN_UNUSED_RESULT SWIFT_UNAVAILABLE_MSG("viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call");
+@end
 
 
 
@@ -1159,6 +1153,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 @end
 
 
+
 /// A protocol that defines the methods that Setapp manager instances call on their delegates to
 /// handle events, like subscription changes.
 SWIFT_PROTOCOL_NAMED("SetappManagerDelegate")
@@ -1192,7 +1187,6 @@ SWIFT_CLASS_NAMED("SetappSubscription")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 
 

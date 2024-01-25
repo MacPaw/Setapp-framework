@@ -1,3 +1,12 @@
+## [4.2.0] - 2024-01-23
+
+### Updated
+* Under the hood improvements.
+
+### Fixed
+* [Electron] Correct types for TypeScript.
+
+
 ## [4.1.0] - 2023-12-07
 
 ### Updated
