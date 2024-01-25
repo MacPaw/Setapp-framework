@@ -22,7 +22,7 @@
     "node-gyp": "^9.4.0"
   },
   "build": {
-    "buildVersion": "15",
+    "buildVersion": "16",
     "appId": "com.setapp.fmwk.macos.TestApp-setapp",
     "productName": "Setapp Electron App Demo",
     "copyright": "Copyright 2020-2023 Setapp Limited.",
