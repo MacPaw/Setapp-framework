@@ -1,3 +1,9 @@
+## [4.3.0-beta.1] - 2024-05-09
+
+### New
+* [iOS] Setapp Framework was updated to support distribution via Setapp Mobile.
+
+
 ## [4.2.0] - 2024-01-23
 
 ### Updated

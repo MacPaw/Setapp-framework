@@ -9,3 +9,4 @@ module Setapp.Swift {
     header "Setapp-Swift.h"
     requires objc
 }
+

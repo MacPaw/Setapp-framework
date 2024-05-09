@@ -1,13 +1,13 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
-// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -autolink-force-load -enable-library-evolution -static -swift-version 5 -enforce-exclusivity=checked -O -module-name Setapp
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -autolink-force-load -enable-library-evolution -static -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature AccessLevelOnImport -enable-bare-slash-regex -module-name Setapp
 import Accelerate
 import BackgroundTasks
 import CommonCrypto
 import CoreGraphics
 import Foundation
 import ImageIO
+import MarketplaceKit
 import QuartzCore
 import Security
 import Swift
@@ -138,6 +138,7 @@ extension Setapp.SetappManager {
   @objc(openURLContexts:completionHandler:) dynamic open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void)
 }
 @objc public enum STPStatusMessageType : Swift.Int {
+  case activationPrompt
   case activationInProgress
   case activationSuccess
   case error
@@ -187,6 +188,8 @@ extension Setapp.SetappManager {
   }
   @available(*, unavailable, message: "Instance method is no longer available use the class func instead: \"SetappManager.setLogHandle\".")
   @objc(setLogHandle:) open func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
+  @objc(isDistributedViaSetapp:) open class func isDistributedViaSetapp(completion: @escaping (Swift.Bool) -> Swift.Void)
+  @objc(startWithConfiguration:setappMobileConfiguration:) open func start(with defaultConfiguration: Setapp.SetappConfiguration = .default, setappMobileConfiguration: Setapp.SetappConfiguration)
   @objc(startWithConfiguration:) open func start(with configuration: Setapp.SetappConfiguration = .default)
   @available(*, unavailable, message: "`viewController(for result:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `SetappMessagesPresenterProtocol` and set it by `SetappManager.shared.setMessagesPresenter(_:)` call")
   open func viewController(for result: Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> UIKit.UIViewController
@@ -204,12 +207,16 @@ extension Setapp.SetappManager {
   @objc deinit
 }
 public enum SetappStatusMessage {
+  case activationPrompt
   case activationInProgress
   case activationSuccess
   case error(Setapp.SetappError)
 }
+extension Setapp.SetappStatusMessage : Swift.Equatable {
+  public static func == (a: Setapp.SetappStatusMessage, b: Setapp.SetappStatusMessage) -> Swift.Bool
+}
 public struct SetappStatusMessageOptions {
-  public init(fallbackURL: Foundation.URL?, activationTypeString: Swift.String?)
+  public init(fallbackURL: Foundation.URL? = nil, activationTypeRawValue: Swift.String? = nil, marketplaceBundleID: Swift.String? = nil, isDismissable: Swift.Bool = true, onDismiss: (() -> Swift.Void)? = nil)
 }
 public protocol SetappMessagesPresenterProtocol {
   func present(_ statusMessage: Setapp.SetappStatusMessage, options: Setapp.SetappStatusMessageOptions?)

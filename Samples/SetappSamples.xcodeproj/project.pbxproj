@@ -1479,6 +1479,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -1526,6 +1527,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -1576,6 +1578,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_CFLAGS = "SCENE_PREFIX=$(TARGET_NAME)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1629,6 +1632,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_CFLAGS = "SCENE_PREFIX=$(TARGET_NAME)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1765,6 +1769,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-ObjC-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1808,6 +1813,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-ObjC-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1943,6 +1949,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -1990,6 +1997,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2037,6 +2045,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2085,6 +2094,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2412,6 +2422,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2460,6 +2471,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2508,6 +2520,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-Swift-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2552,6 +2565,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-Swift-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2590,6 +2604,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2636,6 +2651,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
