@@ -1,3 +1,9 @@
+## [4.2.1] - 2024-07-31
+
+### Fixed
+* [iOS] Fixed a layout issue for Setapp alerts that sometimes caused app crashes.
+
+
 ## [4.2.0] - 2024-01-23
 
 ### Updated
