@@ -1,3 +1,16 @@
+## [4.3.0-beta.3] - 2024-07-31
+
+### Fixed
+* [iOS] Stability improviments and bug fixes related to Setapp Mobile distribution.
+* [iOS] Fixed a layout issue for Setapp alerts that sometimes caused app crashes.
+
+
+## [4.3.0-beta.2] - 2024-05-14
+
+### Fixed
+* [iOS] Stability improviments and bug fixes related to Setapp Mobile distribution.
+
+
 ## [4.3.0-beta.1] - 2024-05-09
 
 ### New
