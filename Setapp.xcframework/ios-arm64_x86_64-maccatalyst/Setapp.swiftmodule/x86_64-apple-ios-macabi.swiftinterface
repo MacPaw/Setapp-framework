@@ -48,6 +48,7 @@ extension Setapp.SetappManager {
 public typealias SetappLogHandle = (_ message: Swift.String, _ logLevel: Setapp.SetappLogLevel) -> Swift.Void
 @objc(STPConfiguration) @objcMembers open class SetappConfiguration : ObjectiveC.NSObject, Swift.Codable {
   @objc(defaultConfiguration) public static let `default`: Setapp.SetappConfiguration
+  @objc public var appGroupIdentifier: Swift.String?
   @objc final public let publicKeyBundle: Foundation.Bundle
   @objc final public let publicKeyFilename: Swift.String
   @objc(initWithPublicKeyBundle:publicKeyFilename:) public init(publicKeyBundle: Foundation.Bundle?, publicKeyFilename: Swift.String?)

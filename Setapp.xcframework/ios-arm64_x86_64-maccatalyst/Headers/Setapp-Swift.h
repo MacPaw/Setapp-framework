@@ -308,8 +308,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-@class NSBundle;
 @class NSString;
+@class NSBundle;
 
 /// A configuration object that holds necessary information for the operation of the Setapp
 /// framework.
@@ -318,6 +318,8 @@ SWIFT_CLASS_NAMED("SetappConfiguration")
 /// The default configuration for the current app.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) STPConfiguration * _Nonnull defaultConfiguration;)
 + (STPConfiguration * _Nonnull)defaultConfiguration SWIFT_WARN_UNUSED_RESULT;
+/// An app group identifier used to store usage reports from app extension.
+@property (nonatomic, copy) NSString * _Nullable appGroupIdentifier;
 /// A bundle containing a public key file.
 @property (nonatomic, readonly, strong) NSBundle * _Nonnull publicKeyBundle;
 /// A public key filename.
@@ -861,8 +863,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-@class NSBundle;
 @class NSString;
+@class NSBundle;
 
 /// A configuration object that holds necessary information for the operation of the Setapp
 /// framework.
@@ -871,6 +873,8 @@ SWIFT_CLASS_NAMED("SetappConfiguration")
 /// The default configuration for the current app.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) STPConfiguration * _Nonnull defaultConfiguration;)
 + (STPConfiguration * _Nonnull)defaultConfiguration SWIFT_WARN_UNUSED_RESULT;
+/// An app group identifier used to store usage reports from app extension.
+@property (nonatomic, copy) NSString * _Nullable appGroupIdentifier;
 /// A bundle containing a public key file.
 @property (nonatomic, readonly, strong) NSBundle * _Nonnull publicKeyBundle;
 /// A public key filename.

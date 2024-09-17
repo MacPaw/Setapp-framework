@@ -360,8 +360,8 @@ typedef SWIFT_ENUM(NSInteger, STPStatusMessageType, open) {
 };
 
 
-@class NSBundle;
 @class NSString;
+@class NSBundle;
 
 /// A configuration object that holds necessary information for the operation of the Setapp
 /// framework.
@@ -370,6 +370,8 @@ SWIFT_CLASS_NAMED("SetappConfiguration")
 /// The default configuration for the current app.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) STPConfiguration * _Nonnull defaultConfiguration;)
 + (STPConfiguration * _Nonnull)defaultConfiguration SWIFT_WARN_UNUSED_RESULT;
+/// An app group identifier used to store usage reports from app extension.
+@property (nonatomic, copy) NSString * _Nullable appGroupIdentifier;
 /// A bundle containing a public key file.
 @property (nonatomic, readonly, strong) NSBundle * _Nonnull publicKeyBundle;
 /// A public key filename.
@@ -500,6 +502,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 /// \param identifier The identifier of the URL session to check.
 ///
 - (BOOL)isSetappBackgroundSessionIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Instance method is deprecated use the class method instead: \"SetappManager.isSetappBackgroundSessionIdentifier\".");
+- (void)reportExtensionUsage;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
