@@ -1,3 +1,9 @@
+## [4.2.2] - 2024-10-17
+
+### Fixed
+* [Electron] Fixed a crash on app launch on x86_64 architecture. 
+
+
 ## [4.2.1] - 2024-07-31
 
 ### Fixed
