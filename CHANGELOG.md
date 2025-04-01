@@ -1,3 +1,10 @@
+## [4.2.3] - 2025-04-01
+
+### Fixed
+* Integration via CocoaPods won’t require manual workaround.
+* Add PRODUCT_MODULE_NAME folder for headers to resolve issue when project depends on several xcframeworks.
+
+
 ## [4.2.2] - 2024-10-17
 
 ### Fixed
