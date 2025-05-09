@@ -22,6 +22,7 @@ struct ContentView: View {
     @State private var scopes: String = ""
     
     @State private var isSetappSubscirptionActive: Bool?
+    @State private var purchaseType: String?
     
     private var setappSubscriptionPublisher = SetappManager.shared.publisher(for: \.subscription)
     
@@ -61,6 +62,20 @@ struct ContentView: View {
             actions: alertActions,
             message: alertMessage
         )
+        .onAppear {
+            #if os(macOS)
+            isSetappSubscirptionActive = true // on macOS if app is running it means Setapp subscription is valid
+
+            SetappManager.shared.requestPurchaseType { result in
+                switch result {
+                case .success(let setappAppPurchaseType):
+                    purchaseType = String(describing: setappAppPurchaseType)
+                case .failure(let error):
+                    purchaseType = "Unknown (\(error.localizedDescription))"
+                }
+            }
+            #endif
+        }
         .onReceive(setappSubscriptionPublisher) { subscription in
             isSetappSubscirptionActive = subscription?.isActive
         }
@@ -99,6 +114,11 @@ extension ContentView {
                     .foregroundColor(.accentColor)
                 Text("Activate via QR Code")
                     .font(.system(size: 15))
+                    .foregroundColor(Color("SecondaryTextColor"))
+            }
+            if let purchaseType {
+                Text("Distribution: \(purchaseType.capitalized)")
+                    .font(.system(size: 13))
                     .foregroundColor(Color("SecondaryTextColor"))
             }
         }

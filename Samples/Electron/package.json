@@ -4,10 +4,7 @@
   "description": "Setapp Electron App Demo",
   "author": "Setapp Limited",
   "main": "app/main.js",
-  "license": {
-    "type": "MIT",
-    "url": "https://choosealicense.com/licenses/mit/"
-  },
+  "license": "MIT",
   "dependencies": {
     "@setapp/framework-wrapper": "file:setapp-framework-wrapper.tgz"
   },
@@ -22,7 +19,7 @@
     "node-gyp": "^10.2.0"
   },
   "build": {
-    "buildVersion": "19",
+    "buildVersion": "25",
     "appId": "com.setapp.fmwk.macos.TestApp-setapp",
     "productName": "Setapp Electron App Demo",
     "copyright": "Copyright 2020-2023 Setapp Limited.",

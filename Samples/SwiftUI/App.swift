@@ -15,11 +15,15 @@ struct SetappSampleApp: App {
         SetappManager.logLevel = .verbose
         
         #if os(iOS)
+        let configuration = SetappConfiguration(
+            publicKeyBundle: .main,
+            publicKeyFilename: "setappPublicKey-iOS.pem"
+        )
+
+        configuration.appGroupIdentifier = "group.setapp"
+
         SetappManager.shared.start(
-            with: SetappConfiguration(
-                publicKeyBundle: .main,
-                publicKeyFilename: "setappPublicKey-iOS.pem"
-            )
+            with: configuration
         )
         #endif
     }
