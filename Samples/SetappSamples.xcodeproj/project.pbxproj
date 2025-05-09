@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -128,6 +128,26 @@
 		55EA3A3F290AF755008C3A53 /* Setapp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556E16D7290ADBF800C604C9 /* Setapp.xcframework */; };
 		55F08E9929C36EF4007332AD /* Setapp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556E16D7290ADBF800C604C9 /* Setapp.xcframework */; };
 		5B070DFA5CCE7F4CF81C236B /* libPods-UIKit Sample (Swift, Pods).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1052E328F29BBB7F278AC38A /* libPods-UIKit Sample (Swift, Pods).a */; };
+		8412E2B62C6E26430010AAE5 /* SetappUsageReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8412E2B52C6E26430010AAE5 /* SetappUsageReporter.swift */; };
+		845D448C2C6CA8DF00C9BAC8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845D448B2C6CA8DF00C9BAC8 /* WidgetKit.framework */; };
+		845D448E2C6CA8DF00C9BAC8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845D448D2C6CA8DF00C9BAC8 /* SwiftUI.framework */; };
+		845D44912C6CA8DF00C9BAC8 /* SetappWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D44902C6CA8DF00C9BAC8 /* SetappWidgetBundle.swift */; };
+		845D44952C6CA8DF00C9BAC8 /* SetappWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D44942C6CA8DF00C9BAC8 /* SetappWidget.swift */; };
+		845D44972C6CA8DF00C9BAC8 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D44962C6CA8DF00C9BAC8 /* AppIntent.swift */; };
+		845D44992C6CA8E000C9BAC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845D44982C6CA8E000C9BAC8 /* Assets.xcassets */; };
+		845D449D2C6CA8E000C9BAC8 /* Extension Sample (Widget).appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 845D448A2C6CA8DF00C9BAC8 /* Extension Sample (Widget).appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		84CD7D722C6CBF0000543A2E /* Setapp in Frameworks */ = {isa = PBXBuildFile; productRef = 84CD7D712C6CBF0000543A2E /* Setapp */; };
+		84CD7D762C6CC10900543A2E /* setappPublicKey-iOS.pem in Resources */ = {isa = PBXBuildFile; fileRef = 84CD7D752C6CC10900543A2E /* setappPublicKey-iOS.pem */; };
+		84CD7D782C6CC13700543A2E /* ToggleIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD7D772C6CC13700543A2E /* ToggleIntent.swift */; };
+		84CD7D802C6CC2AF00543A2E /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD7D7F2C6CC2AF00543A2E /* KeyboardViewController.swift */; };
+		84CD7D842C6CC2AF00543A2E /* Extension Sample (Keyboard).appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 84CD7D7D2C6CC2AF00543A2E /* Extension Sample (Keyboard).appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		84CD7DC22C6CD7DC00543A2E /* setappPublicKey-iOS.pem in Resources */ = {isa = PBXBuildFile; fileRef = 84CD7DC12C6CD7DC00543A2E /* setappPublicKey-iOS.pem */; };
+		84CD7DCB2C6CDD4100543A2E /* AppIntentsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD7DCA2C6CDD4100543A2E /* AppIntentsExtension.swift */; };
+		84CD7DCD2C6CDD4100543A2E /* SampleIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD7DCC2C6CDD4100543A2E /* SampleIntent.swift */; };
+		84CD7DD12C6CDD4100543A2E /* Extension Sample (App Intents).appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 84CD7DC82C6CDD4100543A2E /* Extension Sample (App Intents).appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		84CD7DD72C6CDD8C00543A2E /* Setapp in Frameworks */ = {isa = PBXBuildFile; productRef = 84CD7DD62C6CDD8C00543A2E /* Setapp */; };
+		84CD7DD92C6CDD9200543A2E /* Setapp in Frameworks */ = {isa = PBXBuildFile; productRef = 84CD7DD82C6CDD9200543A2E /* Setapp */; };
+		84CD7DDB2C6CE6F600543A2E /* setappPublicKey.pem in Resources */ = {isa = PBXBuildFile; fileRef = 84CD7DDA2C6CE6F600543A2E /* setappPublicKey.pem */; };
 		C554D1A42812AA430070CB39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C554D1A32812AA430070CB39 /* AppDelegate.m */; };
 		C554D1A72812AA430070CB39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C554D1A62812AA430070CB39 /* ViewController.m */; };
 		C554D1A92812AA440070CB39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C554D1A82812AA440070CB39 /* Assets.xcassets */; };
@@ -135,6 +155,30 @@
 		DBD730D5CE2BCDB2621486B3 /* libPods-UIKit Sample (Obj-C, Pods).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 094EFAF9FDA1E3646EF78E9C /* libPods-UIKit Sample (Obj-C, Pods).a */; };
 		EB1DB1476F617A31E5D5CBDE /* libPods-AppKit Sample (Obj-C, Pods).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA030B4D29BD8E671F70E82 /* libPods-AppKit Sample (Obj-C, Pods).a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		845D449B2C6CA8E000C9BAC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 688C4F55260C8D7A007152F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 845D44892C6CA8DF00C9BAC8;
+			remoteInfo = widgetExtension;
+		};
+		84CD7D822C6CC2AF00543A2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 688C4F55260C8D7A007152F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84CD7D7C2C6CC2AF00543A2E;
+			remoteInfo = SetappKeyboard;
+		};
+		84CD7DCF2C6CDD4100543A2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 688C4F55260C8D7A007152F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84CD7DC72C6CDD4100543A2E;
+			remoteInfo = AppIntents;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		555DFDED298084CE004D6874 /* Embed Frameworks */ = {
@@ -155,6 +199,29 @@
 			files = (
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		845D44A12C6CA8E000C9BAC8 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				84CD7D842C6CC2AF00543A2E /* Extension Sample (Keyboard).appex in Embed Foundation Extensions */,
+				845D449D2C6CA8E000C9BAC8 /* Extension Sample (Widget).appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84CD7DD52C6CDD4100543A2E /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				84CD7DD12C6CDD4100543A2E /* Extension Sample (App Intents).appex in Embed ExtensionKit Extensions */,
+			);
+			name = "Embed ExtensionKit Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -189,9 +256,13 @@
 		550EB0E3290ACF8B00FAD77D /* SampleApp-AppKit-Swift-SPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SampleApp-AppKit-Swift-SPM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		550EB0E5290ACF8B00FAD77D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		550EB0E7290ACF8B00FAD77D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		550EB0F6290AD1A700FAD77D /* Setapp.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Setapp.xcframework; path = ../Setapp.xcframework; sourceTree = "<group>"; };
+		550EB0F6290AD1A700FAD77D /* Setapp.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:MEHY5QF425:Setapp Limited"; lastKnownFileType = wrapper.xcframework; name = Setapp.xcframework; path = ../Setapp.xcframework; sourceTree = "<group>"; };
 		550EB0FC290AD28000FAD77D /* SetappFramework-Resources-iOS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "SetappFramework-Resources-iOS.bundle"; path = "../../SetappFramework-Resources-iOS.bundle"; sourceTree = "<group>"; };
 		552F5CE4297ECBD600DFDCDD /* setappPublicKey.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = setappPublicKey.pem; path = Shared/setappPublicKey.pem; sourceTree = SOURCE_ROOT; };
+		5533D5232C74BC9000231241 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
+		5533D5242C74BCAC00231241 /* KeyboardExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeyboardExtension.entitlements; sourceTree = "<group>"; };
+		5533D5252C74BCB100231241 /* IntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IntentsExtension.entitlements; sourceTree = "<group>"; };
+		5533D5272C74BF4300231241 /* SwiftUISample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftUISample.entitlements; sourceTree = "<group>"; };
 		5540A11A29806FDC00FBB865 /* SampleApp-AppKit-Swift-Manual.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SampleApp-AppKit-Swift-Manual.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5540A12B29806FEF00FBB865 /* SampleApp-AppKit-Swift-Pods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SampleApp-AppKit-Swift-Pods.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5540A189298070B100FBB865 /* SampleApp-UIKit-Swift-Manual.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SampleApp-UIKit-Swift-Manual.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,7 +271,7 @@
 		5541F54229E9763F00D360A8 /* WindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
 		5541F54329E9763F00D360A8 /* WindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
 		5541F54729E99D1F00D360A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		556E16D7290ADBF800C604C9 /* Setapp.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Setapp.xcframework; path = ../../Setapp.xcframework; sourceTree = "<group>"; };
+		556E16D7290ADBF800C604C9 /* Setapp.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:MEHY5QF425:Setapp Limited"; lastKnownFileType = wrapper.xcframework; name = Setapp.xcframework; path = ../../Setapp.xcframework; sourceTree = "<group>"; };
 		556E16DA290ADC4000C604C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		557BE75D2911BEB900EA7525 /* UIViewController+Setapp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Setapp.swift"; sourceTree = "<group>"; };
 		557BE7632911C46F00EA7525 /* NSViewController+Setapp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+Setapp.swift"; sourceTree = "<group>"; };
@@ -236,6 +307,26 @@
 		688C4F7D260C8E21007152F6 /* SampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SampleApp.entitlements; sourceTree = "<group>"; };
 		688C4F95260C8F55007152F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D55BE94C17512E71C9D841B /* libPods-Catalyst Sample (Swift, Pods).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Catalyst Sample (Swift, Pods).a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8412E2B52C6E26430010AAE5 /* SetappUsageReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetappUsageReporter.swift; sourceTree = "<group>"; };
+		845D448A2C6CA8DF00C9BAC8 /* Extension Sample (Widget).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Extension Sample (Widget).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		845D448B2C6CA8DF00C9BAC8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		845D448D2C6CA8DF00C9BAC8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		845D44902C6CA8DF00C9BAC8 /* SetappWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetappWidgetBundle.swift; sourceTree = "<group>"; };
+		845D44942C6CA8DF00C9BAC8 /* SetappWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetappWidget.swift; sourceTree = "<group>"; };
+		845D44962C6CA8DF00C9BAC8 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		845D44982C6CA8E000C9BAC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		845D449A2C6CA8E000C9BAC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84CD7D752C6CC10900543A2E /* setappPublicKey-iOS.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "setappPublicKey-iOS.pem"; path = "Shared/setappPublicKey-iOS.pem"; sourceTree = SOURCE_ROOT; };
+		84CD7D772C6CC13700543A2E /* ToggleIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleIntent.swift; sourceTree = "<group>"; };
+		84CD7D7D2C6CC2AF00543A2E /* Extension Sample (Keyboard).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Extension Sample (Keyboard).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84CD7D7F2C6CC2AF00543A2E /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		84CD7D812C6CC2AF00543A2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84CD7DC12C6CD7DC00543A2E /* setappPublicKey-iOS.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "setappPublicKey-iOS.pem"; path = "Shared/setappPublicKey-iOS.pem"; sourceTree = SOURCE_ROOT; };
+		84CD7DC82C6CDD4100543A2E /* Extension Sample (App Intents).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = "Extension Sample (App Intents).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84CD7DCA2C6CDD4100543A2E /* AppIntentsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntentsExtension.swift; sourceTree = "<group>"; };
+		84CD7DCC2C6CDD4100543A2E /* SampleIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleIntent.swift; sourceTree = "<group>"; };
+		84CD7DCE2C6CDD4100543A2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84CD7DDA2C6CE6F600543A2E /* setappPublicKey.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = setappPublicKey.pem; path = Shared/setappPublicKey.pem; sourceTree = SOURCE_ROOT; };
 		98F19E99C32ED2FDC9E67A6D /* Pods-AppKit Sample (Obj-C, Pods).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppKit Sample (Obj-C, Pods).release.xcconfig"; path = "Target Support Files/Pods-AppKit Sample (Obj-C, Pods)/Pods-AppKit Sample (Obj-C, Pods).release.xcconfig"; sourceTree = "<group>"; };
 		9A2F92B71E49F79C93C2B4FB /* Pods-macOS Sample (AppKit, ObjC, Pods).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-macOS Sample (AppKit, ObjC, Pods).debug.xcconfig"; path = "Target Support Files/Pods-macOS Sample (AppKit, ObjC, Pods)/Pods-macOS Sample (AppKit, ObjC, Pods).debug.xcconfig"; sourceTree = "<group>"; };
 		A38164CCF381E19AAB487555 /* Pods-macOS Sample (AppKit, ObjC, Pods).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-macOS Sample (AppKit, ObjC, Pods).release.xcconfig"; path = "Target Support Files/Pods-macOS Sample (AppKit, ObjC, Pods)/Pods-macOS Sample (AppKit, ObjC, Pods).release.xcconfig"; sourceTree = "<group>"; };
@@ -359,6 +450,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		845D44872C6CA8DF00C9BAC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845D448E2C6CA8DF00C9BAC8 /* SwiftUI.framework in Frameworks */,
+				84CD7D722C6CBF0000543A2E /* Setapp in Frameworks */,
+				845D448C2C6CA8DF00C9BAC8 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84CD7D7A2C6CC2AF00543A2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84CD7DD72C6CDD8C00543A2E /* Setapp in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84CD7DC52C6CDD4100543A2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84CD7DD92C6CDD9200543A2E /* Setapp in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C554D19D2812AA430070CB39 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -385,8 +502,9 @@
 				550EB066290AB14A00FAD77D /* App.swift */,
 				5541F54729E99D1F00D360A8 /* ContentView.swift */,
 				556E16DA290ADC4000C604C9 /* Info.plist */,
-				552F5CE4297ECBD600DFDCDD /* setappPublicKey.pem */,
 				557BE76A2911CE1F00EA7525 /* setappPublicKey-iOS.pem */,
+				552F5CE4297ECBD600DFDCDD /* setappPublicKey.pem */,
+				5533D5272C74BF4300231241 /* SwiftUISample.entitlements */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -455,6 +573,16 @@
 			path = Swift;
 			sourceTree = "<group>";
 		};
+		5533D5262C74BDEA00231241 /* App Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				845D448F2C6CA8DF00C9BAC8 /* Widget */,
+				84CD7D7E2C6CC2AF00543A2E /* Keyboard */,
+				84CD7DC92C6CDD4100543A2E /* Intents */,
+			);
+			path = "App Extensions";
+			sourceTree = "<group>";
+		};
 		55770BC72238474E5DA6C588 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +617,7 @@
 		688C4F54260C8D7A007152F6 = {
 			isa = PBXGroup;
 			children = (
+				5533D5262C74BDEA00231241 /* App Extensions */,
 				C554D1A12812AA430070CB39 /* AppKit */,
 				688C4F5F260C8D7B007152F6 /* Catalyst */,
 				550EB065290AB14A00FAD77D /* SwiftUI */,
@@ -522,6 +651,9 @@
 				5540A12B29806FEF00FBB865 /* SampleApp-AppKit-Swift-Pods.app */,
 				5540A189298070B100FBB865 /* SampleApp-UIKit-Swift-Manual.app */,
 				5540A19B298070BB00FBB865 /* SampleApp-UIKit-Swift-Pods.app */,
+				845D448A2C6CA8DF00C9BAC8 /* Extension Sample (Widget).appex */,
+				84CD7D7D2C6CC2AF00543A2E /* Extension Sample (Keyboard).appex */,
+				84CD7DC82C6CDD4100543A2E /* Extension Sample (App Intents).appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -551,6 +683,8 @@
 				C5FC7CABE3C53CA4882C8D8B /* libPods-SwiftUI Sample (Pods).a */,
 				094EFAF9FDA1E3646EF78E9C /* libPods-UIKit Sample (Obj-C, Pods).a */,
 				1052E328F29BBB7F278AC38A /* libPods-UIKit Sample (Swift, Pods).a */,
+				845D448B2C6CA8DF00C9BAC8 /* WidgetKit.framework */,
+				845D448D2C6CA8DF00C9BAC8 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -565,6 +699,45 @@
 				550EB0FC290AD28000FAD77D /* SetappFramework-Resources-iOS.bundle */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		845D448F2C6CA8DF00C9BAC8 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				845D44962C6CA8DF00C9BAC8 /* AppIntent.swift */,
+				845D44942C6CA8DF00C9BAC8 /* SetappWidget.swift */,
+				845D44902C6CA8DF00C9BAC8 /* SetappWidgetBundle.swift */,
+				84CD7D772C6CC13700543A2E /* ToggleIntent.swift */,
+				845D449A2C6CA8E000C9BAC8 /* Info.plist */,
+				845D44982C6CA8E000C9BAC8 /* Assets.xcassets */,
+				84CD7D752C6CC10900543A2E /* setappPublicKey-iOS.pem */,
+				5533D5232C74BC9000231241 /* WidgetExtension.entitlements */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		84CD7D7E2C6CC2AF00543A2E /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				84CD7D7F2C6CC2AF00543A2E /* KeyboardViewController.swift */,
+				8412E2B52C6E26430010AAE5 /* SetappUsageReporter.swift */,
+				84CD7D812C6CC2AF00543A2E /* Info.plist */,
+				84CD7DC12C6CD7DC00543A2E /* setappPublicKey-iOS.pem */,
+				5533D5242C74BCAC00231241 /* KeyboardExtension.entitlements */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		84CD7DC92C6CDD4100543A2E /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				84CD7DCA2C6CDD4100543A2E /* AppIntentsExtension.swift */,
+				84CD7DCC2C6CDD4100543A2E /* SampleIntent.swift */,
+				84CD7DCE2C6CDD4100543A2E /* Info.plist */,
+				84CD7DDA2C6CE6F600543A2E /* setappPublicKey.pem */,
+				5533D5252C74BCB100231241 /* IntentsExtension.entitlements */,
+			);
+			path = Intents;
 			sourceTree = "<group>";
 		};
 		C554D1A12812AA430070CB39 /* AppKit */ = {
@@ -599,20 +772,25 @@
 			productReference = 550EB047290AB12E00FAD77D /* SampleApp-UIKit-ObjC-SPM.app */;
 			productType = "com.apple.product-type.application";
 		};
-		550EB063290AB14A00FAD77D /* SwiftUI Sample */ = {
+		550EB063290AB14A00FAD77D /* SwiftUI Sample + Extensions */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 550EB06F290AB14B00FAD77D /* Build configuration list for PBXNativeTarget "SwiftUI Sample" */;
+			buildConfigurationList = 550EB06F290AB14B00FAD77D /* Build configuration list for PBXNativeTarget "SwiftUI Sample + Extensions" */;
 			buildPhases = (
 				550EB060290AB14A00FAD77D /* Sources */,
 				550EB061290AB14A00FAD77D /* Frameworks */,
 				550EB062290AB14A00FAD77D /* Resources */,
 				55EA3A50290B0162008C3A53 /* Embed Frameworks */,
+				845D44A12C6CA8E000C9BAC8 /* Embed Foundation Extensions */,
+				84CD7DD52C6CDD4100543A2E /* Embed ExtensionKit Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				845D449C2C6CA8E000C9BAC8 /* PBXTargetDependency */,
+				84CD7D832C6CC2AF00543A2E /* PBXTargetDependency */,
+				84CD7DD02C6CDD4100543A2E /* PBXTargetDependency */,
 			);
-			name = "SwiftUI Sample";
+			name = "SwiftUI Sample + Extensions";
 			packageProductDependencies = (
 				55BFADC5290B1F3400849044 /* Setapp */,
 			);
@@ -823,6 +1001,66 @@
 			productReference = 68554824282A732F00E53201 /* SampleApp-Catalyst.app */;
 			productType = "com.apple.product-type.application";
 		};
+		845D44892C6CA8DF00C9BAC8 /* Extension Sample (Widget) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 845D449E2C6CA8E000C9BAC8 /* Build configuration list for PBXNativeTarget "Extension Sample (Widget)" */;
+			buildPhases = (
+				845D44862C6CA8DF00C9BAC8 /* Sources */,
+				845D44872C6CA8DF00C9BAC8 /* Frameworks */,
+				845D44882C6CA8DF00C9BAC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Extension Sample (Widget)";
+			packageProductDependencies = (
+				84CD7D712C6CBF0000543A2E /* Setapp */,
+			);
+			productName = widgetExtension;
+			productReference = 845D448A2C6CA8DF00C9BAC8 /* Extension Sample (Widget).appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		84CD7D7C2C6CC2AF00543A2E /* Extension Sample (Keyboard) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84CD7D852C6CC2AF00543A2E /* Build configuration list for PBXNativeTarget "Extension Sample (Keyboard)" */;
+			buildPhases = (
+				84CD7D792C6CC2AF00543A2E /* Sources */,
+				84CD7D7A2C6CC2AF00543A2E /* Frameworks */,
+				84CD7D7B2C6CC2AF00543A2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Extension Sample (Keyboard)";
+			packageProductDependencies = (
+				84CD7DD62C6CDD8C00543A2E /* Setapp */,
+			);
+			productName = SetappKeyboard;
+			productReference = 84CD7D7D2C6CC2AF00543A2E /* Extension Sample (Keyboard).appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		84CD7DC72C6CDD4100543A2E /* Extension Sample (App Intents) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84CD7DD22C6CDD4100543A2E /* Build configuration list for PBXNativeTarget "Extension Sample (App Intents)" */;
+			buildPhases = (
+				84CD7DC42C6CDD4100543A2E /* Sources */,
+				84CD7DC52C6CDD4100543A2E /* Frameworks */,
+				84CD7DC62C6CDD4100543A2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Extension Sample (App Intents)";
+			packageProductDependencies = (
+				84CD7DD82C6CDD9200543A2E /* Setapp */,
+			);
+			productName = AppIntents;
+			productReference = 84CD7DC82C6CDD4100543A2E /* Extension Sample (App Intents).appex */;
+			productType = "com.apple.product-type.extensionkit-extension";
+		};
 		C554D19F2812AA430070CB39 /* AppKit Sample (Obj-C, SPM) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C554D1B02812AA440070CB39 /* Build configuration list for PBXNativeTarget "AppKit Sample (Obj-C, SPM)" */;
@@ -850,7 +1088,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					550EB046290AB12E00FAD77D = {
@@ -867,6 +1105,15 @@
 					};
 					68554823282A732F00E53201 = {
 						CreatedOnToolsVersion = 13.3.1;
+					};
+					845D44892C6CA8DF00C9BAC8 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					84CD7D7C2C6CC2AF00543A2E = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					84CD7DC72C6CDD4100543A2E = {
+						CreatedOnToolsVersion = 15.4;
 					};
 					C554D19F2812AA430070CB39 = {
 						CreatedOnToolsVersion = 13.3;
@@ -888,14 +1135,17 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				550EB063290AB14A00FAD77D /* SwiftUI Sample */,
-				68554823282A732F00E53201 /* Catalyst Sample */,
 				550EB09C290AC76700FAD77D /* AppKit Sample (Obj-C, Manual) */,
 				550EB079290AC6D100FAD77D /* AppKit Sample (Obj-C, Pods) */,
 				C554D19F2812AA430070CB39 /* AppKit Sample (Obj-C, SPM) */,
 				5540A10B29806FDC00FBB865 /* AppKit Sample (Swift, Manual) */,
 				5540A11C29806FEF00FBB865 /* AppKit Sample (Swift, Pods) */,
 				550EB0E2290ACF8B00FAD77D /* AppKit Sample (Swift, SPM) */,
+				68554823282A732F00E53201 /* Catalyst Sample */,
+				84CD7DC72C6CDD4100543A2E /* Extension Sample (App Intents) */,
+				84CD7D7C2C6CC2AF00543A2E /* Extension Sample (Keyboard) */,
+				845D44892C6CA8DF00C9BAC8 /* Extension Sample (Widget) */,
+				550EB063290AB14A00FAD77D /* SwiftUI Sample + Extensions */,
 				550EB0AE290AC77F00FAD77D /* UIKit Sample (Obj-C, Manual) */,
 				550EB08B290AC6E900FAD77D /* UIKit Sample (Obj-C, Pods) */,
 				550EB046290AB12E00FAD77D /* UIKit Sample (Obj-C, SPM) */,
@@ -1042,6 +1292,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		845D44882C6CA8DF00C9BAC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84CD7D762C6CC10900543A2E /* setappPublicKey-iOS.pem in Resources */,
+				845D44992C6CA8E000C9BAC8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84CD7D7B2C6CC2AF00543A2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84CD7DC22C6CD7DC00543A2E /* setappPublicKey-iOS.pem in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84CD7DC62C6CDD4100543A2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84CD7DDB2C6CE6F600543A2E /* setappPublicKey.pem in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C554D19E2812AA430070CB39 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1129,9 +1404,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UIKit Sample (Swift, Pods)/Pods-UIKit Sample (Swift, Pods)-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UIKit Sample (Swift, Pods)/Pods-UIKit Sample (Swift, Pods)-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1168,9 +1447,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UIKit Sample (Obj-C, Pods)/Pods-UIKit Sample (Obj-C, Pods)-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UIKit Sample (Obj-C, Pods)/Pods-UIKit Sample (Obj-C, Pods)-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1331,6 +1614,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		845D44862C6CA8DF00C9BAC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845D44952C6CA8DF00C9BAC8 /* SetappWidget.swift in Sources */,
+				845D44972C6CA8DF00C9BAC8 /* AppIntent.swift in Sources */,
+				84CD7D782C6CC13700543A2E /* ToggleIntent.swift in Sources */,
+				845D44912C6CA8DF00C9BAC8 /* SetappWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84CD7D792C6CC2AF00543A2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84CD7D802C6CC2AF00543A2E /* KeyboardViewController.swift in Sources */,
+				8412E2B62C6E26430010AAE5 /* SetappUsageReporter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84CD7DC42C6CDD4100543A2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84CD7DCB2C6CDD4100543A2E /* AppIntentsExtension.swift in Sources */,
+				84CD7DCD2C6CDD4100543A2E /* SampleIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C554D19C2812AA430070CB39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1345,6 +1657,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		845D449C2C6CA8E000C9BAC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 845D44892C6CA8DF00C9BAC8 /* Extension Sample (Widget) */;
+			targetProxy = 845D449B2C6CA8E000C9BAC8 /* PBXContainerItemProxy */;
+		};
+		84CD7D832C6CC2AF00543A2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 84CD7D7C2C6CC2AF00543A2E /* Extension Sample (Keyboard) */;
+			targetProxy = 84CD7D822C6CC2AF00543A2E /* PBXContainerItemProxy */;
+		};
+		84CD7DD02C6CDD4100543A2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 84CD7DC72C6CDD4100543A2E /* Extension Sample (App Intents) */;
+			targetProxy = 84CD7DCF2C6CDD4100543A2E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		55BFAE40290BCFE000849044 /* Main.storyboard */ = {
@@ -1375,14 +1708,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UIKit/Objective-C/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1394,7 +1726,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -1419,17 +1751,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UIKit/Objective-C/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1441,7 +1772,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -1463,14 +1794,15 @@
 		550EB070290AB14B00FAD77D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = SwiftUI/SwiftUISample.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
@@ -1479,7 +1811,7 @@
 				INFOPLIST_FILE = SwiftUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1491,7 +1823,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_CFLAGS = "SCENE_PREFIX=$(TARGET_NAME)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1516,14 +1848,15 @@
 		550EB071290AB14B00FAD77D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_ENTITLEMENTS = SwiftUI/SwiftUISample.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
@@ -1532,7 +1865,7 @@
 				INFOPLIST_FILE = SwiftUI/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1544,7 +1877,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_CFLAGS = "SCENE_PREFIX=$(TARGET_NAME)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1576,10 +1909,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
@@ -1588,7 +1920,7 @@
 				INFOPLIST_FILE = AppKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_OUTPUT_FORMAT = XML;
@@ -1597,7 +1929,6 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-ObjC-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1618,11 +1949,10 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
@@ -1631,7 +1961,7 @@
 				INFOPLIST_FILE = AppKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_OUTPUT_FORMAT = XML;
@@ -1640,11 +1970,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-ObjC-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match Development com.setapp.fmwk.macos.TestApp-setapp macos";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match Direct com.setapp.fmwk.macos.TestApp-setapp macos";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1661,14 +1990,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UIKit/Objective-C/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1680,7 +2008,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-ObjC-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1701,17 +2029,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UIKit/Objective-C/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1723,7 +2050,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-ObjC-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1746,10 +2073,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
@@ -1758,7 +2084,7 @@
 				INFOPLIST_FILE = AppKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_OUTPUT_FORMAT = XML;
@@ -1767,7 +2093,6 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -1792,11 +2117,10 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
@@ -1805,7 +2129,7 @@
 				INFOPLIST_FILE = AppKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_OUTPUT_FORMAT = XML;
@@ -1814,7 +2138,6 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -1823,7 +2146,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-ObjC-Manual";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match Development com.setapp.fmwk.macos.TestApp-setapp macos";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match Direct com.setapp.fmwk.macos.TestApp-setapp macos";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1839,14 +2162,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UIKit/Objective-C/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1858,7 +2180,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -1883,17 +2205,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UIKit/Objective-C/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1905,7 +2226,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -1932,14 +2253,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit/Swift/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1952,7 +2272,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -1977,17 +2297,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit/Swift/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2000,7 +2319,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2027,10 +2346,9 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
@@ -2039,7 +2357,7 @@
 				INFOPLIST_FILE = AppKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_OUTPUT_FORMAT = XML;
@@ -2048,7 +2366,6 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2074,11 +2391,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
@@ -2087,7 +2403,7 @@
 				INFOPLIST_FILE = AppKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_OUTPUT_FORMAT = XML;
@@ -2096,7 +2412,6 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2123,19 +2438,18 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=*]" = MEHY5QF425;
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_OUTPUT_FORMAT = XML;
@@ -2144,7 +2458,6 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2170,20 +2483,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
+				"DEVELOPMENT_TEAM[sdk=*]" = MEHY5QF425;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_OUTPUT_FORMAT = XML;
@@ -2192,7 +2503,6 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2201,7 +2511,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-Swift-Manual";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match Development com.setapp.fmwk.macos.TestApp-setapp macos";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match Direct com.setapp.fmwk.macos.TestApp-setapp macos";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = NO;
@@ -2220,10 +2530,9 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
@@ -2232,7 +2541,7 @@
 				INFOPLIST_FILE = AppKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_OUTPUT_FORMAT = XML;
@@ -2241,7 +2550,6 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-Swift-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2263,11 +2571,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
@@ -2276,7 +2583,7 @@
 				INFOPLIST_FILE = AppKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_OUTPUT_FORMAT = XML;
@@ -2285,11 +2592,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-Swift-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match Development com.setapp.fmwk.macos.TestApp-setapp macos";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match Direct com.setapp.fmwk.macos.TestApp-setapp macos";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = NO;
@@ -2307,14 +2613,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit/Swift/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2327,7 +2632,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2352,17 +2657,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit/Swift/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2375,7 +2679,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2403,14 +2707,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit/Swift/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2423,7 +2726,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-Swift-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2444,17 +2747,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit/Swift/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2467,7 +2769,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-Swift-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2490,14 +2792,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
 				INFOPLIST_FILE = Catalyst/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_OUTPUT_FORMAT = XML;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2505,7 +2806,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2532,18 +2833,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Catalyst/SampleApp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
 				INFOPLIST_FILE = Catalyst/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_OUTPUT_FORMAT = XML;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2551,7 +2851,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
+				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2608,6 +2908,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 25;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = MEHY5QF425;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2629,6 +2930,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 4.3.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2676,6 +2978,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Setapp Limited (MEHY5QF425)";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 25;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = MEHY5QF425;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2691,12 +2994,291 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 4.3.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		845D449F2C6CA8E000C9BAC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "App Extensions/Widget/WidgetExtension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "App Extensions/Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.setapp.fmwk.ios.TestApp.widget";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		845D44A02C6CA8E000C9BAC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "App Extensions/Widget/WidgetExtension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "App Extensions/Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.setapp.fmwk.ios.TestApp.widget";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		84CD7D862C6CC2AF00543A2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "App Extensions/Keyboard/KeyboardExtension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "App Extensions/Keyboard/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = SetappKeyboard;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp.keyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.setapp.fmwk.ios.TestApp.keyboard";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84CD7D872C6CC2AF00543A2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "App Extensions/Keyboard/KeyboardExtension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "App Extensions/Keyboard/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = SetappKeyboard;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp.keyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.setapp.fmwk.ios.TestApp.keyboard";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		84CD7DD32C6CDD4100543A2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "App Extensions/Intents/IntentsExtension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = MEHY5QF425;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "App Extensions/Intents/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = AppIntents;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp.appintents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.setapp.fmwk.ios.TestApp.appintents";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84CD7DD42C6CDD4100543A2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "App Extensions/Intents/IntentsExtension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = MEHY5QF425;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = MEHY5QF425;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "App Extensions/Intents/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = AppIntents;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"$(BUILT_PRODUCTS_DIR)/libSetapp.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp.appintents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.setapp.fmwk.ios.TestApp.appintents";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -2709,10 +3291,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
@@ -2721,7 +3302,7 @@
 				INFOPLIST_FILE = AppKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_OUTPUT_FORMAT = XML;
@@ -2730,7 +3311,6 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2755,11 +3335,10 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
@@ -2768,7 +3347,7 @@
 				INFOPLIST_FILE = AppKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Setapp Limited. All rights reserved.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				INFOPLIST_OUTPUT_FORMAT = XML;
@@ -2777,7 +3356,6 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2786,7 +3364,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-ObjC-SPM";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match Development com.setapp.fmwk.macos.TestApp-setapp macos";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match Direct com.setapp.fmwk.macos.TestApp-setapp macos";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2805,7 +3383,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		550EB06F290AB14B00FAD77D /* Build configuration list for PBXNativeTarget "SwiftUI Sample" */ = {
+		550EB06F290AB14B00FAD77D /* Build configuration list for PBXNativeTarget "SwiftUI Sample + Extensions" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				550EB070290AB14B00FAD77D /* Debug */,
@@ -2922,6 +3500,33 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		845D449E2C6CA8E000C9BAC8 /* Build configuration list for PBXNativeTarget "Extension Sample (Widget)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				845D449F2C6CA8E000C9BAC8 /* Debug */,
+				845D44A02C6CA8E000C9BAC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84CD7D852C6CC2AF00543A2E /* Build configuration list for PBXNativeTarget "Extension Sample (Keyboard)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84CD7D862C6CC2AF00543A2E /* Debug */,
+				84CD7D872C6CC2AF00543A2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84CD7DD22C6CDD4100543A2E /* Build configuration list for PBXNativeTarget "Extension Sample (App Intents)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84CD7DD32C6CDD4100543A2E /* Debug */,
+				84CD7DD42C6CDD4100543A2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C554D1B02812AA440070CB39 /* Build configuration list for PBXNativeTarget "AppKit Sample (Obj-C, SPM)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2955,6 +3560,18 @@
 			productName = Setapp;
 		};
 		55BFADCF290B1F6100849044 /* Setapp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Setapp;
+		};
+		84CD7D712C6CBF0000543A2E /* Setapp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Setapp;
+		};
+		84CD7DD62C6CDD8C00543A2E /* Setapp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Setapp;
+		};
+		84CD7DD82C6CDD9200543A2E /* Setapp */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Setapp;
 		};

@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target x86_64-apple-macos10.13 -enable-objc-interop -autolink-force-load -enable-library-evolution -static -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name Setapp
+// swift-module-flags: -target x86_64-apple-macos10.13 -enable-objc-interop -autolink-force-load -enable-library-evolution -static -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature AccessLevelOnImport -enable-bare-slash-regex -module-name Setapp
 import AppKit
 import Cocoa
 import CommonCrypto
@@ -19,6 +19,7 @@ import os
     @objc get
   }
   open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
+  open func requestPurchaseType(completionHandler: @escaping (Swift.Result<Setapp.SetappAppPurchaseType, any Swift.Error>) -> Swift.Void)
   @objc deinit
 }
 extension Setapp.SetappManager {
@@ -36,6 +37,7 @@ extension Setapp.SetappManager {
 public typealias SetappLogHandle = (_ message: Swift.String, _ logLevel: Setapp.SetappLogLevel) -> Swift.Void
 @objc(STPConfiguration) @objcMembers open class SetappConfiguration : ObjectiveC.NSObject, Swift.Codable {
   @objc(defaultConfiguration) public static let `default`: Setapp.SetappConfiguration
+  @objc public var appGroupIdentifier: Swift.String?
   @objc final public let publicKeyBundle: Foundation.Bundle
   @objc final public let publicKeyFilename: Swift.String
   @objc(initWithPublicKeyBundle:publicKeyFilename:) public init(publicKeyBundle: Foundation.Bundle?, publicKeyFilename: Swift.String?)
@@ -46,6 +48,15 @@ public typealias SetappLogHandle = (_ message: Swift.String, _ logLevel: Setapp.
     @objc get
   }
   @objc deinit
+}
+public enum SetappAppPurchaseType : Swift.Int {
+  case membership
+  case singleApp
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable {
   public init(rawValue: Swift.String)
@@ -136,6 +147,9 @@ extension Setapp.SetappManager {
   }
   @objc deinit
 }
+extension Setapp.SetappAppPurchaseType : Swift.Equatable {}
+extension Setapp.SetappAppPurchaseType : Swift.Hashable {}
+extension Setapp.SetappAppPurchaseType : Swift.RawRepresentable {}
 @available(*, deprecated, renamed: "VendorAuthorizationScope")
 extension Setapp.SCVendorAppScope : Swift.Equatable {}
 @available(*, deprecated, renamed: "VendorAuthorizationScope")

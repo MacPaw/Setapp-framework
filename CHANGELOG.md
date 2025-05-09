@@ -1,3 +1,22 @@
+## [4.3.0] - 2025-05-09
+
+### New
+* [iOS] Added support for distribution via Setapp Mobile with a new `start(_:_:)` method for providing `SetappConfiguration`.
+* [iOS] Added `SetappManager.isDistributedViaSetapp(_:)` utility API to determine if the app is distributed via Setapp Mobile.
+* [iOS] Setapp Framework can now present permanent messages (activation prompts or issue messages), currently only used when distributed via Setapp Mobile.
+* [iOS] Introduced app extensions usage reporting.
+* Added `SetappManager.shared.requestPurchaseType(_:)` API to determine the app license type.
+
+### Updated
+* [iOS] Enhanced Setapp message alerts with new `isDismissable` and `onDismiss` properties.
+* [iOS] Improved `SetappManager` startup process.
+
+### Fixed
+* [iOS] Fixed Setapp message options to remain up-to-date when presenting new messages.
+* [iOS] Fixed "no common ancestor" crash.
+* [Electron] Added x86_64 architecture support to the node.
+
+
 ## [4.2.3] - 2025-04-01
 
 ### Fixed
