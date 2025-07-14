@@ -19,7 +19,7 @@
     "node-gyp": "^10.2.0"
   },
   "build": {
-    "buildVersion": "25",
+    "buildVersion": "26",
     "appId": "com.setapp.fmwk.macos.TestApp-setapp",
     "productName": "Setapp Electron App Demo",
     "copyright": "Copyright 2020-2023 Setapp Limited.",
@@ -67,7 +67,7 @@
     "afterSign": "scripts/notarize.js"
   },
   "scripts": {
-    "preinstall": "npm pack ../.. && mv *.tgz setapp-framework-wrapper.tgz",
+    "preinstall": "npm install --prefix ../.. && npm run build --prefix ../.. && mv $(npm pack ../..) setapp-framework-wrapper.tgz",
     "postinstall": "electron-builder install-app-deps",
     "build": "electron-builder --mac --universal"
   }
