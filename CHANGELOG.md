@@ -1,3 +1,9 @@
+## [4.3.2] - 2025-08-20
+
+### Fixed
+* [macOS] Implemented changes that should prevent occasional crashes when connecting to the Setapp Agent.
+* [iOS] In some cases, after you activated Setapp and later opened the app, the activation could unexpectedly reset. We’ve addressed this issue, and it shouldn’t happen again.
+
 ## [4.3.1] - 2025-07-14
 
 ### Updated

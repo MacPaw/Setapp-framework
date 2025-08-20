@@ -549,6 +549,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPUsageEvent, "SetappUsageEvent", open) {
 
 
 
+
 #endif
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
@@ -1104,6 +1105,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPUsageEvent, "SetappUsageEvent", open) {
 /// A user interaction event.
   STPUsageEventUserInteraction = 2,
 };
+
 
 
 

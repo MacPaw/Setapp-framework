@@ -548,6 +548,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 
 
 
+
 @interface STPManager (SWIFT_EXTENSION(Setapp))
 /// Attempts to open a Setapp URL.
 /// \param url A URL to open.
@@ -580,7 +581,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 ///
 - (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
-
 
 
 /// A protocol that defines the methods that Setapp manager instances call on their delegates to
@@ -616,6 +616,7 @@ SWIFT_CLASS_NAMED("SetappSubscription")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 
