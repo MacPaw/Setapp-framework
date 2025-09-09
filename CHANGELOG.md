@@ -1,3 +1,12 @@
+## [4.3.3] - 2025-09-09
+
+### Updated
+* [iOS] Setapp-generated data, such as usage reports, is now stored in the Application Support folder. This prevents internal data from appearing in the Files folder.
+
+### Fixed
+*  [iOS] In some cases, after you activated Setapp subscription for an app and later opened it, the activation could unexpectedly reset. This update includes a more robust fix than the one introduced in version 4.3.2.
+
+
 ## [4.3.2] - 2025-08-20
 
 ### Fixed
