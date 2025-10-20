@@ -26,7 +26,7 @@
 		</data>
 		<key>ios-arm64/libSetapp.a</key>
 		<data>
-		fLd45shH0Xdv8v71pyDgcTCY/+0=
+		dpEEzh/YOtPCp6jNPS3YmzFE6rg=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/Headers/Setapp/Setapp-Swift.h</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/libSetapp.a</key>
 		<data>
-		YjfK1qKnJJ9kmEEf56n7E3aE+Vg=
+		aGLo7CGo0zZnnksatQDECVdYKac=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Headers/Setapp/Setapp-Swift.h</key>
 		<data>
@@ -90,7 +90,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/libSetapp.a</key>
 		<data>
-		bQYXW547fSZyRmuiF4mm0ginzZc=
+		2+FOdErxbfD9Xivy+llIcYRhizU=
 		</data>
 		<key>macos-arm64_x86_64/Headers/Setapp/Setapp-Swift.h</key>
 		<data>
@@ -122,7 +122,7 @@
 		</data>
 		<key>macos-arm64_x86_64/libSetapp.a</key>
 		<data>
-		RPQAhBn+w4ERkUquqDDskvcssOE=
+		QdTp0WZ+w4am+5F57uBE7GkzVDs=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -186,11 +186,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fLd45shH0Xdv8v71pyDgcTCY/+0=
+			dpEEzh/YOtPCp6jNPS3YmzFE6rg=
 			</data>
 			<key>hash2</key>
 			<data>
-			KfcspfW22Av+nliKxWnje7RdoyjjC8IT5PrlhoW4HFA=
+			andNHxunDMh7Oc4SOQXdTrt0hFABnBVR5+7oqNWuIeg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/Headers/Setapp/Setapp-Swift.h</key>
@@ -274,11 +274,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YjfK1qKnJJ9kmEEf56n7E3aE+Vg=
+			aGLo7CGo0zZnnksatQDECVdYKac=
 			</data>
 			<key>hash2</key>
 			<data>
-			FLJpjX2DU3F+iM0a3mdtHzfFxBFIWffr+7UBswnJ0pg=
+			5vj/3xyvPGUKg4f/dokWvgTLacMOWBGF8yU+Q6xmkxk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Headers/Setapp/Setapp-Swift.h</key>
@@ -362,11 +362,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bQYXW547fSZyRmuiF4mm0ginzZc=
+			2+FOdErxbfD9Xivy+llIcYRhizU=
 			</data>
 			<key>hash2</key>
 			<data>
-			HibSIKbhCBQSNPZVAv5ybXL0uDlFp1KNxnU7BU151jk=
+			q7QBkuk0Nb+1/YfvpFV//zvcVMWTr63utjI9iODqTeI=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/Headers/Setapp/Setapp-Swift.h</key>
@@ -450,11 +450,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RPQAhBn+w4ERkUquqDDskvcssOE=
+			QdTp0WZ+w4am+5F57uBE7GkzVDs=
 			</data>
 			<key>hash2</key>
 			<data>
-			fzfU1PKjBY7IQ16TU5Uj58jDAfN8dIEImosZUvQUgD0=
+			Oz+beURE2b4fY5dzsGgOtMo+nimuxcLe2CN118syUgc=
 			</data>
 		</dict>
 	</dict>

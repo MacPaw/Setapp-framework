@@ -1,3 +1,9 @@
+## [4.3.4] - 2025-10-20
+
+### Fixed
+* [iOS] Fixed an issue with data migration to the application support folder, where the migration tool mistakenly removed the old directory in some cases.
+
+
 ## [4.3.3] - 2025-09-09
 
 ### Updated
