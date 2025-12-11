@@ -14,12 +14,12 @@
     "@electron/notarize": "^2.1.0",
     "@electron/universal": "^1.4.1",
     "app-root-dir": "^1.0.2",
-    "electron": "^25.8.4",
+    "electron": "^28.0.0",
     "electron-builder": "^24.6.3",
     "node-gyp": "^10.2.0"
   },
   "build": {
-    "buildVersion": "29",
+    "buildVersion": "30",
     "appId": "com.setapp.fmwk.macos.TestApp-setapp",
     "productName": "Setapp Electron App Demo",
     "copyright": "Copyright 2020-2023 Setapp Limited.",

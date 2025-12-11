@@ -1,3 +1,8 @@
+## [4.3.5] - 2025-12-09
+
+### Fixed
+* Fixed a rare issue where a developer app might crash while checking the internet connection.
+
 ## [4.3.4] - 2025-10-20
 
 ### Fixed
