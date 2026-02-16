@@ -36,7 +36,7 @@
 		550EB0E8290ACF8B00FAD77D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550EB0E7290ACF8B00FAD77D /* ViewController.swift */; };
 		550EB0F2290ACFA100FAD77D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C554D1A82812AA440070CB39 /* Assets.xcassets */; };
 		550EB0F3290ACFA200FAD77D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C554D1A82812AA440070CB39 /* Assets.xcassets */; };
-		550EB0FD290AD2D800FAD77D /* SetappFramework-Resources-iOS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 550EB0FC290AD28000FAD77D /* SetappFramework-Resources-iOS.bundle */; };
+		550EB0FD290AD2D800FAD77D /* SetappFramework-Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 550EB0FC290AD28000FAD77D /* SetappFramework-Resources.bundle */; };
 		552F5CE5297ECBD600DFDCDD /* setappPublicKey.pem in Resources */ = {isa = PBXBuildFile; fileRef = 552F5CE4297ECBD600DFDCDD /* setappPublicKey.pem */; platformFilters = (macos, ); };
 		5540A10E29806FDC00FBB865 /* NSViewController+Setapp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BE7632911C46F00EA7525 /* NSViewController+Setapp.swift */; };
 		5540A10F29806FDC00FBB865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550EB0E5290ACF8B00FAD77D /* AppDelegate.swift */; };
@@ -64,7 +64,7 @@
 		5540A195298070BB00FBB865 /* setappPublicKey-iOS.pem in Resources */ = {isa = PBXBuildFile; fileRef = 557BE76C2911CE6300EA7525 /* setappPublicKey-iOS.pem */; };
 		5540A196298070BB00FBB865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BFADE8290BB0DE00849044 /* Main.storyboard */; };
 		5540A197298070BB00FBB865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C554D1A82812AA440070CB39 /* Assets.xcassets */; };
-		5540A1A2298072F700FBB865 /* SetappFramework-Resources-iOS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 550EB0FC290AD28000FAD77D /* SetappFramework-Resources-iOS.bundle */; };
+		5540A1A2298072F700FBB865 /* SetappFramework-Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 550EB0FC290AD28000FAD77D /* SetappFramework-Resources.bundle */; };
 		5541F53F29E9757200D360A8 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541F53E29E9757200D360A8 /* WindowController.swift */; };
 		5541F54029E9757200D360A8 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541F53E29E9757200D360A8 /* WindowController.swift */; };
 		5541F54129E9757200D360A8 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5541F53E29E9757200D360A8 /* WindowController.swift */; };
@@ -123,8 +123,8 @@
 		55BFAE892911329800849044 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFAE872911328900849044 /* ViewController.swift */; };
 		55BFAE8A2911329800849044 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFAE862911328900849044 /* SceneDelegate.swift */; };
 		55BFAE8C291133BC00849044 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BFAE8B291133B800849044 /* Main.storyboard */; };
-		55CA3FD029E59FC100187665 /* SetappFramework-Resources-iOS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 550EB0FC290AD28000FAD77D /* SetappFramework-Resources-iOS.bundle */; platformFilter = ios; };
-		55CA3FD129E5A00F00187665 /* SetappFramework-Resources-iOS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 550EB0FC290AD28000FAD77D /* SetappFramework-Resources-iOS.bundle */; platformFilter = ios; };
+		55CA3FD029E59FC100187665 /* SetappFramework-Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 550EB0FC290AD28000FAD77D /* SetappFramework-Resources.bundle */; platformFilter = ios; };
+		55CA3FD129E5A00F00187665 /* SetappFramework-Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 550EB0FC290AD28000FAD77D /* SetappFramework-Resources.bundle */; platformFilter = ios; };
 		55EA3A3F290AF755008C3A53 /* Setapp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556E16D7290ADBF800C604C9 /* Setapp.xcframework */; };
 		55F08E9929C36EF4007332AD /* Setapp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556E16D7290ADBF800C604C9 /* Setapp.xcframework */; };
 		5B070DFA5CCE7F4CF81C236B /* libPods-UIKit Sample (Swift, Pods).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1052E328F29BBB7F278AC38A /* libPods-UIKit Sample (Swift, Pods).a */; };
@@ -257,7 +257,7 @@
 		550EB0E5290ACF8B00FAD77D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		550EB0E7290ACF8B00FAD77D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		550EB0F6290AD1A700FAD77D /* Setapp.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:MEHY5QF425:Setapp Limited"; lastKnownFileType = wrapper.xcframework; name = Setapp.xcframework; path = ../Setapp.xcframework; sourceTree = "<group>"; };
-		550EB0FC290AD28000FAD77D /* SetappFramework-Resources-iOS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "SetappFramework-Resources-iOS.bundle"; path = "../../SetappFramework-Resources-iOS.bundle"; sourceTree = "<group>"; };
+		550EB0FC290AD28000FAD77D /* SetappFramework-Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "SetappFramework-Resources.bundle"; path = "../../SetappFramework-Resources.bundle"; sourceTree = "<group>"; };
 		552F5CE4297ECBD600DFDCDD /* setappPublicKey.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = setappPublicKey.pem; path = Shared/setappPublicKey.pem; sourceTree = SOURCE_ROOT; };
 		5533D5232C74BC9000231241 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
 		5533D5242C74BCAC00231241 /* KeyboardExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeyboardExtension.entitlements; sourceTree = "<group>"; };
@@ -696,7 +696,7 @@
 				557BE75D2911BEB900EA7525 /* UIViewController+Setapp.swift */,
 				C554D1A82812AA440070CB39 /* Assets.xcassets */,
 				556E16D7290ADBF800C604C9 /* Setapp.xcframework */,
-				550EB0FC290AD28000FAD77D /* SetappFramework-Resources-iOS.bundle */,
+				550EB0FC290AD28000FAD77D /* SetappFramework-Resources.bundle */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1171,7 +1171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55CA3FD029E59FC100187665 /* SetappFramework-Resources-iOS.bundle in Resources */,
+				55CA3FD029E59FC100187665 /* SetappFramework-Resources.bundle in Resources */,
 				552F5CE5297ECBD600DFDCDD /* setappPublicKey.pem in Resources */,
 				557BE76B2911CE1F00EA7525 /* setappPublicKey-iOS.pem in Resources */,
 				550EB072290AB68E00FAD77D /* Assets.xcassets in Resources */,
@@ -1213,7 +1213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				557BE76F2911CEB500EA7525 /* setappPublicKey-iOS.pem in Resources */,
-				550EB0FD290AD2D800FAD77D /* SetappFramework-Resources-iOS.bundle in Resources */,
+				550EB0FD290AD2D800FAD77D /* SetappFramework-Resources.bundle in Resources */,
 				550EB0B9290AC77F00FAD77D /* Assets.xcassets in Resources */,
 				55BFAE812911176C00849044 /* Main.storyboard in Resources */,
 			);
@@ -1263,7 +1263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5540A1A2298072F700FBB865 /* SetappFramework-Resources-iOS.bundle in Resources */,
+				5540A1A2298072F700FBB865 /* SetappFramework-Resources.bundle in Resources */,
 				5540A183298070B100FBB865 /* setappPublicKey-iOS.pem in Resources */,
 				5540A184298070B100FBB865 /* Main.storyboard in Resources */,
 				5540A185298070B100FBB865 /* Assets.xcassets in Resources */,
@@ -1284,7 +1284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55CA3FD129E5A00F00187665 /* SetappFramework-Resources-iOS.bundle in Resources */,
+				55CA3FD129E5A00F00187665 /* SetappFramework-Resources.bundle in Resources */,
 				557BE77A2911CFD100EA7525 /* setappPublicKey.pem in Resources */,
 				550EB074290AB68F00FAD77D /* Assets.xcassets in Resources */,
 				55BFAE8C291133BC00849044 /* Main.storyboard in Resources */,
@@ -1720,12 +1720,10 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1766,12 +1764,10 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1817,12 +1813,12 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_OUTPUT_FORMAT = XML;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_CFLAGS = "SCENE_PREFIX=$(TARGET_NAME)";
 				OTHER_LDFLAGS = (
@@ -1871,12 +1867,12 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_OUTPUT_FORMAT = XML;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_CFLAGS = "SCENE_PREFIX=$(TARGET_NAME)";
 				OTHER_LDFLAGS = (
@@ -1928,7 +1924,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-ObjC-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1969,7 +1964,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-ObjC-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2002,12 +1996,10 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-ObjC-Pods";
@@ -2044,12 +2036,10 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-ObjC-Pods";
@@ -2092,7 +2082,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2137,7 +2126,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2174,12 +2162,10 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2220,12 +2206,10 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2266,12 +2250,10 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_PREPROCESS = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2313,12 +2295,10 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_PREPROCESS = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2365,7 +2345,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2411,7 +2390,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2457,7 +2435,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2502,7 +2479,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -2549,7 +2525,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-Swift-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2591,7 +2566,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.setapp.fmwk.macos.TestApp-setapp";
 				PRODUCT_NAME = "SampleApp-AppKit-Swift-Pods";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2626,12 +2600,10 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_PREPROCESS = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2673,12 +2645,10 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_PREPROCESS = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2720,12 +2690,10 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_PREPROCESS = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-Swift-Pods";
@@ -2763,12 +2731,10 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_PREPROCESS = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
 				PRODUCT_NAME = "SampleApp-UIKit-Swift-Pods";
@@ -2800,12 +2766,10 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_OUTPUT_FORMAT = XML;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2845,12 +2809,10 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
 				INFOPLIST_OUTPUT_FORMAT = XML;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETPLACES = com.macpaw.marketplace.ios.eu;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2908,7 +2870,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = MEHY5QF425;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2928,15 +2890,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 4.3.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MARKETING_VERSION = 5.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 15.6;
+				WATCHOS_DEPLOYMENT_TARGET = 8.7;
+				XROS_DEPLOYMENT_TARGET = 1.3;
 			};
 			name = Debug;
 		};
@@ -2978,7 +2943,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Setapp Limited (MEHY5QF425)";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = MEHY5QF425;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2992,15 +2957,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 4.3.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MARKETING_VERSION = 5.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TVOS_DEPLOYMENT_TARGET = 15.6;
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.7;
+				XROS_DEPLOYMENT_TARGET = 1.3;
 			};
 			name = Release;
 		};
@@ -3025,13 +2993,14 @@
 				INFOPLIST_FILE = "App Extensions/Widget/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -3073,13 +3042,14 @@
 				INFOPLIST_FILE = "App Extensions/Widget/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = widget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -3118,13 +3088,14 @@
 				INFOPLIST_FILE = "App Extensions/Keyboard/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = SetappKeyboard;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -3164,13 +3135,14 @@
 				INFOPLIST_FILE = "App Extensions/Keyboard/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = SetappKeyboard;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -3209,13 +3181,14 @@
 				INFOPLIST_FILE = "App Extensions/Intents/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = AppIntents;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -3255,13 +3228,14 @@
 				INFOPLIST_FILE = "App Extensions/Intents/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = AppIntents;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -3310,7 +3284,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",
@@ -3355,7 +3328,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-force_load",

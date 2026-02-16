@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                    = 'Setapp'
-  s.version                 = '4.3.5'
+  s.version                 = '5.0.0'
 
   s.summary                 = 'Setapp Framework'
 
@@ -11,16 +11,17 @@ Pod::Spec.new do |s|
 
   s.source                  = { :git => "https://github.com/MacPaw/Setapp-framework.git", :tag => s.version }
 
-  s.swift_version           = '5.6'
+  s.swift_version           = '6.2'
   s.requires_arc            = true
 
-  s.ios.deployment_target   = '12.0'
-  s.ios.frameworks          = 'Security', 'UIKit', 'Security'
-  s.ios.resource_bundles = {
-    'SetappResources_iOS_cocoapods' => ['SetappFramework-Resources-iOS.bundle']
+  s.resource_bundles = {
+    'SetappFramework-Resources_cocoapods' => ['SetappFramework-Resources.bundle']
   }
 
-  s.osx.deployment_target   = '10.13'
+  s.ios.deployment_target   = '15.6'
+  s.ios.frameworks          = 'Security', 'UIKit', 'Security'
+
+  s.osx.deployment_target   = '11.5'
   s.osx.frameworks          = 'Security', 'AppKit', 'Security'
 
   s.vendored_frameworks     = 'Setapp.xcframework'

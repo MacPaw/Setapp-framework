@@ -1,3 +1,8 @@
+## [5.0.0] - 2026-02-16
+
+### New
+* Introduced new Setapp AI API to support the next generation of AI features. Stay tuned for upcoming improvements.
+
 ## [4.3.5] - 2025-12-09
 
 ### Fixed
