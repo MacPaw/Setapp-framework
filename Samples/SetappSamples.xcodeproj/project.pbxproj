@@ -124,7 +124,6 @@
 		55BFAE8A2911329800849044 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFAE862911328900849044 /* SceneDelegate.swift */; };
 		55BFAE8C291133BC00849044 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BFAE8B291133B800849044 /* Main.storyboard */; };
 		55CA3FD029E59FC100187665 /* SetappFramework-Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 550EB0FC290AD28000FAD77D /* SetappFramework-Resources.bundle */; platformFilter = ios; };
-		55CA3FD129E5A00F00187665 /* SetappFramework-Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 550EB0FC290AD28000FAD77D /* SetappFramework-Resources.bundle */; platformFilter = ios; };
 		55EA3A3F290AF755008C3A53 /* Setapp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556E16D7290ADBF800C604C9 /* Setapp.xcframework */; };
 		55F08E9929C36EF4007332AD /* Setapp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556E16D7290ADBF800C604C9 /* Setapp.xcframework */; };
 		5B070DFA5CCE7F4CF81C236B /* libPods-UIKit Sample (Swift, Pods).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1052E328F29BBB7F278AC38A /* libPods-UIKit Sample (Swift, Pods).a */; };
@@ -148,11 +147,19 @@
 		84CD7DD72C6CDD8C00543A2E /* Setapp in Frameworks */ = {isa = PBXBuildFile; productRef = 84CD7DD62C6CDD8C00543A2E /* Setapp */; };
 		84CD7DD92C6CDD9200543A2E /* Setapp in Frameworks */ = {isa = PBXBuildFile; productRef = 84CD7DD82C6CDD9200543A2E /* Setapp */; };
 		84CD7DDB2C6CE6F600543A2E /* setappPublicKey.pem in Resources */ = {isa = PBXBuildFile; fileRef = 84CD7DDA2C6CE6F600543A2E /* setappPublicKey.pem */; };
+		A96586016514B6A58A1AD595 /* setappPublicKey.pem in Resources */ = {isa = PBXBuildFile; fileRef = E355A111B602A593BE3BDFB7 /* setappPublicKey.pem */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C541A0862F44872300EE30F7 /* SetappFramework-Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 550EB0FC290AD28000FAD77D /* SetappFramework-Resources.bundle */; };
+		C541A0882F44899400EE30F7 /* AIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C541A0872F44899000EE30F7 /* AIViewModel.swift */; };
 		C554D1A42812AA430070CB39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C554D1A32812AA430070CB39 /* AppDelegate.m */; };
 		C554D1A72812AA430070CB39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C554D1A62812AA430070CB39 /* ViewController.m */; };
 		C554D1A92812AA440070CB39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C554D1A82812AA440070CB39 /* Assets.xcassets */; };
 		C554D1AE2812AA440070CB39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C554D1AD2812AA440070CB39 /* main.m */; };
+		C5E503162F43BC8E002C22AE /* Setapp in Frameworks */ = {isa = PBXBuildFile; productRef = C5E5030F2F43BC8E002C22AE /* Setapp */; };
+		C5E5031A2F43BC8E002C22AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C554D1A82812AA440070CB39 /* Assets.xcassets */; };
+		C5E503202F43BCD6002C22AE /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F681F7A6E6C3C3ACE4545 /* App.swift */; };
+		C5E503212F43BCD6002C22AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3796B6A641A6E51E8CD65133 /* ContentView.swift */; };
 		DBD730D5CE2BCDB2621486B3 /* libPods-UIKit Sample (Obj-C, Pods).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 094EFAF9FDA1E3646EF78E9C /* libPods-UIKit Sample (Obj-C, Pods).a */; };
+		E3E277FF4AC9444C57FDA400 /* setappPublicKey-iOS.pem in Resources */ = {isa = PBXBuildFile; fileRef = 35F96F57745D9800266D8C42 /* setappPublicKey-iOS.pem */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB1DB1476F617A31E5D5CBDE /* libPods-AppKit Sample (Obj-C, Pods).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA030B4D29BD8E671F70E82 /* libPods-AppKit Sample (Obj-C, Pods).a */; };
 /* End PBXBuildFile section */
 
@@ -236,6 +243,9 @@
 		0F474144F284293BF1D245F8 /* Pods-iOS Sample (UIKit, ObjC, Pods).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Sample (UIKit, ObjC, Pods).debug.xcconfig"; path = "Target Support Files/Pods-iOS Sample (UIKit, ObjC, Pods)/Pods-iOS Sample (UIKit, ObjC, Pods).debug.xcconfig"; sourceTree = "<group>"; };
 		1052E328F29BBB7F278AC38A /* libPods-UIKit Sample (Swift, Pods).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UIKit Sample (Swift, Pods).a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA030B4D29BD8E671F70E82 /* libPods-AppKit Sample (Obj-C, Pods).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppKit Sample (Obj-C, Pods).a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35F96F57745D9800266D8C42 /* setappPublicKey-iOS.pem */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "setappPublicKey-iOS.pem"; sourceTree = "<group>"; };
+		3796B6A641A6E51E8CD65133 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = SetappAI/ContentView.swift; sourceTree = SOURCE_ROOT; };
+		3C49025B792C2B0979180A70 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = SetappAI/Info.plist; sourceTree = SOURCE_ROOT; };
 		423AA257ED8353B17B953FE6 /* Pods-Catalyst Sample (Swift, Pods).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalyst Sample (Swift, Pods).debug.xcconfig"; path = "Target Support Files/Pods-Catalyst Sample (Swift, Pods)/Pods-Catalyst Sample (Swift, Pods).debug.xcconfig"; sourceTree = "<group>"; };
 		550EB047290AB12E00FAD77D /* SampleApp-UIKit-ObjC-SPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SampleApp-UIKit-ObjC-SPM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		550EB049290AB12E00FAD77D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -306,6 +316,7 @@
 		68554824282A732F00E53201 /* SampleApp-Catalyst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SampleApp-Catalyst.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		688C4F7D260C8E21007152F6 /* SampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SampleApp.entitlements; sourceTree = "<group>"; };
 		688C4F95260C8F55007152F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		691F681F7A6E6C3C3ACE4545 /* App.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = App.swift; path = SetappAI/App.swift; sourceTree = SOURCE_ROOT; };
 		7D55BE94C17512E71C9D841B /* libPods-Catalyst Sample (Swift, Pods).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Catalyst Sample (Swift, Pods).a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8412E2B52C6E26430010AAE5 /* SetappUsageReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetappUsageReporter.swift; sourceTree = "<group>"; };
 		845D448A2C6CA8DF00C9BAC8 /* Extension Sample (Widget).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Extension Sample (Widget).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -333,6 +344,7 @@
 		B30CC11829711F91204D5ED4 /* Pods-SwiftUI Sample (Pods).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUI Sample (Pods).release.xcconfig"; path = "Target Support Files/Pods-SwiftUI Sample (Pods)/Pods-SwiftUI Sample (Pods).release.xcconfig"; sourceTree = "<group>"; };
 		BC79128019E6F57CACD85295 /* Pods-UIKit Sample (Obj-C, Pods).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKit Sample (Obj-C, Pods).release.xcconfig"; path = "Target Support Files/Pods-UIKit Sample (Obj-C, Pods)/Pods-UIKit Sample (Obj-C, Pods).release.xcconfig"; sourceTree = "<group>"; };
 		C164806A56C7CAD0BA237AF0 /* Pods-SwiftUI Sample (Pods).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUI Sample (Pods).debug.xcconfig"; path = "Target Support Files/Pods-SwiftUI Sample (Pods)/Pods-SwiftUI Sample (Pods).debug.xcconfig"; sourceTree = "<group>"; };
+		C541A0872F44899000EE30F7 /* AIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIViewModel.swift; sourceTree = "<group>"; };
 		C554D1A02812AA430070CB39 /* SampleApp-AppKit-ObjC-SPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SampleApp-AppKit-ObjC-SPM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C554D1A22812AA430070CB39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C554D1A32812AA430070CB39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -340,9 +352,13 @@
 		C554D1A62812AA430070CB39 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C554D1A82812AA440070CB39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C554D1AD2812AA440070CB39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C5E5031E2F43BC8E002C22AE /* SetappAI Sample (SPM).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SetappAI Sample (SPM).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5FC7CABE3C53CA4882C8D8B /* libPods-SwiftUI Sample (Pods).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftUI Sample (Pods).a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2A75069C57ADB97B3F0309 /* Pods-Catalyst Sample (Swift, Pods).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalyst Sample (Swift, Pods).release.xcconfig"; path = "Target Support Files/Pods-Catalyst Sample (Swift, Pods)/Pods-Catalyst Sample (Swift, Pods).release.xcconfig"; sourceTree = "<group>"; };
+		E1838D15DB3126E4A7DFF210 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E355A111B602A593BE3BDFB7 /* setappPublicKey.pem */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = setappPublicKey.pem; sourceTree = "<group>"; };
 		F9463ECC4B9B7C6769FAE761 /* Pods-UIKit Sample (Obj-C, Pods).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIKit Sample (Obj-C, Pods).debug.xcconfig"; path = "Target Support Files/Pods-UIKit Sample (Obj-C, Pods)/Pods-UIKit Sample (Obj-C, Pods).debug.xcconfig"; sourceTree = "<group>"; };
+		FC53A1439BCFDA0A69BE698A /* SetappAISample.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; name = SetappAISample.entitlements; path = SetappAI/SetappAISample.entitlements; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -481,6 +497,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				55BFADCE290B1F5800849044 /* Setapp in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E503152F43BC8E002C22AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5E503162F43BC8E002C22AE /* Setapp in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,6 +651,7 @@
 				55EA3A6D290B15EA008C3A53 /* Packages */,
 				688C4F79260C8E17007152F6 /* Frameworks */,
 				55770BC72238474E5DA6C588 /* Pods */,
+				90ECFD6CAAB5BBADA0501749 /* SetappAI */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -654,6 +679,7 @@
 				845D448A2C6CA8DF00C9BAC8 /* Extension Sample (Widget).appex */,
 				84CD7D7D2C6CC2AF00543A2E /* Extension Sample (Keyboard).appex */,
 				84CD7DC82C6CDD4100543A2E /* Extension Sample (App Intents).appex */,
+				C5E5031E2F43BC8E002C22AE /* SetappAI Sample (SPM).app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -685,6 +711,7 @@
 				1052E328F29BBB7F278AC38A /* libPods-UIKit Sample (Swift, Pods).a */,
 				845D448B2C6CA8DF00C9BAC8 /* WidgetKit.framework */,
 				845D448D2C6CA8DF00C9BAC8 /* SwiftUI.framework */,
+				7A258351DDC25B3BE4ED23E5 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -697,8 +724,18 @@
 				C554D1A82812AA440070CB39 /* Assets.xcassets */,
 				556E16D7290ADBF800C604C9 /* Setapp.xcframework */,
 				550EB0FC290AD28000FAD77D /* SetappFramework-Resources.bundle */,
+				35F96F57745D9800266D8C42 /* setappPublicKey-iOS.pem */,
+				E355A111B602A593BE3BDFB7 /* setappPublicKey.pem */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		7A258351DDC25B3BE4ED23E5 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E1838D15DB3126E4A7DFF210 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		845D448F2C6CA8DF00C9BAC8 /* Widget */ = {
@@ -739,6 +776,18 @@
 			);
 			path = Intents;
 			sourceTree = "<group>";
+		};
+		90ECFD6CAAB5BBADA0501749 /* SetappAI */ = {
+			isa = PBXGroup;
+			children = (
+				C541A0872F44899000EE30F7 /* AIViewModel.swift */,
+				691F681F7A6E6C3C3ACE4545 /* App.swift */,
+				3796B6A641A6E51E8CD65133 /* ContentView.swift */,
+				3C49025B792C2B0979180A70 /* Info.plist */,
+				FC53A1439BCFDA0A69BE698A /* SetappAISample.entitlements */,
+			);
+			name = SetappAI;
+			sourceTree = SOURCE_ROOT;
 		};
 		C554D1A12812AA430070CB39 /* AppKit */ = {
 			isa = PBXGroup;
@@ -806,6 +855,7 @@
 				550EB07B290AC6D100FAD77D /* Sources */,
 				550EB081290AC6D100FAD77D /* Frameworks */,
 				550EB083290AC6D100FAD77D /* Resources */,
+				7390FC31C6A861601009050F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -824,7 +874,7 @@
 				550EB08C290AC6E900FAD77D /* Sources */,
 				550EB092290AC6E900FAD77D /* Frameworks */,
 				550EB093290AC6E900FAD77D /* Resources */,
-				D1F0DDE6F744538810EA337E /* [CP] Copy Pods Resources */,
+				C686FE6B7BB10E55BC8200B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -935,6 +985,7 @@
 				5540A11E29806FEF00FBB865 /* Sources */,
 				5540A12229806FEF00FBB865 /* Frameworks */,
 				5540A12429806FEF00FBB865 /* Resources */,
+				A973B6237FE6C65A68ABC5BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -970,7 +1021,7 @@
 				5540A18D298070BB00FBB865 /* Sources */,
 				5540A192298070BB00FBB865 /* Frameworks */,
 				5540A194298070BB00FBB865 /* Resources */,
-				7660FAC8235B2924DB0A41A8 /* [CP] Copy Pods Resources */,
+				A12FD5E7F52893A8FC2E7F84 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1081,6 +1132,26 @@
 			productReference = C554D1A02812AA430070CB39 /* SampleApp-AppKit-ObjC-SPM.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C5E5030E2F43BC8E002C22AE /* SetappAI Sample (SPM) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5E5031B2F43BC8E002C22AE /* Build configuration list for PBXNativeTarget "SetappAI Sample (SPM)" */;
+			buildPhases = (
+				C5E503102F43BC8E002C22AE /* Sources */,
+				C5E503152F43BC8E002C22AE /* Frameworks */,
+				C5E503172F43BC8E002C22AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SetappAI Sample (SPM)";
+			packageProductDependencies = (
+				C5E5030F2F43BC8E002C22AE /* Setapp */,
+			);
+			productName = "macOS Sample (AppKit, Swift)";
+			productReference = C5E5031E2F43BC8E002C22AE /* SetappAI Sample (SPM).app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1152,6 +1223,7 @@
 				5540A179298070B100FBB865 /* UIKit Sample (Swift, Manual) */,
 				5540A18B298070BB00FBB865 /* UIKit Sample (Swift, Pods) */,
 				550EB0CA290ACEDF00FAD77D /* UIKit Sample (Swift, SPM) */,
+				C5E5030E2F43BC8E002C22AE /* SetappAI Sample (SPM) */,
 			);
 		};
 /* End PBXProject section */
@@ -1284,7 +1356,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55CA3FD129E5A00F00187665 /* SetappFramework-Resources.bundle in Resources */,
 				557BE77A2911CFD100EA7525 /* setappPublicKey.pem in Resources */,
 				550EB074290AB68F00FAD77D /* Assets.xcassets in Resources */,
 				55BFAE8C291133BC00849044 /* Main.storyboard in Resources */,
@@ -1324,6 +1395,17 @@
 				557BE7762911CEF300EA7525 /* setappPublicKey.pem in Resources */,
 				55BFAE7E291073B600849044 /* Main.storyboard in Resources */,
 				C554D1A92812AA440070CB39 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E503172F43BC8E002C22AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C541A0862F44872300EE30F7 /* SetappFramework-Resources.bundle in Resources */,
+				C5E5031A2F43BC8E002C22AE /* Assets.xcassets in Resources */,
+				E3E277FF4AC9444C57FDA400 /* setappPublicKey-iOS.pem in Resources */,
+				A96586016514B6A58A1AD595 /* setappPublicKey.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1396,7 +1478,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7660FAC8235B2924DB0A41A8 /* [CP] Copy Pods Resources */ = {
+		7390FC31C6A861601009050F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppKit Sample (Obj-C, Pods)/Pods-AppKit Sample (Obj-C, Pods)-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppKit Sample (Obj-C, Pods)/Pods-AppKit Sample (Obj-C, Pods)-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppKit Sample (Obj-C, Pods)/Pods-AppKit Sample (Obj-C, Pods)-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A12FD5E7F52893A8FC2E7F84 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1404,17 +1503,30 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UIKit Sample (Swift, Pods)/Pods-UIKit Sample (Swift, Pods)-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UIKit Sample (Swift, Pods)/Pods-UIKit Sample (Swift, Pods)-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
-			outputPaths = (
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UIKit Sample (Swift, Pods)/Pods-UIKit Sample (Swift, Pods)-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A973B6237FE6C65A68ABC5BB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppKit Sample (Swift, Pods)/Pods-AppKit Sample (Swift, Pods)-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppKit Sample (Swift, Pods)/Pods-AppKit Sample (Swift, Pods)-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppKit Sample (Swift, Pods)/Pods-AppKit Sample (Swift, Pods)-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B7BFFEE47AFE032E83C95CE3 /* [CP] Check Pods Manifest.lock */ = {
@@ -1439,7 +1551,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D1F0DDE6F744538810EA337E /* [CP] Copy Pods Resources */ = {
+		C686FE6B7BB10E55BC8200B5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1447,13 +1559,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UIKit Sample (Obj-C, Pods)/Pods-UIKit Sample (Obj-C, Pods)-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UIKit Sample (Obj-C, Pods)/Pods-UIKit Sample (Obj-C, Pods)-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1656,6 +1764,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C5E503102F43BC8E002C22AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5E503202F43BCD6002C22AE /* App.swift in Sources */,
+				C5E503212F43BCD6002C22AE /* ContentView.swift in Sources */,
+				C541A0882F44899400EE30F7 /* AIViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1790,7 +1908,6 @@
 		550EB070290AB14B00FAD77D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1844,7 +1961,6 @@
 		550EB071290AB14B00FAD77D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -2870,7 +2986,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 32;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = MEHY5QF425;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2892,7 +3008,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				MARKETING_VERSION = 5.0.0;
+				MARKETING_VERSION = 5.0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2943,7 +3059,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Setapp Limited (MEHY5QF425)";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 32;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = MEHY5QF425;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2959,7 +3075,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				MARKETING_VERSION = 5.0.0;
+				MARKETING_VERSION = 5.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -3343,6 +3459,107 @@
 			};
 			name = Release;
 		};
+		C5E5031C2F43BC8E002C22AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SetappAI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_OUTPUT_FORMAT = XML;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "com.setapp.fmwk.macos.TestApp-setapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.setapp.fmwk.ios.TestApp";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match Development com.setapp.fmwk.macos.TestApp-setapp macos";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C5E5031D2F43BC8E002C22AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = Shared/SampleApp.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = MEHY5QF425;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SetappAI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Sample App";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 MacPaw Way Ltd. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_OUTPUT_FORMAT = XML;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(BUILT_PRODUCTS_DIR)/libSetapp.a\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.setapp.fmwk.ios.TestApp;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "com.setapp.fmwk.macos.TestApp-setapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match Direct com.setapp.fmwk.macos.TestApp-setapp macos";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3508,6 +3725,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C5E5031B2F43BC8E002C22AE /* Build configuration list for PBXNativeTarget "SetappAI Sample (SPM)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5E5031C2F43BC8E002C22AE /* Debug */,
+				C5E5031D2F43BC8E002C22AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3544,6 +3770,10 @@
 			productName = Setapp;
 		};
 		84CD7DD82C6CDD9200543A2E /* Setapp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Setapp;
+		};
+		C5E5030F2F43BC8E002C22AE /* Setapp */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Setapp;
 		};

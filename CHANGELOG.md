@@ -1,3 +1,8 @@
+## [5.0.1] - 2026-02-26
+
+### Updated
+* Finalized Setapp AI API, providing a stable interface for integrating AI capabilities into your apps.
+
 ## [5.0.0] - 2026-02-16
 
 ### New
