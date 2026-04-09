@@ -8,11 +8,9 @@
 import AppKit
 
 class WindowController: NSWindowController {
-
-    @IBAction func showHelp(_ sender: Any) {
+    @IBAction func showHelp(_: Any) {
         if let setappURL = URL(string: "https://docs.setapp.com") {
             NSWorkspace.shared.open(setappURL)
         }
     }
-    
 }

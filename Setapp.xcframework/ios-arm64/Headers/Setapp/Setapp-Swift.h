@@ -421,9 +421,8 @@ SWIFT_CLASS_NAMED("SetappManager")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull didChangeSubscriptionNotification;)
 + (NSNotificationName _Nonnull)didChangeSubscriptionNotification SWIFT_WARN_UNUSED_RESULT;
 /// A shared Setapp manager object for an application.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) STPManager * _Nonnull sharedInstance;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) STPManager * _Nonnull sharedInstance;)
 + (STPManager * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
-+ (void)setSharedInstance:(STPManager * _Nonnull)value;
 /// An object that handles Setapp subscription updates.
 @property (nonatomic, weak) id <STPManagerDelegate> _Nullable delegate;
 /// A current Setapp subscription.
@@ -483,7 +482,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 /// otherwise <code>false</code>.
 /// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
 ///
-- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
+- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT;
 /// A handler to call after handling background URL session events.
 @property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
 /// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
@@ -566,7 +565,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 /// An error object that specifies why the Setapp subscription validation has failed, or
 /// <code>nil</code> if the request was successful.
 ///
-- (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
+- (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 /// A protocol that defines the methods that Setapp manager instances call on their delegates to

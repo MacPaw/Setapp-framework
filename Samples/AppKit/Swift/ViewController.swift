@@ -8,7 +8,5 @@
 import Cocoa
 
 class ViewController: NSViewController {
-    
     // See `NSViewController+Setapp.swift`
-
 }

@@ -76,7 +76,7 @@ public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable
 }
 #if compiler(>=5.3) && $NonescapableTypes
 @available(*, deprecated, renamed: "SetappManager.shared.reportUsageEvent(_:)")
-public func SCReportUsageEvent(_ eventName: Swift.String, _ eventInfo: [Swift.AnyHashable : Any]?)
+public func SCReportUsageEvent(_ eventName: Swift.String, _: [Swift.AnyHashable : Any]?)
 #endif
 @available(*, deprecated, renamed: "SetappManager.shared.showReleaseNotesWindowIfNeeded()")
 public func SCShowReleaseNotesWindowIfNeeded()
@@ -99,14 +99,14 @@ public enum SCVendorAppScope : Swift.String {
 public func SCRequestAuthorizationCode(_ clientID: Swift.String, _ scope: [Setapp.SCVendorAppScope], _ completionHandler: @escaping (Swift.String?, (any Swift.Error)?) -> Swift.Void)
 #endif
 @available(*, deprecated, renamed: "SetappManager.logLevel")
-public func SCEnableDebugLogging(_ shouldEnable: Swift.Bool)
+public func SCEnableDebugLogging(_: Swift.Bool)
 @available(*, unavailable, message: "From now on SetappManager.shared.askToShareEmail will handle cooldown process.")
 public enum SCUserEmailSharingResponse {
 }
 @available(*, unavailable, message: "From now on SetappManager.shared.askToShareEmail will handle cooldown process.")
 public func SCGetLastUserEmailSharingResponse() -> Setapp.SCUserEmailSharingResponse
 @available(*, unavailable, renamed: "SetappManager.shared.askToShareEmail")
-public func SCAskUserToShareEmail(_ completionHandler: @escaping (Setapp.SCUserEmailSharingResponse) -> Swift.Void) -> Swift.Bool
+public func SCAskUserToShareEmail(_: @escaping (Setapp.SCUserEmailSharingResponse) -> Swift.Void) -> Swift.Bool
 @objc(STPLogLevel) public enum SetappLogLevel : Swift.Int {
   case verbose
   case debug
@@ -131,7 +131,7 @@ extension Setapp.SetappLogLevel : Swift.CustomStringConvertible {
   }
 }
 extension Setapp.SetappLogLevel : Swift.CaseIterable {
-  public static var allCases: [Setapp.SetappLogLevel]
+  public static let allCases: [Setapp.SetappLogLevel]
   public typealias AllCases = [Setapp.SetappLogLevel]
 }
 extension Setapp.SetappManager {
