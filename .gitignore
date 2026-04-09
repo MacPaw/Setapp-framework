@@ -108,4 +108,5 @@ node_modules/
 /nodejs/lib/binding
 /nodejs/dist
 /Samples/Electron/dist
+/Samples/Electron/out
 /Samples/Electron/.wrapper

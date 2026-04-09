@@ -376,7 +376,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// otherwise <code>false</code>.
 /// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
 ///
-- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
+- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT;
 /// A handler to call after handling background URL session events.
 @property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
 /// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
@@ -447,7 +447,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// An error object that specifies why the Setapp subscription validation has failed, or
 /// <code>nil</code> if the request was successful.
 ///
-- (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
+- (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 enum STPUsageEvent : NSInteger;
@@ -916,7 +916,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// otherwise <code>false</code>.
 /// \param urlContexts A set of one or more <code>UIOpenURLContext</code> objects.
 ///
-- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
+- (BOOL)canOpenURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts SWIFT_WARN_UNUSED_RESULT;
 /// A handler to call after handling background URL session events.
 @property (nonatomic, copy) void (^ _Nullable backgroundSessionCompletionHandler)(void);
 /// Checks if a provided URL session <code>identifier</code> was created by the Setapp framework or not.
@@ -987,7 +987,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// An error object that specifies why the Setapp subscription validation has failed, or
 /// <code>nil</code> if the request was successful.
 ///
-- (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler SWIFT_AVAILABILITY(ios,introduced=13.0);
+- (void)openURLContexts:(NSSet<UIOpenURLContext *> * _Nonnull)urlContexts completionHandler:(void (^ _Nonnull)(STPSubscription * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 enum STPUsageEvent : NSInteger;

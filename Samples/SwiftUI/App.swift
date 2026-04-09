@@ -5,15 +5,14 @@
 //  Created by Сергій Попов on 27.10.2022.
 //
 
-import SwiftUI
 import Setapp
+import SwiftUI
 
 @main
 struct SetappSampleApp: App {
-    
     init() {
         SetappManager.logLevel = .verbose
-        
+
         #if os(iOS)
         let configuration = SetappConfiguration(
             publicKeyBundle: .main,
@@ -27,7 +26,7 @@ struct SetappSampleApp: App {
         )
         #endif
     }
-    
+
     var body: some Scene {
         WindowGroup {
             NavigationStack {
@@ -42,5 +41,4 @@ struct SetappSampleApp: App {
             #endif
         }
     }
-
 }

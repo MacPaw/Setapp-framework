@@ -6,16 +6,16 @@
 //
 
 import ActivityKit
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 struct widgetAttributes: ActivityAttributes {
-    public struct ContentState: Codable, Hashable {
-        // Dynamic stateful properties about your activity go here!
+    struct ContentState: Codable, Hashable {
+        /// Dynamic stateful properties about your activity go here!
         var emoji: String
     }
 
-    // Fixed non-changing properties about your activity go here!
+    /// Fixed non-changing properties about your activity go here!
     var name: String
 }
 
@@ -65,15 +65,15 @@ extension widgetAttributes {
 extension widgetAttributes.ContentState {
     fileprivate static var smiley: widgetAttributes.ContentState {
         widgetAttributes.ContentState(emoji: "😀")
-     }
-     
-     fileprivate static var starEyes: widgetAttributes.ContentState {
-         widgetAttributes.ContentState(emoji: "🤩")
-     }
+    }
+
+    fileprivate static var starEyes: widgetAttributes.ContentState {
+        widgetAttributes.ContentState(emoji: "🤩")
+    }
 }
 
 #Preview("Notification", as: .content, using: widgetAttributes.preview) {
-   widgetLiveActivity()
+    widgetLiveActivity()
 } contentStates: {
     widgetAttributes.ContentState.smiley
     widgetAttributes.ContentState.starEyes

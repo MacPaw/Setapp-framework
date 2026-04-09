@@ -10,22 +10,21 @@ import Setapp
 import SwiftUI
 
 struct ContentView: View {
-    
     enum Alert {
         case authCodeRequest
         case authCodeResult(Result<String, Error>)
     }
-    
+
     @State private var presentedAlert: Alert?
-    
+
     @State private var clientID: String = ""
     @State private var scopes: String = ""
-    
+
     @State private var isSetappSubscirptionActive: Bool?
     @State private var purchaseType: String?
-    
+
     private var setappSubscriptionPublisher = SetappManager.shared.publisher(for: \.subscription)
-    
+
     var body: some View {
         VStack {
             #if os(iOS)
@@ -36,7 +35,7 @@ struct ContentView: View {
                 Spacer()
             }
             #endif
-            
+
             Spacer()
             subscriptionStatusView()
             Spacer()
@@ -68,9 +67,9 @@ struct ContentView: View {
 
             SetappManager.shared.requestPurchaseType { result in
                 switch result {
-                case .success(let setappAppPurchaseType):
+                case let .success(setappAppPurchaseType):
                     purchaseType = String(describing: setappAppPurchaseType)
-                case .failure(let error):
+                case let .failure(error):
                     purchaseType = "Unknown (\(error.localizedDescription))"
                 }
             }
@@ -83,21 +82,18 @@ struct ContentView: View {
 }
 
 extension ContentView {
-    
-    @ViewBuilder
     func infoLabel() -> some View {
         Text(Bundle.main.infoDictionary?["CFBundleName"] as? String ?? "")
             .font(.system(size: 15))
             .foregroundColor(Color("SecondaryTextColor"))
     }
-    
-    @ViewBuilder
+
     func subscriptionStatusView() -> some View {
         VStack(spacing: 25) {
             if let isActive = isSetappSubscirptionActive {
                 let imageName = isActive ? "checkmark.circle" : "x.circle"
                 let statusText = "\(isActive ? "Active" : "Inactive") Setapp Subscription"
-                
+
                 Image(systemName: imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -123,7 +119,7 @@ extension ContentView {
             }
         }
     }
-    
+
     @ViewBuilder
     func buttons() -> some View {
         #if os(iOS)
@@ -137,7 +133,7 @@ extension ContentView {
         }
         .buttonStyle(.borderedProminent)
         #endif
-        
+
         #if os(macOS)
         HStack {
             Button("Request Auth Code") {
@@ -152,18 +148,18 @@ extension ContentView {
         }
         #endif
     }
-    
+
     @ViewBuilder
     func alertMessage() -> some View {
-        if let presentedAlert = presentedAlert {
+        if let presentedAlert {
             switch presentedAlert {
             case .authCodeRequest:
                 Text("Authorization code is used to access the Setapp server using Vendor API.")
-            case .authCodeResult(let result):
+            case let .authCodeResult(result):
                 switch result {
-                case .success(let code):
+                case let .success(code):
                     Text(code)
-                case .failure(let error):
+                case let .failure(error):
                     Text(error.localizedDescription)
                 }
             }
@@ -171,10 +167,10 @@ extension ContentView {
             EmptyView()
         }
     }
-    
+
     @ViewBuilder
     func alertActions() -> some View {
-        if let presentedAlert = presentedAlert {
+        if let presentedAlert {
             switch presentedAlert {
             case .authCodeRequest:
                 TextField("Client ID", text: $clientID)
@@ -192,8 +188,8 @@ extension ContentView {
                 Button("Cancel") {
                     self.presentedAlert = nil
                 }
-            case .authCodeResult(let result):
-                if case .success(let code) = result {
+            case let .authCodeResult(result):
+                if case let .success(code) = result {
                     Button("Copy") {
                         #if os(iOS)
                         UIPasteboard.general.string = code
@@ -212,7 +208,6 @@ extension ContentView {
             EmptyView()
         }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

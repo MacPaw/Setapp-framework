@@ -1,36 +1,36 @@
 //
-//  widget.swift
+//  SetappWidget.swift
 //  widget
 //
 //  Created by Oleksandr Bilous on 14.08.2024.
 //
 
-import WidgetKit
-import SwiftUI
 import Setapp
+import SwiftUI
+import WidgetKit
 
 struct Provider: AppIntentTimelineProvider {
     private let setappManager: SetappManager
-    
+
     init() {
         self.setappManager = .shared
         configureSetappManager()
     }
-    
-    func placeholder(in context: Context) -> SimpleEntry {
+
+    func placeholder(in _: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
     }
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
+    func snapshot(for configuration: ConfigurationAppIntent, in _: Context) async -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: configuration)
     }
-    
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
+
+    func timeline(for configuration: ConfigurationAppIntent, in _: Context) async -> Timeline<SimpleEntry> {
         setappManager.reportExtensionUsage()
         var entries: [SimpleEntry] = []
 
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
+        for hourOffset in 0..<5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
             let entry = SimpleEntry(date: entryDate, configuration: configuration)
             entries.append(entry)
@@ -38,7 +38,7 @@ struct Provider: AppIntentTimelineProvider {
 
         return Timeline(entries: entries, policy: .atEnd)
     }
-    
+
     private func configureSetappManager() {
         SetappManager.logLevel = .debug
 
@@ -46,7 +46,7 @@ struct Provider: AppIntentTimelineProvider {
             publicKeyBundle: .main,
             publicKeyFilename: "setappPublicKey-iOS.pem"
         )
-        
+
         configuration.appGroupIdentifier = "group.setapp"
 
         setappManager.start(
@@ -60,7 +60,7 @@ struct SimpleEntry: TimelineEntry {
     let configuration: ConfigurationAppIntent
 }
 
-struct WidgetEntryView : View {
+struct WidgetEntryView: View {
     var entry: Provider.Entry
     @State var isOn: Bool = false
 
@@ -71,7 +71,7 @@ struct WidgetEntryView : View {
 
             Text("Favorite Emoji:")
             Text(entry.configuration.favoriteEmoji)
-            
+
             Toggle(isOn: isOn, intent: ToggleIntent()) {
                 Text("Toggle")
             }
@@ -96,7 +96,7 @@ extension ConfigurationAppIntent {
         intent.favoriteEmoji = "😀"
         return intent
     }
-    
+
     fileprivate static var starEyes: ConfigurationAppIntent {
         let intent = ConfigurationAppIntent()
         intent.favoriteEmoji = "🤩"

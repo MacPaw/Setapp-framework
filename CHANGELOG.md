@@ -1,3 +1,19 @@
+## [Unreleased]
+
+## [5.1.0] - 2026-04-09
+
+### New
+* Setapp AI API now supports AI image generation and editing. (Image streaming isn't available yet.)
+
+### Updated
+* [Electron] Added support for the Electron Forge build system in the sample app, alongside the existing electron-builder setup.
+
+### Fixed
+* [iOS] Fixed an issue with an incorrect resource bundle type that caused warnings during App Store uploads.
+
+### New
+* [Electron] Added Electron Forge build system support for the sample app alongside the existing electron-builder setup.
+
 ## [5.0.1] - 2026-02-26
 
 ### Updated
@@ -71,7 +87,7 @@
 ## [4.2.2] - 2024-10-17
 
 ### Fixed
-* [Electron] Fixed a crash on app launch on x86_64 architecture. 
+* [Electron] Fixed a crash on app launch on x86_64 architecture.
 
 
 ## [4.2.1] - 2024-07-31
@@ -94,7 +110,7 @@
 ### Updated
 * reCAPTCHA sheet can be dismissed in QR Code Generator.
 * Under the hood improvements.
-* `README.md` file was updated. 
+* `README.md` file was updated.
 
 ### Fixed
 * reCAPTCHA sheet layout in QR Code Generator.
@@ -110,7 +126,7 @@
 
 ### Updated
 * Setapp Framework is now built using Xcode 15.
-* [iOS] The minimum iOS version supported by Setapp Framework has been increased to `12.0`. 
+* [iOS] The minimum iOS version supported by Setapp Framework has been increased to `12.0`.
 
 ### Fixed
 * Sample apps that use CocoPods were updated to address a build issue when using Xcode 15.
@@ -194,7 +210,7 @@
 * [iOS] Use app display name in activation alerts.
 
 ### Fixed
-* [iOS] Public key custom name. 
+* [iOS] Public key custom name.
 * [iOS] SPM warnings.
 * Xcode 13 compatibility.
 
@@ -213,7 +229,7 @@
 ## [3.0.1] - 2022-09-12
 
 ### Fixed
-* [iOS] Resources bundle destribution fix. 
+* [iOS] Resources bundle destribution fix.
 
 ## [3.0.0] - 2022-09-09
 
@@ -278,13 +294,13 @@
 * Changed default branch to `main`.
 
 ### Fixed
-* Improved CocoaPods integration - no need to modify `SWIFT_INCLUDE_PATHS` anymore. 
+* Improved CocoaPods integration - no need to modify `SWIFT_INCLUDE_PATHS` anymore.
 
 
 ## [2.0.2] - 2022-04-19
 
 ### Changed
-* Improved CocoaPods integration - no need to modify `OTHER_LDFLAGS` anymore. 
+* Improved CocoaPods integration - no need to modify `OTHER_LDFLAGS` anymore.
 
 ### Fixed
 * [macOS] Setapp Desktop app version recognition.
@@ -297,7 +313,7 @@
 * macOS apps support.
 
 ### Changed
-* Improved license storage on iOS platform. 
+* Improved license storage on iOS platform.
 
 
 ## [2.0.0]
@@ -321,7 +337,7 @@
 ## [0.1.0] - 2020-12-23
 
 ### ⚠️ Breaking
-This release contains some breaking API changes. See the New and Changed sections below for details. 
+This release contains some breaking API changes. See the New and Changed sections below for details.
 
 ### New
 * Added completion handlers to the `open` methods. Now, you can get a callback when the Setapp subscription state is resolved.

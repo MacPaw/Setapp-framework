@@ -1,7 +1,7 @@
+import Combine
 import Setapp
 import SetappAI
 import SwiftUI
-import Combine
 
 // MARK: - Message Model
 
@@ -36,9 +36,9 @@ struct ConversationState: Codable {
 @Observable
 @MainActor
 class AIViewModel {
-#if os(iOS)
+    #if os(iOS)
     var isActivated: Bool = false
-#endif
+    #endif
 
     // Models
     var availableModels: [SetappAIAPI.Model] = []
@@ -59,14 +59,14 @@ class AIViewModel {
     private static let conversationStateKey = "AIViewModel.conversationState"
 
     init() {
-#if os(iOS)
-        subscriptionCancellable = SetappManager.shared.publisher(for: \.subscription)
+        #if os(iOS)
+        self.subscriptionCancellable = SetappManager.shared.publisher(for: \.subscription)
             .sink { [weak self] subscription in
                 self?.isActivated = subscription?.isActive ?? false
             }
-#endif
+        #endif
 
-        self.loadConversationState()
+        loadConversationState()
     }
 
     var selectedModel: SetappAIAPI.Model? {
@@ -122,7 +122,8 @@ class AIViewModel {
 
     private func loadConversationState() {
         guard let data = UserDefaults.standard.data(forKey: Self.conversationStateKey),
-              let decoded = try? JSONDecoder().decode(ConversationState.self, from: data) else {
+              let decoded = try? JSONDecoder().decode(ConversationState.self, from: data)
+        else {
             return
         }
         state = decoded
@@ -198,7 +199,9 @@ class AIViewModel {
                 self.saveConversationState()
             } catch {
                 self.streamingError = error
-                self.updateLastMessage(content: self.currentStreamingContent + "\n\n❌ Error: \(error.localizedDescription)")
+                self
+                    .updateLastMessage(content: self
+                        .currentStreamingContent + "\n\n❌ Error: \(error.localizedDescription)")
                 self.currentStreamingContent = ""
                 self.isStreaming = false
                 self.saveConversationState()

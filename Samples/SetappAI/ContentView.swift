@@ -33,7 +33,7 @@ struct ContentView: View {
                     }
                     .padding()
                 }
-                .onChange(of: viewModel.messages.count) { oldValue, newValue in
+                .onChange(of: viewModel.messages.count) { _, _ in
                     if let lastMessage = viewModel.messages.last {
                         withAnimation {
                             proxy.scrollTo(lastMessage.id, anchor: .bottom)
@@ -43,11 +43,10 @@ struct ContentView: View {
             }
         }
         .navigationTitle("SetappAI Sample")
-#if os(iOS)
-        .navigationBarTitleDisplayMode(.inline)
-#endif
+        #if os(iOS)
+            .navigationBarTitleDisplayMode(.inline)
+        #endif
     }
-
 
     #if os(iOS)
     private var activationWarningView: some View {
@@ -60,10 +59,12 @@ struct ContentView: View {
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundColor(.orange)
-                Text("This iOS app is not activated with Setapp. To use SetappAI features, please activate the app using a QR code or deep link from the Setapp macOS client.")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
+                Text(
+                    "This iOS app is not activated with Setapp. To use SetappAI features, please activate the app using a QR code or deep link from the Setapp macOS client."
+                )
+                .font(.caption)
+                .foregroundColor(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
             }
             Spacer()
         }
@@ -135,7 +136,7 @@ struct ContentView: View {
             Text("Conversation Settings")
                 .font(.headline)
                 .bold()
-            
+
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     Image(systemName: "bubble.left.and.bubble.right.fill")
@@ -156,7 +157,6 @@ struct ContentView: View {
                 .background(Color.green.opacity(0.1))
                 .cornerRadius(8)
 
-                
                 HStack(spacing: 12) {
                     Button(role: .destructive) {
                         viewModel.clearConversation()
@@ -366,7 +366,6 @@ struct ContentView: View {
         .frame(maxWidth: .infinity)
         .padding()
     }
-
 }
 
 // MARK: - Message Bubble View

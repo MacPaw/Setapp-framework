@@ -17,7 +17,7 @@ final class SetappUsageReporter {
             publicKeyBundle: .main,
             publicKeyFilename: "setappPublicKey-iOS.pem"
         )
-        
+
         configuration.appGroupIdentifier = "group.setapp"
 
         SetappManager.shared.start(
@@ -25,7 +25,7 @@ final class SetappUsageReporter {
         )
         return SetappUsageReporter()
     }()
-    
+
     func reportExtensionUsage() {
         SetappManager.shared.reportExtensionUsage()
     }

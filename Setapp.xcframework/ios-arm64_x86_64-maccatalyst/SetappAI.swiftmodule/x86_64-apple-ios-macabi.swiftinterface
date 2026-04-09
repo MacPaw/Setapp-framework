@@ -157,7 +157,9 @@ extension SetappAI.SetappAIAPI.Model.Capability {
   public static let reasoning: SetappAI.SetappAIAPI.Model.Capability
 }
 extension Swift.Set where Element == SetappAI.SetappAIAPI.Model.Capability {
-  @inlinable @inline(__always) public func supports(_ capability: Element) -> Swift.Bool { contains(capability) }
+  @inlinable @inline(__always) public func supports(_ capability: Element) -> Swift.Bool {
+        contains(capability)
+    }
 }
 extension SetappAI.SetappAIAPI.Model {
   public struct Mode : SetappAI.SetappAIRawStringRepresentable {
@@ -197,6 +199,490 @@ extension SetappAI.SetappAIAPI.Model : Swift.ExpressibleByStringLiteral {
   public init(stringLiteral value: Swift.String)
   public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Model.StringLiteralType
   public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Model.StringLiteralType
+}
+extension SetappAI.SetappAIAPI.Model : Swift.Encodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension SetappAI.SetappAIAPI.Images {
+  public enum Edit {
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Edit {
+  public enum InputFidelity : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case low
+    case high
+    case unsupported(SetappAI.SetappAIAPI.Images.Edit.InputFidelity.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Edit.InputFidelity : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Images.Edit.InputFidelity]
+  public var rawValue: SetappAI.SetappAIAPI.Images.Edit.InputFidelity.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Images.Edit.InputFidelity]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Images.Edit.InputFidelity.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Images.Edit.InputFidelity.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Images.Edit.InputFidelity.RawValue
+}
+extension SetappAI.SetappAIAPI.Images.Edit.InputImage {
+  public enum ImageType : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case jpeg
+    case png
+    case webp
+    case gif
+    case unsupported(SetappAI.SetappAIAPI.Images.Edit.InputImage.ImageType.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Edit.InputImage.ImageType : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Images.Edit.InputImage.ImageType]
+  public var rawValue: SetappAI.SetappAIAPI.Images.Edit.InputImage.ImageType.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Images.Edit.InputImage.ImageType]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Images.Edit.InputImage.ImageType.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Images.Edit.InputImage.ImageType.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Images.Edit.InputImage.ImageType.RawValue
+}
+extension SetappAI.SetappAIAPI.Images.Edit {
+  public struct InputImage : Swift.Sendable {
+    public var fileID: Swift.String?
+    public var imageURL: Swift.String?
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Edit.InputImage {
+  public init(fileID: Swift.String)
+  public init(image: Foundation.Data, imageType: SetappAI.SetappAIAPI.Responses.Input.Message.Image.ImageType)
+}
+extension SetappAI.SetappAIAPI.Images.Edit.InputImage : Swift.Encodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension SetappAI.SetappAIAPI.Images.Edit.InputImage : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Images.Edit {
+  public enum Quality : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case auto
+    case low
+    case medium
+    case high
+    case unsupported(SetappAI.SetappAIAPI.Images.Edit.Quality.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Edit.Quality : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Images.Edit.Quality]
+  public var rawValue: SetappAI.SetappAIAPI.Images.Edit.Quality.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Images.Edit.Quality]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Images.Edit.Quality.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Images.Edit.Quality.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Images.Edit.Quality.RawValue
+}
+extension SetappAI.SetappAIAPI.Images.Edit {
+  public enum Size : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case auto
+    case square1024
+    case portrait1024x1536
+    case landscape1536x1024
+    case unsupported(SetappAI.SetappAIAPI.Images.Edit.Size.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Edit.Size : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Images.Edit.Size]
+  public var rawValue: SetappAI.SetappAIAPI.Images.Edit.Size.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Images.Edit.Size]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Images.Edit.Size.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Images.Edit.Size.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Images.Edit.Size.RawValue
+}
+extension SetappAI.SetappAIAPI.Images.Edit {
+  public struct Parameters : Swift.Sendable {
+    public var model: SetappAI.SetappAIAPI.Model
+    public var prompt: Swift.String
+    public var image: [SetappAI.SetappAIAPI.Images.Edit.InputImage]
+    public var inputFidelity: SetappAI.SetappAIAPI.Images.Edit.InputFidelity?
+    public var mask: SetappAI.SetappAIAPI.Images.Edit.InputImage?
+    public var background: SetappAI.SetappAIAPI.Images.Background?
+    public var size: SetappAI.SetappAIAPI.Images.Edit.Size?
+    public var quality: SetappAI.SetappAIAPI.Images.Edit.Quality?
+    public var outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat?
+    public var outputCompression: Swift.Int?
+    public var moderation: SetappAI.SetappAIAPI.Images.Moderation?
+    public var n: Swift.Int?
+    public var partialImages: Swift.Int?
+    public var stream: Swift.Bool?
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Edit.Parameters : Swift.Encodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageEdit {
+  public struct Completed : Swift.Sendable {
+    public var base64JSON: Swift.String
+    public var background: SetappAI.SetappAIAPI.Images.Background
+    public var createdAt: Foundation.Date
+    public var outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat
+    public var quality: SetappAI.SetappAIAPI.Images.Edit.Quality
+    public var size: SetappAI.SetappAIAPI.Images.Edit.Size
+    public var type: SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.EventType
+    public var usage: SetappAI.SetappAIAPI.Images.ImageResponse.Usage?
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(base64JSON: Swift.String, background: SetappAI.SetappAIAPI.Images.Background, createdAt: Foundation.Date, outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat, quality: SetappAI.SetappAIAPI.Images.Edit.Quality, size: SetappAI.SetappAIAPI.Images.Edit.Size, type: SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.EventType, usage: SetappAI.SetappAIAPI.Images.ImageResponse.Usage?)
+    #endif
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.Completed : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageEdit {
+  public enum EventType : Swift.String, Swift.Decodable, Swift.CaseIterable, Swift.Sendable, Swift.Hashable, Swift.Equatable {
+    case partialImage
+    case completed
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init?(rawValue: Swift.String)
+    #endif
+    public typealias AllCases = [SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.EventType]
+    public typealias RawValue = Swift.String
+    nonisolated public static var allCases: [SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.EventType] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageEdit {
+  public struct PartialImage : Swift.Sendable {
+    public var base64JSON: Swift.String
+    public var background: SetappAI.SetappAIAPI.Images.Background
+    public var createdAt: Foundation.Date
+    public var outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat
+    public var partialImageIndex: Swift.Int
+    public var quality: SetappAI.SetappAIAPI.Images.Edit.Quality
+    public var size: SetappAI.SetappAIAPI.Images.Edit.Size
+    public var type: SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.EventType
+    public init(base64JSON: Swift.String, background: SetappAI.SetappAIAPI.Images.Background, createdAt: Foundation.Date, outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat, partialImageIndex: Swift.Int, quality: SetappAI.SetappAIAPI.Images.Edit.Quality, size: SetappAI.SetappAIAPI.Images.Edit.Size, type: SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.EventType)
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.PartialImage : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent {
+  public enum ImageEdit : Swift.Sendable {
+    case partialImage(SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.PartialImage)
+    case completed(SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.Completed)
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageEdit : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Images {
+  public enum Generation {
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Generation {
+  public enum Quality : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case auto
+    case low
+    case medium
+    case high
+    case standard
+    case hd
+    case unsupported(SetappAI.SetappAIAPI.Images.Generation.Quality.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Generation.Quality : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Images.Generation.Quality]
+  public var rawValue: SetappAI.SetappAIAPI.Images.Generation.Quality.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Images.Generation.Quality]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Images.Generation.Quality.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Images.Generation.Quality.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Images.Generation.Quality.RawValue
+}
+extension SetappAI.SetappAIAPI.Images.Generation {
+  public enum ResponseFormat : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case url
+    case base64JSON
+    case unsupported(SetappAI.SetappAIAPI.Images.Generation.ResponseFormat.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Generation.ResponseFormat : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Images.Generation.ResponseFormat]
+  public var rawValue: SetappAI.SetappAIAPI.Images.Generation.ResponseFormat.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Images.Generation.ResponseFormat]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Images.Generation.ResponseFormat.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Images.Generation.ResponseFormat.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Images.Generation.ResponseFormat.RawValue
+}
+extension SetappAI.SetappAIAPI.Images.Generation {
+  public enum Size : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case auto
+    case square1024
+    case portrait1024x1536
+    case landscape1536x1024
+    case square256
+    case square512
+    case portrait1024x1792
+    case landscape1792x1024
+    case unsupported(SetappAI.SetappAIAPI.Images.Generation.Size.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Generation.Size : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Images.Generation.Size]
+  public var rawValue: SetappAI.SetappAIAPI.Images.Generation.Size.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Images.Generation.Size]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Images.Generation.Size.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Images.Generation.Size.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Images.Generation.Size.RawValue
+}
+extension SetappAI.SetappAIAPI.Images.Generation {
+  public enum Style : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case vivid
+    case natural
+    case unsupported(SetappAI.SetappAIAPI.Images.Generation.Style.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Generation.Style : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Images.Generation.Style]
+  public var rawValue: SetappAI.SetappAIAPI.Images.Generation.Style.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Images.Generation.Style]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Images.Generation.Style.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Images.Generation.Style.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Images.Generation.Style.RawValue
+}
+extension SetappAI.SetappAIAPI.Images.Generation {
+  public struct Parameters : Swift.Sendable {
+    public var model: SetappAI.SetappAIAPI.Model
+    public var prompt: Swift.String
+    public var style: SetappAI.SetappAIAPI.Images.Generation.Style?
+    public var background: SetappAI.SetappAIAPI.Images.Background?
+    public var size: SetappAI.SetappAIAPI.Images.Generation.Size?
+    public var quality: SetappAI.SetappAIAPI.Images.Generation.Quality?
+    public var outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat?
+    public var outputCompression: Swift.Int?
+    public var responseFormat: SetappAI.SetappAIAPI.Images.Generation.ResponseFormat?
+    public var moderation: SetappAI.SetappAIAPI.Images.Moderation?
+    public var n: Swift.Int
+    public var partialImages: Swift.Int?
+    public var stream: Swift.Bool?
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(model: SetappAI.SetappAIAPI.Model, prompt: Swift.String, style: SetappAI.SetappAIAPI.Images.Generation.Style? = .none, background: SetappAI.SetappAIAPI.Images.Background? = .none, size: SetappAI.SetappAIAPI.Images.Generation.Size? = .none, quality: SetappAI.SetappAIAPI.Images.Generation.Quality? = .none, outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat? = .none, outputCompression: Swift.Int? = .none, responseFormat: SetappAI.SetappAIAPI.Images.Generation.ResponseFormat? = .none, moderation: SetappAI.SetappAIAPI.Images.Moderation? = .none, n: Swift.Int = 1, partialImages: Swift.Int? = .none, stream: Swift.Bool? = .none)
+    #endif
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Generation.Parameters : Swift.Encodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration {
+  public struct Completed : Swift.Sendable {
+    public var base64JSON: Swift.String
+    public var background: SetappAI.SetappAIAPI.Images.Background
+    public var createdAt: Foundation.Date
+    public var outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat
+    public var quality: SetappAI.SetappAIAPI.Images.Generation.Quality
+    public var size: SetappAI.SetappAIAPI.Images.Generation.Size
+    public var type: SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType
+    public var usage: SetappAI.SetappAIAPI.Images.ImageResponse.Usage?
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(base64JSON: Swift.String, background: SetappAI.SetappAIAPI.Images.Background, createdAt: Foundation.Date, outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat, quality: SetappAI.SetappAIAPI.Images.Generation.Quality, size: SetappAI.SetappAIAPI.Images.Generation.Size, type: SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType, usage: SetappAI.SetappAIAPI.Images.ImageResponse.Usage?)
+    #endif
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.Completed : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration {
+  public enum EventType : Swift.String, Swift.Decodable, Swift.CaseIterable, Swift.Sendable, Swift.Hashable, Swift.Equatable {
+    case partialImage
+    case completed
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init?(rawValue: Swift.String)
+    #endif
+    public typealias AllCases = [SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType]
+    public typealias RawValue = Swift.String
+    nonisolated public static var allCases: [SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration {
+  public struct PartialImage : Swift.Sendable {
+    public var base64JSON: Swift.String
+    public var background: SetappAI.SetappAIAPI.Images.Background
+    public var createdAt: Foundation.Date
+    public var outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat
+    public var partialImageIndex: Swift.Int
+    public var quality: SetappAI.SetappAIAPI.Images.Generation.Quality
+    public var size: SetappAI.SetappAIAPI.Images.Generation.Size
+    public var type: SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType
+    public init(base64JSON: Swift.String, background: SetappAI.SetappAIAPI.Images.Background, createdAt: Foundation.Date, outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat, partialImageIndex: Swift.Int, quality: SetappAI.SetappAIAPI.Images.Generation.Quality, size: SetappAI.SetappAIAPI.Images.Generation.Size, type: SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType)
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.PartialImage : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent {
+  public enum ImageGeneration : Swift.Sendable {
+    case partialImage(SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.PartialImage)
+    case completed(SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.Completed)
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration {
+  public var type: SetappAI.SetappAIAPI.StreamingEvent.EventType {
+    get
+  }
+}
+extension SetappAI.SetappAIAPI {
+  public struct Images {
+  }
+}
+extension SetappAI.SetappAIAPI.Images : SetappAI.SetappAIImagesAPIProtocol {
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func generation(parameters: SetappAI.SetappAIAPI.Images.Generation.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Images.ImageResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func edit(parameters: SetappAI.SetappAIAPI.Images.Edit.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Images.ImageResponse
+  #endif
+}
+public protocol SetappAIImagesAPIProtocol : Swift.Sendable {
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func generation(parameters: SetappAI.SetappAIAPI.Images.Generation.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Images.ImageResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func edit(parameters: SetappAI.SetappAIAPI.Images.Edit.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Images.ImageResponse
+  #endif
+}
+extension SetappAI.SetappAIAPI.Images {
+  public enum Background : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case auto
+    case opaque
+    case transparent
+    case unsupported(SetappAI.SetappAIAPI.Images.Background.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Background : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Images.Background]
+  public var rawValue: SetappAI.SetappAIAPI.Images.Background.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Images.Background]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Images.Background.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Images.Background.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Images.Background.RawValue
+}
+extension SetappAI.SetappAIAPI.Images {
+  public enum Moderation : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case auto
+    case low
+    case unsupported(SetappAI.SetappAIAPI.Images.Moderation.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Images.Moderation : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Images.Moderation]
+  public var rawValue: SetappAI.SetappAIAPI.Images.Moderation.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Images.Moderation]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Images.Moderation.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Images.Moderation.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Images.Moderation.RawValue
+}
+extension SetappAI.SetappAIAPI.Images {
+  public enum OutputFormat : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case png
+    case jpeg
+    case webp
+    case unsupported(SetappAI.SetappAIAPI.Images.OutputFormat.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Images.OutputFormat : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Images.OutputFormat]
+  public var rawValue: SetappAI.SetappAIAPI.Images.OutputFormat.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Images.OutputFormat]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Images.OutputFormat.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Images.OutputFormat.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Images.OutputFormat.RawValue
+}
+extension SetappAI.SetappAIAPI.Images.ImageResponse {
+  public struct Image : Swift.Sendable {
+    public var data: Foundation.Data?
+    public var revisedPrompt: Swift.String?
+    public var url: Swift.String?
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(data: Foundation.Data? = .none, revisedPrompt: Swift.String? = .none, url: Swift.String? = .none)
+    #endif
+  }
+}
+extension SetappAI.SetappAIAPI.Images.ImageResponse.Image : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Images {
+  public struct ImageResponse : Swift.Sendable {
+    public var created: Foundation.Date
+    public var background: SetappAI.SetappAIAPI.Images.Background?
+    public var data: [SetappAI.SetappAIAPI.Images.ImageResponse.Image]?
+    public var outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat?
+    public var quality: SetappAI.SetappAIAPI.Images.Generation.Quality?
+    public var size: SetappAI.SetappAIAPI.Images.Generation.Size?
+    public var usage: SetappAI.SetappAIAPI.Images.ImageResponse.Usage?
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(created: Foundation.Date, background: SetappAI.SetappAIAPI.Images.Background?, data: [SetappAI.SetappAIAPI.Images.ImageResponse.Image]?, outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat?, quality: SetappAI.SetappAIAPI.Images.Generation.Quality?, size: SetappAI.SetappAIAPI.Images.Generation.Size?, usage: SetappAI.SetappAIAPI.Images.ImageResponse.Usage?)
+    #endif
+  }
+}
+extension SetappAI.SetappAIAPI.Images.ImageResponse : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Images.ImageResponse.Usage {
+  public struct TokensDetails : Swift.Sendable {
+    public var imageTokens: Swift.Int
+    public var textTokens: Swift.Int
+    public init(imageTokens: Swift.Int, textTokens: Swift.Int)
+  }
+}
+extension SetappAI.SetappAIAPI.Images.ImageResponse.Usage.TokensDetails : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Images.ImageResponse {
+  public struct Usage : Swift.Sendable {
+    public var inputTokens: Swift.Int
+    public var inputTokensDetails: SetappAI.SetappAIAPI.Images.ImageResponse.Usage.TokensDetails
+    public var outputTokens: Swift.Int
+    public var totalTokens: Swift.Int
+    public var outputTokensDetails: SetappAI.SetappAIAPI.Images.ImageResponse.Usage.TokensDetails?
+  }
+}
+extension SetappAI.SetappAIAPI.Images.ImageResponse.Usage : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
 }
 public protocol SetappAIModelsAPIProtocol : Swift.Sendable {
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
@@ -478,24 +964,7 @@ extension SetappAI.SetappAIAPI.Responses.Input.Message.Image.Detail : SetappAI.S
   public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Responses.Input.Message.Image.Detail.RawValue
 }
 extension SetappAI.SetappAIAPI.Responses.Input.Message.Image {
-  public enum ImageType : Swift.Sendable {
-    public typealias RawValue = Swift.String
-    case jpeg
-    case png
-    case webp
-    case gif
-    case unsupported(SetappAI.SetappAIAPI.Responses.Input.Message.Image.ImageType.RawValue)
-  }
-}
-extension SetappAI.SetappAIAPI.Responses.Input.Message.Image.ImageType : SetappAI.SetappAIRawStringRepresentableEnum {
-  public static let allCases: [SetappAI.SetappAIAPI.Responses.Input.Message.Image.ImageType]
-  public var rawValue: SetappAI.SetappAIAPI.Responses.Input.Message.Image.ImageType.RawValue {
-    get
-  }
-  public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Input.Message.Image.ImageType]
-  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Responses.Input.Message.Image.ImageType.RawValue
-  public typealias StringLiteralType = SetappAI.SetappAIAPI.Responses.Input.Message.Image.ImageType.RawValue
-  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Responses.Input.Message.Image.ImageType.RawValue
+  public typealias ImageType = SetappAI.SetappAIAPI.Images.Edit.InputImage.ImageType
 }
 extension SetappAI.SetappAIAPI.Responses.Input.Message.Image : Swift.Encodable {
   public func encode(to encoder: any Swift.Encoder) throws
@@ -3280,6 +3749,102 @@ extension SetappAI.SetappAIAPI.Responses.Tool.ToolType : SetappAI.SetappAIRawStr
   public typealias StringLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ToolType.RawValue
   public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ToolType.RawValue
 }
+extension SetappAI.SetappAIAPI.Responses {
+  public typealias ResponseError = SetappAI.SetappAIAPI.Responses.Error
+  public typealias ResponseUsage = SetappAI.SetappAIAPI.Responses.Usage
+  public typealias ResponseInputTokensDetails = SetappAI.SetappAIAPI.Responses.Usage.InputTokensDetails
+  public typealias ResponseOutputTokensDetails = SetappAI.SetappAIAPI.Responses.Usage.OutputTokensDetails
+  public typealias ResponseStatus = SetappAI.SetappAIAPI.Responses.Status
+  public typealias ResponsePrompt = SetappAI.SetappAIAPI.Responses.Prompt
+  public typealias ResponsePromptVariableValue = SetappAI.SetappAIAPI.Responses.Prompt.VariableValue
+  public typealias ResponseIncompleteDetails = SetappAI.SetappAIAPI.Responses.IncompleteDetails
+  public typealias ResponseDeleted = SetappAI.SetappAIAPI.Responses.DeletedResponse
+  public typealias ResponseInstructions = SetappAI.SetappAIAPI.Responses.Instructions
+  public typealias ResponseIncludable = SetappAI.SetappAIAPI.Responses.Include
+  public typealias ResponseOutputMessage = SetappAI.SetappAIAPI.Responses.Output.Message
+  public typealias ResponseOutputText = SetappAI.SetappAIAPI.Responses.Output.Message.Content.Text
+  public typealias ResponseOutputRefusal = SetappAI.SetappAIAPI.Responses.Output.Message.Content.Refusal
+  public typealias ResponseOutputTextAnnotation = SetappAI.SetappAIAPI.Responses.Output.Message.Content.Text.Annotation
+  public typealias ResponseFunctionToolCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.Function
+  public typealias ResponseFileSearchToolCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch
+  public typealias ResponseComputerToolCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer
+  public typealias ResponseFunctionWebSearch = SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch
+  public typealias ResponseCodeInterpreterToolCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter
+  public typealias LocalShellCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.LocalShell
+  public typealias ShellCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.Shell
+  public typealias ApplyPatchCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch
+  public typealias ResponseCustomToolCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.Custom
+  public typealias McpCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.MCP
+  public typealias ImageGenerationCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.ImageGeneration
+  public typealias FunctionCallOutput = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Function
+  public typealias LocalShellCallOutput = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.LocalShell
+  public typealias ShellCallOutput = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Shell
+  public typealias ApplyPatchCallOutput = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.ApplyPatch
+  public typealias ResponseCustomToolCallOutput = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Custom
+  public typealias ComputerCallOutput = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Computer
+  public typealias ResponseReasoningItem = SetappAI.SetappAIAPI.Responses.Output.ReasoningItem
+  public typealias ResponseCompactionItemParam = SetappAI.SetappAIAPI.Responses.Output.CompactionItem
+  public typealias McpListTools = SetappAI.SetappAIAPI.Responses.Output.MCPListTools
+  public typealias McpApprovalRequest = SetappAI.SetappAIAPI.Responses.Output.MCPApprovalRequest
+  public typealias ResponseInputItem = SetappAI.SetappAIAPI.Responses.Input
+  public typealias EasyInputMessage = SetappAI.SetappAIAPI.Responses.Input.Message
+  public typealias ResponseInputContent = SetappAI.SetappAIAPI.Responses.Input.Message.Content
+  public typealias ResponseInputText = SetappAI.SetappAIAPI.Responses.Input.Message.Text
+  public typealias ResponseInputImage = SetappAI.SetappAIAPI.Responses.Input.Message.Image
+  public typealias ResponseInputFile = SetappAI.SetappAIAPI.Responses.Input.Message.File
+  public typealias ItemReference = SetappAI.SetappAIAPI.Responses.Input.ItemReference
+  public typealias McpApprovalResponse = SetappAI.SetappAIAPI.Responses.Input.MCPApprovalResponse
+  public typealias FunctionTool = SetappAI.SetappAIAPI.Responses.Tool.Function
+  public typealias FileSearchTool = SetappAI.SetappAIAPI.Responses.Tool.FileSearch
+  public typealias ComputerTool = SetappAI.SetappAIAPI.Responses.Tool.Computer
+  public typealias WebSearchTool = SetappAI.SetappAIAPI.Responses.Tool.WebSearch
+  public typealias FunctionShellTool = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell
+  public typealias ApplyPatchTool = SetappAI.SetappAIAPI.Responses.Tool.ApplyPatch
+  public typealias CodeInterpreterTool = SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter
+  public typealias LocalShellTool = SetappAI.SetappAIAPI.Responses.Tool.LocalShell
+  public typealias ImageGenerationTool = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration
+  public typealias LocalEnvironment = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.Local
+  public typealias LocalSkill = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.Local.Skill
+  public typealias ContainerReference = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerReference
+  public typealias ContainerAuto = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerAuto
+  public typealias InlineSkill = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerAuto.Skill.Inline
+  public typealias InlineSkillSource = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerAuto.Skill.Inline.Source
+  public typealias SkillReference = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerAuto.Skill.Reference
+  public typealias SummaryTextContent = SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.SummaryTextContent
+  public typealias ReasoningTextContent = SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.ReasoningTextContent
+  public typealias ResponseTextConfig = SetappAI.SetappAIAPI.Responses.Text
+  public typealias ResponseLogProbabilities = SetappAI.SetappAIAPI.Responses.LogProbabilities
+  public typealias ResponseLogProbability = SetappAI.SetappAIAPI.Responses.LogProbabilities.LogProbability
+  public typealias ResponseRole = SetappAI.SetappAIAPI.Responses.Role
+  public typealias ToolChoiceOptions = SetappAI.SetappAIAPI.Responses.ToolChoice.Options
+  public typealias ToolChoiceAllowed = SetappAI.SetappAIAPI.Responses.ToolChoice.Allowed
+  public typealias ToolChoiceBuiltIn = SetappAI.SetappAIAPI.Responses.ToolChoice.BuiltIn
+  public typealias ToolChoiceFunction = SetappAI.SetappAIAPI.Responses.ToolChoice.Function
+  public typealias ToolChoiceMcp = SetappAI.SetappAIAPI.Responses.ToolChoice.MCP
+  public typealias ToolChoiceCustom = SetappAI.SetappAIAPI.Responses.ToolChoice.Custom
+  public typealias ToolChoiceApplyPatch = SetappAI.SetappAIAPI.Responses.ToolChoice.ApplyPatch
+  public typealias ToolChoiceShell = SetappAI.SetappAIAPI.Responses.ToolChoice.Shell
+  public typealias ToolChoiceAllowedTool = SetappAI.SetappAIAPI.Responses.ToolChoice.Allowed.Tool
+  public typealias ToolChoiceAllowedMode = SetappAI.SetappAIAPI.Responses.ToolChoice.AllowedMode
+  public typealias ToolChoiceType = SetappAI.SetappAIAPI.Responses.ToolChoice.ToolChoiceType
+  public typealias ToolChoiceBuiltInType = SetappAI.SetappAIAPI.Responses.ToolChoice.BuiltIn.BuiltInType
+  public typealias ResponseFileSearchResult = SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch.Result
+  public typealias ResponseApplyPatchOperation = SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch.Operation
+  public typealias ResponseApplyPatchCreateFile = SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch.Operation.CreateFile
+  public typealias ResponseApplyPatchUpdateFile = SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch.Operation.UpdateFile
+  public typealias ResponseApplyPatchDeleteFile = SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch.Operation.DeleteFile
+  public typealias ResponseCodeInterpreterOutput = SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter.Output
+  public typealias ResponseCodeInterpreterLogs = SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter.Output.Logs
+  public typealias ResponseCodeInterpreterImage = SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter.Output.Image
+  public typealias ResponseComputerSafetyCheck = SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer.SafetyCheck
+  public typealias ResponseComputerToolCallOutputScreenshot = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Computer.Screenshot
+  public typealias ResponseWebSearchActionSource = SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Action.Search.Source
+  public typealias McpListToolsTool = SetappAI.SetappAIAPI.Responses.Output.MCPListTools.Tool
+  public typealias ResponseContextManagement = SetappAI.SetappAIAPI.Responses.ContextManagement
+  public typealias ResponseTruncation = SetappAI.SetappAIAPI.Responses.Truncation
+  public typealias ResponseStreamOptions = SetappAI.SetappAIAPI.Responses.StreamOptions
+  public typealias ResponseReasoningConfig = SetappAI.SetappAIAPI.Responses.Reasoning
+}
 public protocol SetappAIResponsesAPIProtocol : Swift.Sendable {
   var inputItems: any SetappAI.SetappAIResponsesInputItemsAPIProtocol { get }
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
@@ -4073,57 +4638,13 @@ extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Action : SetappAI.
   public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Action.RawValue
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration {
-  public enum Background : Swift.Sendable {
-    public typealias RawValue = Swift.String
-    case auto
-    case opaque
-    case transparent
-    case unsupported(SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Background.RawValue)
-  }
-}
-extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Background : SetappAI.SetappAIRawStringRepresentableEnum {
-  public static let allCases: [SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Background]
-  public var rawValue: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Background.RawValue {
-    get
-  }
-  public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Background]
-  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Background.RawValue
-  public typealias StringLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Background.RawValue
-  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Background.RawValue
+  public typealias Background = SetappAI.SetappAIAPI.Images.Background
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration {
-  public enum InputFidelity : Swift.Sendable {
-    public typealias RawValue = Swift.String
-    case low
-    case high
-    case unsupported(SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputFidelity.RawValue)
-  }
-}
-extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputFidelity : SetappAI.SetappAIRawStringRepresentableEnum {
-  public static let allCases: [SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputFidelity]
-  public var rawValue: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputFidelity.RawValue {
-    get
-  }
-  public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputFidelity]
-  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputFidelity.RawValue
-  public typealias StringLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputFidelity.RawValue
-  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputFidelity.RawValue
+  public typealias InputFidelity = SetappAI.SetappAIAPI.Images.Edit.InputFidelity
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration {
-  public struct InputImageMask : Swift.Sendable {
-    public var fileID: Swift.String?
-    public var imageURL: Swift.String?
-  }
-}
-extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputImageMask {
-  public init(fileID: Swift.String)
-  public init(image: Foundation.Data, imageType: SetappAI.SetappAIAPI.Responses.Input.Message.Image.ImageType)
-}
-extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputImageMask : Swift.Encodable {
-  public func encode(to encoder: any Swift.Encoder) throws
-}
-extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputImageMask : Swift.Decodable {
-  public init(from decoder: any Swift.Decoder) throws
+  public typealias InputImageMask = SetappAI.SetappAIAPI.Images.Edit.InputImage
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration {
   public enum Model : Swift.Sendable {
@@ -4145,81 +4666,16 @@ extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Model : SetappAI.S
   public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Model.RawValue
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration {
-  public enum Moderation : Swift.Sendable {
-    public typealias RawValue = Swift.String
-    case auto
-    case low
-    case unsupported(SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Moderation.RawValue)
-  }
-}
-extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Moderation : SetappAI.SetappAIRawStringRepresentableEnum {
-  public static let allCases: [SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Moderation]
-  public var rawValue: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Moderation.RawValue {
-    get
-  }
-  public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Moderation]
-  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Moderation.RawValue
-  public typealias StringLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Moderation.RawValue
-  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Moderation.RawValue
+  public typealias Moderation = SetappAI.SetappAIAPI.Images.Moderation
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration {
-  public enum OutputFormat : Swift.Sendable {
-    public typealias RawValue = Swift.String
-    case png
-    case jpeg
-    case webp
-    case unsupported(SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.OutputFormat.RawValue)
-  }
-}
-extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.OutputFormat : SetappAI.SetappAIRawStringRepresentableEnum {
-  public static let allCases: [SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.OutputFormat]
-  public var rawValue: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.OutputFormat.RawValue {
-    get
-  }
-  public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.OutputFormat]
-  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.OutputFormat.RawValue
-  public typealias StringLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.OutputFormat.RawValue
-  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.OutputFormat.RawValue
+  public typealias OutputFormat = SetappAI.SetappAIAPI.Images.OutputFormat
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration {
-  public enum Quality : Swift.Sendable {
-    public typealias RawValue = Swift.String
-    case auto
-    case low
-    case medium
-    case high
-    case unsupported(SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Quality.RawValue)
-  }
-}
-extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Quality : SetappAI.SetappAIRawStringRepresentableEnum {
-  public static let allCases: [SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Quality]
-  public var rawValue: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Quality.RawValue {
-    get
-  }
-  public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Quality]
-  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Quality.RawValue
-  public typealias StringLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Quality.RawValue
-  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Quality.RawValue
+  public typealias Quality = SetappAI.SetappAIAPI.Images.Edit.Quality
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration {
-  public enum Size : Swift.Sendable {
-    public typealias RawValue = Swift.String
-    case auto
-    case square1024
-    case portrait1024x1536
-    case landscape1536x1024
-    case unsupported(SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Size.RawValue)
-  }
-}
-extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Size : SetappAI.SetappAIRawStringRepresentableEnum {
-  public static let allCases: [SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Size]
-  public var rawValue: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Size.RawValue {
-    get
-  }
-  public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Size]
-  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Size.RawValue
-  public typealias StringLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Size.RawValue
-  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Size.RawValue
+  public typealias Size = SetappAI.SetappAIAPI.Images.Edit.Size
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.MCP {
   public enum AllowedTools : Swift.Sendable {
@@ -4615,102 +5071,6 @@ extension SetappAI.SetappAIAPI.Responses.Tool.WebSearch : Swift.Encodable {
 extension SetappAI.SetappAIAPI.Responses.Tool.WebSearch : Swift.Decodable {
   public init(from decoder: any Swift.Decoder) throws
 }
-extension SetappAI.SetappAIAPI.Responses {
-  public typealias ResponseError = SetappAI.SetappAIAPI.Responses.Error
-  public typealias ResponseUsage = SetappAI.SetappAIAPI.Responses.Usage
-  public typealias ResponseInputTokensDetails = SetappAI.SetappAIAPI.Responses.Usage.InputTokensDetails
-  public typealias ResponseOutputTokensDetails = SetappAI.SetappAIAPI.Responses.Usage.OutputTokensDetails
-  public typealias ResponseStatus = SetappAI.SetappAIAPI.Responses.Status
-  public typealias ResponsePrompt = SetappAI.SetappAIAPI.Responses.Prompt
-  public typealias ResponsePromptVariableValue = SetappAI.SetappAIAPI.Responses.Prompt.VariableValue
-  public typealias ResponseIncompleteDetails = SetappAI.SetappAIAPI.Responses.IncompleteDetails
-  public typealias ResponseDeleted = SetappAI.SetappAIAPI.Responses.DeletedResponse
-  public typealias ResponseInstructions = SetappAI.SetappAIAPI.Responses.Instructions
-  public typealias ResponseIncludable = SetappAI.SetappAIAPI.Responses.Include
-  public typealias ResponseOutputMessage = SetappAI.SetappAIAPI.Responses.Output.Message
-  public typealias ResponseOutputText = SetappAI.SetappAIAPI.Responses.Output.Message.Content.Text
-  public typealias ResponseOutputRefusal = SetappAI.SetappAIAPI.Responses.Output.Message.Content.Refusal
-  public typealias ResponseOutputTextAnnotation = SetappAI.SetappAIAPI.Responses.Output.Message.Content.Text.Annotation
-  public typealias ResponseFunctionToolCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.Function
-  public typealias ResponseFileSearchToolCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch
-  public typealias ResponseComputerToolCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer
-  public typealias ResponseFunctionWebSearch = SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch
-  public typealias ResponseCodeInterpreterToolCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter
-  public typealias LocalShellCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.LocalShell
-  public typealias ShellCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.Shell
-  public typealias ApplyPatchCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch
-  public typealias ResponseCustomToolCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.Custom
-  public typealias McpCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.MCP
-  public typealias ImageGenerationCall = SetappAI.SetappAIAPI.Responses.Output.ToolCall.ImageGeneration
-  public typealias FunctionCallOutput = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Function
-  public typealias LocalShellCallOutput = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.LocalShell
-  public typealias ShellCallOutput = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Shell
-  public typealias ApplyPatchCallOutput = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.ApplyPatch
-  public typealias ResponseCustomToolCallOutput = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Custom
-  public typealias ComputerCallOutput = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Computer
-  public typealias ResponseReasoningItem = SetappAI.SetappAIAPI.Responses.Output.ReasoningItem
-  public typealias ResponseCompactionItemParam = SetappAI.SetappAIAPI.Responses.Output.CompactionItem
-  public typealias McpListTools = SetappAI.SetappAIAPI.Responses.Output.MCPListTools
-  public typealias McpApprovalRequest = SetappAI.SetappAIAPI.Responses.Output.MCPApprovalRequest
-  public typealias ResponseInputItem = SetappAI.SetappAIAPI.Responses.Input
-  public typealias EasyInputMessage = SetappAI.SetappAIAPI.Responses.Input.Message
-  public typealias ResponseInputContent = SetappAI.SetappAIAPI.Responses.Input.Message.Content
-  public typealias ResponseInputText = SetappAI.SetappAIAPI.Responses.Input.Message.Text
-  public typealias ResponseInputImage = SetappAI.SetappAIAPI.Responses.Input.Message.Image
-  public typealias ResponseInputFile = SetappAI.SetappAIAPI.Responses.Input.Message.File
-  public typealias ItemReference = SetappAI.SetappAIAPI.Responses.Input.ItemReference
-  public typealias McpApprovalResponse = SetappAI.SetappAIAPI.Responses.Input.MCPApprovalResponse
-  public typealias FunctionTool = SetappAI.SetappAIAPI.Responses.Tool.Function
-  public typealias FileSearchTool = SetappAI.SetappAIAPI.Responses.Tool.FileSearch
-  public typealias ComputerTool = SetappAI.SetappAIAPI.Responses.Tool.Computer
-  public typealias WebSearchTool = SetappAI.SetappAIAPI.Responses.Tool.WebSearch
-  public typealias FunctionShellTool = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell
-  public typealias ApplyPatchTool = SetappAI.SetappAIAPI.Responses.Tool.ApplyPatch
-  public typealias CodeInterpreterTool = SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter
-  public typealias LocalShellTool = SetappAI.SetappAIAPI.Responses.Tool.LocalShell
-  public typealias ImageGenerationTool = SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration
-  public typealias LocalEnvironment = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.Local
-  public typealias LocalSkill = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.Local.Skill
-  public typealias ContainerReference = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerReference
-  public typealias ContainerAuto = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerAuto
-  public typealias InlineSkill = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerAuto.Skill.Inline
-  public typealias InlineSkillSource = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerAuto.Skill.Inline.Source
-  public typealias SkillReference = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerAuto.Skill.Reference
-  public typealias SummaryTextContent = SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.SummaryTextContent
-  public typealias ReasoningTextContent = SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.ReasoningTextContent
-  public typealias ResponseTextConfig = SetappAI.SetappAIAPI.Responses.Text
-  public typealias ResponseLogProbabilities = SetappAI.SetappAIAPI.Responses.LogProbabilities
-  public typealias ResponseLogProbability = SetappAI.SetappAIAPI.Responses.LogProbabilities.LogProbability
-  public typealias ResponseRole = SetappAI.SetappAIAPI.Responses.Role
-  public typealias ToolChoiceOptions = SetappAI.SetappAIAPI.Responses.ToolChoice.Options
-  public typealias ToolChoiceAllowed = SetappAI.SetappAIAPI.Responses.ToolChoice.Allowed
-  public typealias ToolChoiceBuiltIn = SetappAI.SetappAIAPI.Responses.ToolChoice.BuiltIn
-  public typealias ToolChoiceFunction = SetappAI.SetappAIAPI.Responses.ToolChoice.Function
-  public typealias ToolChoiceMcp = SetappAI.SetappAIAPI.Responses.ToolChoice.MCP
-  public typealias ToolChoiceCustom = SetappAI.SetappAIAPI.Responses.ToolChoice.Custom
-  public typealias ToolChoiceApplyPatch = SetappAI.SetappAIAPI.Responses.ToolChoice.ApplyPatch
-  public typealias ToolChoiceShell = SetappAI.SetappAIAPI.Responses.ToolChoice.Shell
-  public typealias ToolChoiceAllowedTool = SetappAI.SetappAIAPI.Responses.ToolChoice.Allowed.Tool
-  public typealias ToolChoiceAllowedMode = SetappAI.SetappAIAPI.Responses.ToolChoice.AllowedMode
-  public typealias ToolChoiceType = SetappAI.SetappAIAPI.Responses.ToolChoice.ToolChoiceType
-  public typealias ToolChoiceBuiltInType = SetappAI.SetappAIAPI.Responses.ToolChoice.BuiltIn.BuiltInType
-  public typealias ResponseFileSearchResult = SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch.Result
-  public typealias ResponseApplyPatchOperation = SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch.Operation
-  public typealias ResponseApplyPatchCreateFile = SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch.Operation.CreateFile
-  public typealias ResponseApplyPatchUpdateFile = SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch.Operation.UpdateFile
-  public typealias ResponseApplyPatchDeleteFile = SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch.Operation.DeleteFile
-  public typealias ResponseCodeInterpreterOutput = SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter.Output
-  public typealias ResponseCodeInterpreterLogs = SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter.Output.Logs
-  public typealias ResponseCodeInterpreterImage = SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter.Output.Image
-  public typealias ResponseComputerSafetyCheck = SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer.SafetyCheck
-  public typealias ResponseComputerToolCallOutputScreenshot = SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Computer.Screenshot
-  public typealias ResponseWebSearchActionSource = SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Action.Search.Source
-  public typealias McpListToolsTool = SetappAI.SetappAIAPI.Responses.Output.MCPListTools.Tool
-  public typealias ResponseContextManagement = SetappAI.SetappAIAPI.Responses.ContextManagement
-  public typealias ResponseTruncation = SetappAI.SetappAIAPI.Responses.Truncation
-  public typealias ResponseStreamOptions = SetappAI.SetappAIAPI.Responses.StreamOptions
-  public typealias ResponseReasoningConfig = SetappAI.SetappAIAPI.Responses.Reasoning
-}
 extension SetappAI.SetappAIAPI {
   public struct List<Element> : Swift.Sendable where Element : Swift.Sendable {
     public var object: Swift.String {
@@ -4740,6 +5100,7 @@ public protocol SetappAIProtocol : Swift.Sendable {
   func set(configuration: SetappAI.AIConfiguration)
   var models: any SetappAI.SetappAIModelsAPIProtocol { get }
   var responses: any SetappAI.SetappAIResponsesAPIProtocol { get }
+  var images: any SetappAI.SetappAIImagesAPIProtocol { get }
 }
 final public class CancellableAsyncStream<Element> : _Concurrency.AsyncSequence, Swift.Sendable where Element : Swift.Sendable {
   public typealias AsyncIterator = SetappAI.CancellableAsyncStream<Element>.Iterator
@@ -4761,6 +5122,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent {
   public enum EventType : Swift.Sendable, Swift.RawRepresentable, Swift.Hashable, Swift.Equatable {
     public typealias RawValue = Swift.String
     case response(SetappAI.SetappAIAPI.StreamingEvent.Response.EventType)
+    case imageGeneration(SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType)
     case unsupported(SetappAI.SetappAIAPI.StreamingEvent.EventType.RawValue)
     public init(rawValue: Swift.String)
   }
@@ -4779,6 +5141,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent.EventType : Swift.Decodable {
 extension SetappAI.SetappAIAPI {
   public enum StreamingEvent : @unchecked Swift.Sendable {
     case response(SetappAI.SetappAIAPI.StreamingEvent.Response)
+    case imageGeneration(SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration)
     case unsupported(SetappAI.SetappAIAPI.UnsupportedObject<SetappAI.SetappAIAPI.StreamingEvent.EventType>)
   }
 }
@@ -4794,6 +5157,8 @@ extension SetappAI.ErrorHandlingMode : Swift.Equatable {}
 extension SetappAI.ErrorHandlingMode : Swift.Hashable {}
 extension SetappAI.SetappAIError.ErrorCode : Swift.Hashable {}
 extension SetappAI.SetappAIError.ErrorCode : Swift.RawRepresentable {}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.EventType : Swift.RawRepresentable {}
+extension SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType : Swift.RawRepresentable {}
 extension SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.Status : Swift.Equatable {}
 extension SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.Status : Swift.Hashable {}
 extension SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.Status : Swift.RawRepresentable {}

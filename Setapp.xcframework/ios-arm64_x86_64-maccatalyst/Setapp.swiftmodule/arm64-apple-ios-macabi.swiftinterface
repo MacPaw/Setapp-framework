@@ -26,11 +26,9 @@ public import _SwiftConcurrencyShims
   @nonobjc open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: @escaping (Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void) -> Swift.Bool
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @available(iOS 13.0, macCatalyst 13.0, *)
   open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void)
   #endif
   @objc(canOpenURL:) open func canOpen(url: Foundation.URL) -> Swift.Bool
-  @available(iOS 13.0, *)
   @objc(canOpenURLContexts:) open func canOpen(urlContexts: Swift.Set<UIKit.UIOpenURLContext>) -> Swift.Bool
   @objc open var backgroundSessionCompletionHandler: (() -> Swift.Void)?
   @objc open class func isSetappBackgroundSessionIdentifier(_: Swift.String) -> Swift.Bool
@@ -102,7 +100,6 @@ extension Setapp.SetappManager {
   @objc(openURL:options:completionHandler:) dynamic open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: ((_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void)? = nil) -> Swift.Bool
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  @available(iOS 13.0, *)
   @available(swift, obsoleted: 0.1)
   @objc(openURLContexts:completionHandler:) dynamic open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void)
   #endif
@@ -131,7 +128,7 @@ extension Setapp.SetappLogLevel : Swift.CustomStringConvertible {
   }
 }
 extension Setapp.SetappLogLevel : Swift.CaseIterable {
-  public static var allCases: [Setapp.SetappLogLevel]
+  public static let allCases: [Setapp.SetappLogLevel]
   public typealias AllCases = [Setapp.SetappLogLevel]
 }
 @objc(STPUsageEvent) public enum SetappUsageEvent : Swift.Int {

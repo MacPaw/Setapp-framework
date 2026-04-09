@@ -1,5 +1,5 @@
 //
-//  AppIntents.swift
+//  SampleIntent.swift
 //  AppIntents
 //
 //  Created by Oleksandr Bilous on 14.08.2024.

@@ -13,7 +13,7 @@ struct SetappIntentsExtension: AppIntentsExtension {
     init() {
         configureSetappManager()
     }
-    
+
     private func configureSetappManager() {
         SetappManager.logLevel = .debug
 
@@ -21,7 +21,7 @@ struct SetappIntentsExtension: AppIntentsExtension {
             publicKeyBundle: .main,
             publicKeyFilename: "setappPublicKey-iOS.pem"
         )
-        
+
         configuration.appGroupIdentifier = "group.setapp"
 
         SetappManager.shared.start(
