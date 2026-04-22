@@ -1,5 +1,16 @@
 ## [Unreleased]
 
+### New
+
+## [5.2.0] - 2026-04-22
+
+### New
+* Setapp AI API now supports audio transcription capability.
+
+### Fixed
+* [SetappAI] Fixed issue where multiple simultaneous errors would show multiple error dialogs - now only one dialog is shown per error type.
+* [SetappAI] Fixed issue where `.propagate` error handling mode was ignored, causing errors to always show UI dialogs.
+
 ## [5.1.0] - 2026-04-09
 
 ### New

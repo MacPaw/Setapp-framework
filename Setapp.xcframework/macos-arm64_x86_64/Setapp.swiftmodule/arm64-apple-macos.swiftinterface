@@ -74,6 +74,9 @@ public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable
   public static let applicationAccess: Setapp.VendorAuthorizationScope
   public static let openAI: Setapp.VendorAuthorizationScope
 }
+public protocol MetadataProvider {
+  func provideMetadata() -> [Swift.String : Swift.String]
+}
 #if compiler(>=5.3) && $NonescapableTypes
 @available(*, deprecated, renamed: "SetappManager.shared.reportUsageEvent(_:)")
 public func SCReportUsageEvent(_ eventName: Swift.String, _: [Swift.AnyHashable : Any]?)

@@ -81,6 +81,9 @@ public enum SetappAppPurchaseType : Swift.Int {
     get
   }
 }
+public protocol MetadataProvider {
+  func provideMetadata() -> [Swift.String : Swift.String]
+}
 extension Setapp.SetappManager {
   #if compiler(>=5.3) && $NonescapableTypes
   @available(swift, obsoleted: 0.1)

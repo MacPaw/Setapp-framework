@@ -66,6 +66,9 @@ extension Setapp.SetappLogLevel : Swift.CaseIterable {
   }
   @objc deinit
 }
+public protocol MetadataProvider {
+  func provideMetadata() -> [Swift.String : Swift.String]
+}
 public struct SetappError : Swift.Error {
   public let code: Setapp.SetappError.ErrorCode
   public init(code: Setapp.SetappError.ErrorCode)
