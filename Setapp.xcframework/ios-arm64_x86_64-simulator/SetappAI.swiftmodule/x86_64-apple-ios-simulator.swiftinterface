@@ -4235,9 +4235,9 @@ extension SetappAI.SetappAIAPI.StreamingEvent.Response.OutputText {
     public var contentIndex: Swift.Int?
     public var delta: Swift.String
     public var sequenceNumber: Swift.Int?
-    public var logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities]
+    public var logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities]?
     #if compiler(>=5.3) && $NonescapableTypes
-    public init(itemID: Swift.String, outputIndex: Swift.Int?, contentIndex: Swift.Int?, delta: Swift.String, sequenceNumber: Swift.Int?, logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities])
+    public init(itemID: Swift.String, outputIndex: Swift.Int?, contentIndex: Swift.Int?, delta: Swift.String, sequenceNumber: Swift.Int?, logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities]?)
     #endif
   }
 }
@@ -4259,9 +4259,9 @@ extension SetappAI.SetappAIAPI.StreamingEvent.Response.OutputText {
     public var contentIndex: Swift.Int?
     public var text: Swift.String
     public var sequenceNumber: Swift.Int?
-    public var logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities]
+    public var logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities]?
     #if compiler(>=5.3) && $NonescapableTypes
-    public init(itemID: Swift.String, outputIndex: Swift.Int?, contentIndex: Swift.Int?, text: Swift.String, sequenceNumber: Swift.Int?, logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities])
+    public init(itemID: Swift.String, outputIndex: Swift.Int?, contentIndex: Swift.Int?, text: Swift.String, sequenceNumber: Swift.Int?, logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities]?)
     #endif
   }
 }
@@ -4325,9 +4325,11 @@ extension SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle.Event.E
 extension SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle {
   public struct Event : Swift.Sendable {
     public var response: SetappAI.SetappAIAPI.Responses.Response
-    public var sequenceNumber: Swift.Int
+    public var sequenceNumber: Swift.Int?
     public var type: SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle.Event.EventType
-    public init(response: SetappAI.SetappAIAPI.Responses.Response, sequenceNumber: Swift.Int, type: SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle.Event.EventType)
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(response: SetappAI.SetappAIAPI.Responses.Response, sequenceNumber: Swift.Int?, type: SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle.Event.EventType)
+    #endif
   }
 }
 extension SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle.Event : Swift.Decodable {

@@ -2,6 +2,16 @@
 
 ### New
 
+## [5.2.1] - 2026-04-28
+
+### New
+
+### Updated
+* [Setapp Mobile] Removed the activation code and public method previously used for Setapp Mobile apps. This completes the Setapp Mobile sunset and cleans up the remaining legacy code from the Setapp Framework.
+
+### Fixed
+* [SetappAI] Fixed SSE event parsing errors for optional fields sequenceNumber and logprobs when using Anthropic models. The issue caused text streaming to fail entirely, making the model appear non-functional to users.
+
 ## [5.2.0] - 2026-04-22
 
 ### New

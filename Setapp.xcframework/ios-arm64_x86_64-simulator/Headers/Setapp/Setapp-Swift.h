@@ -447,25 +447,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 /// not <code>nil</code>, no messages are printed in the device console.
 ///
 - (void)setLogHandle:(void (^ _Nullable)(NSString * _Nonnull, enum STPLogLevel))logHandle SWIFT_UNAVAILABLE_MSG("Instance method is no longer available use the class func instead: \"SetappManager.setLogHandle\".");
-/// Fetches the current distribution source and checks if it’s Setapp Mobile.
-/// The result is passed in the  completion closure.
-/// note:
-/// Prior to iOS 17.4, the value will be always <code>false</code>.
-/// note:
-/// If running on a simulator, the value will be always <code>false</code>.
-+ (void)isDistributedViaSetapp:(void (^ _Nonnull)(BOOL))completion;
-/// Starts the Setapp iOS Framework with configurations provided by each app distributor.
-/// We strongly recommend to call this method as soon as your app opens. You can do this in the
-/// <code>application(_:, didFinishLaunchingWithOptions:)</code> method of your <code>UIApplicationDelegate</code> and
-/// in the <code>func scene(_:, willConnectTo:, options:)</code> method of your <code>UIWindowSceneDelegate</code> if
-/// you have one.
-/// \param defaultConfiguration A Setapp configuration to start the framework with. The default value is
-/// <code>SetappConfiguration.default</code>.
-///
-/// \param setappMobileConfiguration A Setapp configuration to start the framework with for distribution via Setapp
-/// Mobile.
-///
-- (void)startWithConfiguration:(STPConfiguration * _Nonnull)defaultConfiguration setappMobileConfiguration:(STPConfiguration * _Nonnull)setappMobileConfiguration;
 /// Starts the Setapp iOS Framework with a provided configuration.
 /// We strongly recommend to call this method as soon as your app opens. You can do this in the
 /// <code>application(_:, didFinishLaunchingWithOptions:)</code> method of your <code>UIApplicationDelegate</code> and
@@ -1058,25 +1039,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 /// not <code>nil</code>, no messages are printed in the device console.
 ///
 - (void)setLogHandle:(void (^ _Nullable)(NSString * _Nonnull, enum STPLogLevel))logHandle SWIFT_UNAVAILABLE_MSG("Instance method is no longer available use the class func instead: \"SetappManager.setLogHandle\".");
-/// Fetches the current distribution source and checks if it’s Setapp Mobile.
-/// The result is passed in the  completion closure.
-/// note:
-/// Prior to iOS 17.4, the value will be always <code>false</code>.
-/// note:
-/// If running on a simulator, the value will be always <code>false</code>.
-+ (void)isDistributedViaSetapp:(void (^ _Nonnull)(BOOL))completion;
-/// Starts the Setapp iOS Framework with configurations provided by each app distributor.
-/// We strongly recommend to call this method as soon as your app opens. You can do this in the
-/// <code>application(_:, didFinishLaunchingWithOptions:)</code> method of your <code>UIApplicationDelegate</code> and
-/// in the <code>func scene(_:, willConnectTo:, options:)</code> method of your <code>UIWindowSceneDelegate</code> if
-/// you have one.
-/// \param defaultConfiguration A Setapp configuration to start the framework with. The default value is
-/// <code>SetappConfiguration.default</code>.
-///
-/// \param setappMobileConfiguration A Setapp configuration to start the framework with for distribution via Setapp
-/// Mobile.
-///
-- (void)startWithConfiguration:(STPConfiguration * _Nonnull)defaultConfiguration setappMobileConfiguration:(STPConfiguration * _Nonnull)setappMobileConfiguration;
 /// Starts the Setapp iOS Framework with a provided configuration.
 /// We strongly recommend to call this method as soon as your app opens. You can do this in the
 /// <code>application(_:, didFinishLaunchingWithOptions:)</code> method of your <code>UIApplicationDelegate</code> and

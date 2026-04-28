@@ -229,8 +229,6 @@ extension Setapp.SetappManager {
   @available(*, unavailable, message: "Instance method is no longer available use the class func instead: \"SetappManager.setLogHandle\".")
   @objc(setLogHandle:) open func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
   #endif
-  @objc(isDistributedViaSetapp:) open class func isDistributedViaSetapp(completion: @escaping (Swift.Bool) -> Swift.Void)
-  @objc(startWithConfiguration:setappMobileConfiguration:) open func start(with defaultConfiguration: Setapp.SetappConfiguration = .default, setappMobileConfiguration: Setapp.SetappConfiguration)
   @objc(startWithConfiguration:) open func start(with configuration: Setapp.SetappConfiguration = .default)
   #if compiler(>=5.3) && $NonescapableTypes
   @available(*, unavailable, message: "`viewController(for result:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `SetappMessagesPresenterProtocol` and set it by `SetappManager.shared.setMessagesPresenter(_:)` call")
