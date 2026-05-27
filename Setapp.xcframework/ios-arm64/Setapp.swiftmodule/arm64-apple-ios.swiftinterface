@@ -1,33 +1,29 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
-// swift-module-flags: -target arm64-apple-ios15.6 -enable-objc-interop -autolink-force-load -enable-library-evolution -static -swift-version 5 -enforce-exclusivity=checked -O -enable-upcoming-feature ConciseMagicFile -enable-upcoming-feature ForwardTrailingClosures -enable-upcoming-feature DeprecateApplicationMain -enable-upcoming-feature ImportObjcForwardDeclarations -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature IsolatedDefaultValues -enable-upcoming-feature GlobalConcurrency -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature ImplicitOpenExistentials -enable-upcoming-feature RegionBasedIsolation -enable-upcoming-feature DynamicActorIsolation -enable-upcoming-feature NonfrozenEnumExhaustivity -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature InternalImportsByDefault -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature ExistentialAny -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name Setapp
-// swift-module-flags-ignorable: -strict-memory-safety:migrate -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+// swift-compiler-version: Apple Swift version 6.3 (swiftlang-6.3.0.123.5 clang-2100.0.123.102)
+// swift-module-flags: -target arm64-apple-ios15.6 -enable-objc-interop -autolink-force-load -enable-library-evolution -static -swift-version 6 -O -enable-upcoming-feature InternalImportsByDefault -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature ExistentialAny -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -module-name Setapp
+// swift-module-flags-ignorable: -strict-memory-safety -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3
 public import Foundation
-public import SetappAI
+@_exported public import SetappAI
 public import Swift
-public import UIKit
+@preconcurrency public import UIKit
 public import _Concurrency
 public import _StringProcessing
 public import _SwiftConcurrencyShims
-public struct TestMessagesPresenterNotification {
-  #if compiler(>=5.3) && $NonescapableTypes
+public struct TestMessagesPresenterNotification : Swift.Sendable {
   public init(statusMessage: Setapp.SetappStatusMessage, options: Setapp.SetappStatusMessageOptions?)
-  #endif
   public var notification: Foundation.Notification {
     get
   }
 }
 public typealias SetappLogHandle = (_ message: Swift.String, _ logLevel: Setapp.SetappLogLevel) -> Swift.Void
-@objc(STPLogLevel) public enum SetappLogLevel : Swift.Int {
+@objc(STPLogLevel) public enum SetappLogLevel : Swift.Int, Swift.Sendable {
   case verbose
   case debug
   case info
   case warning
   case error
   case off
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -48,20 +44,16 @@ extension Setapp.SetappLogLevel : Swift.CaseIterable {
 @objc(STPManagerDelegate) public protocol SetappManagerDelegate {
   @objc func setappManager(_ manager: Setapp.SetappManager, didUpdateSubscriptionTo newSetappSubscription: Setapp.SetappSubscription)
 }
-@objc(STPConfiguration) @objcMembers open class SetappConfiguration : ObjectiveC.NSObject, Swift.Codable {
+@objc(STPConfiguration) @objcMembers final public class SetappConfiguration : ObjectiveC.NSObject, Swift.Codable, Swift.Sendable {
   @objc(defaultConfiguration) public static let `default`: Setapp.SetappConfiguration
-  @objc public var appGroupIdentifier: Swift.String?
+  @objc final public let appGroupIdentifier: Swift.String?
   @objc final public let publicKeyBundle: Foundation.Bundle
   @objc final public let publicKeyFilename: Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(initWithPublicKeyBundle:publicKeyFilename:) public init(publicKeyBundle: Foundation.Bundle?, publicKeyFilename: Swift.String?)
-  #endif
+  @objc(initWithPublicKeyBundle:publicKeyFilename:appGroupIdentifier:) public init(publicKeyBundle: Foundation.Bundle?, publicKeyFilename: Swift.String?, appGroupIdentifier: Swift.String? = .none)
   required public init(from decoder: any Swift.Decoder) throws
-  open func encode(to encoder: any Swift.Encoder) throws
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
-  #endif
-  @objc override dynamic open var description: Swift.String {
+  final public func encode(to encoder: any Swift.Encoder) throws
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override final public var description: Swift.String {
     @objc get
   }
   @objc deinit
@@ -69,12 +61,12 @@ extension Setapp.SetappLogLevel : Swift.CaseIterable {
 public protocol MetadataProvider {
   func provideMetadata() -> [Swift.String : Swift.String]
 }
-public struct SetappError : Swift.Error {
+public struct SetappError : Swift.Error, Swift.Sendable {
   public let code: Setapp.SetappError.ErrorCode
   public init(code: Setapp.SetappError.ErrorCode)
 }
 extension Setapp.SetappError {
-  public enum ErrorCode : Swift.Int, Swift.Equatable {
+  public enum ErrorCode : Swift.Int, Swift.Equatable, Swift.Sendable {
     case generic
     case deviceLimit
     case expiredAuthenticationToken
@@ -83,9 +75,7 @@ extension Setapp.SetappError {
     case noSession
     case blocked
     case blockedAfterTrial
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
-    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -96,21 +86,15 @@ extension Setapp.SetappError : Swift.Equatable {
   public static func == (a: Setapp.SetappError, b: Setapp.SetappError) -> Swift.Bool
 }
 extension Setapp.SetappError : Foundation.LocalizedError {
-  #if compiler(>=5.3) && $NonescapableTypes
   public var errorDescription: Swift.String? {
     get
   }
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public var failureReason: Swift.String? {
     get
   }
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public var recoverySuggestion: Swift.String? {
     get
   }
-  #endif
 }
 extension Setapp.SetappError : Foundation.CustomNSError {
   public static let errorDomain: Swift.String
@@ -121,24 +105,20 @@ extension Setapp.SetappError : Foundation.CustomNSError {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(STPSubscription) @objcMembers open class SetappSubscription : ObjectiveC.NSObject {
-  @objc public var isActive: Swift.Bool {
+@_hasMissingDesignatedInitializers @objc(STPSubscription) final public class SetappSubscription : ObjectiveC.NSObject, Swift.Sendable {
+  @inline(__always) @objc final public var isActive: Swift.Bool {
     @objc get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc public var expirationDate: Foundation.Date? {
+  @objc final public var expirationDate: Foundation.Date? {
     @objc get
   }
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc override dynamic open func isEqual(_ object: Any?) -> Swift.Bool
-  #endif
-  @objc override dynamic open var description: Swift.String {
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override final public var description: Swift.String {
     @objc get
   }
   @objc deinit
 }
-public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable {
+public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable, Swift.Sendable {
   public init(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Setapp.VendorAuthorizationScope.RawValue
@@ -146,14 +126,12 @@ public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable
   public static let openAI: Setapp.VendorAuthorizationScope
 }
 extension Setapp.SetappManager {
-  #if compiler(>=5.3) && $NonescapableTypes
   @available(swift, obsoleted: 0.1)
-  @objc(openURL:options:completionHandler:) dynamic open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: ((_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void)? = nil) -> Swift.Bool
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
+  @available(iOS, introduced: 9.0, deprecated: 26.0, message: "Use UIScene lifecycle and equivalent properties on UISceneOpenURLOptions from a UIOpenURLContext in UIScene.ConnectionOptions.URLContexts instead.")
+  @available(macCatalyst, introduced: 13.1, deprecated: 26.0, message: "Use UIScene lifecycle and equivalent properties on UISceneOpenURLOptions from a UIOpenURLContext in UIScene.ConnectionOptions.URLContexts instead.")
+  @objc(openURL:options:completionHandler:) @_Concurrency.MainActor final public func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: (@Sendable (_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void)? = nil) -> Swift.Bool
   @available(swift, obsoleted: 0.1)
-  @objc(openURLContexts:completionHandler:) dynamic open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping (_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void)
-  #endif
+  @objc(openURLContexts:completionHandler:) @_Concurrency.MainActor final public func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: @escaping @Sendable (_ setappSubscription: Setapp.SetappSubscription?, _ error: Foundation.NSError?) -> Swift.Void)
 }
 @objc public enum STPStatusMessageType : Swift.Int {
   case activationPrompt
@@ -161,9 +139,7 @@ extension Setapp.SetappManager {
   case activationSuccess
   case error
   case aiError
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -176,83 +152,69 @@ extension Setapp.SetappManager {
   final public var message: Setapp.STPStatusMessageType {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   final public var error: Setapp.SetappError? {
     get
   }
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public var aiError: SetappAI.SetappAIError? {
     get
   }
-  #endif
   @objc deinit
 }
-@objc public protocol STPMessagesPresenterProtocol {
-  #if compiler(>=5.3) && $NonescapableTypes
+@objc public protocol STPMessagesPresenterProtocol : Swift.Sendable {
   @objc func present(_ statusMessage: Setapp.STPStatusMessage, options: Setapp.STPStatusMessageOptions?)
-  #endif
 }
-@_hasMissingDesignatedInitializers @objc(STPManager) open class SetappManager : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @objc(STPManager) final public class SetappManager : ObjectiveC.NSObject, Swift.Sendable {
   @objc public static let didChangeSubscriptionNotification: Foundation.NSNotification.Name
   @objc(sharedInstance) public static let shared: Setapp.SetappManager
-  @objc weak open var delegate: (any Setapp.SetappManagerDelegate)?
-  public var ai: any SetappAI.SetappAIProtocol {
+  @objc weak final public var delegate: (any Setapp.SetappManagerDelegate)? {
+    @objc get
+    @objc set
+  }
+  final public var ai: any SetappAI.SetappAIProtocol {
     get
   }
-  @objc dynamic open var subscription: Setapp.SetappSubscription? {
+  @objc dynamic final public var subscription: Setapp.SetappSubscription? {
     @objc get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc open var configuration: Setapp.SetappConfiguration? {
+  @objc final public var configuration: Setapp.SetappConfiguration? {
     @objc get
     @objc @available(*, unavailable, renamed: "start(with:)")
     set
   }
-  #endif
-  @objc(logLevel) open class var logLevel: Setapp.SetappLogLevel {
+  @objc(logLevel) public static var logLevel: Setapp.SetappLogLevel {
     @objc get
     @objc set
   }
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc(setLogHandle:) open class func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  public func setMessagesPresenter(_ messagesPresenter: (any Setapp.SetappMessagesPresenterProtocol)?)
-  #endif
+  @objc(setLogHandle:) public static func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
+  @_Concurrency.MainActor final public func setMessagesPresenter(_ messagesPresenter: (any Setapp.SetappMessagesPresenterProtocol)?)
   @available(*, unavailable, message: "Instance property is no longer available use the class property instead: \"SetappManager.setLogHandle\".")
-  @objc(logLevel) open var logLevel: Setapp.SetappLogLevel {
+  @objc(logLevel) final public var logLevel: Setapp.SetappLogLevel {
     @objc get
     @objc set
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   @available(*, unavailable, message: "Instance method is no longer available use the class func instead: \"SetappManager.setLogHandle\".")
-  @objc(setLogHandle:) open func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
-  #endif
-  @objc(startWithConfiguration:) open func start(with configuration: Setapp.SetappConfiguration = .default)
-  #if compiler(>=5.3) && $NonescapableTypes
+  @objc(setLogHandle:) final public func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
+  @objc(startWithConfiguration:) final public func start(with configuration: Setapp.SetappConfiguration = .default)
   @available(*, unavailable, message: "`viewController(for result:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `SetappMessagesPresenterProtocol` and set it by `SetappManager.shared.setMessagesPresenter(_:)` call")
-  open func viewController(for _: Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> UIKit.UIViewController
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  open func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  @nonobjc open func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: ((Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void)? = nil) -> Swift.Bool
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  open func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: ((Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void)? = nil)
-  #endif
-  @objc(canOpenURL:) open func canOpen(url: Foundation.URL) -> Swift.Bool
-  @objc(canOpenURLContexts:) open func canOpen(urlContexts: Swift.Set<UIKit.UIOpenURLContext>) -> Swift.Bool
-  @objc open var backgroundSessionCompletionHandler: (() -> Swift.Void)?
-  @objc open class func isSetappBackgroundSessionIdentifier(_: Swift.String) -> Swift.Bool
+  final public func viewController(for _: Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> UIKit.UIViewController
+  final public func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping @Sendable (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
+  @nonobjc @_Concurrency.MainActor final public func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: (@Sendable (Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void)? = nil) -> Swift.Bool
+  @_Concurrency.MainActor final public func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: (@Sendable (Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void)? = nil)
+  @objc(canOpenURL:) @_Concurrency.MainActor final public func canOpen(url: Foundation.URL) -> Swift.Bool
+  @objc(canOpenURLContexts:) @_Concurrency.MainActor final public func canOpen(urlContexts: Swift.Set<UIKit.UIOpenURLContext>) -> Swift.Bool
+  @available(*, deprecated, message: "This variable is not needed anymore.")
+  @objc final public var backgroundSessionCompletionHandler: (() -> Swift.Void)? {
+    @objc get
+    @objc set
+  }
+  @available(*, deprecated, message: "This method is not needed anymore.")
+  @objc public static func isSetappBackgroundSessionIdentifier(_ identifier: Swift.String) -> Swift.Bool
   @available(*, deprecated, message: "Instance method is deprecated use the class method instead: \"SetappManager.isSetappBackgroundSessionIdentifier\".")
-  @objc open func isSetappBackgroundSessionIdentifier(_ identifier: Swift.String) -> Swift.Bool
-  @objc(reportExtensionUsage) open func reportExtensionUsage()
+  @objc final public func isSetappBackgroundSessionIdentifier(_ identifier: Swift.String) -> Swift.Bool
+  @objc(reportExtensionUsage) final public func reportExtensionUsage()
   @objc deinit
 }
-public enum SetappStatusMessage {
+public enum SetappStatusMessage : Swift.Sendable {
   case activationPrompt
   case activationInProgress
   case activationSuccess
@@ -262,33 +224,25 @@ public enum SetappStatusMessage {
 extension Setapp.SetappStatusMessage : Swift.Equatable {
   public static func == (a: Setapp.SetappStatusMessage, b: Setapp.SetappStatusMessage) -> Swift.Bool
 }
-public struct SetappStatusMessageOptions {
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init(fallbackURL: Foundation.URL? = nil, activationTypeRawValue: Swift.String? = nil, marketplaceBundleID: Swift.String? = nil, isDismissable: Swift.Bool = true, onDismiss: (() -> Swift.Void)? = nil)
-  #endif
+public struct SetappStatusMessageOptions : Swift.Sendable {
+  public init(fallbackURL: Foundation.URL? = nil, activationTypeRawValue: Swift.String? = nil, marketplaceBundleID: Swift.String? = nil, isDismissable: Swift.Bool = true, onDismiss: (@Sendable () -> Swift.Void)? = nil)
 }
 extension Setapp.SetappStatusMessageOptions : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
 }
-public protocol SetappMessagesPresenterProtocol {
-  #if compiler(>=5.3) && $NonescapableTypes
-  func present(_ statusMessage: Setapp.SetappStatusMessage, options: Setapp.SetappStatusMessageOptions?)
-  #endif
+public protocol SetappMessagesPresenterProtocol : Swift.Sendable {
+  @_Concurrency.MainActor func present(_ statusMessage: Setapp.SetappStatusMessage, options: Setapp.SetappStatusMessageOptions?)
 }
 extension Setapp.SetappManager {
-  #if compiler(>=5.3) && $NonescapableTypes
   @available(swift, obsoleted: 0.1)
-  @objc(requestAuthorizationCodeWithClientID:scope:completionHandler:) dynamic open func requestAuthorizationCode(clientID: Swift.String, scope: [Swift.String], completionHandler: @escaping (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
-  #endif
+  @objc(requestAuthorizationCodeWithClientID:scope:completionHandler:) final public func requestAuthorizationCode(clientID: Swift.String, scope: [Swift.String], completionHandler: @escaping @Sendable (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
 }
 extension Setapp.SetappManager {
-  #if compiler(>=5.3) && $NonescapableTypes
   @available(*, unavailable, message: "viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call")
   @available(swift, obsoleted: 0.1)
-  @objc(viewControllerForSetappSubscription:orError:) dynamic open func viewController(for _: Setapp.SetappSubscription?, or _: Foundation.NSError?) -> UIKit.UIViewController?
-  #endif
+  @objc(viewControllerForSetappSubscription:orError:) final public func viewController(for setappSubscription: Setapp.SetappSubscription?, or error: Foundation.NSError?) -> UIKit.UIViewController?
 }
 extension Setapp.SetappLogLevel : Swift.Hashable {}
 extension Setapp.SetappLogLevel : Swift.RawRepresentable {}

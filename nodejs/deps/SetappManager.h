@@ -17,7 +17,7 @@ class SetappManager : public Napi::ObjectWrap<SetappManager> {
     void reportUsageEvent(const Napi::CallbackInfo& info);
     void askUserToShareEmail(const Napi::CallbackInfo& info);
 
-    // Log level    
+    // Log level
     static Napi::Value logLevel;
     static void setLogHandle(const Napi::CallbackInfo& info);
 

@@ -19,10 +19,9 @@ struct SetappIntentsExtension: AppIntentsExtension {
 
         let configuration = SetappConfiguration(
             publicKeyBundle: .main,
-            publicKeyFilename: "setappPublicKey-iOS.pem"
+            publicKeyFilename: "setappPublicKey-iOS.pem",
+            appGroupIdentifier: "group.setapp"
         )
-
-        configuration.appGroupIdentifier = "group.setapp"
 
         SetappManager.shared.start(
             with: configuration
