@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.3 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
-// swift-module-flags: -target arm64-apple-macos11.0 -enable-objc-interop -enable-library-evolution -swift-version 6 -enforce-exclusivity=checked -O -enable-upcoming-feature ExistentialAny:migrate -enable-upcoming-feature MemberImportVisibility:migrate -enable-upcoming-feature NonisolatedNonsendingByDefault:migrate -enable-experimental-feature DebugDescriptionMacro -module-name SetappAI -package-name setappai
-// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+// swift-compiler-version: Apple Swift version 6.3 (swiftlang-6.3.0.123.5 clang-2100.0.123.102)
+// swift-module-flags: -target arm64-apple-macos11.0 -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-upcoming-feature ExistentialAny:migrate -enable-upcoming-feature MemberImportVisibility:migrate -enable-upcoming-feature NonisolatedNonsendingByDefault:migrate -enable-experimental-feature DebugDescriptionMacro -module-name SetappAI -package-name setappai
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3
 import Foundation
 import Swift
 import _Concurrency
@@ -34,16 +34,12 @@ public enum ErrorHandlingMode : Swift.Sendable {
 public protocol SetappAIErrorConvertible : Swift.Error {
   func asSetappAIError() throws -> SetappAI.SetappAIError
 }
-public struct SetappAIError : Swift.Error {
+public struct SetappAIError : Swift.Error, Swift.Sendable {
   public let code: SetappAI.SetappAIError.ErrorCode
   public let recoveryURL: Foundation.URL?
   public init(code: SetappAI.SetappAIError.ErrorCode)
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(code: SetappAI.SetappAIError.ErrorCode, underlyingError: (any Swift.Error)?, recoveryURL: Foundation.URL?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public mutating func updateLocalizedStrings(description: Swift.String? = nil, failureReason: Swift.String? = nil, recoverySuggestion: Swift.String? = nil, recoveryOption: Swift.String? = nil, closeOption: Swift.String? = nil)
-  #endif
 }
 extension SetappAI.SetappAIError : Swift.Equatable {
   public static func == (lhs: SetappAI.SetappAIError, rhs: SetappAI.SetappAIError) -> Swift.Bool
@@ -54,9 +50,7 @@ extension SetappAI.SetappAIError {
     case rateLimit
     case insufficientCredits
     case modelNotAllowed
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
-    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -64,21 +58,15 @@ extension SetappAI.SetappAIError {
   }
 }
 extension SetappAI.SetappAIError : Foundation.LocalizedError {
-  #if compiler(>=5.3) && $NonescapableTypes
   public var errorDescription: Swift.String? {
     get
   }
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public var failureReason: Swift.String? {
     get
   }
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public var recoverySuggestion: Swift.String? {
     get
   }
-  #endif
 }
 extension SetappAI.SetappAIError : Foundation.CustomNSError {
   public static let errorDomain: Swift.String
@@ -98,11 +86,9 @@ extension Swift.KeyedDecodingContainer {
   @inlinable @inline(__always) package func decode<T>(_ key: Swift.KeyedDecodingContainer<K>.Key) throws -> T where T : Swift.Decodable {
         try decode(T.self, forKey: key)
     }
-  #if compiler(>=5.3) && $NonescapableTypes
   @inlinable @inline(__always) package func decodeIfPresent<T>(_ key: Swift.KeyedDecodingContainer<K>.Key) throws -> T? where T : Swift.Decodable {
         try decodeIfPresent(T.self, forKey: key)
     }
-  #endif
 }
 public protocol SetappAIRawStringRepresentableEnum : SetappAI.SetappAIRawStringRepresentable, Swift.CaseIterable where Self.RawValue : Swift.Equatable {
   static func unsupported(_ rawValue: Self.RawValue) -> Self
@@ -181,15 +167,14 @@ extension SetappAI.SetappAIAPI.Model.Mode {
   public static let moderation: SetappAI.SetappAIAPI.Model.Mode
   public static let rerank: SetappAI.SetappAIAPI.Model.Mode
   public static let search: SetappAI.SetappAIAPI.Model.Mode
+  public static let videoGeneration: SetappAI.SetappAIAPI.Model.Mode
 }
 extension SetappAI.SetappAIAPI {
   public struct Model : Swift.Sendable, Swift.Equatable, Swift.Identifiable {
     public var id: Swift.String
     public var mode: SetappAI.SetappAIAPI.Model.Mode?
     public var capabilities: Swift.Set<SetappAI.SetappAIAPI.Model.Capability>
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(id: Swift.String, mode: SetappAI.SetappAIAPI.Model.Mode?, capabilities: Swift.Set<SetappAI.SetappAIAPI.Model.Capability>)
-    #endif
     public static func == (a: SetappAI.SetappAIAPI.Model, b: SetappAI.SetappAIAPI.Model) -> Swift.Bool
     public typealias ID = Swift.String
   }
@@ -308,9 +293,7 @@ extension SetappAI.SetappAIAPI.Audio.Transcription {
     public var prompt: Swift.String?
     public var temperature: Swift.Double?
     public var timestampGranularities: [SetappAI.SetappAIAPI.Audio.Transcription.TimestampGranularity]?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(file: Foundation.Data, fileType: SetappAI.SetappAIAPI.Audio.AudioFileType, model: SetappAI.SetappAIAPI.Model, chunkingStrategy: SetappAI.SetappAIAPI.Audio.Transcription.ChunkingStrategy? = .none, include: [SetappAI.SetappAIAPI.Audio.Transcription.Include]? = .none, knownSpeakerNames: [Swift.String]? = .none, knownSpeakerReferences: [Swift.String]? = .none, language: Swift.String? = .none, prompt: Swift.String? = .none, temperature: Swift.Double? = .none, timestampGranularities: [SetappAI.SetappAIAPI.Audio.Transcription.TimestampGranularity]? = .none)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Audio.Transcription.DiarizedTranscriptionResponse {
@@ -334,9 +317,7 @@ extension SetappAI.SetappAIAPI.Audio.Transcription {
     public var task: Swift.String
     public var text: Swift.String
     public var usage: SetappAI.SetappAIAPI.Audio.Transcription.Usage?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(duration: Swift.Double, segments: [SetappAI.SetappAIAPI.Audio.Transcription.DiarizedTranscriptionResponse.Segment], task: Swift.String, text: Swift.String, usage: SetappAI.SetappAIAPI.Audio.Transcription.Usage?)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Audio.Transcription.DiarizedTranscriptionResponse : Swift.Decodable {
@@ -347,9 +328,7 @@ extension SetappAI.SetappAIAPI.Audio.Transcription.TranscriptionResponse {
     public var token: Swift.String?
     public var bytes: [Swift.Int]?
     public var logprob: Swift.Double?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(token: Swift.String?, bytes: [Swift.Int]?, logprob: Swift.Double?)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Audio.Transcription.TranscriptionResponse.Logprob : Swift.Decodable {
@@ -360,9 +339,7 @@ extension SetappAI.SetappAIAPI.Audio.Transcription {
     public var text: Swift.String
     public var logprobs: [SetappAI.SetappAIAPI.Audio.Transcription.TranscriptionResponse.Logprob]?
     public var usage: SetappAI.SetappAIAPI.Audio.Transcription.Usage?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(text: Swift.String, logprobs: [SetappAI.SetappAIAPI.Audio.Transcription.TranscriptionResponse.Logprob]?, usage: SetappAI.SetappAIAPI.Audio.Transcription.Usage?)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Audio.Transcription.TranscriptionResponse : Swift.Decodable {
@@ -381,9 +358,7 @@ extension SetappAI.SetappAIAPI.Audio.Transcription.Usage.TokenUsage {
   public struct InputTokenDetails : Swift.Sendable {
     public var audioTokens: Swift.Int?
     public var textTokens: Swift.Int?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(audioTokens: Swift.Int?, textTokens: Swift.Int?)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Audio.Transcription.Usage.TokenUsage.InputTokenDetails : Swift.Decodable {
@@ -395,9 +370,7 @@ extension SetappAI.SetappAIAPI.Audio.Transcription.Usage {
     public var outputTokens: Swift.Int
     public var totalTokens: Swift.Int
     public var inputTokenDetails: SetappAI.SetappAIAPI.Audio.Transcription.Usage.TokenUsage.InputTokenDetails?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(inputTokens: Swift.Int, outputTokens: Swift.Int, totalTokens: Swift.Int, inputTokenDetails: SetappAI.SetappAIAPI.Audio.Transcription.Usage.TokenUsage.InputTokenDetails?)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Audio.Transcription.Usage.TokenUsage : Swift.Decodable {
@@ -449,9 +422,7 @@ extension SetappAI.SetappAIAPI.Audio.Transcription {
     public var segments: [SetappAI.SetappAIAPI.Audio.Transcription.VerboseTranscriptionResponse.Segment]?
     public var usage: SetappAI.SetappAIAPI.Audio.Transcription.Usage?
     public var words: [SetappAI.SetappAIAPI.Audio.Transcription.VerboseTranscriptionResponse.Word]?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(duration: Swift.Double, language: Swift.String, text: Swift.String, segments: [SetappAI.SetappAIAPI.Audio.Transcription.VerboseTranscriptionResponse.Segment]?, usage: SetappAI.SetappAIAPI.Audio.Transcription.Usage?, words: [SetappAI.SetappAIAPI.Audio.Transcription.VerboseTranscriptionResponse.Word]?)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Audio.Transcription.VerboseTranscriptionResponse : Swift.Decodable {
@@ -618,9 +589,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent.ImageEdit {
     public var size: SetappAI.SetappAIAPI.Images.Edit.Size
     public var type: SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.EventType
     public var usage: SetappAI.SetappAIAPI.Images.ImageResponse.Usage?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(base64JSON: Swift.String, background: SetappAI.SetappAIAPI.Images.Background, createdAt: Foundation.Date, outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat, quality: SetappAI.SetappAIAPI.Images.Edit.Quality, size: SetappAI.SetappAIAPI.Images.Edit.Size, type: SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.EventType, usage: SetappAI.SetappAIAPI.Images.ImageResponse.Usage?)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.Completed : Swift.Decodable {
@@ -630,9 +599,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent.ImageEdit {
   public enum EventType : Swift.String, Swift.Decodable, Swift.CaseIterable, Swift.Sendable, Swift.Hashable, Swift.Equatable {
     case partialImage
     case completed
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.EventType]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.EventType] {
@@ -769,9 +736,7 @@ extension SetappAI.SetappAIAPI.Images.Generation {
     public var n: Swift.Int
     public var partialImages: Swift.Int?
     public var stream: Swift.Bool?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(model: SetappAI.SetappAIAPI.Model, prompt: Swift.String, style: SetappAI.SetappAIAPI.Images.Generation.Style? = .none, background: SetappAI.SetappAIAPI.Images.Background? = .none, size: SetappAI.SetappAIAPI.Images.Generation.Size? = .none, quality: SetappAI.SetappAIAPI.Images.Generation.Quality? = .none, outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat? = .none, outputCompression: Swift.Int? = .none, responseFormat: SetappAI.SetappAIAPI.Images.Generation.ResponseFormat? = .none, moderation: SetappAI.SetappAIAPI.Images.Moderation? = .none, n: Swift.Int = 1, partialImages: Swift.Int? = .none, stream: Swift.Bool? = .none)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Images.Generation.Parameters : Swift.Encodable {
@@ -787,9 +752,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration {
     public var size: SetappAI.SetappAIAPI.Images.Generation.Size
     public var type: SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType
     public var usage: SetappAI.SetappAIAPI.Images.ImageResponse.Usage?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(base64JSON: Swift.String, background: SetappAI.SetappAIAPI.Images.Background, createdAt: Foundation.Date, outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat, quality: SetappAI.SetappAIAPI.Images.Generation.Quality, size: SetappAI.SetappAIAPI.Images.Generation.Size, type: SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType, usage: SetappAI.SetappAIAPI.Images.ImageResponse.Usage?)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.Completed : Swift.Decodable {
@@ -799,9 +762,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration {
   public enum EventType : Swift.String, Swift.Decodable, Swift.CaseIterable, Swift.Sendable, Swift.Hashable, Swift.Equatable {
     case partialImage
     case completed
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType] {
@@ -923,9 +884,7 @@ extension SetappAI.SetappAIAPI.Images.ImageResponse {
     public var data: Foundation.Data?
     public var revisedPrompt: Swift.String?
     public var url: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(data: Foundation.Data? = .none, revisedPrompt: Swift.String? = .none, url: Swift.String? = .none)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Images.ImageResponse.Image : Swift.Decodable {
@@ -940,9 +899,7 @@ extension SetappAI.SetappAIAPI.Images {
     public var quality: SetappAI.SetappAIAPI.Images.Generation.Quality?
     public var size: SetappAI.SetappAIAPI.Images.Generation.Size?
     public var usage: SetappAI.SetappAIAPI.Images.ImageResponse.Usage?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(created: Foundation.Date, background: SetappAI.SetappAIAPI.Images.Background?, data: [SetappAI.SetappAIAPI.Images.ImageResponse.Image]?, outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat?, quality: SetappAI.SetappAIAPI.Images.Generation.Quality?, size: SetappAI.SetappAIAPI.Images.Generation.Size?, usage: SetappAI.SetappAIAPI.Images.ImageResponse.Usage?)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Images.ImageResponse : Swift.Decodable {
@@ -1012,12 +969,8 @@ extension SetappAI.SetappAIAPI.Responses {
   }
 }
 extension SetappAI.SetappAIAPI.Responses.CreateRequestParameters {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(model: SetappAI.SetappAIAPI.Model, input: [any SetappAI.ModelInputProtocol], instructions: Swift.String? = nil, contextManagement: SetappAI.SetappAIAPI.Responses.ContextManagement? = nil, reasoning: SetappAI.SetappAIAPI.Responses.Reasoning? = nil, previousResponseID: Swift.String? = nil, text: SetappAI.SetappAIAPI.Responses.Text? = nil, include: [SetappAI.SetappAIAPI.Responses.Include]? = nil, tools: [any SetappAI.SetappAIResponsesToolProtocol]? = nil, toolChoice: SetappAI.SetappAIAPI.Responses.ToolChoice? = nil, maxToolCalls: Swift.Int? = nil, parallelToolCalls: Swift.Bool? = nil, serviceTier: SetappAI.SetappAIAPI.Responses.ServiceTier? = nil, store: Swift.Bool? = nil, truncation: SetappAI.SetappAIAPI.Responses.Truncation? = nil, metadata: [Swift.String : Swift.String]? = nil, maxOutputTokens: Swift.Int? = nil, temperature: Swift.Double? = nil, topP: Swift.Double? = nil, topLogprobs: Swift.Int? = nil, background: Swift.Bool? = nil, stream: Swift.Bool? = nil, streamOptions: SetappAI.SetappAIAPI.Responses.StreamOptions? = nil)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(model: SetappAI.SetappAIAPI.Model, input: [SetappAI.SetappAIAPI.Responses.Input], instructions: Swift.String? = nil, contextManagement: SetappAI.SetappAIAPI.Responses.ContextManagement? = nil, reasoning: SetappAI.SetappAIAPI.Responses.Reasoning? = nil, previousResponseID: Swift.String? = nil, text: SetappAI.SetappAIAPI.Responses.Text? = nil, include: [SetappAI.SetappAIAPI.Responses.Include]? = nil, tools: [SetappAI.SetappAIAPI.Responses.Tool]? = nil, toolChoice: SetappAI.SetappAIAPI.Responses.ToolChoice? = nil, maxToolCalls: Swift.Int? = nil, parallelToolCalls: Swift.Bool? = nil, serviceTier: SetappAI.SetappAIAPI.Responses.ServiceTier? = nil, store: Swift.Bool? = nil, truncation: SetappAI.SetappAIAPI.Responses.Truncation? = nil, metadata: [Swift.String : Swift.String]? = nil, maxOutputTokens: Swift.Int? = nil, temperature: Swift.Double? = nil, topP: Swift.Double? = nil, topLogprobs: Swift.Int? = nil, background: Swift.Bool? = nil, stream: Swift.Bool? = nil, streamOptions: SetappAI.SetappAIAPI.Responses.StreamOptions? = nil)
-  #endif
 }
 extension SetappAI.SetappAIAPI.Responses.CreateRequestParameters : Swift.Encodable {
   public func encode(to encoder: any Swift.Encoder) throws
@@ -1031,9 +984,7 @@ extension SetappAI.SetappAIAPI.Responses {
     public var includeObfuscation: Swift.Bool?
     public var startingAfter: Swift.Int?
     public var stream: Swift.Bool?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(include: [SetappAI.SetappAIAPI.Responses.Include]? = nil, includeObfuscation: Swift.Bool? = nil, startingAfter: Swift.Int? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Input {
@@ -1060,9 +1011,7 @@ extension SetappAI.SetappAIAPI.Responses.Input {
     public var approve: Swift.Bool
     public var id: Swift.String?
     public var reason: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(approvalRequestID: Swift.String, approve: Swift.Bool, id: Swift.String? = .none, reason: Swift.String? = .none)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Input.MCPApprovalResponse : SetappAI.ModelInputProtocol {
@@ -1085,9 +1034,7 @@ extension SetappAI.SetappAIAPI.Responses.Input {
     public let content: [SetappAI.SetappAIAPI.Responses.Input.Message.Content]
     public var role: SetappAI.SetappAIAPI.Responses.Role
     public var status: SetappAI.SetappAIAPI.Responses.Input.Message.Status?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(content: [SetappAI.SetappAIAPI.Responses.Input.Message.Content], role: SetappAI.SetappAIAPI.Responses.Role = .user, id: Swift.String? = .none, status: SetappAI.SetappAIAPI.Responses.Input.Message.Status? = .none)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Input.Message : SetappAI.ModelInputProtocol {
@@ -1179,9 +1126,7 @@ extension SetappAI.SetappAIAPI.Responses.Input.Message {
     public let fileID: Swift.String?
     public let fileURL: Foundation.URL?
     public let filename: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(fileData: Foundation.Data?, fileID: Swift.String?, fileURL: Foundation.URL?, filename: Swift.String?)
-    #endif
     public static func == (a: SetappAI.SetappAIAPI.Responses.Input.Message.File, b: SetappAI.SetappAIAPI.Responses.Input.Message.File) -> Swift.Bool
   }
 }
@@ -1208,9 +1153,7 @@ extension SetappAI.SetappAIAPI.Responses.Input.Message {
     public let data: Foundation.Data?
     public let imageURL: Foundation.URL?
     public let fileID: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(detail: SetappAI.SetappAIAPI.Responses.Input.Message.Image.Detail?, imageType: SetappAI.SetappAIAPI.Responses.Input.Message.Image.ImageType?, fileID: Swift.String?, imageURL: Foundation.URL?, data: Foundation.Data?)
-    #endif
     public static func == (a: SetappAI.SetappAIAPI.Responses.Input.Message.Image, b: SetappAI.SetappAIAPI.Responses.Input.Message.Image) -> Swift.Bool
   }
 }
@@ -1220,15 +1163,9 @@ extension SetappAI.SetappAIAPI.Responses.Input.Message.Image : SetappAI.ModelInp
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Input.Message.Image {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func data(_ data: Foundation.Data, type: SetappAI.SetappAIAPI.Responses.Input.Message.Image.ImageType, detail: SetappAI.SetappAIAPI.Responses.Input.Message.Image.Detail? = .none) -> SetappAI.SetappAIAPI.Responses.Input.Message.Image
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func imageURL(_ imageURL: Foundation.URL, detail: SetappAI.SetappAIAPI.Responses.Input.Message.Image.Detail? = .none) -> SetappAI.SetappAIAPI.Responses.Input.Message.Image
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func fileID(_ fileID: Swift.String, detail: SetappAI.SetappAIAPI.Responses.Input.Message.Image.Detail? = .none) -> SetappAI.SetappAIAPI.Responses.Input.Message.Image
-  #endif
 }
 extension SetappAI.SetappAIAPI.Responses.Input.Message.Image {
   public enum Detail : Swift.Sendable {
@@ -1336,9 +1273,7 @@ extension SetappAI.SetappAIAPI.Responses {
     public var type: Swift.String {
       get
     }
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(compactThreshold: Swift.Int? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.ContextManagement : Swift.Encodable {
@@ -1440,9 +1375,7 @@ extension SetappAI.SetappAIAPI.Responses {
     public var id: Swift.String
     public var version: Swift.String?
     public var variables: [Swift.String : SetappAI.SetappAIAPI.Responses.Prompt.VariableValue]?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(id: Swift.String, version: Swift.String?, variables: [Swift.String : SetappAI.SetappAIAPI.Responses.Prompt.VariableValue]?)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Prompt {
@@ -1467,9 +1400,7 @@ extension SetappAI.SetappAIAPI.Responses {
   public struct Reasoning : Swift.Sendable, Swift.Decodable, Swift.Encodable, Swift.Equatable {
     public let effort: SetappAI.SetappAIAPI.Responses.Reasoning.Effort?
     public let summary: SetappAI.SetappAIAPI.Responses.Reasoning.Summary?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(effort: SetappAI.SetappAIAPI.Responses.Reasoning.Effort? = .none, summary: SetappAI.SetappAIAPI.Responses.Reasoning.Summary? = .none)
-    #endif
     public static func == (a: SetappAI.SetappAIAPI.Responses.Reasoning, b: SetappAI.SetappAIAPI.Responses.Reasoning) -> Swift.Bool
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
@@ -1577,9 +1508,7 @@ extension SetappAI.SetappAIAPI.Responses {
   public struct Text : Swift.Sendable, Swift.Decodable, Swift.Encodable {
     public let format: SetappAI.SetappAIAPI.Responses.Text.Format
     public let verbosity: SetappAI.SetappAIAPI.Responses.Text.Verbosity?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(format: SetappAI.SetappAIAPI.Responses.Text.Format, verbosity: SetappAI.SetappAIAPI.Responses.Text.Verbosity?)
-    #endif
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
@@ -1618,15 +1547,9 @@ extension SetappAI.SetappAIAPI.Responses.Text.Format : Swift.Decodable {
   public init(from decoder: any Swift.Decoder) throws
 }
 extension SetappAI.SetappAIAPI.Responses.Text {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func text(verbosity: SetappAI.SetappAIAPI.Responses.Text.Verbosity?) -> SetappAI.SetappAIAPI.Responses.Text
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func jsonObject(verbosity: SetappAI.SetappAIAPI.Responses.Text.Verbosity?) -> SetappAI.SetappAIAPI.Responses.Text
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func jsonSchema(name: Swift.String, schema: [Swift.String : any Swift.Sendable], description: Swift.String? = .none, strict: Swift.Bool = false, verbosity: SetappAI.SetappAIAPI.Responses.Text.Verbosity?) -> SetappAI.SetappAIAPI.Responses.Text
-  #endif
 }
 public protocol TextFormatProtocol : Swift.Decodable, Swift.Encodable, Swift.Sendable {
   var type: SetappAI.SetappAIAPI.Responses.Text.TextType { get }
@@ -1660,9 +1583,7 @@ extension SetappAI.SetappAIAPI.Responses.Text {
     public let schema: [Swift.String : any Swift.Sendable]
     public let description: Swift.String?
     public let strict: Swift.Bool
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(name: Swift.String, schema: [Swift.String : any Swift.Sendable], description: Swift.String?, strict: Swift.Bool = false)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Text.JSONSchemaFormat : Swift.Encodable {
@@ -1753,9 +1674,7 @@ extension SetappAI.SetappAIAPI.Responses.ToolChoice {
   public static var codeInterpreter: SetappAI.SetappAIAPI.Responses.ToolChoice {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func mcp(serverLabel: Swift.String, name: Swift.String? = .none) -> SetappAI.SetappAIAPI.Responses.ToolChoice
-  #endif
   public static func custom(name: Swift.String) -> SetappAI.SetappAIAPI.Responses.ToolChoice
   public static var applyPatch: SetappAI.SetappAIAPI.Responses.ToolChoice {
     get
@@ -1832,9 +1751,7 @@ extension SetappAI.SetappAIAPI.Responses.ToolChoice.Allowed.Tool {
   }
 }
 extension SetappAI.SetappAIAPI.Responses.ToolChoice.Allowed.Tool {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func mcp(serverLabel: Swift.String, name: Swift.String? = .none) -> SetappAI.SetappAIAPI.Responses.ToolChoice.Allowed.Tool
-  #endif
   public static func function(name: Swift.String) -> SetappAI.SetappAIAPI.Responses.ToolChoice.Allowed.Tool
   public static func custom(name: Swift.String) -> SetappAI.SetappAIAPI.Responses.ToolChoice.Allowed.Tool
   public static var applyPatch: SetappAI.SetappAIAPI.Responses.ToolChoice.Allowed.Tool {
@@ -1937,9 +1854,7 @@ extension SetappAI.SetappAIAPI.Responses.ToolChoice.BuiltIn.BuiltInType : Swift.
   public typealias AllCases = [SetappAI.SetappAIAPI.Responses.ToolChoice.BuiltIn.BuiltInType]
 }
 extension SetappAI.SetappAIAPI.Responses.ToolChoice.BuiltIn.BuiltInType : Swift.RawRepresentable {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
-  #endif
   public var rawValue: Swift.String {
     get
   }
@@ -2038,9 +1953,7 @@ extension SetappAI.SetappAIAPI.Responses.ToolChoice {
   public struct MCP : Swift.Sendable, Swift.Equatable, Swift.Hashable {
     public var serverLabel: Swift.String
     public var name: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(serverLabel: Swift.String, name: Swift.String? = .none)
-    #endif
     public static func == (a: SetappAI.SetappAIAPI.Responses.ToolChoice.MCP, b: SetappAI.SetappAIAPI.Responses.ToolChoice.MCP) -> Swift.Bool
     public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
@@ -2127,9 +2040,7 @@ extension SetappAI.SetappAIAPI.Responses.Output {
     public var id: Swift.String
     public var encryptedContent: Swift.String
     public var createdBy: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(id: Swift.String, encryptedContent: Swift.String, createdBy: Swift.String? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.CompactionItem : SetappAI.ModelOutputProtocol {
@@ -2169,9 +2080,7 @@ extension SetappAI.SetappAIAPI.Responses.Output {
     public var serverLabel: Swift.String
     public var tools: [SetappAI.SetappAIAPI.Responses.Output.MCPListTools.Tool]
     public var error: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(id: Swift.String, serverLabel: Swift.String, tools: [SetappAI.SetappAIAPI.Responses.Output.MCPListTools.Tool], error: Swift.String? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.MCPListTools {
@@ -2180,9 +2089,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.MCPListTools {
     public var inputSchema: [Swift.String : any Swift.Sendable]
     public var description: Swift.String?
     public var annotations: (any Swift.Sendable)?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(name: Swift.String, inputSchema: [Swift.String : any Swift.Sendable], description: Swift.String? = nil, annotations: (any Swift.Sendable)? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.MCPListTools.Tool : Swift.Encodable {
@@ -2504,9 +2411,7 @@ extension SetappAI.SetappAIAPI.Responses.Output {
     public var content: [SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.ReasoningTextContent]?
     public var encryptedContent: Swift.String?
     public var status: SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.Status?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(id: Swift.String, summary: [SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.SummaryTextContent], content: [SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.ReasoningTextContent]? = nil, encryptedContent: Swift.String? = nil, status: SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.Status? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ReasoningItem {
@@ -2544,9 +2449,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ReasoningItem {
     case inProgress
     case completed
     case incomplete
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.Status]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.Status] {
@@ -2663,9 +2566,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch {
   public enum Status : Swift.String, Swift.CaseIterable, Swift.Sendable, Swift.Codable {
     case inProgress
     case completed
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch.Status]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch.Status] {
@@ -2753,9 +2654,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter {
     case incomplete
     case interpreting
     case failed
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter.Status]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter.Status] {
@@ -3009,9 +2908,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer {
     public var id: Swift.String
     public var code: Swift.String?
     public var message: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(id: Swift.String, code: Swift.String? = nil, message: Swift.String? = nil)
-    #endif
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
@@ -3021,9 +2918,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer {
     case inProgress
     case completed
     case incomplete
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer.Status]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer.Status] {
@@ -3041,9 +2936,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch {
     public var score: Swift.Double?
     public var text: Swift.String?
     public var attributes: [Swift.String : any Swift.Sendable]?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(fileID: Swift.String? = nil, filename: Swift.String? = nil, score: Swift.Double? = nil, text: Swift.String? = nil, attributes: [Swift.String : any Swift.Sendable]? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch.Result : Swift.Encodable {
@@ -3059,9 +2952,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch {
     case completed
     case incomplete
     case failed
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch.Status]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch.Status] {
@@ -3082,9 +2973,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.LocalShell {
     public var timeoutMs: Swift.Int?
     public var user: Swift.String?
     public var workingDirectory: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(command: [Swift.String], env: [Swift.String : Swift.String]? = nil, timeoutMs: Swift.Int? = nil, user: Swift.String? = nil, workingDirectory: Swift.String? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.LocalShell.Action : Swift.Encodable {
@@ -3098,9 +2987,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.LocalShell {
     case inProgress
     case completed
     case failed
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Output.ToolCall.LocalShell.Status]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.LocalShell.Status] {
@@ -3117,9 +3004,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall {
     public var callID: Swift.String
     public var status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch.Status
     public var id: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(operation: SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch.Operation, callID: Swift.String, status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch.Status, id: Swift.String? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.ApplyPatch {
@@ -3140,9 +3025,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall {
     public var containerID: Swift.String
     public var outputs: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter.Output]?
     public var status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter.Status
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(id: Swift.String, code: Swift.String? = nil, containerID: Swift.String, outputs: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter.Output]? = nil, status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter.Status)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.CodeInterpreter {
@@ -3163,9 +3046,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall {
     public var pendingSafetyChecks: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer.SafetyCheck]?
     public var status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer.Status?
     public var id: Swift.String
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(action: SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer.Action, callID: Swift.String, pendingSafetyChecks: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer.SafetyCheck]? = nil, status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer.Status? = nil, id: Swift.String)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.Computer {
@@ -3185,9 +3066,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall {
     public var callID: Swift.String
     public var input: Swift.String
     public var id: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(name: Swift.String, callID: Swift.String, input: Swift.String, id: Swift.String? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.Custom {
@@ -3207,9 +3086,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall {
     public var queries: [Swift.String]
     public var results: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch.Result]?
     public var status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch.Status
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(id: Swift.String, queries: [Swift.String], results: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch.Result]? = nil, status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch.Status)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.FileSearch {
@@ -3230,9 +3107,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall {
     public var callID: Swift.String
     public var id: Swift.String?
     public var status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.Function.Status?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(name: Swift.String, arguments: Swift.String, callID: Swift.String, id: Swift.String? = nil, status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.Function.Status? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.Function {
@@ -3241,9 +3116,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.Function {
     case inProgress
     case completed
     case incomplete
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Output.ToolCall.Function.Status]
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.Function.Status] {
       get
@@ -3278,9 +3151,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.ImageGeneration {
     case completed
     case generating
     case failed
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Output.ToolCall.ImageGeneration.Status]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.ImageGeneration.Status] {
@@ -3308,9 +3179,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall {
     public var action: SetappAI.SetappAIAPI.Responses.Output.ToolCall.LocalShell.Action
     public var callID: Swift.String
     public var status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.LocalShell.Status?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(id: Swift.String, action: SetappAI.SetappAIAPI.Responses.Output.ToolCall.LocalShell.Action, callID: Swift.String, status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.LocalShell.Status? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.LocalShell {
@@ -3334,9 +3203,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall {
     public var output: Swift.String?
     public var error: Swift.String?
     public var status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.MCP.Status?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(id: Swift.String, name: Swift.String, arguments: Swift.String, serverLabel: Swift.String, approvalRequestID: Swift.String? = nil, output: Swift.String? = nil, error: Swift.String? = nil, status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.MCP.Status? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.MCP {
@@ -3346,9 +3213,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.MCP {
     case failed
     case incomplete
     case calling
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Output.ToolCall.MCP.Status]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.MCP.Status] {
@@ -3377,9 +3242,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall {
     public var id: Swift.String?
     public var environment: SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment?
     public var status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.Function.Status?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(action: SetappAI.SetappAIAPI.Responses.Output.ToolCall.Shell.Action, callID: Swift.String, id: Swift.String? = nil, environment: SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment? = nil, status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.Function.Status? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.Shell {
@@ -3387,9 +3250,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.Shell {
     public var commands: [Swift.String]
     public var maxOutputLength: Swift.Int?
     public var timeoutMs: Swift.Int?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(commands: [Swift.String], maxOutputLength: Swift.Int? = nil, timeoutMs: Swift.Int? = nil)
-    #endif
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
@@ -3437,9 +3298,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall {
     public var id: Swift.String
     public var action: SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Action?
     public var status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Status
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(id: Swift.String, action: SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Action? = nil, status: SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Status)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch {
@@ -3501,9 +3360,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Action.FindIn
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Action {
   public struct OpenPage : Swift.Sendable {
     public var url: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(url: Swift.String? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Action.OpenPage {
@@ -3524,9 +3381,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Action {
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Action.Search {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(queries: [Swift.String]? = nil, sources: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Action.Search.Source]? = nil)
-  #endif
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Action.Search {
   public struct Source : Swift.Sendable {
@@ -3600,9 +3455,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch {
     case completed
     case failed
     case incomplete
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Status]
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.Responses.Output.ToolCall.WebSearch.Status] {
       get
@@ -3619,18 +3472,14 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput {
     public var id: Swift.String?
     public var output: Swift.String?
     public var createdBy: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(callID: Swift.String, status: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.ApplyPatch.Status, id: Swift.String? = nil, output: Swift.String? = nil, createdBy: Swift.String? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput.ApplyPatch {
   public enum Status : Swift.String, Swift.CaseIterable, Swift.Sendable, Swift.Codable {
     case completed
     case failed
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Output.ToolOutput.ApplyPatch.Status]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.Responses.Output.ToolOutput.ApplyPatch.Status] {
@@ -3661,9 +3510,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput {
     public var id: Swift.String?
     public var acknowledgedSafetyChecks: [SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Computer.SafetyCheck]?
     public var status: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Computer.Status?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(callID: Swift.String, output: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Computer.Screenshot, id: Swift.String? = nil, acknowledgedSafetyChecks: [SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Computer.SafetyCheck]? = nil, status: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Computer.Status? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Computer {
@@ -3673,9 +3520,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Computer {
     public var type: Swift.String {
       get
     }
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(fileID: Swift.String? = nil, imageURL: Swift.String? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Computer.Screenshot : Swift.Encodable {
@@ -3701,9 +3546,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput {
     public var callID: Swift.String
     public var output: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Custom.OutputContent
     public var id: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(callID: Swift.String, output: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Custom.OutputContent, id: Swift.String? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Custom {
@@ -3725,9 +3568,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput {
     public var output: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Function.OutputContent
     public var id: Swift.String?
     public var status: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Function.Status?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(callID: Swift.String, output: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Function.OutputContent, id: Swift.String? = nil, status: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Function.Status? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Function {
@@ -3747,9 +3588,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput {
     public var id: Swift.String
     public var output: Swift.String
     public var status: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.LocalShell.Status?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(id: Swift.String, output: Swift.String, status: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.LocalShell.Status? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput.LocalShell {
@@ -3783,9 +3622,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput {
     public var id: Swift.String?
     public var maxOutputLength: Swift.Int?
     public var status: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Shell.Status?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(callID: Swift.String, output: [SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Shell.OutputChunk], id: Swift.String? = nil, maxOutputLength: Swift.Int? = nil, status: SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Shell.Status? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Shell {
@@ -3824,9 +3661,7 @@ extension SetappAI.SetappAIAPI.Responses.Output.ToolOutput {
     case inProgress
     case completed
     case incomplete
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Status]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.Responses.Output.ToolOutput.Status] {
@@ -3942,11 +3777,9 @@ extension SetappAI.SetappAIAPI.Responses.Response : Swift.Decodable {
   public init(from decoder: any Swift.Decoder) throws
 }
 extension SetappAI.SetappAIAPI.Responses.Response {
-  #if compiler(>=5.3) && $NonescapableTypes
   public var outputText: Swift.String? {
     get
   }
-  #endif
 }
 extension SetappAI.SetappAIAPI.Responses {
   public struct DeletedResponse : Swift.Sendable, Swift.Decodable {
@@ -4156,10 +3989,10 @@ public protocol SetappAIResponsesAPIProtocol : Swift.Sendable {
   #endif
 }
 extension SetappAI.SetappAIResponsesAPIProtocol {
-  #if compiler(>=5.3) && $NonescapableTypes && $AsyncExecutionBehaviorAttributes
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
   nonisolated(nonsending) public func createStream(model: SetappAI.SetappAIAPI.Model, input: [SetappAI.SetappAIAPI.Responses.Input], instructions: Swift.String? = .none, contextManagement: SetappAI.SetappAIAPI.Responses.ContextManagement? = nil, reasoning: SetappAI.SetappAIAPI.Responses.Reasoning? = .none, previousResponseID: Swift.String? = .none, text: SetappAI.SetappAIAPI.Responses.Text? = .none, include: [SetappAI.SetappAIAPI.Responses.Include]? = .none, tools: [SetappAI.SetappAIAPI.Responses.Tool]? = nil, toolChoice: SetappAI.SetappAIAPI.Responses.ToolChoice? = nil, maxToolCalls: Swift.Int? = .none, parallelToolCalls: Swift.Bool? = .none, serviceTier: SetappAI.SetappAIAPI.Responses.ServiceTier? = nil, store: Swift.Bool? = .none, truncation: SetappAI.SetappAIAPI.Responses.Truncation? = .none, metadata: [Swift.String : Swift.String]? = .none, maxOutputTokens: Swift.Int? = .none, temperature: Swift.Double? = .none, topP: Swift.Double? = .none, topLogprobs: Swift.Int? = .none, streamOptions: SetappAI.SetappAIAPI.Responses.StreamOptions? = .none) async throws -> SetappAI.CancellableAsyncStream<SetappAI.SetappAIAPI.StreamingEvent>
   #endif
-  #if compiler(>=5.3) && $NonescapableTypes && $AsyncExecutionBehaviorAttributes
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
   nonisolated(nonsending) public func createStream(model: SetappAI.SetappAIAPI.Model, input: [any SetappAI.ModelInputProtocol], instructions: Swift.String? = .none, contextManagement: SetappAI.SetappAIAPI.Responses.ContextManagement? = nil, reasoning: SetappAI.SetappAIAPI.Responses.Reasoning? = .none, previousResponseID: Swift.String? = .none, text: SetappAI.SetappAIAPI.Responses.Text? = .none, include: [SetappAI.SetappAIAPI.Responses.Include]? = .none, tools: [any SetappAI.SetappAIResponsesToolProtocol]? = nil, toolChoice: SetappAI.SetappAIAPI.Responses.ToolChoice? = nil, maxToolCalls: Swift.Int? = .none, parallelToolCalls: Swift.Bool? = .none, serviceTier: SetappAI.SetappAIAPI.Responses.ServiceTier? = nil, store: Swift.Bool? = .none, truncation: SetappAI.SetappAIAPI.Responses.Truncation? = .none, metadata: [Swift.String : Swift.String]? = .none, maxOutputTokens: Swift.Int? = .none, temperature: Swift.Double? = .none, topP: Swift.Double? = .none, topLogprobs: Swift.Int? = .none, streamOptions: SetappAI.SetappAIAPI.Responses.StreamOptions? = .none) async throws -> SetappAI.CancellableAsyncStream<SetappAI.SetappAIAPI.StreamingEvent>
   #endif
 }
@@ -4213,9 +4046,7 @@ extension SetappAI.SetappAIAPI.Responses.InputItems {
     public var after: Swift.String?
     public var include: [SetappAI.SetappAIAPI.Responses.Include]?
     public var limit: Swift.Int?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(after: Swift.String? = nil, include: [SetappAI.SetappAIAPI.Responses.Include]? = nil, limit: Swift.Int? = nil)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.List where Element == SetappAI.SetappAIAPI.Responses.Input {
@@ -4236,9 +4067,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent.Response.OutputText {
     public var delta: Swift.String
     public var sequenceNumber: Swift.Int?
     public var logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities]?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(itemID: Swift.String, outputIndex: Swift.Int?, contentIndex: Swift.Int?, delta: Swift.String, sequenceNumber: Swift.Int?, logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities]?)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.StreamingEvent.Response.OutputText.Delta {
@@ -4260,9 +4089,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent.Response.OutputText {
     public var text: Swift.String
     public var sequenceNumber: Swift.Int?
     public var logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities]?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(itemID: Swift.String, outputIndex: Swift.Int?, contentIndex: Swift.Int?, text: Swift.String, sequenceNumber: Swift.Int?, logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities]?)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.StreamingEvent.Response.OutputText.Done {
@@ -4286,9 +4113,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent.Response.OutputText {
   public enum OutputTextType : Swift.String, Swift.Decodable, Swift.CaseIterable, Swift.Sendable, Swift.Hashable, Swift.Equatable {
     case delta
     case done
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.StreamingEvent.Response.OutputText.OutputTextType]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.StreamingEvent.Response.OutputText.OutputTextType] {
@@ -4307,9 +4132,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle.Event {
     case failed
     case incomplete
     case queued
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias AllCases = [SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle.Event.EventType]
     public typealias RawValue = Swift.String
     nonisolated public static var allCases: [SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle.Event.EventType] {
@@ -4327,9 +4150,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle {
     public var response: SetappAI.SetappAIAPI.Responses.Response
     public var sequenceNumber: Swift.Int?
     public var type: SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle.Event.EventType
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(response: SetappAI.SetappAIAPI.Responses.Response, sequenceNumber: Swift.Int?, type: SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle.Event.EventType)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle.Event : Swift.Decodable {
@@ -4354,9 +4175,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent.Response {
     public var message: Swift.String?
     public var param: Swift.String?
     public var sequenceNumber: Swift.Int?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(code: Swift.String?, message: Swift.String?, param: Swift.String?, sequenceNumber: Swift.Int?)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.StreamingEvent.Response.Error {
@@ -4370,11 +4189,9 @@ extension SetappAI.SetappAIAPI.StreamingEvent.Response.Error : Swift.Decodable {
 extension SetappAI.SetappAIAPI.StreamingEvent.Response.Error : Swift.Error {
 }
 extension SetappAI.SetappAIAPI.StreamingEvent.Response.Error : Foundation.LocalizedError {
-  #if compiler(>=5.3) && $NonescapableTypes
   public var errorDescription: Swift.String? {
     get
   }
-  #endif
 }
 extension SetappAI.SetappAIAPI.StreamingEvent.Response.Error : Foundation.CustomNSError {
   public static var errorDomain: Swift.String {
@@ -4393,9 +4210,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent.Response {
     case responseLifecycle(SetappAI.SetappAIAPI.StreamingEvent.Response.ResponseLifecycle.Event.EventType)
     case outputText(SetappAI.SetappAIAPI.StreamingEvent.Response.OutputText.OutputTextType)
     case error
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: SetappAI.SetappAIAPI.StreamingEvent.Response.EventType.RawValue)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.StreamingEvent.Response.EventType {
@@ -4447,9 +4262,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.Container {
     public var fileIDs: [Swift.String]?
     public var memoryLimit: SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.MemoryLimit?
     public var networkPolicy: SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.NetworkPolicy?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(fileIDs: [Swift.String]? = .none, memoryLimit: SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.MemoryLimit? = .none, networkPolicy: SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.NetworkPolicy? = .none)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.Container : Swift.Encodable {
@@ -4494,9 +4307,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.NetworkPolicy {
   public struct Allowlist : Swift.Sendable, Swift.Encodable, Swift.Decodable {
     public var allowedDomains: [Swift.String]
     public var domainSecrets: [SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.NetworkPolicy.Allowlist.DomainSecret]?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(allowedDomains: [Swift.String], domainSecrets: [SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.NetworkPolicy.Allowlist.DomainSecret]? = .none)
-    #endif
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
@@ -4569,9 +4380,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool.FileSearch.Filter.Comparison {
     case lessThanOrEqual
     case `in`
     case notIn
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -4591,9 +4400,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool.FileSearch.Filter.Compound {
   public enum Operator : Swift.String, Swift.Sendable, Swift.Encodable, Swift.Decodable {
     case and
     case or
-    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
-    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -4650,9 +4457,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool.FileSearch {
     public var ranker: SetappAI.SetappAIAPI.Responses.Tool.FileSearch.RankingOptions.Ranker?
     public var scoreThreshold: Swift.Double?
     public var hybridSearch: SetappAI.SetappAIAPI.Responses.Tool.FileSearch.RankingOptions.HybridSearch?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(ranker: SetappAI.SetappAIAPI.Responses.Tool.FileSearch.RankingOptions.Ranker? = .none, scoreThreshold: Swift.Double? = .none, hybridSearch: SetappAI.SetappAIAPI.Responses.Tool.FileSearch.RankingOptions.HybridSearch? = .none)
-    #endif
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
@@ -4679,9 +4484,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool.FileSearch.RankingOptions {
   public struct HybridSearch : Swift.Sendable, Swift.Encodable, Swift.Decodable {
     public var embeddingWeight: Swift.Double?
     public var textWeight: Swift.Double?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(embeddingWeight: Swift.Double? = .none, textWeight: Swift.Double? = .none)
-    #endif
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
@@ -4758,9 +4561,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.Containe
   public struct Reference : Swift.Sendable {
     public var skillID: Swift.String
     public var version: Swift.String?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(skillID: Swift.String, version: Swift.String? = .none)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerAuto.Skill.Reference : Swift.Encodable {
@@ -4811,9 +4612,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment {
     public var memoryLimit: SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.MemoryLimit?
     public var networkPolicy: SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.NetworkPolicy?
     public var skills: [SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerAuto.Skill]?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(fileIDs: [Swift.String]? = .none, memoryLimit: SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.MemoryLimit? = .none, networkPolicy: SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.NetworkPolicy? = .none, skills: [SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerAuto.Skill]? = .none)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.ContainerAuto : Swift.Encodable {
@@ -4857,9 +4656,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.Local {
 extension SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment {
   public struct Local : Swift.Sendable {
     public var skills: [SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.Local.Skill]?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(skills: [SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.Local.Skill]? = .none)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment.Local : Swift.Encodable {
@@ -5029,9 +4826,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool.MCP.RequireApproval {
   public struct Filters : Swift.Sendable, Swift.Encodable, Swift.Decodable {
     public var always: SetappAI.SetappAIAPI.Responses.Tool.MCP.ToolFilter?
     public var never: SetappAI.SetappAIAPI.Responses.Tool.MCP.ToolFilter?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(always: SetappAI.SetappAIAPI.Responses.Tool.MCP.ToolFilter? = .none, never: SetappAI.SetappAIAPI.Responses.Tool.MCP.ToolFilter? = .none)
-    #endif
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
@@ -5046,9 +4841,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool.MCP {
   public struct ToolFilter : Swift.Sendable, Swift.Encodable, Swift.Decodable {
     public var readOnly: Swift.Bool?
     public var toolNames: [Swift.String]?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(readOnly: Swift.Bool? = .none, toolNames: [Swift.String]? = .none)
-    #endif
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
@@ -5077,9 +4870,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool {
 extension SetappAI.SetappAIAPI.Responses.Tool {
   public struct CodeInterpreter : Swift.Sendable {
     public var container: SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.Container?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(container: SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter.Container? = .none)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.CodeInterpreter : SetappAI.SetappAIResponsesToolProtocol {
@@ -5139,9 +4930,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool {
     public var filters: SetappAI.SetappAIAPI.Responses.Tool.FileSearch.Filter?
     public var rankingOptions: SetappAI.SetappAIAPI.Responses.Tool.FileSearch.RankingOptions?
     public var maxNumResults: Swift.Int?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(vectorStoreIDs: [Swift.String], filters: SetappAI.SetappAIAPI.Responses.Tool.FileSearch.Filter? = .none, rankingOptions: SetappAI.SetappAIAPI.Responses.Tool.FileSearch.RankingOptions? = .none, maxNumResults: Swift.Int? = .none)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.FileSearch : SetappAI.SetappAIResponsesToolProtocol {
@@ -5177,9 +4966,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool.Function : Swift.Decodable {
 extension SetappAI.SetappAIAPI.Responses.Tool {
   public struct FunctionShell : Swift.Sendable {
     public var environment: SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(environment: SetappAI.SetappAIAPI.Responses.Tool.FunctionShell.Environment? = .none)
-    #endif
   }
   public typealias FunctionShellTool = SetappAI.SetappAIAPI.Responses.Tool.FunctionShell
 }
@@ -5207,9 +4994,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool {
     public var model: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Model?
     public var inputFidelity: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputFidelity?
     public var inputImageMask: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputImageMask?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(size: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Size? = .none, quality: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Quality? = .none, outputFormat: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.OutputFormat? = .none, background: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Background? = .none, action: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Action? = .none, moderation: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Moderation? = .none, outputCompression: Swift.Int? = .none, partialImages: Swift.Int? = .none, model: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.Model? = .none, inputFidelity: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputFidelity? = .none, inputImageMask: SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration.InputImageMask? = .none)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.ImageGeneration : SetappAI.SetappAIResponsesToolProtocol {
@@ -5257,12 +5042,8 @@ extension SetappAI.SetappAIAPI.Responses.Tool {
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.MCP {
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(connectorID: SetappAI.SetappAIAPI.Responses.Tool.MCP.ConnectorID, serverLabel: Swift.String, serverDescription: Swift.String? = .none, authorization: Swift.String? = .none, headers: [Swift.String : Swift.String]? = .none, allowedTools: SetappAI.SetappAIAPI.Responses.Tool.MCP.AllowedTools? = .none, requireApproval: SetappAI.SetappAIAPI.Responses.Tool.MCP.RequireApproval? = .none)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(serverURL: Foundation.URL, serverLabel: Swift.String, serverDescription: Swift.String? = .none, authorization: Swift.String? = .none, headers: [Swift.String : Swift.String]? = .none, allowedTools: SetappAI.SetappAIAPI.Responses.Tool.MCP.AllowedTools? = .none, requireApproval: SetappAI.SetappAIAPI.Responses.Tool.MCP.RequireApproval? = .none)
-  #endif
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.MCP : SetappAI.SetappAIResponsesToolProtocol {
   public var type: SetappAI.SetappAIAPI.Responses.Tool.ToolType {
@@ -5282,9 +5063,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool {
     public var searchContextSize: SetappAI.SetappAIAPI.Responses.Tool.WebSearch.SearchContextSize?
     public var userLocation: SetappAI.SetappAIAPI.Responses.Tool.WebSearch.ApproximateUserLocation?
     public var externalWebAccess: Swift.Bool?
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(type: SetappAI.SetappAIAPI.Responses.Tool.WebSearch.WebSearchType = .webSearch, filters: SetappAI.SetappAIAPI.Responses.Tool.WebSearch.Filters? = .none, searchContextSize: SetappAI.SetappAIAPI.Responses.Tool.WebSearch.SearchContextSize? = .none, userLocation: SetappAI.SetappAIAPI.Responses.Tool.WebSearch.ApproximateUserLocation? = .none, externalWebAccess: Swift.Bool? = .none)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.WebSearch : SetappAI.SetappAIResponsesToolProtocol {
@@ -5346,9 +5125,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool.WebSearch {
     public var type: Swift.String {
       get
     }
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(country: Swift.String? = .none, region: Swift.String? = .none, city: Swift.String? = .none, timezone: Swift.String? = .none)
-    #endif
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
@@ -5368,9 +5145,7 @@ extension SetappAI.SetappAIAPI {
     public var firstID: Swift.String?
     public var lastID: Swift.String?
     public var hasMore: Swift.Bool
-    #if compiler(>=5.3) && $NonescapableTypes
     public init(data: [Element]? = nil, firstID: Swift.String? = nil, lastID: Swift.String? = nil, hasMore: Swift.Bool)
-    #endif
   }
 }
 extension SetappAI.SetappAIAPI.List : Swift.Decodable where Element : Swift.Decodable {
@@ -5382,6 +5157,174 @@ extension SetappAI.SetappAIAPI.List : Swift.Encodable where Element : Swift.Enco
 extension SetappAI.SetappAIAPI.List : Swift.Equatable where Element : Swift.Equatable {
   public static func == (a: SetappAI.SetappAIAPI.List<Element>, b: SetappAI.SetappAIAPI.List<Element>) -> Swift.Bool
 }
+extension SetappAI.SetappAIAPI.Videos.Content {
+  public enum Variant : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case video
+    case thumbnail
+    case spritesheet
+    case unsupported(SetappAI.SetappAIAPI.Videos.Content.Variant.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.Content.Variant : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Videos.Content.Variant]
+  public var rawValue: SetappAI.SetappAIAPI.Videos.Content.Variant.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Videos.Content.Variant]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Videos.Content.Variant.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Videos.Content.Variant.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Videos.Content.Variant.RawValue
+}
+extension SetappAI.SetappAIAPI.Videos {
+  public enum Content {
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.Generation {
+  public struct InputReference : Swift.Sendable {
+    public var fileID: Swift.String?
+    public var imageURL: Swift.String?
+    public init(fileID: Swift.String? = .none, imageURL: Swift.String? = .none)
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.Generation.InputReference {
+  public init(fileID: Swift.String)
+  public init(imageURL: Foundation.URL)
+  public init(image: Foundation.Data, imageType: SetappAI.SetappAIAPI.Images.Edit.InputImage.ImageType)
+}
+extension SetappAI.SetappAIAPI.Videos.Generation.InputReference : Swift.Encodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension SetappAI.SetappAIAPI.Videos.Generation {
+  public struct Seconds : SetappAI.SetappAIRawStringRepresentable {
+    public typealias RawValue = Swift.String
+    public let rawValue: SetappAI.SetappAIAPI.Videos.Generation.Seconds.RawValue
+    public init(rawValue: SetappAI.SetappAIAPI.Videos.Generation.Seconds.RawValue)
+    public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Videos.Generation.Seconds.RawValue
+    public typealias StringLiteralType = SetappAI.SetappAIAPI.Videos.Generation.Seconds.RawValue
+    public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Videos.Generation.Seconds.RawValue
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.Generation.Seconds {
+  public static let four: SetappAI.SetappAIAPI.Videos.Generation.Seconds
+  public static let eight: SetappAI.SetappAIAPI.Videos.Generation.Seconds
+  public static let twelve: SetappAI.SetappAIAPI.Videos.Generation.Seconds
+}
+extension SetappAI.SetappAIAPI.Videos.Generation {
+  public struct Size : SetappAI.SetappAIRawStringRepresentable {
+    public typealias RawValue = Swift.String
+    public let rawValue: SetappAI.SetappAIAPI.Videos.Generation.Size.RawValue
+    public init(rawValue: SetappAI.SetappAIAPI.Videos.Generation.Size.RawValue)
+    public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Videos.Generation.Size.RawValue
+    public typealias StringLiteralType = SetappAI.SetappAIAPI.Videos.Generation.Size.RawValue
+    public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Videos.Generation.Size.RawValue
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.Generation.Size {
+  public static let portrait720x1280: SetappAI.SetappAIAPI.Videos.Generation.Size
+  public static let landscape1280x720: SetappAI.SetappAIAPI.Videos.Generation.Size
+  public static let portrait1024x1792: SetappAI.SetappAIAPI.Videos.Generation.Size
+  public static let landscape1792x1024: SetappAI.SetappAIAPI.Videos.Generation.Size
+  public static let portrait1080x1920: SetappAI.SetappAIAPI.Videos.Generation.Size
+  public static let landscape1920x1080: SetappAI.SetappAIAPI.Videos.Generation.Size
+}
+extension SetappAI.SetappAIAPI.Videos.Generation {
+  public struct Parameters : Swift.Sendable {
+    public var model: SetappAI.SetappAIAPI.Model
+    public var prompt: Swift.String
+    public var inputReference: SetappAI.SetappAIAPI.Videos.Generation.InputReference?
+    public var seconds: SetappAI.SetappAIAPI.Videos.Generation.Seconds?
+    public var size: SetappAI.SetappAIAPI.Videos.Generation.Size?
+    public init(model: SetappAI.SetappAIAPI.Model, prompt: Swift.String, inputReference: SetappAI.SetappAIAPI.Videos.Generation.InputReference? = .none, seconds: SetappAI.SetappAIAPI.Videos.Generation.Seconds? = .none, size: SetappAI.SetappAIAPI.Videos.Generation.Size? = .none)
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.Generation.Parameters : Swift.Encodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension SetappAI.SetappAIAPI.Videos {
+  public enum Generation {
+  }
+}
+extension SetappAI.SetappAIAPI {
+  public struct Videos {
+  }
+}
+extension SetappAI.SetappAIAPI.Videos : SetappAI.SetappAIVideosAPIProtocol {
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func generate(parameters: SetappAI.SetappAIAPI.Videos.Generation.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Videos.VideoResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func retrieve(videoID: Swift.String, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Videos.VideoResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func content(videoID: Swift.String, variant: SetappAI.SetappAIAPI.Videos.Content.Variant?, timeoutInterval: Foundation.TimeInterval) async throws -> Foundation.Data
+  #endif
+}
+public protocol SetappAIVideosAPIProtocol : Swift.Sendable {
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func generate(parameters: SetappAI.SetappAIAPI.Videos.Generation.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Videos.VideoResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func retrieve(videoID: Swift.String, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Videos.VideoResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func content(videoID: Swift.String, variant: SetappAI.SetappAIAPI.Videos.Content.Variant?, timeoutInterval: Foundation.TimeInterval) async throws -> Foundation.Data
+  #endif
+}
+extension SetappAI.SetappAIAPI.Videos.VideoResponse {
+  public enum Status : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case queued
+    case processing
+    case inProgress
+    case completed
+    case failed
+    case unsupported(SetappAI.SetappAIAPI.Videos.VideoResponse.Status.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.VideoResponse.Status : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Videos.VideoResponse.Status]
+  public var rawValue: SetappAI.SetappAIAPI.Videos.VideoResponse.Status.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Videos.VideoResponse.Status]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Videos.VideoResponse.Status.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Videos.VideoResponse.Status.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Videos.VideoResponse.Status.RawValue
+}
+extension SetappAI.SetappAIAPI.Videos.VideoResponse {
+  public struct VideoError : Swift.Sendable, Swift.Equatable {
+    public var code: Swift.String?
+    public var message: Swift.String?
+    public init(code: Swift.String? = .none, message: Swift.String? = .none)
+    public static func == (a: SetappAI.SetappAIAPI.Videos.VideoResponse.VideoError, b: SetappAI.SetappAIAPI.Videos.VideoResponse.VideoError) -> Swift.Bool
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.VideoResponse.VideoError : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Videos {
+  public struct VideoResponse : Swift.Sendable {
+    public var id: Swift.String
+    public var object: Swift.String
+    public var status: SetappAI.SetappAIAPI.Videos.VideoResponse.Status
+    public var model: Swift.String?
+    public var progress: Swift.Int?
+    public var prompt: Swift.String?
+    public var seconds: SetappAI.SetappAIAPI.Videos.Generation.Seconds?
+    public var size: SetappAI.SetappAIAPI.Videos.Generation.Size?
+    public var remixedFromVideoID: Swift.String?
+    public var createdAt: Foundation.Date?
+    public var completedAt: Foundation.Date?
+    public var expiresAt: Foundation.Date?
+    public var error: SetappAI.SetappAIAPI.Videos.VideoResponse.VideoError?
+    public init(id: Swift.String, object: Swift.String, status: SetappAI.SetappAIAPI.Videos.VideoResponse.Status, model: Swift.String?, progress: Swift.Int?, prompt: Swift.String?, seconds: SetappAI.SetappAIAPI.Videos.Generation.Seconds?, size: SetappAI.SetappAIAPI.Videos.Generation.Size?, remixedFromVideoID: Swift.String?, createdAt: Foundation.Date?, completedAt: Foundation.Date?, expiresAt: Foundation.Date?, error: SetappAI.SetappAIAPI.Videos.VideoResponse.VideoError?)
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.VideoResponse : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
 public enum SetappAIAPI {
 }
 public protocol SetappAIProtocol : Swift.Sendable {
@@ -5390,6 +5333,7 @@ public protocol SetappAIProtocol : Swift.Sendable {
   var responses: any SetappAI.SetappAIResponsesAPIProtocol { get }
   var images: any SetappAI.SetappAIImagesAPIProtocol { get }
   var audio: any SetappAI.SetappAIAudioAPIProtocol { get }
+  var videos: any SetappAI.SetappAIVideosAPIProtocol { get }
 }
 final public class CancellableAsyncStream<Element> : _Concurrency.AsyncSequence, Swift.Sendable where Element : Swift.Sendable {
   public typealias AsyncIterator = SetappAI.CancellableAsyncStream<Element>.Iterator
@@ -5398,7 +5342,7 @@ final public class CancellableAsyncStream<Element> : _Concurrency.AsyncSequence,
   final public func cancel()
   final public func makeAsyncIterator() -> SetappAI.CancellableAsyncStream<Element>.Iterator
   public struct Iterator : _Concurrency.AsyncIteratorProtocol {
-    #if compiler(>=5.3) && $NonescapableTypes && $AsyncExecutionBehaviorAttributes
+    #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
     @concurrent public mutating func next() async throws -> Element?
     #endif
     @available(iOS 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, macOS 15.0, *)

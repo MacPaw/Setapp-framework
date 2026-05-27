@@ -18,9 +18,9 @@
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
     STPManager.logLevel = STPLogLevelVerbose;
-    
-    [STPManager.sharedInstance startWithConfiguration:[[STPConfiguration alloc] initWithPublicKeyBundle:NSBundle.mainBundle publicKeyFilename:@"setappPublicKey-iOS.pem"]];
-    
+
+    [STPManager.sharedInstance startWithConfiguration:[[STPConfiguration alloc] initWithPublicKeyBundle:NSBundle.mainBundle publicKeyFilename:@"setappPublicKey-iOS.pem" appGroupIdentifier:nil]];
+
     [self openURLContexts:connectionOptions.URLContexts];
 }
 

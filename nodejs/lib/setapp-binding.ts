@@ -9,8 +9,8 @@ type SetappManager = {
     showReleaseNotesWindowIfNeeded: () => void;
     showReleaseNotesWindow: () => void;
     requestAuthorizationCode: (
-      clientID: string, 
-      scope: string[], 
+      clientID: string,
+      scope: string[],
       callback: (authorizationCode?: string, error?: string) => void
     ) => void;
     reportUsageEvent: (event: SetappUsageEvent) => void;

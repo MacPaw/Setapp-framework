@@ -1,6 +1,7 @@
-## [Unreleased]
+## [5.3.0] - 2026-05-27
 
 ### New
+* [SetappAI] Apps can now generate video clips from text prompts.
 
 ## [5.2.1] - 2026-04-28
 

@@ -44,19 +44,21 @@ extension NSViewController {
                 .compactMap(VendorAuthorizationScope.init(rawValue:))
 
             SetappManager.shared.requestAuthorizationCode(clientID: clientID, scope: scope) { result in
-                let alert: NSAlert
+                DispatchQueue.main.async {
+                    let alert: NSAlert
 
-                switch result {
-                case let .success(code):
-                    alert = NSAlert()
-                    alert.alertStyle = .informational
-                    alert.messageText = "Received Code: \(code)"
-                case let .failure(error):
-                    alert = NSAlert(error: error)
-                    alert.alertStyle = .warning
+                    switch result {
+                    case let .success(code):
+                        alert = NSAlert()
+                        alert.alertStyle = .informational
+                        alert.messageText = "Received Code: \(code)"
+                    case let .failure(error):
+                        alert = NSAlert(error: error)
+                        alert.alertStyle = .warning
+                    }
+
+                    alert.beginSheetModal(for: window)
                 }
-
-                alert.beginSheetModal(for: window)
             }
         }
     }

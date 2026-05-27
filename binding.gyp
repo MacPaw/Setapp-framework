@@ -18,7 +18,7 @@
       ],
       "include_dirs": [
         "<!@(node -p \"require('node-addon-api').include\")",
-        "<(setapp_macos_library_path)/Headers/Setapp"
+        "<(setapp_macos_library_path)/Headers"
       ],
       "conditions": [
         [
@@ -68,7 +68,7 @@
             "<(PRODUCT_DIR)/<(module_name).node"
           ],
           "destination": "<(module_bindnings_path)"
-        }, 
+        },
         {
           "files": [
             "<(PRODUCT_DIR)/<(module_name).node"

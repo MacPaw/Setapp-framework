@@ -1,6 +1,5 @@
 import Combine
 import Setapp
-import SetappAI
 import SwiftUI
 
 // MARK: - Message Model
