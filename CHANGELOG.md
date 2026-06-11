@@ -1,3 +1,9 @@
+## [5.3.1] - 2026-06-10
+
+### Fixed
+* [SetappAI] Fixed an issue where the AI Image Edit API was inaccessible due to a missing public initializer in `SetappAIAPI.Images.Edit.Parameters`. You can now call it as expected.
+* Updated Setapp logo in the Setapp Framework pop-up alerts for iOS apps.
+
 ## [5.3.0] - 2026-05-27
 
 ### New

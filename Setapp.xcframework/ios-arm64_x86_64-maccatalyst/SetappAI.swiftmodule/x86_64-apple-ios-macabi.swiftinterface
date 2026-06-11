@@ -574,6 +574,7 @@ extension SetappAI.SetappAIAPI.Images.Edit {
     public var n: Swift.Int?
     public var partialImages: Swift.Int?
     public var stream: Swift.Bool?
+    public init(model: SetappAI.SetappAIAPI.Model, prompt: Swift.String, image: [SetappAI.SetappAIAPI.Images.Edit.InputImage], inputFidelity: SetappAI.SetappAIAPI.Images.Edit.InputFidelity? = nil, mask: SetappAI.SetappAIAPI.Images.Edit.InputImage? = nil, background: SetappAI.SetappAIAPI.Images.Background? = nil, size: SetappAI.SetappAIAPI.Images.Edit.Size? = nil, quality: SetappAI.SetappAIAPI.Images.Edit.Quality? = nil, outputFormat: SetappAI.SetappAIAPI.Images.OutputFormat? = nil, outputCompression: Swift.Int? = nil, moderation: SetappAI.SetappAIAPI.Images.Moderation? = nil, n: Swift.Int? = nil, partialImages: Swift.Int? = nil, stream: Swift.Bool? = nil)
   }
 }
 extension SetappAI.SetappAIAPI.Images.Edit.Parameters : Swift.Encodable {
@@ -1506,9 +1507,9 @@ extension SetappAI.SetappAIAPI.Responses {
 }
 extension SetappAI.SetappAIAPI.Responses {
   public struct Text : Swift.Sendable, Swift.Decodable, Swift.Encodable {
-    public let format: SetappAI.SetappAIAPI.Responses.Text.Format
+    public let format: SetappAI.SetappAIAPI.Responses.Text.Format?
     public let verbosity: SetappAI.SetappAIAPI.Responses.Text.Verbosity?
-    public init(format: SetappAI.SetappAIAPI.Responses.Text.Format, verbosity: SetappAI.SetappAIAPI.Responses.Text.Verbosity?)
+    public init(format: SetappAI.SetappAIAPI.Responses.Text.Format?, verbosity: SetappAI.SetappAIAPI.Responses.Text.Verbosity?)
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
@@ -2339,8 +2340,8 @@ extension SetappAI.SetappAIAPI.Responses.Output.Message.Content {
   public struct Text : Swift.Sendable, Swift.Encodable, Swift.Decodable {
     public var text: Swift.String
     public var annotations: [SetappAI.SetappAIAPI.Responses.Output.Message.Content.Text.Annotation]
-    public var logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities]
-    public init(text: Swift.String, annotations: [SetappAI.SetappAIAPI.Responses.Output.Message.Content.Text.Annotation], logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities])
+    public var logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities]?
+    public init(text: Swift.String, annotations: [SetappAI.SetappAIAPI.Responses.Output.Message.Content.Text.Annotation], logprobs: [SetappAI.SetappAIAPI.Responses.LogProbabilities]? = nil)
     public func encode(to encoder: any Swift.Encoder) throws
     public init(from decoder: any Swift.Decoder) throws
   }
@@ -4950,6 +4951,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool {
     public var parameters: [Swift.String : any Swift.Sendable]
     public var strict: Swift.Bool
     public var description: Swift.String?
+    public init(name: Swift.String, parameters: [Swift.String : any Swift.Sendable], strict: Swift.Bool, description: Swift.String? = nil)
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.Function : SetappAI.SetappAIResponsesToolProtocol {
@@ -5039,6 +5041,7 @@ extension SetappAI.SetappAIAPI.Responses.Tool {
     public var headers: [Swift.String : Swift.String]?
     public var allowedTools: SetappAI.SetappAIAPI.Responses.Tool.MCP.AllowedTools?
     public var requireApproval: SetappAI.SetappAIAPI.Responses.Tool.MCP.RequireApproval?
+    public init(serverLabel: Swift.String, serverDescription: Swift.String? = .none, serverURL: Foundation.URL? = .none, connectorID: SetappAI.SetappAIAPI.Responses.Tool.MCP.ConnectorID? = .none, authorization: Swift.String? = .none, headers: [Swift.String : Swift.String]? = .none, allowedTools: SetappAI.SetappAIAPI.Responses.Tool.MCP.AllowedTools? = .none, requireApproval: SetappAI.SetappAIAPI.Responses.Tool.MCP.RequireApproval? = .none)
   }
 }
 extension SetappAI.SetappAIAPI.Responses.Tool.MCP {
