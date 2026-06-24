@@ -685,6 +685,12 @@ SWIFT_PROTOCOL("_TtP6Setapp26XPCServerConnectionChecker_")
 - (void)checkConnectionWithCallback:(void (^ _Nonnull)(BOOL))callback;
 @end
 
+/// Protocol describing <em>remote</em> object capable of providing customer identity.
+SWIFT_PROTOCOL("_TtP6Setapp25XPCServerCustomerIdentity_")
+@protocol XPCServerCustomerIdentity <NSObject>
+- (void)fetchCustomerIdentityWithCallback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSError * _Nullable))callback;
+@end
+
 /// Protocol describing <em>remote</em> object capable of displaying email sharing request.
 SWIFT_PROTOCOL("_TtP6Setapp21XPCServerEmailSharing_")
 @protocol XPCServerEmailSharing <NSObject>
@@ -816,7 +822,7 @@ SWIFT_PROTOCOL("_TtP6Setapp21XPCServerProvisioning_")
 
 /// United protocol describing <em>remote</em> object representing Setapp XPC service (Setapp Agent).
 SWIFT_PROTOCOL("_TtP6Setapp17XPCServerProtocol_")
-@protocol XPCServerProtocol <XPCServerAPIVersioning, XPCServerAppPurchaseType, XPCServerConnectionChecker, XPCServerEmailSharing, XPCServerProvisioning, XPCServerRecoveryURLs, XPCServerReleaseNotes, XPCServerReporting, XPCServerVendorAuthentication>
+@protocol XPCServerProtocol <XPCServerAPIVersioning, XPCServerAppPurchaseType, XPCServerConnectionChecker, XPCServerCustomerIdentity, XPCServerEmailSharing, XPCServerProvisioning, XPCServerRecoveryURLs, XPCServerReleaseNotes, XPCServerReporting, XPCServerVendorAuthentication>
 @end
 
 #endif // defined(__OBJC__)
@@ -1514,6 +1520,12 @@ SWIFT_PROTOCOL("_TtP6Setapp26XPCServerConnectionChecker_")
 - (void)checkConnectionWithCallback:(void (^ _Nonnull)(BOOL))callback;
 @end
 
+/// Protocol describing <em>remote</em> object capable of providing customer identity.
+SWIFT_PROTOCOL("_TtP6Setapp25XPCServerCustomerIdentity_")
+@protocol XPCServerCustomerIdentity <NSObject>
+- (void)fetchCustomerIdentityWithCallback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSError * _Nullable))callback;
+@end
+
 /// Protocol describing <em>remote</em> object capable of displaying email sharing request.
 SWIFT_PROTOCOL("_TtP6Setapp21XPCServerEmailSharing_")
 @protocol XPCServerEmailSharing <NSObject>
@@ -1645,7 +1657,7 @@ SWIFT_PROTOCOL("_TtP6Setapp21XPCServerProvisioning_")
 
 /// United protocol describing <em>remote</em> object representing Setapp XPC service (Setapp Agent).
 SWIFT_PROTOCOL("_TtP6Setapp17XPCServerProtocol_")
-@protocol XPCServerProtocol <XPCServerAPIVersioning, XPCServerAppPurchaseType, XPCServerConnectionChecker, XPCServerEmailSharing, XPCServerProvisioning, XPCServerRecoveryURLs, XPCServerReleaseNotes, XPCServerReporting, XPCServerVendorAuthentication>
+@protocol XPCServerProtocol <XPCServerAPIVersioning, XPCServerAppPurchaseType, XPCServerConnectionChecker, XPCServerCustomerIdentity, XPCServerEmailSharing, XPCServerProvisioning, XPCServerRecoveryURLs, XPCServerReleaseNotes, XPCServerReporting, XPCServerVendorAuthentication>
 @end
 
 #endif // defined(__OBJC__)

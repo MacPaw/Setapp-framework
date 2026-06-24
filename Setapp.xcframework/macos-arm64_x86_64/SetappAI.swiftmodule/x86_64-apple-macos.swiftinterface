@@ -174,7 +174,9 @@ extension SetappAI.SetappAIAPI {
     public var id: Swift.String
     public var mode: SetappAI.SetappAIAPI.Model.Mode?
     public var capabilities: Swift.Set<SetappAI.SetappAIAPI.Model.Capability>
-    public init(id: Swift.String, mode: SetappAI.SetappAIAPI.Model.Mode?, capabilities: Swift.Set<SetappAI.SetappAIAPI.Model.Capability>)
+    public var maxInputTokens: Swift.Int?
+    public var maxOutputTokens: Swift.Int?
+    public init(id: Swift.String, mode: SetappAI.SetappAIAPI.Model.Mode?, capabilities: Swift.Set<SetappAI.SetappAIAPI.Model.Capability>, maxInputTokens: Swift.Int? = nil, maxOutputTokens: Swift.Int? = nil)
     public static func == (a: SetappAI.SetappAIAPI.Model, b: SetappAI.SetappAIAPI.Model) -> Swift.Bool
     public typealias ID = Swift.String
   }
@@ -1706,10 +1708,10 @@ extension SetappAI.SetappAIAPI.Responses {
   public struct Usage : Swift.Sendable, Swift.Equatable, Swift.Decodable {
     public var totalTokens: Swift.Int
     public var inputTokens: Swift.Int
-    public var inputTokensDetails: SetappAI.SetappAIAPI.Responses.Usage.InputTokensDetails
+    public var inputTokensDetails: SetappAI.SetappAIAPI.Responses.Usage.InputTokensDetails?
     public var outputTokens: Swift.Int
-    public var outputTokensDetails: SetappAI.SetappAIAPI.Responses.Usage.OutputTokensDetails
-    public init(totalTokens: Swift.Int, inputTokens: Swift.Int, inputTokensDetails: SetappAI.SetappAIAPI.Responses.Usage.InputTokensDetails, outputTokens: Swift.Int, outputTokensDetails: SetappAI.SetappAIAPI.Responses.Usage.OutputTokensDetails)
+    public var outputTokensDetails: SetappAI.SetappAIAPI.Responses.Usage.OutputTokensDetails?
+    public init(totalTokens: Swift.Int, inputTokens: Swift.Int, inputTokensDetails: SetappAI.SetappAIAPI.Responses.Usage.InputTokensDetails? = nil, outputTokens: Swift.Int, outputTokensDetails: SetappAI.SetappAIAPI.Responses.Usage.OutputTokensDetails? = nil)
     public static func == (a: SetappAI.SetappAIAPI.Responses.Usage, b: SetappAI.SetappAIAPI.Responses.Usage) -> Swift.Bool
     public init(from decoder: any Swift.Decoder) throws
   }

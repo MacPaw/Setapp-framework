@@ -1,3 +1,12 @@
+## [5.3.2] - 2026-06-24
+
+### Updated
+* [SetappAI] The model/info endpoint now returns context window information for each available model.
+
+### Fixed
+* Some apps using the Setapp AI Swift SDK could trigger a macOS keychain password prompt — an "[App] wants to use your confidential information stored in setapp-auth" dialog. This prompt is no longer shown.
+* Fixed streaming failures that could occur with Gemini and Anthropic responses when certain optional fields were missing from the response.
+
 ## [5.3.1] - 2026-06-10
 
 ### Fixed
