@@ -462,6 +462,83 @@ extension SetappAI.SetappAIAPI.Audio.AudioFileType : SetappAI.SetappAIRawStringR
   public typealias StringLiteralType = SetappAI.SetappAIAPI.Audio.AudioFileType.RawValue
   public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Audio.AudioFileType.RawValue
 }
+extension SetappAI.SetappAIAPI.Credits {
+  public struct Balances : Swift.Sendable, Swift.Equatable {
+    public var balances: [SetappAI.SetappAIAPI.Credits.Balance]
+    public var totalAvailable: SetappAI.SetappAIAPI.Credits.Amount
+    public var totalInitialAmount: SetappAI.SetappAIAPI.Credits.Amount
+    public init(balances: [SetappAI.SetappAIAPI.Credits.Balance], totalAvailable: SetappAI.SetappAIAPI.Credits.Amount, totalInitialAmount: SetappAI.SetappAIAPI.Credits.Amount)
+    public static func == (a: SetappAI.SetappAIAPI.Credits.Balances, b: SetappAI.SetappAIAPI.Credits.Balances) -> Swift.Bool
+  }
+}
+extension SetappAI.SetappAIAPI.Credits {
+  public struct Balance : Swift.Sendable, Swift.Equatable, Swift.Identifiable {
+    public var id: Swift.String
+    public var type: SetappAI.SetappAIAPI.Credits.Balance.BalanceType
+    public var initialValue: SetappAI.SetappAIAPI.Credits.Amount
+    public var currentValue: SetappAI.SetappAIAPI.Credits.Amount
+    public var expiresAt: Foundation.Date?
+    public init(id: Swift.String, type: SetappAI.SetappAIAPI.Credits.Balance.BalanceType, initialValue: SetappAI.SetappAIAPI.Credits.Amount, currentValue: SetappAI.SetappAIAPI.Credits.Amount, expiresAt: Foundation.Date?)
+    public static func == (a: SetappAI.SetappAIAPI.Credits.Balance, b: SetappAI.SetappAIAPI.Credits.Balance) -> Swift.Bool
+    public typealias ID = Swift.String
+  }
+}
+extension SetappAI.SetappAIAPI.Credits.Balance {
+  public enum BalanceType : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case subscription
+    case unsupported(SetappAI.SetappAIAPI.Credits.Balance.BalanceType.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Credits.Balance.BalanceType : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Credits.Balance.BalanceType]
+  public var rawValue: SetappAI.SetappAIAPI.Credits.Balance.BalanceType.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Credits.Balance.BalanceType]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Credits.Balance.BalanceType.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Credits.Balance.BalanceType.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Credits.Balance.BalanceType.RawValue
+}
+extension SetappAI.SetappAIAPI.Credits {
+  public struct Amount : Swift.Sendable, Swift.Equatable {
+    public var amount: Foundation.Decimal
+    public var currency: SetappAI.SetappAIAPI.Credits.Amount.Currency
+    public init(amount: Foundation.Decimal, currency: SetappAI.SetappAIAPI.Credits.Amount.Currency)
+    public static func == (a: SetappAI.SetappAIAPI.Credits.Amount, b: SetappAI.SetappAIAPI.Credits.Amount) -> Swift.Bool
+  }
+}
+extension SetappAI.SetappAIAPI.Credits.Amount {
+  public enum Currency : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case macpawCredits
+    case unsupported(SetappAI.SetappAIAPI.Credits.Amount.Currency.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Credits.Amount.Currency : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Credits.Amount.Currency]
+  public var rawValue: SetappAI.SetappAIAPI.Credits.Amount.Currency.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Credits.Amount.Currency]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Credits.Amount.Currency.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Credits.Amount.Currency.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Credits.Amount.Currency.RawValue
+}
+public protocol SetappAICreditsAPIProtocol : Swift.Sendable {
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func balances() async throws -> SetappAI.SetappAIAPI.Credits.Balances
+  #endif
+}
+extension SetappAI.SetappAIAPI {
+  public struct Credits : Swift.Sendable {
+  }
+}
+extension SetappAI.SetappAIAPI.Credits : SetappAI.SetappAICreditsAPIProtocol {
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func balances() async throws -> SetappAI.SetappAIAPI.Credits.Balances
+  #endif
+}
 extension SetappAI.SetappAIAPI.Images {
   public enum Edit {
   }
@@ -5339,6 +5416,7 @@ public protocol SetappAIProtocol : Swift.Sendable {
   var images: any SetappAI.SetappAIImagesAPIProtocol { get }
   var audio: any SetappAI.SetappAIAudioAPIProtocol { get }
   var videos: any SetappAI.SetappAIVideosAPIProtocol { get }
+  var credits: any SetappAI.SetappAICreditsAPIProtocol { get }
 }
 final public class CancellableAsyncStream<Element> : _Concurrency.AsyncSequence, Swift.Sendable where Element : Swift.Sendable {
   public typealias AsyncIterator = SetappAI.CancellableAsyncStream<Element>.Iterator

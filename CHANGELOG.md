@@ -1,3 +1,11 @@
+## [5.3.3] - 2026-07-23
+
+### New
+* [SetappAI] Added a new credits API — `setappAI.credits.balances()`. It allows you to check a user’s remaining AI credit balance and display it in your app.
+
+### Fixed
+* [macCatalyst] Fixed a crash on launch that could affect Mac Catalyst apps running on macOS 15 and earlier.
+
 ## [5.3.2] - 2026-06-24
 
 ### Updated
