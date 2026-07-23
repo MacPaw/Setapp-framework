@@ -34,15 +34,15 @@
 		</data>
 		<key>ios-arm64/SetappAI.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		IHAZNxgMqpSPhgrgqh5K5Zay4oU=
+		eG2kxn4chd2d7EpLnsw6aQrfmsY=
 		</data>
 		<key>ios-arm64/SetappAI.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		4loPojEMXOc4I+XGgPojVzV0SMA=
+		WzmdjAKdmrTc06nEhWz8Fjz9+3E=
 		</data>
 		<key>ios-arm64/libSetapp.a</key>
 		<data>
-		8p6pTEkvEWtFiRaJFIpgb+Fy0Xk=
+		SPak793c3/X62oA/Ta8IVKPl63w=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/Headers/Setapp-Swift.h</key>
 		<data>
@@ -66,39 +66,39 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/Setapp.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<data>
-		75VCa+OwunVVMHtUiWS5McGskZI=
+		vCCwAt+LoL1+v9bpEXiqUvW0onM=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/Setapp.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<data>
-		aEiFWSc/V2NywR566xrRYqeOBYs=
+		sjLUHYQexBMjbzLEqgORAlEXe+w=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/Setapp.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
 		<data>
-		0Cs6klnM4OVwuGtMlR5hulzTFBs=
+		PpCQT6e5RlOzYB0SuXCM0JOvoMs=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/Setapp.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
 		<data>
-		LdCzR7I81gkNrZFn0VMUmVKBlGs=
+		tkmf99aLW8v4uxr4RnuBqox4r+M=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/SetappAI.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<data>
-		C4XTP7OcK2vHnIwS4gbXE99iDL0=
+		o5zPX5mowRe23SX32fRHd7x8t28=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/SetappAI.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<data>
-		g+NO5Zj5VIi+jgK74vkgQXTQ2jA=
+		tKnphzy+9fFgocwhJA6bmwu7Q14=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/SetappAI.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
 		<data>
-		u4zB1JCnfuaybFSpOy1Xhlv3mB8=
+		FNavxjqVzYs+YgJ2WDUuYkXXdjU=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/SetappAI.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
 		<data>
-		Gp+lb0s+TJEq5ZOdd6CAPjpBKY4=
+		/xPJGZJS3lhKFYewsFNAfaN7DUo=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/libSetapp.a</key>
 		<data>
-		7sabtoKn2IxiiLOO9Sk8sXxVdzc=
+		9KZopKjKoAv5XfHfvlkJM0BhVww=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Headers/Setapp-Swift.h</key>
 		<data>
@@ -138,23 +138,23 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/SetappAI.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		kl45KDIiL83PajlPgUVd6WKL99c=
+		lh4R+UlZDX0sbiY5ObqcQId4CCE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/SetappAI.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		oSYBfJkEIg9MGRGbfQzOdUEvmcw=
+		EtJscVGJRRXj1PyoLSf03uPJQxw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/SetappAI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		LQ1M8OODuAVPGWL/lFJupGZ54k8=
+		ipHXKj20Oaehs8sFIdA/WkmeGXo=
 		</data>
 		<key>ios-arm64_x86_64-simulator/SetappAI.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		JcIG4C/YGFfX6a1+p7S+/DmTlfQ=
+		eU6qU86klzvKi12CiqY4Lqj5474=
 		</data>
 		<key>ios-arm64_x86_64-simulator/libSetapp.a</key>
 		<data>
-		BDaUkeFMn5pPvpPRZKWrMT7BIgo=
+		9UlbBJYzGBRslQhREe8YI4tE2DI=
 		</data>
 		<key>macos-arm64_x86_64/Headers/Setapp-Swift.h</key>
 		<data>
@@ -194,23 +194,23 @@
 		</data>
 		<key>macos-arm64_x86_64/SetappAI.swiftmodule/arm64-apple-macos.swiftdoc</key>
 		<data>
-		zDVyAX4BvjVLJZ01QcGyG7CJ4J0=
+		Y77wajBRi7asAXPtHcFPkVAJNqw=
 		</data>
 		<key>macos-arm64_x86_64/SetappAI.swiftmodule/arm64-apple-macos.swiftinterface</key>
 		<data>
-		Eu6ubVVD55FGDDUi+vY8EzFUeqI=
+		Qi2Hvdl6aRX9eg5GPl5efflYRwM=
 		</data>
 		<key>macos-arm64_x86_64/SetappAI.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<data>
-		jHahPxraUWZI8ne1kVDbvAo5jyM=
+		K+1+UIxKA0njfept9cQFmwRc68I=
 		</data>
 		<key>macos-arm64_x86_64/SetappAI.swiftmodule/x86_64-apple-macos.swiftinterface</key>
 		<data>
-		DdKKoaM1ixSxYg2dwCg0hT5KPGw=
+		dyoTqoNtenF1/p56ISpPIkGfTxc=
 		</data>
 		<key>macos-arm64_x86_64/libSetapp.a</key>
 		<data>
-		lnRpLWaECFhmqOLZsQErTvbhxMs=
+		jIuoOxJ8L/QiK5XCaaKrf2WYYNk=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -268,21 +268,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CSs3bc5ibtGn+aHT/+pT8dBlBApEYxr0hjfuE02joO4=
+			jR60HThJKphW3bv6Vi4bwlhs1bc10FuncY+m3SCmy3s=
 			</data>
 		</dict>
 		<key>ios-arm64/SetappAI.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3QiAZgwAR1QwEKsmAv8zKY8XZ76emIOC+VniXBJ3+Gk=
+			uzwY6m3pDzwFpC9x1lhslF85IvYqUT2QbRxGCVryfZw=
 			</data>
 		</dict>
 		<key>ios-arm64/libSetapp.a</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bnZ5CmPOVNu+qpl5rMXgvpNFaesp7GXNyOSUDhdLhaM=
+			T6e7ZWXrOur0bFqQixu7kyptMXunNxkU3CIpjcWIEOQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/Headers/Setapp-Swift.h</key>
@@ -324,63 +324,63 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FsAgQD7UUzvU3VxnjstB6NPFq6vDWUKuOWtVUk0DY6k=
+			6u1duYh0CnuJMp3vRw2laae/w9eRkQgC+39pASenVDM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/Setapp.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Vqfgt8bBfWUOkZA8ddWQsmbpQcrLOys9kM0MfcOHM3M=
+			4JModhwlvIOs8O6F4T/xM+KEKkdhexaC/k4LnfyoQDI=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/Setapp.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DBIk+1TSTHEfN5ax9CW2N2NScsFXFq+IBJTlW8jibao=
+			N3CIcY3T5F3p9GpvUUh9eRORCDbioQI2uch6NUNSjz8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/Setapp.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			li3yEUk8Vi5GW67xrRwcUauDCfZpsxnLZUYnFZYHTmw=
+			nSQvaxLH+aKAGIfBOzAP7lcdlh2xH5k5aX0HpN1mGKY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/SetappAI.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0GUNr3LkLePJR4qsib2nrAKKgar0Pf2xV0uFFZdhVak=
+			cDPfYLHfuW07D7jxOQCWfLVdM00hIuxxHjR1n4nUy2A=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/SetappAI.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			q2uGVdwmhQMxBV5uDpjz97I3m3/wU8D+rhvyfRzx31Y=
+			mGmGovyTwZ4KioFUpT0hJ3WIBxEZ1dJuHZWXqd4hW/A=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/SetappAI.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lNbo0CwFSaGAuFBNZDEqXTWIkqnk8yJME5LkB82J/VM=
+			bqdSpRnLFJVj1aXry4+glmT04mvawuuVepcRA9G6myE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/SetappAI.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+wT76Ja3nB5awsYzdgWCTnrr3WQe+L+8HQ9m4FSEIlc=
+			mqskrIn+twLocDw0IxaLwvS4lMyjYu5b+SV5IJbZU4w=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/libSetapp.a</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PwYbavzafVnM+7aWLuYPSV8VmLzxmBQ4ls1pbyTaGTI=
+			CzdRyGery3GlCqOp5fgv2ZyVSYhEz1iWCzb66YzJg58=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Headers/Setapp-Swift.h</key>
@@ -450,35 +450,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QyjEGNRxytQ/SnAdcJGQo+ibgeQiUFNYCp2YVHJLUso=
+			0o+y9PH1sSFI4WCr8IwaiDksmnyuHHA9g3uQZeP82Hk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/SetappAI.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Qg7sumT1AUa0eyq9PPuNByp0Df7d5zcK+V2Iuo/L/9o=
+			wvitozVDAzbtnrJ7A0lKZUN8VXLskZ+vfSDeHt+FfNo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/SetappAI.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			d2gmS/F8Ov+U09vkJVaN27bnM31eAjnTvTWO2PAAMo0=
+			f38BAuR7hiqdXulg16x8jrLpT+jDAiEWKIlvT6ZlHEk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/SetappAI.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EVnzE2dcQL2iMHGNy6kpYxoaZpRD+/yqNyLOPWjWR0M=
+			0E6bCqbgaBCDwfggYEVijytH2Ts6+Wvl40xZPCGcyuU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/libSetapp.a</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			A+WIS/8tDMMJXMH40jrYDe7XBwGIJRjefTA0Mu3Dn7M=
+			sjPzfnHtxYERFbM07mtV5EmKeHIXh+94k3FM5TWu9xA=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/Headers/Setapp-Swift.h</key>
@@ -548,35 +548,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7mqgJIoMQ4qEWx6Iw/fAnya/U35Cv3K5uNnZrh+8qws=
+			KDHYpTXdrWi6eZfC2LeUWroh7whnuAAGpRvgFAXxuAY=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/SetappAI.swiftmodule/arm64-apple-macos.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tFYgewFgw7fAnzKg6Jkm68aDIKb67EMoHt2itzbhwWE=
+			jKhuFatG0wURZsNGpp0RE8fAxM4/vF2Dk8m/aUpImKg=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/SetappAI.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jJelrwfp4c7FoyyyCZf4m6VLvswsrYR8+GLf3MZPOk4=
+			bmW8R8Q7dtCJ/8cE4e/bitEoaLq8cEjfVF6ORpE4rcM=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/SetappAI.swiftmodule/x86_64-apple-macos.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9Mhyh0vGbwkOlWgIVDvmGThjNiZA0iFiE9pomlej/uM=
+			DONsMWM5XBs+5NS1wBSeoxnBXArx4HmqnEHxMwEtcmI=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/libSetapp.a</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tEhAJOAJ9vNEb6tYA8m5B9HJgft54832Sienp1gv9wE=
+			gVPHK86D4uPXhFgzL9E3qt4HbDQSbupv22iQzo7yY1c=
 			</data>
 		</dict>
 	</dict>
