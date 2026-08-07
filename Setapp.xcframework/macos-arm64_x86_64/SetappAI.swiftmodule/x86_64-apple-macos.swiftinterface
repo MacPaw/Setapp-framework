@@ -14,7 +14,7 @@ public struct AIConfiguration : Swift.Sendable {
 }
 public protocol AuthorizationCodeProviderProtocol : Swift.Sendable {
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
-  nonisolated(nonsending) func fetchAuthorizationCode(clientID: Swift.String, scope: [Swift.String]) async throws -> Swift.String
+  nonisolated(nonsending) func fetchAuthorizationCode(clientID: Swift.String) async throws -> Swift.String
   #endif
 }
 public struct AuthConfiguration : Swift.Sendable {

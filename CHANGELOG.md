@@ -1,3 +1,11 @@
+## [5.3.4] - 2026-08-07
+
+### Updated
+* [SetappAI] The Buy Credits prompt now can take users directly to the credits purchase page.
+
+### Fixed
+* [Electron] Fixed integrity checks that could fail in Electron apps if the Setapp Frameworks was statically linked into the `.node` addon.
+
 ## [5.3.3] - 2026-07-23
 
 ### New
