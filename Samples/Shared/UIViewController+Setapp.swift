@@ -37,21 +37,12 @@ extension UIViewController {
             clientIDTextField.tag = 0
         }
 
-        alert.addTextField { scopeTextField in
-            scopeTextField.placeholder = "Scope (Space Separated)"
-            scopeTextField.autocorrectionType = .no
-            scopeTextField.autocapitalizationType = .none
-            scopeTextField.tag = 1
-        }
-
         alert.addAction(.init(title: "Request", style: .default) { [weak self] _ in
             guard let self else { return }
 
             let clientID = alert.textFields?.first(where: { $0.tag == 0 })?.text ?? ""
-            let scope = alert.textFields?.first(where: { $0.tag == 1 })?.text?.components(separatedBy: " ")
-                .compactMap(VendorAuthorizationScope.init(rawValue:)) ?? []
 
-            SetappManager.shared.requestAuthorizationCode(clientID: clientID, scope: scope) { result in
+            SetappManager.shared.requestAuthorizationCode(clientID: clientID) { result in
                 let alert: UIAlertController
 
                 switch result {

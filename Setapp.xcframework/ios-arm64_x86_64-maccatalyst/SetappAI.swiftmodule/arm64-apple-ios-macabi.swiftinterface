@@ -529,6 +529,14 @@ public protocol SetappAICreditsAPIProtocol : Swift.Sendable {
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
   nonisolated(nonsending) func balances() async throws -> SetappAI.SetappAIAPI.Credits.Balances
   #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func balances(forceUpdate: Swift.Bool) async throws -> SetappAI.SetappAIAPI.Credits.Balances
+  #endif
+}
+extension SetappAI.SetappAICreditsAPIProtocol {
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func balances(forceUpdate _: Swift.Bool) async throws -> SetappAI.SetappAIAPI.Credits.Balances
+  #endif
 }
 extension SetappAI.SetappAIAPI {
   public struct Credits : Swift.Sendable {
@@ -537,6 +545,9 @@ extension SetappAI.SetappAIAPI {
 extension SetappAI.SetappAIAPI.Credits : SetappAI.SetappAICreditsAPIProtocol {
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
   nonisolated(nonsending) public func balances() async throws -> SetappAI.SetappAIAPI.Credits.Balances
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func balances(forceUpdate: Swift.Bool) async throws -> SetappAI.SetappAIAPI.Credits.Balances
   #endif
 }
 extension SetappAI.SetappAIAPI.Images {

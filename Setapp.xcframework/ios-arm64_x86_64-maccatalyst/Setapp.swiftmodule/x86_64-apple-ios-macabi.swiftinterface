@@ -13,7 +13,7 @@ public import _SwiftConcurrencyShims
   @objc dynamic final public var subscription: Setapp.SetappSubscription? {
     @objc get
   }
-  final public func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping @Sendable (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
+  final public func requestAuthorizationCode(clientID: Swift.String, completionHandler: @escaping @Sendable (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
   final public func requestPurchaseType(completionHandler: @escaping @Sendable (Swift.Result<Setapp.SetappAppPurchaseType, any Swift.Error>) -> Swift.Void)
   final public var ai: any SetappAI.SetappAIProtocol {
     get
@@ -79,14 +79,7 @@ public protocol MetadataProvider {
 }
 extension Setapp.SetappManager {
   @available(swift, obsoleted: 0.1)
-  @objc(requestAuthorizationCodeWithClientID:scope:completionHandler:) final public func requestAuthorizationCode(clientID: Swift.String, scope: [Swift.String], completionHandler: @escaping @Sendable (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
-}
-public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable, Swift.Sendable {
-  public init(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Setapp.VendorAuthorizationScope.RawValue
-  public static let applicationAccess: Setapp.VendorAuthorizationScope
-  public static let openAI: Setapp.VendorAuthorizationScope
+  @objc(requestAuthorizationCodeWithClientID:completionHandler:) final public func requestAuthorizationCode(clientID: Swift.String, completionHandler: @escaping @Sendable (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
 }
 extension Setapp.SetappManager {
   @available(swift, obsoleted: 0.1)

@@ -1,3 +1,11 @@
+## [5.3.6] - 2026-08-14
+
+### New
+* Credit balances are now cached — repeated calls to `setappAI.credits.balances()` no longer send a network request every time. Use `setappAI.credits.balances(forceUpdate: true)` when you need the latest balance from the server.
+
+### Updated
+* The `scope` argument has been removed from `requestAuthorizationCode` — the Setapp Framework now handles the `application.access` scope automatically. The `VendorAuthorizationScope` and `SCVendorAppScope` types are no longer public, so update your calls to `requestAuthorizationCode(clientID:completionHandler:)`.
+
 ## [5.3.4] - 2026-08-07
 
 ### Updated
