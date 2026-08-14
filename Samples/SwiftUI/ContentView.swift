@@ -18,7 +18,6 @@ struct ContentView: View {
     @State private var presentedAlert: Alert?
 
     @State private var clientID: String = ""
-    @State private var scopes: String = ""
 
     @State private var isSetappSubscirptionActive: Bool?
     @State private var purchaseType: String?
@@ -174,14 +173,8 @@ extension ContentView {
             switch presentedAlert {
             case .authCodeRequest:
                 TextField("Client ID", text: $clientID)
-                TextField("Scopes (Space Separated)", text: $scopes)
                 Button("Request") {
-                    SetappManager.shared.requestAuthorizationCode(
-                        clientID: clientID,
-                        scope: scopes
-                            .components(separatedBy: " ")
-                            .compactMap(VendorAuthorizationScope.init(rawValue:))
-                    ) { result in
+                    SetappManager.shared.requestAuthorizationCode(clientID: clientID) { result in
                         self.presentedAlert = .authCodeResult(result)
                     }
                 }

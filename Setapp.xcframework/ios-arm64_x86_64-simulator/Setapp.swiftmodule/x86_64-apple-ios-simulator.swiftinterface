@@ -118,13 +118,6 @@ extension Setapp.SetappError : Foundation.CustomNSError {
   }
   @objc deinit
 }
-public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable, Swift.Sendable {
-  public init(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Setapp.VendorAuthorizationScope.RawValue
-  public static let applicationAccess: Setapp.VendorAuthorizationScope
-  public static let openAI: Setapp.VendorAuthorizationScope
-}
 extension Setapp.SetappManager {
   @available(swift, obsoleted: 0.1)
   @available(iOS, introduced: 9.0, deprecated: 26.0, message: "Use UIScene lifecycle and equivalent properties on UISceneOpenURLOptions from a UIOpenURLContext in UIScene.ConnectionOptions.URLContexts instead.")
@@ -197,7 +190,7 @@ extension Setapp.SetappManager {
   @objc(startWithConfiguration:) final public func start(with configuration: Setapp.SetappConfiguration = .default)
   @available(*, unavailable, message: "`viewController(for result:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `SetappMessagesPresenterProtocol` and set it by `SetappManager.shared.setMessagesPresenter(_:)` call")
   final public func viewController(for _: Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> UIKit.UIViewController
-  final public func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping @Sendable (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
+  final public func requestAuthorizationCode(clientID: Swift.String, completionHandler: @escaping @Sendable (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
   @nonobjc @_Concurrency.MainActor final public func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: (@Sendable (Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void)? = nil) -> Swift.Bool
   @_Concurrency.MainActor final public func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: (@Sendable (Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void)? = nil)
   @objc(canOpenURL:) @_Concurrency.MainActor final public func canOpen(url: Foundation.URL) -> Swift.Bool
@@ -237,7 +230,7 @@ public protocol SetappMessagesPresenterProtocol : Swift.Sendable {
 }
 extension Setapp.SetappManager {
   @available(swift, obsoleted: 0.1)
-  @objc(requestAuthorizationCodeWithClientID:scope:completionHandler:) final public func requestAuthorizationCode(clientID: Swift.String, scope: [Swift.String], completionHandler: @escaping @Sendable (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
+  @objc(requestAuthorizationCodeWithClientID:completionHandler:) final public func requestAuthorizationCode(clientID: Swift.String, completionHandler: @escaping @Sendable (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
 }
 extension Setapp.SetappManager {
   @available(*, unavailable, message: "viewControllerForSetappSubscription:orError:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `STPMessagesPresenterProtocol` and set it by `[[STPManager sharedInstance] setMessagesPresenter:]` call")

@@ -12,7 +12,7 @@ public import _SwiftConcurrencyShims
   @objc dynamic final public var subscription: Setapp.SetappSubscription? {
     @objc get
   }
-  final public func requestAuthorizationCode(clientID: Swift.String, scope: [Setapp.VendorAuthorizationScope], completionHandler: @escaping @Sendable (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
+  final public func requestAuthorizationCode(clientID: Swift.String, completionHandler: @escaping @Sendable (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
   final public func requestPurchaseType(completionHandler: @escaping @Sendable (Swift.Result<Setapp.SetappAppPurchaseType, any Swift.Error>) -> Swift.Void)
   final public var ai: any SetappAI.SetappAIProtocol {
     get
@@ -59,13 +59,6 @@ public enum SetappAppPurchaseType : Swift.Int, Swift.Sendable {
     get
   }
 }
-public struct VendorAuthorizationScope : Swift.RawRepresentable, Swift.Equatable, Swift.Sendable {
-  public init(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Setapp.VendorAuthorizationScope.RawValue
-  public static let applicationAccess: Setapp.VendorAuthorizationScope
-  public static let openAI: Setapp.VendorAuthorizationScope
-}
 public protocol MetadataProvider {
   func provideMetadata() -> [Swift.String : Swift.String]
 }
@@ -75,18 +68,8 @@ public func SCReportUsageEvent(_ eventName: Swift.String, _: [Swift.AnyHashable 
 public func SCShowReleaseNotesWindowIfNeeded()
 @available(*, deprecated, renamed: "SetappManager.shared.showReleaseNotesWindow()")
 public func SCShowReleaseNotesWindow()
-@available(*, deprecated, renamed: "VendorAuthorizationScope")
-public enum SCVendorAppScope : Swift.String {
-  case applicationAccess
-  public init?(rawValue: Swift.String)
-  @available(*, deprecated, renamed: "VendorAuthorizationScope")
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-@available(*, deprecated, renamed: "SetappManager.shared.requestAuthorizationCode(clientID:scope:completionHandler:)")
-public func SCRequestAuthorizationCode(_ clientID: Swift.String, _ scope: [Setapp.SCVendorAppScope], _ completionHandler: @escaping @Sendable (Swift.String?, (any Swift.Error)?) -> Swift.Void)
+@available(*, deprecated, renamed: "SetappManager.shared.requestAuthorizationCode(clientID:completionHandler:)")
+public func SCRequestAuthorizationCode(_ clientID: Swift.String, _ completionHandler: @escaping @Sendable (Swift.String?, (any Swift.Error)?) -> Swift.Void)
 @available(*, deprecated, renamed: "SetappManager.logLevel")
 public func SCEnableDebugLogging(_: Swift.Bool)
 @available(*, unavailable, message: "From now on SetappManager.shared.askToShareEmail will handle cooldown process.")
@@ -123,7 +106,7 @@ extension Setapp.SetappLogLevel : Swift.CaseIterable {
 }
 extension Setapp.SetappManager {
   @available(swift, obsoleted: 0.1)
-  @objc(requestAuthorizationCodeWithClientID:scope:completionHandler:) final public func requestAuthorizationCode(clientID: Swift.String, scope: [Swift.String], completionHandler: @escaping @Sendable (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
+  @objc(requestAuthorizationCodeWithClientID:completionHandler:) final public func requestAuthorizationCode(clientID: Swift.String, completionHandler: @escaping @Sendable (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
 }
 @objc(STPUsageEvent) public enum SetappUsageEvent : Swift.Int {
   case signIn
@@ -154,12 +137,6 @@ extension Setapp.SetappManager {
 extension Setapp.SetappAppPurchaseType : Swift.Equatable {}
 extension Setapp.SetappAppPurchaseType : Swift.Hashable {}
 extension Setapp.SetappAppPurchaseType : Swift.RawRepresentable {}
-@available(*, deprecated, renamed: "VendorAuthorizationScope")
-extension Setapp.SCVendorAppScope : Swift.Equatable {}
-@available(*, deprecated, renamed: "VendorAuthorizationScope")
-extension Setapp.SCVendorAppScope : Swift.Hashable {}
-@available(*, deprecated, renamed: "VendorAuthorizationScope")
-extension Setapp.SCVendorAppScope : Swift.RawRepresentable {}
 extension Setapp.SetappLogLevel : Swift.Hashable {}
 extension Setapp.SetappLogLevel : Swift.RawRepresentable {}
 extension Setapp.SetappUsageEvent : Swift.Equatable {}

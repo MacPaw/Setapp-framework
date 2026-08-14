@@ -64,14 +64,10 @@ ipcMain.on('showRequestAuthCodeForm', ()  => {
     formWindow.loadFile(path.join(__dirname,'form.html'));
 });
 
-ipcMain.on('requestAuthCode', (clientID, scopes) => {
+ipcMain.on('requestAuthCode', (clientID) => {
     formWindow.close()
 
-    let clientIDString = String(clientID);
-    let scopesString = String(scopes);
-    let scopesArray = scopesString.split(/\s+/);
-
-    SetappManager.shared.requestAuthorizationCode(clientID, scopesArray, (authCode, error) => {
+    SetappManager.shared.requestAuthorizationCode(clientID, (authCode, error) => {
       if (authCode) {
         dialog.showMessageBox({ type: 'info', title: 'Success', message: 'Received Code: ' + authCode });
       }

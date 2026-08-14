@@ -4,5 +4,5 @@ contextBridge.exposeInMainWorld('setappBridge', {
     askForEmail: () => ipcRenderer.send('askForEmail', []),
     showReleaseNotes: () => ipcRenderer.send('showReleaseNotes', []),
     showRequestAuthCodeForm: () => ipcRenderer.send('showRequestAuthCodeForm', []),
-    requestAuthCode: (clientID, scopes) => ipcRenderer.send('requestAuthCode', [clientID, scopes])
+    requestAuthCode: (clientID) => ipcRenderer.send('requestAuthCode', [clientID])
 })

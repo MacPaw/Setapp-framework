@@ -16,15 +16,10 @@ extension NSViewController {
         clientIDTextField.placeholderString = "Client ID"
         clientIDTextField.isEditable = true
 
-        let scopeTextField = NSTextField(frame: NSRect(x: 0, y: 28, width: textFieldsWidth, height: 24))
-        scopeTextField.placeholderString = "Scopes (Space Separated)"
-        scopeTextField.isEditable = true
-
-        let textFieldsContainer = NSStackView(frame: NSRect(x: 0, y: 0, width: textFieldsWidth, height: 58))
+        let textFieldsContainer = NSStackView(frame: NSRect(x: 0, y: 0, width: textFieldsWidth, height: 28))
         textFieldsContainer.orientation = .vertical
         textFieldsContainer.spacing = 8
         textFieldsContainer.addSubview(clientIDTextField)
-        textFieldsContainer.addSubview(scopeTextField)
 
         let alert = NSAlert()
         alert.alertStyle = .informational
@@ -40,10 +35,8 @@ extension NSViewController {
             guard response == .alertFirstButtonReturn else { return }
 
             let clientID = clientIDTextField.stringValue
-            let scope = scopeTextField.stringValue.components(separatedBy: " ")
-                .compactMap(VendorAuthorizationScope.init(rawValue:))
 
-            SetappManager.shared.requestAuthorizationCode(clientID: clientID, scope: scope) { result in
+            SetappManager.shared.requestAuthorizationCode(clientID: clientID) { result in
                 DispatchQueue.main.async {
                     let alert: NSAlert
 

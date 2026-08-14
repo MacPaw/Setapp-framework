@@ -72,19 +72,10 @@ void SetappManager::requestAuthorizationCode(const Napi::CallbackInfo& info)
   std::string utf8ClientID = info[0].ToString().Utf8Value();
   NSString * objcClientID = [NSString stringWithUTF8String:utf8ClientID.c_str()] ?: @"";
 
-  NSMutableArray * objcScopes = [[NSMutableArray alloc] init];
-  Napi::Array napiScopes = info[1].As<Napi::Array>();
-  for (uint32_t i = 0, napiScopesLength = napiScopes.Length(); i < napiScopesLength; i++)
-  {
-    std::string utf8ScopeString = static_cast<Napi::Value>(napiScopes[i]).ToString().Utf8Value();
-    NSString * scopeString = [NSString stringWithUTF8String:utf8ScopeString.c_str()] ?: @"";
-    [objcScopes addObject:scopeString];
-  }
-
-  Napi::Function napiCallback = info[2].As<Napi::Function>();
+  Napi::Function napiCallback = info[1].As<Napi::Function>();
   Napi::ThreadSafeFunction napiThreadSafeCallback = Napi::ThreadSafeFunction::New(env, napiCallback, randomString(), 0, 1);
 
-  [this->_setappManager requestAuthorizationCodeWithClientID:objcClientID scope: objcScopes completionHandler:^(NSString * _Nullable nsAuthCode, NSError * _Nullable nsAuthCodeError) {
+  [this->_setappManager requestAuthorizationCodeWithClientID:objcClientID completionHandler:^(NSString * _Nullable nsAuthCode, NSError * _Nullable nsAuthCodeError) {
     // MRC retain.
     [nsAuthCode retain];
     [nsAuthCodeError retain];

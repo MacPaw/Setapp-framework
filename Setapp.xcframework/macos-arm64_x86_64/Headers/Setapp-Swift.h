@@ -474,10 +474,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// otherwise the request fails with a corresponding error.
 /// \param clientID A string ID generated for the app’s client in the Setapp developer account.
 ///
-/// \param scope An array of case-sensitive strings that specify the scope of functionalities
-/// to be authorized for the app’s client. See the full list of possible values in the
-/// <a href="https://docs.setapp.com/reference#authorization-code-by-setapp-library-grant">Vendor API reference</a>.
-///
 /// \param completionHandler A completion handler to call once the auth code has been fetched.
 /// The handler is executed on the main thread. Accepts one parameter:
 /// <code>result</code>
@@ -485,7 +481,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// been fetched successfully. Otherwise, it’s a failure with an error
 /// describing why the request failed.
 ///
-- (void)requestAuthorizationCodeWithClientID:(NSString * _Nonnull)clientID scope:(NSArray<NSString *> * _Nonnull)scope completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
+- (void)requestAuthorizationCodeWithClientID:(NSString * _Nonnull)clientID completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 SWIFT_ENUM_FWD_DECL(NSInteger, STPUsageEvent)
@@ -1251,10 +1247,6 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// otherwise the request fails with a corresponding error.
 /// \param clientID A string ID generated for the app’s client in the Setapp developer account.
 ///
-/// \param scope An array of case-sensitive strings that specify the scope of functionalities
-/// to be authorized for the app’s client. See the full list of possible values in the
-/// <a href="https://docs.setapp.com/reference#authorization-code-by-setapp-library-grant">Vendor API reference</a>.
-///
 /// \param completionHandler A completion handler to call once the auth code has been fetched.
 /// The handler is executed on the main thread. Accepts one parameter:
 /// <code>result</code>
@@ -1262,7 +1254,7 @@ SWIFT_CLASS_NAMED("SetappManager")
 /// been fetched successfully. Otherwise, it’s a failure with an error
 /// describing why the request failed.
 ///
-- (void)requestAuthorizationCodeWithClientID:(NSString * _Nonnull)clientID scope:(NSArray<NSString *> * _Nonnull)scope completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
+- (void)requestAuthorizationCodeWithClientID:(NSString * _Nonnull)clientID completionHandler:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 SWIFT_ENUM_FWD_DECL(NSInteger, STPUsageEvent)
