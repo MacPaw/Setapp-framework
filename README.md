@@ -1,6 +1,5 @@
 <a href="https://setapp.com/developers">
    <picture>
-      <img alt="Setapp Banner" src="https://github.com/MacPaw/setapp-ios/assets/6452801/f02bb864-de9e-41ca-be6a-dd81538eb3a5">
    </picture>
 </a>
 
@@ -12,6 +11,8 @@
 </p>
 
 # Setapp Framework
+
+![Setapp Framework](.github/header.png)
 
 Setapp is an app subscription service that provides full access to all its apps at a fixed monthly fee. Uniting macOS, iOS, and web apps introduces a revolutionary new approach to app distribution and software quality standards. Setapp opens new monetization opportunities by maximizing user lifetime value.
 
