@@ -1018,6 +1018,50 @@ extension SetappAI.SetappAIAPI.Images.ImageResponse {
 extension SetappAI.SetappAIAPI.Images.ImageResponse.Usage : Swift.Decodable {
   public init(from decoder: any Swift.Decoder) throws
 }
+extension SetappAI.SetappAIAPI.Links {
+  public struct Link : Swift.Sendable, Swift.Equatable {
+    public var type: SetappAI.SetappAIAPI.Links.Link.LinkType
+    public var url: Foundation.URL
+    public init(type: SetappAI.SetappAIAPI.Links.Link.LinkType, url: Foundation.URL)
+    public static func == (a: SetappAI.SetappAIAPI.Links.Link, b: SetappAI.SetappAIAPI.Links.Link) -> Swift.Bool
+  }
+}
+extension SetappAI.SetappAIAPI.Links.Link {
+  public enum LinkType : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case purchase
+    case unsupported(SetappAI.SetappAIAPI.Links.Link.LinkType.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Links.Link.LinkType : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Links.Link.LinkType]
+  public var rawValue: SetappAI.SetappAIAPI.Links.Link.LinkType.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Links.Link.LinkType]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Links.Link.LinkType.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Links.Link.LinkType.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Links.Link.LinkType.RawValue
+}
+public protocol SetappAILinksAPIProtocol : Swift.Sendable {
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func all() async throws -> [SetappAI.SetappAIAPI.Links.Link]
+  #endif
+}
+extension SetappAI.SetappAILinksAPIProtocol {
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func purchaseURL() async throws -> Foundation.URL?
+  #endif
+}
+extension SetappAI.SetappAIAPI {
+  public struct Links : Swift.Sendable {
+  }
+}
+extension SetappAI.SetappAIAPI.Links : SetappAI.SetappAILinksAPIProtocol {
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func all() async throws -> [SetappAI.SetappAIAPI.Links.Link]
+  #endif
+}
 public protocol SetappAIModelsAPIProtocol : Swift.Sendable {
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
   nonisolated(nonsending) func list() async throws -> [SetappAI.SetappAIAPI.Model]
@@ -5428,6 +5472,7 @@ public protocol SetappAIProtocol : Swift.Sendable {
   var audio: any SetappAI.SetappAIAudioAPIProtocol { get }
   var videos: any SetappAI.SetappAIVideosAPIProtocol { get }
   var credits: any SetappAI.SetappAICreditsAPIProtocol { get }
+  var links: any SetappAI.SetappAILinksAPIProtocol { get }
 }
 final public class CancellableAsyncStream<Element> : _Concurrency.AsyncSequence, Swift.Sendable where Element : Swift.Sendable {
   public typealias AsyncIterator = SetappAI.CancellableAsyncStream<Element>.Iterator

@@ -73,8 +73,8 @@ extension Setapp.SetappError {
     case timeout
     case noInternet
     case noSession
-    case blocked
-    case blockedAfterTrial
+    case inactiveLicense
+    case trialAlreadyUsed
     public init?(rawValue: Swift.Int)
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
@@ -191,6 +191,7 @@ extension Setapp.SetappManager {
   @available(*, unavailable, message: "`viewController(for result:` is no longer available, Setapp shows messages automatically and you can safely delete this call. If you want to customize messages - implement custom messages presenter by conforming `SetappMessagesPresenterProtocol` and set it by `SetappManager.shared.setMessagesPresenter(_:)` call")
   final public func viewController(for _: Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> UIKit.UIViewController
   final public func requestAuthorizationCode(clientID: Swift.String, completionHandler: @escaping @Sendable (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
+  @objc(openURLWithAuth:) final public func openWithAuth(url: Foundation.URL)
   @nonobjc @_Concurrency.MainActor final public func open(url: Foundation.URL, options: [UIKit.UIApplication.OpenURLOptionsKey : Any], completionHandler: (@Sendable (Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void)? = nil) -> Swift.Bool
   @_Concurrency.MainActor final public func open(urlContexts: Swift.Set<UIKit.UIOpenURLContext>, completionHandler: (@Sendable (Swift.Result<Setapp.SetappSubscription, any Swift.Error>) -> Swift.Void)? = nil)
   @objc(canOpenURL:) @_Concurrency.MainActor final public func canOpen(url: Foundation.URL) -> Swift.Bool
