@@ -456,6 +456,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 
 @protocol STPManagerDelegate;
 @class STPSubscription;
+@class NSURL;
 /// An object that provides an interface for the Setapp framework.
 SWIFT_CLASS_NAMED("SetappManager")
 @interface STPManager : NSObject
@@ -463,6 +464,18 @@ SWIFT_CLASS_NAMED("SetappManager")
 @property (nonatomic, strong) id <STPManagerDelegate> _Nullable delegate;
 /// A current Setapp subscription.
 @property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
+/// Opens a Setapp web page in the browser with the customer already signed in.
+/// Use it for pages the customer continues a flow on, such as the credits page from an
+/// insufficient-credits error, so that they are not asked to sign in again.
+/// The page opens even when the credentials cannot be fetched, the customer then signs in
+/// on the web as usual.
+/// important:
+/// Only URLs on the Setapp domain are accepted. Passing any other URL would hand
+/// the customer’s credentials to a foreign host, so it is treated as a programmer error and
+/// crashes the app.
+/// \param url A Setapp URL to open.
+///
+- (void)openURLWithAuth:(NSURL * _Nonnull)url;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -761,6 +774,19 @@ SWIFT_PROTOCOL("_TtP6Setapp21XPCServerProvisioning_")
 /// United protocol describing <em>remote</em> object representing Setapp XPC service (Setapp Agent).
 SWIFT_PROTOCOL("_TtP6Setapp17XPCServerProtocol_")
 @protocol XPCServerProtocol <XPCServerAPIVersioning, XPCServerAppPurchaseType, XPCServerConnectionChecker, XPCServerCustomerIdentity, XPCServerEmailSharing, XPCServerProvisioning, XPCServerRecoveryURLs, XPCServerReleaseNotes, XPCServerReporting, XPCServerVendorAuthentication>
+@end
+
+/// Protocol describing <em>remote</em> object capable of providing an access token for autologin on the web.
+SWIFT_PROTOCOL("_TtP6Setapp26XPCServerWebAutologinToken_")
+@protocol XPCServerWebAutologinToken <NSObject>
+/// Fetches an access token that signs the customer in on the Setapp website.
+/// The token is one-time, so it has to be fetched right before opening a web page with it.
+/// \param callback A callback to call when the token is fetched.
+/// Takes two parameters:
+/// <code>accessToken</code> - An optional <code>NSString</code> with the access token.
+/// <code>error</code> - An optional <code>NSError</code> object if error occurred.
+///
+- (void)fetchWebAutologinAccessTokenWithCallback:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))callback;
 @end
 
 #endif // defined(__OBJC__)
@@ -1229,6 +1255,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, STPLogLevel, "SetappLogLevel", open) {
 
 @protocol STPManagerDelegate;
 @class STPSubscription;
+@class NSURL;
 /// An object that provides an interface for the Setapp framework.
 SWIFT_CLASS_NAMED("SetappManager")
 @interface STPManager : NSObject
@@ -1236,6 +1263,18 @@ SWIFT_CLASS_NAMED("SetappManager")
 @property (nonatomic, strong) id <STPManagerDelegate> _Nullable delegate;
 /// A current Setapp subscription.
 @property (nonatomic, readonly, strong) STPSubscription * _Nullable subscription;
+/// Opens a Setapp web page in the browser with the customer already signed in.
+/// Use it for pages the customer continues a flow on, such as the credits page from an
+/// insufficient-credits error, so that they are not asked to sign in again.
+/// The page opens even when the credentials cannot be fetched, the customer then signs in
+/// on the web as usual.
+/// important:
+/// Only URLs on the Setapp domain are accepted. Passing any other URL would hand
+/// the customer’s credentials to a foreign host, so it is treated as a programmer error and
+/// crashes the app.
+/// \param url A Setapp URL to open.
+///
+- (void)openURLWithAuth:(NSURL * _Nonnull)url;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1534,6 +1573,19 @@ SWIFT_PROTOCOL("_TtP6Setapp21XPCServerProvisioning_")
 /// United protocol describing <em>remote</em> object representing Setapp XPC service (Setapp Agent).
 SWIFT_PROTOCOL("_TtP6Setapp17XPCServerProtocol_")
 @protocol XPCServerProtocol <XPCServerAPIVersioning, XPCServerAppPurchaseType, XPCServerConnectionChecker, XPCServerCustomerIdentity, XPCServerEmailSharing, XPCServerProvisioning, XPCServerRecoveryURLs, XPCServerReleaseNotes, XPCServerReporting, XPCServerVendorAuthentication>
+@end
+
+/// Protocol describing <em>remote</em> object capable of providing an access token for autologin on the web.
+SWIFT_PROTOCOL("_TtP6Setapp26XPCServerWebAutologinToken_")
+@protocol XPCServerWebAutologinToken <NSObject>
+/// Fetches an access token that signs the customer in on the Setapp website.
+/// The token is one-time, so it has to be fetched right before opening a web page with it.
+/// \param callback A callback to call when the token is fetched.
+/// Takes two parameters:
+/// <code>accessToken</code> - An optional <code>NSString</code> with the access token.
+/// <code>error</code> - An optional <code>NSError</code> object if error occurred.
+///
+- (void)fetchWebAutologinAccessTokenWithCallback:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))callback;
 @end
 
 #endif // defined(__OBJC__)

@@ -13,6 +13,7 @@ public import _SwiftConcurrencyShims
     @objc get
   }
   final public func requestAuthorizationCode(clientID: Swift.String, completionHandler: @escaping @Sendable (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
+  @objc(openURLWithAuth:) final public func openWithAuth(url: Foundation.URL)
   final public func requestPurchaseType(completionHandler: @escaping @Sendable (Swift.Result<Setapp.SetappAppPurchaseType, any Swift.Error>) -> Swift.Void)
   final public var ai: any SetappAI.SetappAIProtocol {
     get

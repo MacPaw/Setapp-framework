@@ -616,6 +616,18 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 /// \param configuration A Setapp configuration to start the framework with.
 ///
 - (void)startWithConfiguration:(STPConfiguration * _Nonnull)configuration;
+/// Opens a Setapp web page with the customer already signed in.
+/// Use it for pages the customer continues a flow on, such as the credits page from an
+/// insufficient-credits error, so that they are not asked to sign in again.
+/// The page opens even when the credentials cannot be fetched, the customer then signs in
+/// on the web as usual.
+/// important:
+/// Only URLs on the Setapp domain are accepted. Passing any other URL would hand
+/// the customer’s credentials to a foreign host, so it is treated as a programmer error and
+/// crashes the app.
+/// \param url A Setapp URL to open.
+///
+- (void)openURLWithAuth:(NSURL * _Nonnull)url;
 /// Returns <code>true</code> if a URL can be processed by the Setapp iOS Framework; otherwise <code>false</code>.
 /// \param url A URL to validate.
 ///
@@ -1396,6 +1408,18 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) enum STPLogLevel logLevel;)
 /// \param configuration A Setapp configuration to start the framework with.
 ///
 - (void)startWithConfiguration:(STPConfiguration * _Nonnull)configuration;
+/// Opens a Setapp web page with the customer already signed in.
+/// Use it for pages the customer continues a flow on, such as the credits page from an
+/// insufficient-credits error, so that they are not asked to sign in again.
+/// The page opens even when the credentials cannot be fetched, the customer then signs in
+/// on the web as usual.
+/// important:
+/// Only URLs on the Setapp domain are accepted. Passing any other URL would hand
+/// the customer’s credentials to a foreign host, so it is treated as a programmer error and
+/// crashes the app.
+/// \param url A Setapp URL to open.
+///
+- (void)openURLWithAuth:(NSURL * _Nonnull)url;
 /// Returns <code>true</code> if a URL can be processed by the Setapp iOS Framework; otherwise <code>false</code>.
 /// \param url A URL to validate.
 ///

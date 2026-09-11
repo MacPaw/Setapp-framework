@@ -1,3 +1,17 @@
+## [5.4.0] - 2026-09-10
+
+### New
+* [SetappAI] Added a links API — `setappAI.links.all()` returns all web pages the AI service directs users to, and `setappAI.links.purchaseURL()` returns the credits purchase page directly. No authorization required, so it works even for users without an active subscription.
+* Added `openWithAuth(url:)` on iOS and macOS. It opens a Setapp URL with the user already signed in on the web, so they don't need to authenticate again mid-flow. Only Setapp URLs are accepted.
+
+### Updated
+* **Breaking change:** `SetappError.ErrorCode` cases `.blocked` and `.blockedAfterTrial` have been replaced with `.inactiveLicense` and `.trialAlreadyUsed`, and their numeric codes have changed from 1708/1709 to 1710/1711. Code that handles them by name won't compile until you update it. Code that compares the old numeric codes will still build but silently stop matching. The Setapp Framework will still show its default alerts either way.
+* [SetappAI] On macOS, the credits purchase page now opens with the user already signed in — previously, users had to sign in manually before they could buy credits.
+
+### Fixed
+* Fixed integrity checks that could incorrectly fail for a valid app due to a single Mach-O header flag being misread as a sign of tampering.
+* [iOS] Fixed an issue where the AI vendor token was not cleared when the user switched accounts, which could leave the previous user's token active.
+
 ## [5.3.6] - 2026-08-14
 
 ### New
