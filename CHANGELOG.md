@@ -1,3 +1,8 @@
+## [5.5.0] - 2026-09-16
+
+### New
+* Added `requestPendingUpdate(completionHandler:)` and `applyPendingUpdate(completionHandler:)` on macOS. Your app can now check whether Setapp has a newer version ready to install and trigger the update on its own schedule — without waiting for the user to update manually.
+
 ## [5.4.0] - 2026-09-10
 
 ### New
