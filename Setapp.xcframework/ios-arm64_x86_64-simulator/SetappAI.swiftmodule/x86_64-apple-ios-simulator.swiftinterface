@@ -213,6 +213,12 @@ extension SetappAI.SetappAIAPI.Audio : SetappAI.SetappAIAudioAPIProtocol {
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
   nonisolated(nonsending) public func transcribeVTT(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
   #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func voices(parameters: SetappAI.SetappAIAPI.Audio.Voices.Parameters) async throws -> SetappAI.SetappAIAPI.Audio.Voices.VoicesResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func speech(parameters: SetappAI.SetappAIAPI.Audio.Speech.Parameters) async throws -> SetappAI.CancellableAsyncStream<SetappAI.SetappAIAPI.StreamingEvent>
+  #endif
 }
 public protocol SetappAIAudioAPIProtocol : Swift.Sendable {
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
@@ -233,6 +239,108 @@ public protocol SetappAIAudioAPIProtocol : Swift.Sendable {
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
   nonisolated(nonsending) func transcribeVTT(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
   #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func voices(parameters: SetappAI.SetappAIAPI.Audio.Voices.Parameters) async throws -> SetappAI.SetappAIAPI.Audio.Voices.VoicesResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func speech(parameters: SetappAI.SetappAIAPI.Audio.Speech.Parameters) async throws -> SetappAI.CancellableAsyncStream<SetappAI.SetappAIAPI.StreamingEvent>
+  #endif
+}
+extension SetappAI.SetappAIAPI.Audio {
+  public enum Speech {
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.Speech {
+  public struct ResponseFormat : SetappAI.SetappAIRawStringRepresentable {
+    public typealias RawValue = Swift.String
+    public let rawValue: SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat.RawValue
+    public init(rawValue: SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat.RawValue)
+    public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat.RawValue
+    public typealias StringLiteralType = SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat.RawValue
+    public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat.RawValue
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat {
+  public static let mp3: SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat
+  public static let opus: SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat
+  public static let aac: SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat
+  public static let flac: SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat
+  public static let wav: SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat
+  public static let pcm: SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat
+}
+extension SetappAI.SetappAIAPI.Audio.Speech {
+  public struct Parameters : Swift.Sendable {
+    public var model: SetappAI.SetappAIAPI.Model
+    public var input: Swift.String
+    public var voice: Swift.String
+    public var responseFormat: SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat?
+    public var additionalParameters: [Swift.String : any Swift.Sendable]?
+    public init(model: SetappAI.SetappAIAPI.Model, input: Swift.String, voice: Swift.String, responseFormat: SetappAI.SetappAIAPI.Audio.Speech.ResponseFormat? = .none, additionalParameters: [Swift.String : any Swift.Sendable]? = .none)
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.Speech.Parameters : Swift.Encodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Speech {
+  public struct AudioDelta : Swift.Sendable, Swift.Equatable {
+    public var audio: Foundation.Data
+    public init(audio: Foundation.Data)
+    public static func == (a: SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDelta, b: SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDelta) -> Swift.Bool
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDelta : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDone {
+  public struct Usage : Swift.Sendable, Swift.Equatable {
+    public var inputTokens: Swift.Int
+    public var outputTokens: Swift.Int
+    public var totalTokens: Swift.Int
+    public init(inputTokens: Swift.Int, outputTokens: Swift.Int, totalTokens: Swift.Int)
+    public static func == (a: SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDone.Usage, b: SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDone.Usage) -> Swift.Bool
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDone.Usage : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Speech {
+  public struct AudioDone : Swift.Sendable, Swift.Equatable {
+    public var usage: SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDone.Usage?
+    public init(usage: SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDone.Usage? = .none)
+    public static func == (a: SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDone, b: SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDone) -> Swift.Bool
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDone : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Speech {
+  public enum EventType : Swift.String, Swift.Decodable, Swift.CaseIterable, Swift.Sendable, Swift.Hashable, Swift.Equatable {
+    case audioDelta
+    case audioDone
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [SetappAI.SetappAIAPI.StreamingEvent.Speech.EventType]
+    public typealias RawValue = Swift.String
+    nonisolated public static var allCases: [SetappAI.SetappAIAPI.StreamingEvent.Speech.EventType] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent {
+  public enum Speech : Swift.Sendable {
+    case audioDelta(SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDelta)
+    case audioDone(SetappAI.SetappAIAPI.StreamingEvent.Speech.AudioDone)
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Speech : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Speech {
+  public var type: SetappAI.SetappAIAPI.StreamingEvent.EventType {
+    get
+  }
 }
 extension SetappAI.SetappAIAPI.Audio {
   public enum Transcription {
@@ -428,6 +536,105 @@ extension SetappAI.SetappAIAPI.Audio.Transcription {
   }
 }
 extension SetappAI.SetappAIAPI.Audio.Transcription.VerboseTranscriptionResponse : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Audio {
+  public enum Voices {
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.Voices {
+  public enum Provider : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case elevenLabs
+    case unsupported(SetappAI.SetappAIAPI.Audio.Voices.Provider.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.Voices.Provider : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Audio.Voices.Provider]
+  public var rawValue: SetappAI.SetappAIAPI.Audio.Voices.Provider.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Audio.Voices.Provider]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Audio.Voices.Provider.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Audio.Voices.Provider.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Audio.Voices.Provider.RawValue
+}
+extension SetappAI.SetappAIAPI.Audio.Voices.Voice {
+  public enum Category : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case premade
+    case cloned
+    case generated
+    case professional
+    case famous
+    case highQuality
+    case unsupported(SetappAI.SetappAIAPI.Audio.Voices.Voice.Category.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.Voices.Voice.Category : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Audio.Voices.Voice.Category]
+  public var rawValue: SetappAI.SetappAIAPI.Audio.Voices.Voice.Category.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Audio.Voices.Voice.Category]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Audio.Voices.Voice.Category.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Audio.Voices.Voice.Category.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Audio.Voices.Voice.Category.RawValue
+}
+extension SetappAI.SetappAIAPI.Audio.Voices {
+  public struct Parameters : Swift.Sendable, Swift.Equatable {
+    public var provider: SetappAI.SetappAIAPI.Audio.Voices.Provider
+    public var nextPageToken: Swift.String?
+    public init(provider: SetappAI.SetappAIAPI.Audio.Voices.Provider, nextPageToken: Swift.String? = .none)
+    public static func == (a: SetappAI.SetappAIAPI.Audio.Voices.Parameters, b: SetappAI.SetappAIAPI.Audio.Voices.Parameters) -> Swift.Bool
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.Voices.Voice {
+  public struct VerifiedLanguage : Swift.Sendable, Swift.Equatable {
+    public var language: Swift.String?
+    public var modelID: Swift.String?
+    public var accent: Swift.String?
+    public var locale: Swift.String?
+    public var previewURL: Foundation.URL?
+    public init(language: Swift.String? = .none, modelID: Swift.String? = .none, accent: Swift.String? = .none, locale: Swift.String? = .none, previewURL: Foundation.URL? = .none)
+    public static func == (a: SetappAI.SetappAIAPI.Audio.Voices.Voice.VerifiedLanguage, b: SetappAI.SetappAIAPI.Audio.Voices.Voice.VerifiedLanguage) -> Swift.Bool
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.Voices.Voice.VerifiedLanguage : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Audio.Voices {
+  public struct Voice : Swift.Sendable, Swift.Equatable, Swift.Identifiable {
+    public var voiceID: Swift.String
+    public var name: Swift.String?
+    public var category: SetappAI.SetappAIAPI.Audio.Voices.Voice.Category?
+    public var description: Swift.String?
+    public var previewURL: Foundation.URL?
+    public var labels: [Swift.String : Swift.String]?
+    public var highQualityBaseModelIDs: [Swift.String]?
+    public var verifiedLanguages: [SetappAI.SetappAIAPI.Audio.Voices.Voice.VerifiedLanguage]?
+    public var id: Swift.String {
+      get
+    }
+    public init(voiceID: Swift.String, name: Swift.String? = .none, category: SetappAI.SetappAIAPI.Audio.Voices.Voice.Category? = .none, description: Swift.String? = .none, previewURL: Foundation.URL? = .none, labels: [Swift.String : Swift.String]? = .none, highQualityBaseModelIDs: [Swift.String]? = .none, verifiedLanguages: [SetappAI.SetappAIAPI.Audio.Voices.Voice.VerifiedLanguage]? = .none)
+    public static func == (a: SetappAI.SetappAIAPI.Audio.Voices.Voice, b: SetappAI.SetappAIAPI.Audio.Voices.Voice) -> Swift.Bool
+    public typealias ID = Swift.String
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.Voices.Voice : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Audio.Voices {
+  public struct VoicesResponse : Swift.Sendable, Swift.Equatable {
+    public var voices: [SetappAI.SetappAIAPI.Audio.Voices.Voice]
+    public var hasMore: Swift.Bool
+    public var totalCount: Swift.Int
+    public var nextPageToken: Swift.String?
+    public init(voices: [SetappAI.SetappAIAPI.Audio.Voices.Voice], hasMore: Swift.Bool, totalCount: Swift.Int, nextPageToken: Swift.String?)
+    public static func == (a: SetappAI.SetappAIAPI.Audio.Voices.VoicesResponse, b: SetappAI.SetappAIAPI.Audio.Voices.VoicesResponse) -> Swift.Bool
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.Voices.VoicesResponse : Swift.Decodable {
   public init(from decoder: any Swift.Decoder) throws
 }
 extension SetappAI.SetappAIAPI.Audio {
@@ -5498,6 +5705,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent {
     public typealias RawValue = Swift.String
     case response(SetappAI.SetappAIAPI.StreamingEvent.Response.EventType)
     case imageGeneration(SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType)
+    case speech(SetappAI.SetappAIAPI.StreamingEvent.Speech.EventType)
     case unsupported(SetappAI.SetappAIAPI.StreamingEvent.EventType.RawValue)
     public init(rawValue: Swift.String)
   }
@@ -5517,6 +5725,7 @@ extension SetappAI.SetappAIAPI {
   public enum StreamingEvent : @unchecked Swift.Sendable {
     case response(SetappAI.SetappAIAPI.StreamingEvent.Response)
     case imageGeneration(SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration)
+    case speech(SetappAI.SetappAIAPI.StreamingEvent.Speech)
     case unsupported(SetappAI.SetappAIAPI.UnsupportedObject<SetappAI.SetappAIAPI.StreamingEvent.EventType>)
   }
 }
@@ -5532,6 +5741,7 @@ extension SetappAI.ErrorHandlingMode : Swift.Equatable {}
 extension SetappAI.ErrorHandlingMode : Swift.Hashable {}
 extension SetappAI.SetappAIError.ErrorCode : Swift.Hashable {}
 extension SetappAI.SetappAIError.ErrorCode : Swift.RawRepresentable {}
+extension SetappAI.SetappAIAPI.StreamingEvent.Speech.EventType : Swift.RawRepresentable {}
 extension SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.EventType : Swift.RawRepresentable {}
 extension SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType : Swift.RawRepresentable {}
 extension SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.Status : Swift.Equatable {}

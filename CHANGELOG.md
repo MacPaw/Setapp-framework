@@ -1,3 +1,8 @@
+## [5.5.2] - 2026-10-12
+
+### New
+* [SetappAI] Added text-to-speech to the audio API — `setappAI.audio.voices(parameters:)` lists the available voices, and `setappAI.audio.speech(parameters:)` streams synthesized speech.
+
 ## [5.5.1] - 2026-09-29
 
 ### New
