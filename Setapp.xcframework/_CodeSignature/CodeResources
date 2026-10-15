@@ -42,7 +42,7 @@
 		</data>
 		<key>ios-arm64/libSetapp.a</key>
 		<data>
-		EoRzYx3qyp0zHK8cDQqOU2dM7e0=
+		HR4z+uk7FaG0510Rl/A+c0FQCJ4=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/Headers/Setapp-Swift.h</key>
 		<data>
@@ -98,7 +98,7 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/libSetapp.a</key>
 		<data>
-		oxAq9xD5q8yR/6wtutWsgiGL+eE=
+		q+NWUnDbTqmntv5gApxO8ayT+xc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Headers/Setapp-Swift.h</key>
 		<data>
@@ -154,7 +154,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/libSetapp.a</key>
 		<data>
-		q/3N0Xc7wQcQEgWVbP8bACzMwFo=
+		/F7+BUZ0b/9h+WQ8z624H+Zs/T8=
 		</data>
 		<key>macos-arm64_x86_64/Headers/Setapp-Swift.h</key>
 		<data>
@@ -210,7 +210,7 @@
 		</data>
 		<key>macos-arm64_x86_64/libSetapp.a</key>
 		<data>
-		/FbzinwkNladZ1EL0vERXKq+s4w=
+		HYoRcFwklcKxSFGH6zqRELu8pWU=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -282,7 +282,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Hz1PWsm+AO/4iodq6DIZOqiz3o0lfjsmJwFs3luHUaY=
+			TqFKa7nJdVKXUgGrBVpMsa8s0YsYPM/pUV90/qzifik=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/Headers/Setapp-Swift.h</key>
@@ -380,7 +380,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oWnhvWgRA8aZcm9NDaWpDo1HVN/23lNq37l3W8V1PGw=
+			DUq0LhkdCg6g8843iY3lMO2SbnDDCvYArLIbdnPTzNA=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Headers/Setapp-Swift.h</key>
@@ -478,7 +478,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zGx4tWO9xkxOUUdlF98SVsZfEZsEBgG0Ih/i4bhGoF4=
+			XeL7Q+A+p6NAAQzIt7ER1l8ptN0IbO0DuK9+8Sqm+m0=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/Headers/Setapp-Swift.h</key>
@@ -576,7 +576,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gcTwj7jgWzzj4iVBxcM+maxyTJwnXW7VCVah5tU603Y=
+			BgUm4/9DmTEWOnV0sZ6cV5601E0dwUTFd+vT2/TXDqY=
 			</data>
 		</dict>
 	</dict>
