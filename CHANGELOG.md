@@ -1,3 +1,8 @@
+## [5.5.3] - 2026-10-15
+
+### Fixed
+* [iOS] App activation via QR code now works on the first scan after a reinstall. Previously, it could require scanning the QR code more than once.
+
 ## [5.5.2] - 2026-10-12
 
 ### New
