@@ -169,6 +169,28 @@ extension SetappAI.SetappAIAPI.Model.Mode {
   public static let search: SetappAI.SetappAIAPI.Model.Mode
   public static let videoGeneration: SetappAI.SetappAIAPI.Model.Mode
 }
+extension SetappAI.SetappAIAPI.Model {
+  public struct Params : Swift.Sendable {
+    public var allowedPassthroughParameters: [Swift.String]?
+    public var creativity: Swift.ClosedRange<Swift.Double>?
+    public var canGenerateAudio: Swift.Bool?
+    public var acceptsSeed: Swift.Bool?
+    public var supportedAspectRatios: [SetappAI.SetappAIAPI.Videos.GenerationV2.AspectRatio]?
+    public var supportedDurations: [Swift.Int]?
+    public var supportedFrameImages: [SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage.FrameType]?
+    public var supportedResolutions: [SetappAI.SetappAIAPI.Videos.GenerationV2.Resolution]?
+    public var supportedSizes: [SetappAI.SetappAIAPI.Videos.GenerationV2.Size]?
+    public var upscaleFactor: Swift.ClosedRange<Swift.Double>?
+    public var raw: [Swift.String : any Swift.Sendable]
+    public init(allowedPassthroughParameters: [Swift.String]? = .none, creativity: Swift.ClosedRange<Swift.Double>? = .none, canGenerateAudio: Swift.Bool? = .none, acceptsSeed: Swift.Bool? = .none, supportedAspectRatios: [SetappAI.SetappAIAPI.Videos.GenerationV2.AspectRatio]? = .none, supportedDurations: [Swift.Int]? = .none, supportedFrameImages: [SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage.FrameType]? = .none, supportedResolutions: [SetappAI.SetappAIAPI.Videos.GenerationV2.Resolution]? = .none, supportedSizes: [SetappAI.SetappAIAPI.Videos.GenerationV2.Size]? = .none, upscaleFactor: Swift.ClosedRange<Swift.Double>? = .none, raw: [Swift.String : any Swift.Sendable] = [:])
+  }
+}
+extension SetappAI.SetappAIAPI.Model.Params : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Model.Params : Swift.Equatable {
+  public static func == (lhs: SetappAI.SetappAIAPI.Model.Params, rhs: SetappAI.SetappAIAPI.Model.Params) -> Swift.Bool
+}
 extension SetappAI.SetappAIAPI {
   public struct Model : Swift.Sendable, Swift.Equatable, Swift.Identifiable {
     public var id: Swift.String
@@ -176,7 +198,8 @@ extension SetappAI.SetappAIAPI {
     public var capabilities: Swift.Set<SetappAI.SetappAIAPI.Model.Capability>
     public var maxInputTokens: Swift.Int?
     public var maxOutputTokens: Swift.Int?
-    public init(id: Swift.String, mode: SetappAI.SetappAIAPI.Model.Mode?, capabilities: Swift.Set<SetappAI.SetappAIAPI.Model.Capability>, maxInputTokens: Swift.Int? = nil, maxOutputTokens: Swift.Int? = nil)
+    public var params: SetappAI.SetappAIAPI.Model.Params?
+    public init(id: Swift.String, mode: SetappAI.SetappAIAPI.Model.Mode?, capabilities: Swift.Set<SetappAI.SetappAIAPI.Model.Capability>, maxInputTokens: Swift.Int? = nil, maxOutputTokens: Swift.Int? = nil, params: SetappAI.SetappAIAPI.Model.Params? = nil)
     public static func == (a: SetappAI.SetappAIAPI.Model, b: SetappAI.SetappAIAPI.Model) -> Swift.Bool
     public typealias ID = Swift.String
   }
@@ -190,27 +213,38 @@ extension SetappAI.SetappAIAPI.Model : Swift.ExpressibleByStringLiteral {
 extension SetappAI.SetappAIAPI.Model : Swift.Encodable {
   public func encode(to encoder: any Swift.Encoder) throws
 }
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2 {
+  public typealias TranscriptionResponse = SetappAI.SetappAIAPI.Audio.Transcription.TranscriptionResponse
+  public typealias VerboseTranscriptionResponse = SetappAI.SetappAIAPI.Audio.Transcription.VerboseTranscriptionResponse
+  public typealias Usage = SetappAI.SetappAIAPI.Audio.Transcription.Usage
+}
 extension SetappAI.SetappAIAPI {
   public struct Audio {
   }
 }
 extension SetappAI.SetappAIAPI.Audio : SetappAI.SetappAIAudioAPIProtocol {
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `transcribeV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) public func transcribe(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.Transcription.TranscriptionResponse
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `transcribeVerboseV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) public func transcribeVerbose(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.Transcription.VerboseTranscriptionResponse
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `transcribeDiarizedV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) public func transcribeDiarized(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.Transcription.DiarizedTranscriptionResponse
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `transcribeTextV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) public func transcribeText(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `transcribeSRTV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) public func transcribeSRT(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `transcribeVTTV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) public func transcribeVTT(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
@@ -219,24 +253,57 @@ extension SetappAI.SetappAIAPI.Audio : SetappAI.SetappAIAudioAPIProtocol {
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
   nonisolated(nonsending) public func speech(parameters: SetappAI.SetappAIAPI.Audio.Speech.Parameters) async throws -> SetappAI.CancellableAsyncStream<SetappAI.SetappAIAPI.StreamingEvent>
   #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func transcribeV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.TranscriptionV2.TranscriptionResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func transcribeVerboseV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.TranscriptionV2.VerboseTranscriptionResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func transcribeDiarizedV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.TranscriptionV2.DiarizedTranscriptionResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func transcribeTextV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func transcribeSRTV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func transcribeVTTV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func transcribeElevenLabsV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func transcribeElevenLabsMultichannelV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsMultichannelTranscriptionResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func transcribeStreamV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters) async throws -> SetappAI.CancellableAsyncStream<SetappAI.SetappAIAPI.StreamingEvent>
+  #endif
 }
 public protocol SetappAIAudioAPIProtocol : Swift.Sendable {
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `transcribeV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) func transcribe(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.Transcription.TranscriptionResponse
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `transcribeVerboseV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) func transcribeVerbose(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.Transcription.VerboseTranscriptionResponse
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `transcribeDiarizedV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) func transcribeDiarized(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.Transcription.DiarizedTranscriptionResponse
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `transcribeTextV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) func transcribeText(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `transcribeSRTV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) func transcribeSRT(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `transcribeVTTV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) func transcribeVTT(parameters: SetappAI.SetappAIAPI.Audio.Transcription.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
@@ -244,6 +311,33 @@ public protocol SetappAIAudioAPIProtocol : Swift.Sendable {
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
   nonisolated(nonsending) func speech(parameters: SetappAI.SetappAIAPI.Audio.Speech.Parameters) async throws -> SetappAI.CancellableAsyncStream<SetappAI.SetappAIAPI.StreamingEvent>
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func transcribeV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.TranscriptionV2.TranscriptionResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func transcribeVerboseV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.TranscriptionV2.VerboseTranscriptionResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func transcribeDiarizedV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.TranscriptionV2.DiarizedTranscriptionResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func transcribeTextV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func transcribeSRTV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func transcribeVTTV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> Swift.String
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func transcribeElevenLabsV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func transcribeElevenLabsMultichannelV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsMultichannelTranscriptionResponse
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func transcribeStreamV2(parameters: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Parameters) async throws -> SetappAI.CancellableAsyncStream<SetappAI.SetappAIAPI.StreamingEvent>
   #endif
 }
 extension SetappAI.SetappAIAPI.Audio {
@@ -537,6 +631,173 @@ extension SetappAI.SetappAIAPI.Audio.Transcription {
 }
 extension SetappAI.SetappAIAPI.Audio.Transcription.VerboseTranscriptionResponse : Swift.Decodable {
   public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Audio {
+  public enum TranscriptionV2 {
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2 {
+  public enum Source : Swift.Sendable {
+    case file(Foundation.Data, fileType: SetappAI.SetappAIAPI.Audio.AudioFileType)
+    case url(Foundation.URL)
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2 {
+  public struct Parameters : Swift.Sendable {
+    public var model: SetappAI.SetappAIAPI.Model
+    public var source: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Source
+    public var language: Swift.String?
+    public var temperature: Swift.Double?
+    public var additionalParameters: [Swift.String : any Swift.Sendable]?
+    public init(model: SetappAI.SetappAIAPI.Model, source: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Source, language: Swift.String? = .none, temperature: Swift.Double? = .none, additionalParameters: [Swift.String : any Swift.Sendable]? = .none)
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2 {
+  public struct DiarizedTranscriptionResponse : Swift.Sendable {
+    public typealias Segment = SetappAI.SetappAIAPI.Audio.Transcription.DiarizedTranscriptionResponse.Segment
+    public var text: Swift.String
+    public var segments: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.DiarizedTranscriptionResponse.Segment]
+    public var duration: Swift.Double?
+    public var task: Swift.String?
+    public var usage: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Usage?
+    public init(text: Swift.String, segments: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.DiarizedTranscriptionResponse.Segment], duration: Swift.Double?, task: Swift.String?, usage: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Usage?)
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2.DiarizedTranscriptionResponse : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2 {
+  public struct ElevenLabsMultichannelTranscriptionResponse : Swift.Sendable {
+    public var transcripts: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse]
+    public var audioDuration: Swift.Double?
+    public init(transcripts: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse], audioDuration: Swift.Double?)
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsMultichannelTranscriptionResponse : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse {
+  public struct Entity : Swift.Sendable {
+    public var text: Swift.String
+    public var entityType: Swift.String
+    public var startChar: Swift.Int
+    public var endChar: Swift.Int
+    public init(text: Swift.String, entityType: Swift.String, startChar: Swift.Int, endChar: Swift.Int)
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Entity : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word {
+  public struct Character : Swift.Sendable {
+    public var text: Swift.String
+    public var start: Swift.Double?
+    public var end: Swift.Double?
+    public init(text: Swift.String, start: Swift.Double?, end: Swift.Double?)
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word.Character : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word {
+  public enum WordType : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case word
+    case spacing
+    case audioEvent
+    case unsupported(SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word.WordType.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word.WordType : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word.WordType]
+  public var rawValue: SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word.WordType.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word.WordType]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word.WordType.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word.WordType.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word.WordType.RawValue
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse {
+  public struct Word : Swift.Sendable {
+    public var text: Swift.String
+    public var type: SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word.WordType
+    public var logprob: Swift.Double
+    public var start: Swift.Double?
+    public var end: Swift.Double?
+    public var speakerID: Swift.String?
+    public var channelIndex: Swift.Int?
+    public var characters: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word.Character]?
+    public init(text: Swift.String, type: SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word.WordType, logprob: Swift.Double, start: Swift.Double?, end: Swift.Double?, speakerID: Swift.String?, channelIndex: Swift.Int?, characters: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word.Character]?)
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2 {
+  public struct ElevenLabsTranscriptionResponse : Swift.Sendable {
+    public var languageCode: Swift.String
+    public var languageProbability: Swift.Double
+    public var text: Swift.String
+    public var words: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word]
+    public var channelIndex: Swift.Int?
+    public var audioDuration: Swift.Double?
+    public var entities: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Entity]?
+    public init(languageCode: Swift.String, languageProbability: Swift.Double, text: Swift.String, words: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Word], channelIndex: Swift.Int?, audioDuration: Swift.Double?, entities: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse.Entity]?)
+  }
+}
+extension SetappAI.SetappAIAPI.Audio.TranscriptionV2.ElevenLabsTranscriptionResponse : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Transcription {
+  public enum EventType : Swift.String, Swift.Decodable, Swift.CaseIterable, Swift.Sendable, Swift.Hashable, Swift.Equatable {
+    case textDelta
+    case textDone
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [SetappAI.SetappAIAPI.StreamingEvent.Transcription.EventType]
+    public typealias RawValue = Swift.String
+    nonisolated public static var allCases: [SetappAI.SetappAIAPI.StreamingEvent.Transcription.EventType] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Transcription {
+  public struct TextDelta : Swift.Sendable {
+    public var delta: Swift.String
+    public var logprobs: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.TranscriptionResponse.Logprob]?
+    public init(delta: Swift.String, logprobs: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.TranscriptionResponse.Logprob]?)
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Transcription.TextDelta : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Transcription {
+  public struct TextDone : Swift.Sendable {
+    public var text: Swift.String
+    public var logprobs: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.TranscriptionResponse.Logprob]?
+    public var usage: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Usage?
+    public init(text: Swift.String, logprobs: [SetappAI.SetappAIAPI.Audio.TranscriptionV2.TranscriptionResponse.Logprob]?, usage: SetappAI.SetappAIAPI.Audio.TranscriptionV2.Usage?)
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Transcription.TextDone : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent {
+  public enum Transcription : Swift.Sendable {
+    case textDelta(SetappAI.SetappAIAPI.StreamingEvent.Transcription.TextDelta)
+    case textDone(SetappAI.SetappAIAPI.StreamingEvent.Transcription.TextDone)
+  }
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Transcription : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension SetappAI.SetappAIAPI.StreamingEvent.Transcription {
+  public var type: SetappAI.SetappAIAPI.StreamingEvent.EventType {
+    get
+  }
 }
 extension SetappAI.SetappAIAPI.Audio {
   public enum Voices {
@@ -5592,31 +5853,204 @@ extension SetappAI.SetappAIAPI.Videos {
   public enum Generation {
   }
 }
+extension SetappAI.SetappAIAPI.Videos.GenerationV2 {
+  public enum AspectRatio : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case landscape16x9
+    case portrait9x16
+    case square1x1
+    case landscape4x3
+    case portrait3x4
+    case landscape3x2
+    case portrait2x3
+    case landscape21x9
+    case portrait9x21
+    case unsupported(SetappAI.SetappAIAPI.Videos.GenerationV2.AspectRatio.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.GenerationV2.AspectRatio : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Videos.GenerationV2.AspectRatio]
+  public var rawValue: SetappAI.SetappAIAPI.Videos.GenerationV2.AspectRatio.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Videos.GenerationV2.AspectRatio]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Videos.GenerationV2.AspectRatio.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Videos.GenerationV2.AspectRatio.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Videos.GenerationV2.AspectRatio.RawValue
+}
+extension SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage {
+  public enum FrameType : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case firstFrame
+    case lastFrame
+    case unsupported(SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage.FrameType.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage.FrameType : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage.FrameType]
+  public var rawValue: SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage.FrameType.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage.FrameType]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage.FrameType.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage.FrameType.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage.FrameType.RawValue
+}
+extension SetappAI.SetappAIAPI.Videos.GenerationV2 {
+  public struct FrameImage : Swift.Sendable {
+    public var frameType: SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage.FrameType
+    public var imageURL: Foundation.URL
+    public init(frameType: SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage.FrameType, imageURL: Foundation.URL)
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage : Swift.Encodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension SetappAI.SetappAIAPI.Videos.GenerationV2 {
+  public enum InputReference : Swift.Sendable {
+    case image(Foundation.URL)
+    case audio(Foundation.URL)
+    case video(Foundation.URL)
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.GenerationV2.InputReference : Swift.Encodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension SetappAI.SetappAIAPI.Videos.GenerationV2 {
+  public enum Resolution : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case p360
+    case p480
+    case p720
+    case p768
+    case p1080
+    case k1
+    case k2
+    case k4
+    case unsupported(SetappAI.SetappAIAPI.Videos.GenerationV2.Resolution.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.GenerationV2.Resolution : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Videos.GenerationV2.Resolution]
+  public var rawValue: SetappAI.SetappAIAPI.Videos.GenerationV2.Resolution.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Videos.GenerationV2.Resolution]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Videos.GenerationV2.Resolution.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Videos.GenerationV2.Resolution.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Videos.GenerationV2.Resolution.RawValue
+}
+extension SetappAI.SetappAIAPI.Videos.GenerationV2 {
+  public struct Parameters : Swift.Sendable {
+    public var model: SetappAI.SetappAIAPI.Model
+    public var prompt: Swift.String?
+    public var duration: Swift.Int?
+    public var aspectRatio: SetappAI.SetappAIAPI.Videos.GenerationV2.AspectRatio?
+    public var resolution: SetappAI.SetappAIAPI.Videos.GenerationV2.Resolution?
+    public var size: SetappAI.SetappAIAPI.Videos.GenerationV2.Size?
+    public var generateAudio: Swift.Bool?
+    public var frameImages: [SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage]?
+    public var inputReferences: [SetappAI.SetappAIAPI.Videos.GenerationV2.InputReference]?
+    public var previousJobID: Swift.String?
+    public var seed: Swift.Int?
+    public var creativity: Swift.Int?
+    public var upscaleFactor: Swift.Double?
+    public var providerOptions: [Swift.String : any Swift.Sendable]?
+    public init(model: SetappAI.SetappAIAPI.Model, prompt: Swift.String? = .none, duration: Swift.Int? = .none, aspectRatio: SetappAI.SetappAIAPI.Videos.GenerationV2.AspectRatio? = .none, resolution: SetappAI.SetappAIAPI.Videos.GenerationV2.Resolution? = .none, size: SetappAI.SetappAIAPI.Videos.GenerationV2.Size? = .none, generateAudio: Swift.Bool? = .none, frameImages: [SetappAI.SetappAIAPI.Videos.GenerationV2.FrameImage]? = .none, inputReferences: [SetappAI.SetappAIAPI.Videos.GenerationV2.InputReference]? = .none, previousJobID: Swift.String? = .none, seed: Swift.Int? = .none, creativity: Swift.Int? = .none, upscaleFactor: Swift.Double? = .none, providerOptions: [Swift.String : any Swift.Sendable]? = .none)
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.GenerationV2.Parameters : Swift.Encodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension SetappAI.SetappAIAPI.Videos {
+  public enum GenerationV2 {
+  }
+}
 extension SetappAI.SetappAIAPI {
   public struct Videos {
   }
 }
 extension SetappAI.SetappAIAPI.Videos : SetappAI.SetappAIVideosAPIProtocol {
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `generateV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) public func generate(parameters: SetappAI.SetappAIAPI.Videos.Generation.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Videos.VideoResponse
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `retrieveV2(videoID:timeoutInterval:)`, it has no progress or expiry date. v1 will be removed.")
   nonisolated(nonsending) public func retrieve(videoID: Swift.String, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Videos.VideoResponse
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `contentV2(videoID:timeoutInterval:)`, it has no thumbnail or spritesheet. v1 will be removed.")
   nonisolated(nonsending) public func content(videoID: Swift.String, variant: SetappAI.SetappAIAPI.Videos.Content.Variant?, timeoutInterval: Foundation.TimeInterval) async throws -> Foundation.Data
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func generateV2(parameters: SetappAI.SetappAIAPI.Videos.GenerationV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Videos.VideoJob
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func retrieveV2(videoID: Swift.String, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Videos.VideoJob
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func contentV2(videoID: Swift.String, timeoutInterval: Foundation.TimeInterval) async throws -> Foundation.Data
   #endif
 }
 public protocol SetappAIVideosAPIProtocol : Swift.Sendable {
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `generateV2(parameters:timeoutInterval:)`. The v1 endpoint will be removed.")
   nonisolated(nonsending) func generate(parameters: SetappAI.SetappAIAPI.Videos.Generation.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Videos.VideoResponse
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `retrieveV2(videoID:timeoutInterval:)`, it has no progress or expiry date. v1 will be removed.")
   nonisolated(nonsending) func retrieve(videoID: Swift.String, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Videos.VideoResponse
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  @available(*, deprecated, message: "Use `contentV2(videoID:timeoutInterval:)`, it has no thumbnail or spritesheet. v1 will be removed.")
   nonisolated(nonsending) func content(videoID: Swift.String, variant: SetappAI.SetappAIAPI.Videos.Content.Variant?, timeoutInterval: Foundation.TimeInterval) async throws -> Foundation.Data
   #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func generateV2(parameters: SetappAI.SetappAIAPI.Videos.GenerationV2.Parameters, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Videos.VideoJob
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func retrieveV2(videoID: Swift.String, timeoutInterval: Foundation.TimeInterval) async throws -> SetappAI.SetappAIAPI.Videos.VideoJob
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func contentV2(videoID: Swift.String, timeoutInterval: Foundation.TimeInterval) async throws -> Foundation.Data
+  #endif
+}
+extension SetappAI.SetappAIAPI.Videos.GenerationV2 {
+  public typealias Size = SetappAI.SetappAIAPI.Videos.Generation.Size
+}
+extension SetappAI.SetappAIAPI.Videos.VideoJob {
+  public enum Status : Swift.Sendable {
+    public typealias RawValue = Swift.String
+    case pending
+    case inProgress
+    case completed
+    case failed
+    case cancelled
+    case expired
+    case unsupported(SetappAI.SetappAIAPI.Videos.VideoJob.Status.RawValue)
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.VideoJob.Status : SetappAI.SetappAIRawStringRepresentableEnum {
+  public static let allCases: [SetappAI.SetappAIAPI.Videos.VideoJob.Status]
+  public var rawValue: SetappAI.SetappAIAPI.Videos.VideoJob.Status.RawValue {
+    get
+  }
+  public typealias AllCases = [SetappAI.SetappAIAPI.Videos.VideoJob.Status]
+  public typealias ExtendedGraphemeClusterLiteralType = SetappAI.SetappAIAPI.Videos.VideoJob.Status.RawValue
+  public typealias StringLiteralType = SetappAI.SetappAIAPI.Videos.VideoJob.Status.RawValue
+  public typealias UnicodeScalarLiteralType = SetappAI.SetappAIAPI.Videos.VideoJob.Status.RawValue
+}
+extension SetappAI.SetappAIAPI.Videos {
+  public struct VideoJob : Swift.Sendable {
+    public var id: Swift.String
+    public var status: SetappAI.SetappAIAPI.Videos.VideoJob.Status
+    public var error: Swift.String?
+    public init(id: Swift.String, status: SetappAI.SetappAIAPI.Videos.VideoJob.Status, error: Swift.String?)
+  }
+}
+extension SetappAI.SetappAIAPI.Videos.VideoJob : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension SetappAI.SetappAIAPI.Videos.VideoResponse {
   public enum Status : Swift.Sendable {
@@ -5706,6 +6140,7 @@ extension SetappAI.SetappAIAPI.StreamingEvent {
     case response(SetappAI.SetappAIAPI.StreamingEvent.Response.EventType)
     case imageGeneration(SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType)
     case speech(SetappAI.SetappAIAPI.StreamingEvent.Speech.EventType)
+    case transcription(SetappAI.SetappAIAPI.StreamingEvent.Transcription.EventType)
     case unsupported(SetappAI.SetappAIAPI.StreamingEvent.EventType.RawValue)
     public init(rawValue: Swift.String)
   }
@@ -5726,6 +6161,7 @@ extension SetappAI.SetappAIAPI {
     case response(SetappAI.SetappAIAPI.StreamingEvent.Response)
     case imageGeneration(SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration)
     case speech(SetappAI.SetappAIAPI.StreamingEvent.Speech)
+    case transcription(SetappAI.SetappAIAPI.StreamingEvent.Transcription)
     case unsupported(SetappAI.SetappAIAPI.UnsupportedObject<SetappAI.SetappAIAPI.StreamingEvent.EventType>)
   }
 }
@@ -5742,6 +6178,7 @@ extension SetappAI.ErrorHandlingMode : Swift.Hashable {}
 extension SetappAI.SetappAIError.ErrorCode : Swift.Hashable {}
 extension SetappAI.SetappAIError.ErrorCode : Swift.RawRepresentable {}
 extension SetappAI.SetappAIAPI.StreamingEvent.Speech.EventType : Swift.RawRepresentable {}
+extension SetappAI.SetappAIAPI.StreamingEvent.Transcription.EventType : Swift.RawRepresentable {}
 extension SetappAI.SetappAIAPI.StreamingEvent.ImageEdit.EventType : Swift.RawRepresentable {}
 extension SetappAI.SetappAIAPI.StreamingEvent.ImageGeneration.EventType : Swift.RawRepresentable {}
 extension SetappAI.SetappAIAPI.Responses.Output.ReasoningItem.Status : Swift.Equatable {}
