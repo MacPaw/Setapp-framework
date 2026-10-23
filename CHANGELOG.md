@@ -1,3 +1,13 @@
+## [5.5.4] - 2026-10-23
+
+### New
+* [SetappAI] Added v2 audio transcription — `setappAI.audio.transcribeV2(parameters:timeoutInterval:)` and its siblings. You can now transcribe audio using OpenAI and ElevenLabs models, pass a source URL instead of raw audio, and stream results as they come in. The v1 transcription methods are deprecated and will be removed around November 20, 2026.
+* [SetappAI] Added v2 video generation — `setappAI.videos.generateV2(parameters:timeoutInterval:)`, `retrieveV2(videoID:timeoutInterval:)`, and `contentV2(videoID:timeoutInterval:)`. You can now generate video with models from several providers, with each model's options available in `SetappAIAPI.Model.params` and raw values in `params.raw`. The v1 video methods are deprecated and will be removed around November 20, 2026.
+* [macOS] The startup integrity check now fails for non-Electron apps signed with the `com.apple.security.cs.disable-library-validation` entitlement. This closes a gap that could let a tampered app pass the check.
+
+### Updated
+* [macOS] `LicenseValidationStatus` is no longer exposed in the generated `Setapp-Swift.h` header. If your Objective-C code references it there, update it accordingly.
+
 ## [5.5.3] - 2026-10-15
 
 ### Fixed

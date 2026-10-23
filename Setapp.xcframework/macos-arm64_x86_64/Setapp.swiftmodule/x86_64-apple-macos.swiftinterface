@@ -1,19 +1,20 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
-// swift-module-flags: -target x86_64-apple-macos11.5 -enable-objc-interop -autolink-force-load -enable-library-evolution -static -swift-version 6 -O -enable-upcoming-feature InternalImportsByDefault -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature ExistentialAny -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -module-name Setapp
+// swift-module-flags: -target x86_64-apple-macos12.0 -enable-objc-interop -autolink-force-load -enable-library-evolution -static -swift-version 6 -O -enable-upcoming-feature InternalImportsByDefault -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature ExistentialAny -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -module-name Setapp
 // swift-module-flags-ignorable: -strict-memory-safety -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
+public import Combine
 public import Foundation
 @_exported public import SetappAI
 public import Swift
 public import _Concurrency
 public import _StringProcessing
 public import _SwiftConcurrencyShims
-@_hasMissingDesignatedInitializers @objc(STPManager) final public class SetappManager : ObjectiveC.NSObject, Swift.Sendable {
-  @objc dynamic final public var subscription: Setapp.SetappSubscription? {
-    @objc get
+@_hasMissingDesignatedInitializers final public class SetappManager : Swift.Sendable {
+  final public var subscription: Setapp.SetappSubscription? {
+    get
   }
   final public func requestAuthorizationCode(clientID: Swift.String, completionHandler: @escaping @Sendable (Swift.Result<Swift.String, any Swift.Error>) -> Swift.Void)
-  @objc(openURLWithAuth:) final public func openWithAuth(url: Foundation.URL)
+  final public func openWithAuth(url: Foundation.URL)
   final public func requestPurchaseType(completionHandler: @escaping @Sendable (Swift.Result<Setapp.SetappAppPurchaseType, any Swift.Error>) -> Swift.Void)
   final public func requestPendingUpdate(completionHandler: @escaping @Sendable (Swift.Result<Setapp.SetappPendingUpdate?, any Swift.Error>) -> Swift.Void)
   final public func applyPendingUpdate(completionHandler: @escaping @Sendable (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
@@ -23,33 +24,39 @@ public import _SwiftConcurrencyShims
   @objc deinit
 }
 extension Setapp.SetappManager {
-  @objc public static let didChangeSubscriptionNotification: Foundation.NSNotification.Name
-  @objc(sharedInstance) public static let shared: Setapp.SetappManager
+  public static let didChangeSubscriptionNotification: Foundation.NSNotification.Name
+  public static let shared: Setapp.SetappManager
   final public var configuration: Setapp.SetappConfiguration {
     get
   }
-  @objc(logLevel) final public class var logLevel: Setapp.SetappLogLevel {
-    @objc get
-    @objc set
+  final public class var logLevel: Setapp.SetappLogLevel {
+    get
+    set
   }
-  @objc(setLogHandle:) final public class func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
-  @objc(showReleaseNotesWindowIfNeeded) final public func showReleaseNotesWindowIfNeeded()
-  @objc(showReleaseNotesWindow) final public func showReleaseNotesWindow()
-  @objc(reportUsageEvent:) final public func reportUsageEvent(_ usageEvent: Setapp.SetappUsageEvent)
-  @objc(askUserToShareEmail) final public func askUserToShareEmail()
+  final public class func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
+  final public func showReleaseNotesWindowIfNeeded()
+  final public func showReleaseNotesWindow()
+  final public func reportUsageEvent(_ usageEvent: Setapp.SetappUsageEvent)
+  final public func askUserToShareEmail()
+}
+extension Setapp.SetappManager {
+  final public func publisher(for _: Swift.KeyPath<Setapp.SetappManager, Setapp.SetappSubscription?>) -> Combine.AnyPublisher<Setapp.SetappSubscription?, Swift.Never>
 }
 public typealias SetappLogHandle = (_ message: Swift.String, _ logLevel: Setapp.SetappLogLevel) -> Swift.Void
-@objc(STPConfiguration) @objcMembers final public class SetappConfiguration : ObjectiveC.NSObject, Swift.Codable, Swift.Sendable {
-  @objc(defaultConfiguration) public static let `default`: Setapp.SetappConfiguration
-  @objc final public let appGroupIdentifier: Swift.String?
-  @objc final public let publicKeyBundle: Foundation.Bundle
-  @objc final public let publicKeyFilename: Swift.String
-  @objc(initWithPublicKeyBundle:publicKeyFilename:appGroupIdentifier:) public init(publicKeyBundle: Foundation.Bundle?, publicKeyFilename: Swift.String?, appGroupIdentifier: Swift.String? = .none)
+extension Setapp.SetappManager {
+  final public func reset()
+}
+final public class SetappConfiguration : Swift.Codable, Swift.Sendable, Swift.Equatable, Swift.CustomStringConvertible {
+  public static let `default`: Setapp.SetappConfiguration
+  final public let appGroupIdentifier: Swift.String?
+  final public let publicKeyBundle: Foundation.Bundle
+  final public let publicKeyFilename: Swift.String
+  public init(publicKeyBundle: Foundation.Bundle?, publicKeyFilename: Swift.String?, appGroupIdentifier: Swift.String? = .none)
   required public init(from decoder: any Swift.Decoder) throws
   final public func encode(to encoder: any Swift.Encoder) throws
-  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
-  @objc override final public var description: Swift.String {
-    @objc get
+  public static func == (lhs: Setapp.SetappConfiguration, rhs: Setapp.SetappConfiguration) -> Swift.Bool
+  final public var description: Swift.String {
+    get
   }
   @objc deinit
 }
@@ -107,10 +114,6 @@ extension Setapp.SetappLogLevel : Swift.CaseIterable {
   public static let allCases: [Setapp.SetappLogLevel]
   public typealias AllCases = [Setapp.SetappLogLevel]
 }
-extension Setapp.SetappManager {
-  @available(swift, obsoleted: 0.1)
-  @objc(requestAuthorizationCodeWithClientID:completionHandler:) final public func requestAuthorizationCode(clientID: Swift.String, completionHandler: @escaping @Sendable (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
-}
 @objc(STPUsageEvent) public enum SetappUsageEvent : Swift.Int {
   case signIn
   case signOut
@@ -121,11 +124,25 @@ extension Setapp.SetappManager {
     get
   }
 }
-@objc(STPManagerDelegate) public protocol SetappManagerDelegate : Swift.Sendable {
-  @objc func setappManager(_ manager: Setapp.SetappManager, didUpdateSubscriptionTo newSetappSubscription: Setapp.SetappSubscription)
+public protocol SetappManagerDelegate : AnyObject, Swift.Sendable {
+  func setappManager(_ manager: Setapp.SetappManager, didUpdateSubscriptionTo newSetappSubscription: Setapp.SetappSubscription)
 }
-@_hasMissingDesignatedInitializers @objc(STPSubscription) final public class SetappSubscription : ObjectiveC.NSObject, Swift.Sendable {
-  @inline(__always) @objc final public var isActive: Swift.Bool {
+@_hasMissingDesignatedInitializers final public class SetappSubscription : Swift.Sendable, Swift.Equatable, Swift.CustomStringConvertible {
+  @inline(__always) final public var isActive: Swift.Bool {
+    get
+  }
+  final public var expirationDate: Foundation.Date? {
+    get
+  }
+  public static func == (lhs: Setapp.SetappSubscription, rhs: Setapp.SetappSubscription) -> Swift.Bool
+  final public var description: Swift.String {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @available(swift, deprecated: 0.1, renamed: "SetappSubscription")
+@objc(STPSubscription) final public class STPSubscription : ObjectiveC.NSObject, @unchecked Swift.Sendable {
+  @objc final public var isActive: Swift.Bool {
     @objc get
   }
   @objc final public var expirationDate: Foundation.Date? {
@@ -136,6 +153,67 @@ extension Setapp.SetappManager {
     @objc get
   }
   @objc deinit
+}
+@_hasMissingDesignatedInitializers @available(swift, deprecated: 0.1, renamed: "SetappConfiguration")
+@objc(STPConfiguration) @objcMembers final public class STPConfiguration : ObjectiveC.NSObject, @unchecked Swift.Sendable {
+  @objc(defaultConfiguration) public static let `default`: Setapp.STPConfiguration
+  @objc final public var appGroupIdentifier: Swift.String? {
+    @objc get
+  }
+  @objc final public var publicKeyBundle: Foundation.Bundle {
+    @objc get
+  }
+  @objc final public var publicKeyFilename: Swift.String {
+    @objc get
+  }
+  @objc(initWithPublicKeyBundle:publicKeyFilename:appGroupIdentifier:) public init(publicKeyBundle: Foundation.Bundle?, publicKeyFilename: Swift.String?, appGroupIdentifier: Swift.String? = nil)
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override final public var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@available(swift, deprecated: 0.1, renamed: "SetappManagerDelegate")
+@objc(STPManagerDelegate) public protocol STPManagerDelegate {
+  @objc(setappManager:didUpdateSubscriptionTo:) func setappManager(_ manager: Setapp.STPManager, didUpdateSubscriptionTo newSetappSubscription: Setapp.STPSubscription)
+}
+@_hasMissingDesignatedInitializers @available(swift, deprecated: 0.1, renamed: "SetappManager")
+@objc(STPManager) final public class STPManager : ObjectiveC.NSObject, @unchecked Swift.Sendable {
+  @objc(sharedInstance) public static let shared: Setapp.STPManager
+  @objc public static let didChangeSubscriptionNotification: Foundation.NSNotification.Name
+  @objc weak final public var delegate: (any Setapp.STPManagerDelegate)?
+  @objc dynamic final public var subscription: Setapp.STPSubscription? {
+    @objc get
+  }
+  @objc final public var configuration: Setapp.STPConfiguration {
+    @objc get
+  }
+  @objc(logLevel) public static var logLevel: Setapp.SetappLogLevel {
+    @objc get
+    @objc set
+  }
+  @objc(setLogHandle:) public static func setLogHandle(_ logHandle: Setapp.SetappLogHandle?)
+  @objc public static var setappVersion: Swift.String {
+    @objc get
+  }
+  @objc(startWithConfiguration:) final public func start(with configuration: Setapp.STPConfiguration)
+  @objc(openURLWithAuth:) final public func openWithAuth(url: Foundation.URL)
+  @objc(requestAuthorizationCodeWithClientID:completionHandler:) final public func requestAuthorizationCode(clientID: Swift.String, completionHandler: @escaping @Sendable (_ authorizationCode: Foundation.NSString?, _ error: Foundation.NSError?) -> Swift.Void)
+  @objc(showReleaseNotesWindowIfNeeded) final public func showReleaseNotesWindowIfNeeded()
+  @objc(showReleaseNotesWindow) final public func showReleaseNotesWindow()
+  @objc(reportUsageEvent:) final public func reportUsageEvent(_ usageEvent: Setapp.SetappUsageEvent)
+  @objc(askUserToShareEmail) final public func askUserToShareEmail()
+  @objc(reset) final public func reset()
+  @objc deinit
+}
+@available(*, deprecated)
+extension Setapp.STPManager : Setapp.SetappManagerDelegate {
+  final public func setappManager(_: Setapp.SetappManager, didUpdateSubscriptionTo newSetappSubscription: Setapp.SetappSubscription)
+}
+extension Setapp.SetappManager {
+  public static var setappVersion: Swift.String {
+    get
+  }
 }
 public struct SetappPendingUpdate : Swift.Equatable, Swift.Sendable {
   public let version: Swift.String
