@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "rimraf ./nodejs/dist",
     "build": "tsc",
-    "postbuild": "mkdir ./nodejs/dist/lib/binding && cp ./nodejs/lib/binding/node_setapp_binding.node ./nodejs/dist/lib/binding/node_setapp_binding.node",
+    "postbuild": "mkdir ./nodejs/dist/lib/binding && cp ./nodejs/lib/binding/node_setapp_binding.node ./nodejs/dist/lib/binding/node_setapp_binding.node && node ./scripts/check-binding-version.js",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
