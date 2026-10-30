@@ -1,3 +1,8 @@
+## [5.5.5] - 2026-10-30
+
+### Fixed
+* [macOS, iOS] A few behind-the-scenes improvements to keep things running smoothly.
+
 ## [5.5.4] - 2026-10-23
 
 ### New
