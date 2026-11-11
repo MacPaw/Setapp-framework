@@ -1,3 +1,9 @@
+## [5.5.6] - 2026-11-10
+
+### Fixed
+* [Mac Catalyst] Mac Catalyst apps no longer show the Local Network permission prompt on macOS 15 and later.
+* [macOS, iOS] Debug and test runs from Xcode no longer fail the Setapp Framework's integrity check.
+
 ## [5.5.5] - 2026-10-30
 
 ### Fixed
